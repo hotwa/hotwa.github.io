@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="jmsu.top">
-  <title>Tag: VMware | xiaozhe&#39;s blog</title>
+  <title>docker基础概念[1] | xiaozhe&#39;s blog</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="linux, golang ,python ,spider ,Mathjax">
-<meta property="og:type" content="website">
-<meta property="og:title" content="xiaozhe&#39;s blog">
-<meta property="og:url" content="jmsu.top/tags/VMware/index.html">
+  <meta name="description" content="镜像(Image)  类似操作系统的快照(静态)文件，可以简单理解为IOS文件。和在安装IOS类似，在安装完成后，镜像相比原来没有做任何修改的文件，做了一些相应的配置，类似，环境变量、用户、应用程序。因为在docker可以四处迁移，类似虚拟机VMware软件一样，这样就有个好处，当你运行好镜像成为了一个容器，所有环境修改都配置完成，不必重新部署环境  深入理解： Docker设计时，就充分利用U">
+<meta name="keywords" content="linux, golang ,python ,spider ,Mathjax">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker基础概念[1]">
+<meta property="og:url" content="jmsu.top/2020/04/07/docker基础概念-1/index.html">
 <meta property="og:site_name" content="xiaozhe&#39;s blog">
+<meta property="og:description" content="镜像(Image)  类似操作系统的快照(静态)文件，可以简单理解为IOS文件。和在安装IOS类似，在安装完成后，镜像相比原来没有做任何修改的文件，做了一些相应的配置，类似，环境变量、用户、应用程序。因为在docker可以四处迁移，类似虚拟机VMware软件一样，这样就有个好处，当你运行好镜像成为了一个容器，所有环境修改都配置完成，不必重新部署环境  深入理解： Docker设计时，就充分利用U">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-04-07T05:16:56.129Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="xiaozhe&#39;s blog">
+<meta name="twitter:title" content="docker基础概念[1]">
+<meta name="twitter:description" content="镜像(Image)  类似操作系统的快照(静态)文件，可以简单理解为IOS文件。和在安装IOS类似，在安装完成后，镜像相比原来没有做任何修改的文件，做了一些相应的配置，类似，环境变量、用户、应用程序。因为在docker可以四处迁移，类似虚拟机VMware软件一样，这样就有个好处，当你运行好镜像成为了一个容器，所有环境修改都配置完成，不必重新部署环境  深入理解： Docker设计时，就充分利用U">
   
     <link rel="alternative" href="/atom.xml" title="xiaozhe&#39;s blog" type="application/atom+xml">
   
@@ -178,148 +182,20 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article class="article article-type-post show">
+  <header class="article-header" style="border-bottom: 1px solid #ccc">
+  <h1 class="article-title" itemprop="name">
+    docker基础概念[1]
+  </h1>
+  </header>
+
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-passage">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/05/31/owncloud虚拟机VMware扩容及apt修复/" class="archive-article-date">
-        <time datetime="2019-05-31T14:06:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-31</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/05/31/owncloud虚拟机VMware扩容及apt修复/" target="_blank">owncloud虚拟机VMware扩容及apt修复</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">owncloud</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">扩容</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">VMware</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux//" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+  <div class="category-all-page">
+    <h2>共计&nbsp;7&nbsp;个分类</h2>
+    <ul class="category-list-item-list"><li class="category-list-item-list-item"><a class="category-list-item-list-link" href="/categories/docker/">docker</a><span class="category-list-item-list-count">1</span></li><li class="category-list-item-list-item"><a class="category-list-item-list-link" href="/categories/linux/">linux</a><span class="category-list-item-list-count">2</span></li><li class="category-list-item-list-item"><a class="category-list-item-list-link" href="/categories/学无止/">学无止</a><span class="category-list-item-list-count">1</span></li><li class="category-list-item-list-item"><a class="category-list-item-list-link" href="/categories/研究生/">研究生</a><span class="category-list-item-list-count">1</span></li><li class="category-list-item-list-item"><a class="category-list-item-list-link" href="/categories/药理学/">药理学</a><span class="category-list-item-list-count">1</span></li><li class="category-list-item-list-item"><a class="category-list-item-list-link" href="/categories/速率理论方程/">速率理论方程</a><span class="category-list-item-list-count">1</span><ul class="category-list-item-list-child"><li class="category-list-item-list-item"><a class="category-list-item-list-link" href="/categories/速率理论方程/分析化学/">分析化学</a><span class="category-list-item-list-count">1</span></li></ul></li></ul>
   </div>
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/05/30/owncloud云端vmware扩容/" class="archive-article-date">
-        <time datetime="2019-05-30T12:18:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-30</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/05/30/owncloud云端vmware扩容/" target="_blank">owncloud云端vmware扩容</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">owncloud</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">扩容</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">VMware</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux//" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-
-
           </div>
         </div>
       </div>
@@ -361,9 +237,9 @@
 	var yiliaConfig = {
 		mathjax: [object Object],
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
