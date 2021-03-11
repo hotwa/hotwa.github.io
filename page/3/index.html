@@ -185,6 +185,273 @@
             
 
   
+    <article id="passage-owncloud虚拟机VMware扩容及apt修复" class="article article-type-passage  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/05/31/owncloud虚拟机VMware扩容及apt修复/" target="_blank">owncloud虚拟机VMware扩容及apt修复</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/05/31/owncloud虚拟机VMware扩容及apt修复/" class="archive-article-date">
+        <time datetime="2019-05-31T14:06:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-31</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="owncloud艰难扩容之路"><a href="#owncloud艰难扩容之路" class="headerlink" title="owncloud艰难扩容之路"></a>owncloud艰难扩容之路</h1><p>采用VMware虚拟机扩容方法，实现自己内网扩容。</p>
+<p>参考<a href="https://doc.owncloud.org/server/9.1/admin_manual/installation/installation_wizard.html#setting-strong-directory-permissions" target="_blank" rel="noopener">配置文档</a></p>
+<p>优点：</p>
+<ol>
+<li><p>安装简单，会导入虚拟机即可</p>
+</li>
+<li><p>无需配置linux系统，对小白友好。</p>
+</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li><p>想要定制化麻烦（缺少selinux配置文件不知是否有、eth0网卡配置文件没有自己创建、apt源需要自己配置还有下载公钥再能配置好阿里的apt源）</p>
+</li>
+<li><p>没有较好的方便的扩容方案（本篇文章介绍两种扩容方案）</p>
+</li>
+</ol>
+<p>在VMware扩展硬盘，linux系统设置分区，格式化文件系统，挂载，永久挂载</p>
+<hr>
+<h1 id="第一种方案-移动相关储存目录"><a href="#第一种方案-移动相关储存目录" class="headerlink" title="第一种方案 移动相关储存目录"></a>第一种方案 移动相关储存目录</h1><p>由于owncloud文件默认不加密，linux可以直接看到，有加密需求seafile。系统坏了可以从系统盘上找回文件。</p>
+<p>将转相应存储目文件于性分区。<a href="https://zhuanlan.zhihu.com/p/67565092" target="_blank" rel="noopener">参考文章</a> 虽然操作成功似乎不能正常使用。</p>
+<p>如果你有修改需求可以查看一下链接：</p>
+<p><a href="https://central.owncloud.org/t/moving-owncloud-data-directory/13660" target="_blank" rel="noopener">移动owncloud数据目录</a></p>
+<p>总结一下：</p>
+<p>这样修改分区是可以的，配置分区还有mysql的数据库中间的映射是否修改可能要找一下。</p>
+<p>其中还有一些修改config.php文件之后，依然用的是源来的目录在储存文件。可能要重启Apache服务器，或修改其他配置可能要重新加载php，大概。。。不会弄php就算了。</p>
+<p>这种方法要自己探索，虽然很要试探，中途学到linux只是挺多。</p>
+<h3 id="记得做更变时候做快照备份！"><a href="#记得做更变时候做快照备份！" class="headerlink" title="记得做更变时候做快照备份！"></a><strong>记得做更变时候做快照备份！</strong></h3><p>以免还原不了回来了，总之国内百度上上面教程错误不够丰富，建议由英文基础的去看官方的论坛，或者Google搜索报错。国内解决方法有点少。</p>
+<hr>
+<h1 id="第二种方案"><a href="#第二种方案" class="headerlink" title="第二种方案"></a>第二种方案</h1><p><a href="https://www.cnblogs.com/System-hjf/p/10463064.html" target="_blank" rel="noopener">参考链接</a></p>
+<p>这里提供一下思路，不写具体操作代码。可以参考链接。</p>
+<p>需要把相应已经储存的文件移动到你已经分区好挂载的新目录</p>
+<p>然后用命令扩容。</p>
+<p>使用命令 <code>ln -s /mnt/space/data/ /var/lib/univention-appcenter/apps/owncloud/</code></p>
+<p>然后测试文件是否能正常下载上传。</p>
+<p>建议扩容时候链接使用确定某个用户下的file文件夹时候产生错误，代理无法正常运行。</p>
+<p>例如 <code>/var/lib/univention-appcenter/apps/owncloud/data/files/Administrator/file</code></p>
+<p>而不要直接把<code>/var/lib/univention-appcenter/apps/owncloud/data/files</code> 给所有用户扩容，其中会产生以下错误</p>
+<p><code>Please check that the data directory contains a file &quot;.ocdata&quot; in its root</code></p>
+<p>查了可能需要修改数据库的其他映射。</p>
+<p>原因是因为权限不够。实际可能是映射问题。</p>
+<p><strong>实际上发现只需要扩容owncloud下的data文件即可。</strong><br>扩容其他总会有些其他的代理或者权限错误，可能不能读取相关文件的映射。<br>测试正常，软链接扩容成功。</p>
+<hr>
+<p>还有用的时候看目录结构想用tree</p>
+<p>apt 的源</p>
+<p>修改也放在下面</p>
+<ol>
+<li>修改apt源配置文件，把/etc/apt/sources.list替换为以下内容：</li>
+</ol>
+<p><code>sudo vim /etc/apt/sources.list</code></p>
+<p>deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> trusty main restricted universe multiverse</p>
+<p>deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> trusty-security main restricted universe multiverse</p>
+<p>deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> trusty-updates main restricted universe multiverse</p>
+<p>deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> trusty-proposed main restricted universe multiverse</p>
+<p>deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> trusty-backports main restricted universe multiverse</p>
+<p>deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> trusty main restricted universe multiverse</p>
+<p>deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> trusty-security main restricted universe multiverse</p>
+<p>deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> trusty-updates main restricted universe multiverse</p>
+<p>deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> trusty-proposed main restricted universe multiverse</p>
+<p>deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> trusty-backports main restricted universe multiverse</p>
+<ol>
+<li>更新</li>
+</ol>
+<p>sudo apt-get update</p>
+<blockquote>
+<p>获取:3 <a href="http://mirrors.aliyun.com/ubuntu" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu</a> trusty-updates InRelease [65.9 kB]<br>错误:2 <a href="http://mirrors.aliyun.com/ubuntu" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu</a> trusty-security InRelease<br>  由于没有公钥，无法验证下列签名： NO_PUBKEY 40976EAF437D05B5 NO_PUBKEY 3B4FE6ACC0B21F32<br>获取:4 <a href="http://mirrors.aliyun.com/ubuntu" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu</a> trusty-proposed InRelease [65.9 kB]<br>错误:3 <a href="http://mirrors.aliyun.com/ubuntu" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu</a> trusty-updates InRelease<br>  由于没有公钥，无法验证下列签名： NO_PUBKEY 40976EAF437D05B5 NO_PUBKEY 3B4FE6ACC0B21F32<br>获取:5 <a href="http://mirrors.aliyun.com/ubuntu" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu</a> trusty-backports InRelease [65.9 kB]<br>错误:4 <a href="http://mirrors.aliyun.com/ubuntu" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu</a> trusty-proposed InRelease<br>  由于没有公钥，无法验证下列签名： NO_PUBKEY 40976EAF437D05B5 NO_PUBKEY 3B4FE6ACC0B21F32<br>获取:6 <a href="http://mirrors.aliyun.com/ubuntu" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu</a> trusty Release [58.5 kB]<br>错误:5 <a href="http://mirrors.aliyun.com/ubuntu" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu</a> trusty-backports InRelease<br>  由于没有公钥，无法验证下列签名： NO_PUBKEY 40976EAF437D05B5 NO_PUBKEY 3B4FE6ACC0B21F32<br>获取:7 <a href="http://mirrors.aliyun.com/ubuntu" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu</a> trusty Release.gpg [933 B]<br>忽略:8 <a href="https://updates.software-univention.de/4.0/maintained" target="_blank" rel="noopener">https://updates.software-univention.de/4.0/maintained</a> 4.0-0/all/ InRelease<br>忽略:7 <a href="http://mirrors.aliyun.com/ubuntu" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu</a> trusty Release.gpg</p>
+</blockquote>
+<p>产生没有公钥错误：</p>
+<p>解决</p>
+<p>40976EAF437D05B5 3B4FE6ACC0B21F32 找到这两个公钥</p>
+<p>输入以下命令：</p>
+<p><code>apt-key adv --keyserver keys.gnupg.net --recv-keys 40976EAF437D05B5 3B4FE6ACC0B21F32</code> </p>
+<p>—keyserver keyserver.ubuntu.com（可选）</p>
+<blockquote>
+<p>Executing: /tmp/apt-key-gpghome.sCeV5SAlQI/gpg.1.sh —keyserver keys.gnupg.net —recv-keys 40976EAF437D05B5 3B4FE6ACC0B21F32<br>gpg: key 3B4FE6ACC0B21F32: 20 signatures not checked due to missing keys<br>gpg: key 3B4FE6ACC0B21F32: public key “Ubuntu Archive Automatic Signing Key (2012) <a href="&#109;&#97;&#105;&#x6c;&#116;&#111;&#58;&#102;&#x74;&#x70;&#x6d;&#97;&#x73;&#x74;&#101;&#114;&#64;&#117;&#x62;&#117;&#110;&#x74;&#x75;&#x2e;&#99;&#x6f;&#109;">&#102;&#x74;&#x70;&#x6d;&#97;&#x73;&#x74;&#101;&#114;&#64;&#117;&#x62;&#117;&#110;&#x74;&#x75;&#x2e;&#99;&#x6f;&#109;</a>“ imported<br>gpg: key 40976EAF437D05B5: 60 signatures not checked due to missing keys<br>gpg: key 40976EAF437D05B5: public key “Ubuntu Archive Automatic Signing Key <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#102;&#116;&#112;&#x6d;&#x61;&#x73;&#x74;&#101;&#x72;&#x40;&#x75;&#98;&#x75;&#110;&#x74;&#x75;&#x2e;&#x63;&#x6f;&#x6d;">&#102;&#116;&#112;&#x6d;&#x61;&#x73;&#x74;&#101;&#x72;&#x40;&#x75;&#98;&#x75;&#110;&#x74;&#x75;&#x2e;&#x63;&#x6f;&#x6d;</a>“ imported<br>gpg: Total number processed: 2<br>gpg:               imported: 2</p>
+</blockquote>
+<p>然后</p>
+<p><code>sudo apt update</code> </p>
+<p>成功</p>
+<p>可以顺便更新一下其他比如：<code>apt-get update &amp; apt-get upgrade</code> </p>
+<p>可以不用更新，里面有些owncloud的更新之后不知道能不能用，不想有奇奇怪怪的报错就别更新了。</p>
+<p>然后愉快安装 tree lrzsz。</p>
+<p>采用VMware虚拟机扩容方法，实现自己内网扩容。</p>
+<p>参考<a href="https://doc.owncloud.org/server/9.1/admin_manual/installation/installation_wizard.html#setting-strong-directory-permissions" target="_blank" rel="noopener">配置文档</a></p>
+<p>优点：</p>
+<ol>
+<li><p>安装简单，会导入虚拟机即可</p>
+</li>
+<li><p>无需配置linux系统，对小白友好。</p>
+</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li><p>想要定制化麻烦（缺少selinux配置文件不知是否有、eth0网卡配置文件没有自己创建、apt源需要自己配置还有下载公钥再能配置好阿里的apt源）</p>
+</li>
+<li><p>没有较好的方便的扩容方案（本篇文章介绍两种扩容方案）</p>
+</li>
+</ol>
+<p>在VMware扩展硬盘，linux系统设置分区，格式化文件系统，挂载，永久挂载</p>
+<hr>
+<h1 id="第一种方案-移动相关储存目录-1"><a href="#第一种方案-移动相关储存目录-1" class="headerlink" title="第一种方案 移动相关储存目录"></a>第一种方案 移动相关储存目录</h1><p>由于owncloud文件默认不加密，linux可以直接看到，有加密需求seafile。系统坏了可以从系统盘上找回文件。</p>
+<p>将转相应存储目文件于性分区。<a href="https://zhuanlan.zhihu.com/p/67565092" target="_blank" rel="noopener">参考文章</a> 虽然操作成功似乎不能正常使用。</p>
+<p>如果你有修改需求可以查看一下链接：</p>
+<p><a href="https://central.owncloud.org/t/moving-owncloud-data-directory/13660" target="_blank" rel="noopener">移动owncloud数据目录</a></p>
+<p>总结一下：</p>
+<p>这样修改分区是可以的，配置分区还有mysql的数据库中间的映射是否修改可能要找一下。</p>
+<p>其中还有一些修改config.php文件之后，依然用的是源来的目录在储存文件。可能要重启Apache服务器，或修改其他配置可能要重新加载php，大概。。。不会弄php就算了。</p>
+<p>这种方法要自己探索，虽然很要试探，中途学到linux只是挺多。</p>
+<h3 id="记得做更变时候做快照备份！-1"><a href="#记得做更变时候做快照备份！-1" class="headerlink" title="记得做更变时候做快照备份！"></a><strong>记得做更变时候做快照备份！</strong></h3><p>以免还原不了回来了，总之国内百度上上面教程错误不够丰富，建议由英文基础的去看官方的论坛，或者Google搜索报错。国内解决方法有点少。</p>
+<hr>
+<h1 id="第二种方案-1"><a href="#第二种方案-1" class="headerlink" title="第二种方案"></a>第二种方案</h1><p><a href="https://www.cnblogs.com/System-hjf/p/10463064.html" target="_blank" rel="noopener">参考链接</a></p>
+<p>这里提供一下思路，不写具体操作代码。可以参考链接。</p>
+<p>需要把相应已经储存的文件移动到你已经分区好挂载的新目录（add file）</p>
+<p>然后用命令扩容。</p>
+<p>使用命令 ln -s /your/add/file /your/softlink/dir</p>
+<p>然后测试文件是否能正常下载上传。</p>
+<p>建议扩容时候链接使用确定某个用户下的file文件夹即可</p>
+<p>例如 <code>/var/lib/univention-appcenter/apps/owncloud/data/files/Administrator/file</code></p>
+<p>而不要直接把<code>/var/lib/univention-appcenter/apps/owncloud/data/files</code> 给所有用户扩容，其中会产生以下错误</p>
+<p><code>Please check that the data directory contains a file &quot;.ocdata&quot; in its root</code></p>
+<p>查了可能需要修改数据库的其他映射。</p>
+<p>原因是因为权限不够。实际可能是映射问题。</p>
+<hr>
+<p>还有用的时候看目录结构想用tree</p>
+<p>apt 的源</p>
+<p>修改也放在下面</p>
+<ol>
+<li>修改apt源配置文件，把/etc/apt/sources.list替换为以下内容：</li>
+</ol>
+<p>sudo vim /etc/apt/sources.list</p>
+<blockquote>
+<p>deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> trusty main restricted universe multiverse</p>
+<p>deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> trusty-security main restricted universe multiverse</p>
+<p>deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> trusty-updates main restricted universe multiverse</p>
+<p>deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> trusty-proposed main restricted universe multiverse</p>
+<p>deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> trusty-backports main restricted universe multiverse</p>
+<p>deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> trusty main restricted universe multiverse</p>
+<p>deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> trusty-security main restricted universe multiverse</p>
+<p>deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> trusty-updates main restricted universe multiverse</p>
+<p>deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> trusty-proposed main restricted universe multiverse</p>
+<p>deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> trusty-backports main restricted universe multiverse</p>
+</blockquote>
+<ol>
+<li>更新</li>
+</ol>
+<p>sudo apt-get update</p>
+<blockquote>
+<p>获取:3 <a href="http://mirrors.aliyun.com/ubuntu" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu</a> trusty-updates InRelease [65.9 kB]<br>错误:2 <a href="http://mirrors.aliyun.com/ubuntu" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu</a> trusty-security InRelease<br>  由于没有公钥，无法验证下列签名： NO_PUBKEY 40976EAF437D05B5 NO_PUBKEY 3B4FE6ACC0B21F32<br>获取:4 <a href="http://mirrors.aliyun.com/ubuntu" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu</a> trusty-proposed InRelease [65.9 kB]<br>错误:3 <a href="http://mirrors.aliyun.com/ubuntu" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu</a> trusty-updates InRelease<br>  由于没有公钥，无法验证下列签名： NO_PUBKEY 40976EAF437D05B5 NO_PUBKEY 3B4FE6ACC0B21F32<br>获取:5 <a href="http://mirrors.aliyun.com/ubuntu" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu</a> trusty-backports InRelease [65.9 kB]<br>错误:4 <a href="http://mirrors.aliyun.com/ubuntu" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu</a> trusty-proposed InRelease<br>  由于没有公钥，无法验证下列签名： NO_PUBKEY 40976EAF437D05B5 NO_PUBKEY 3B4FE6ACC0B21F32<br>获取:6 <a href="http://mirrors.aliyun.com/ubuntu" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu</a> trusty Release [58.5 kB]<br>错误:5 <a href="http://mirrors.aliyun.com/ubuntu" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu</a> trusty-backports InRelease<br>  由于没有公钥，无法验证下列签名： NO_PUBKEY 40976EAF437D05B5 NO_PUBKEY 3B4FE6ACC0B21F32<br>获取:7 <a href="http://mirrors.aliyun.com/ubuntu" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu</a> trusty Release.gpg [933 B]<br>忽略:8 <a href="https://updates.software-univention.de/4.0/maintained" target="_blank" rel="noopener">https://updates.software-univention.de/4.0/maintained</a> 4.0-0/all/ InRelease<br>忽略:7 <a href="http://mirrors.aliyun.com/ubuntu" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu</a> trusty Release.gpg</p>
+</blockquote>
+<p>产生没有公钥错误：</p>
+<p>解决</p>
+<p>40976EAF437D05B5 3B4FE6ACC0B21F32 找到这两个公钥</p>
+<p>输入以下命令：</p>
+<p><code>apt-key adv --keyserver keys.gnupg.net --recv-keys 40976EAF437D05B5 3B4FE6ACC0B21F32</code> </p>
+<p>—keyserver keyserver.ubuntu.com（可选）</p>
+<blockquote>
+<p>Executing: /tmp/apt-key-gpghome.sCeV5SAlQI/gpg.1.sh —keyserver keys.gnupg.net —recv-keys 40976EAF437D05B5 3B4FE6ACC0B21F32<br>gpg: key 3B4FE6ACC0B21F32: 20 signatures not checked due to missing keys<br>gpg: key 3B4FE6ACC0B21F32: public key “Ubuntu Archive Automatic Signing Key (2012) <a href="&#109;&#x61;&#105;&#x6c;&#x74;&#x6f;&#58;&#102;&#116;&#112;&#109;&#97;&#x73;&#x74;&#x65;&#x72;&#x40;&#x75;&#x62;&#117;&#x6e;&#116;&#117;&#x2e;&#99;&#111;&#x6d;">&#102;&#116;&#112;&#109;&#97;&#x73;&#x74;&#x65;&#x72;&#x40;&#x75;&#x62;&#117;&#x6e;&#116;&#117;&#x2e;&#99;&#111;&#x6d;</a>“ imported<br>gpg: key 40976EAF437D05B5: 60 signatures not checked due to missing keys<br>gpg: key 40976EAF437D05B5: public key “Ubuntu Archive Automatic Signing Key <a href="&#109;&#x61;&#x69;&#x6c;&#116;&#111;&#58;&#x66;&#116;&#112;&#109;&#97;&#x73;&#116;&#101;&#114;&#64;&#117;&#98;&#117;&#x6e;&#x74;&#117;&#x2e;&#x63;&#111;&#x6d;">&#x66;&#116;&#112;&#109;&#97;&#x73;&#116;&#101;&#114;&#64;&#117;&#98;&#117;&#x6e;&#x74;&#117;&#x2e;&#x63;&#111;&#x6d;</a>“ imported<br>gpg: Total number processed: 2<br>gpg:               imported: 2</p>
+</blockquote>
+<p>然后</p>
+<p><code>sudo apt update</code> </p>
+<p>成功</p>
+<p>可以顺便更新一下其他比如：<code>apt-get update &amp; apt-get upgrade</code> </p>
+<p>可以不用更新，里面有些owncloud的更新之后不知道能不能用，不想有奇奇怪怪的报错就别更新了。</p>
+<p>然后愉快安装 tree lrzsz。</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">owncloud</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">扩容</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">VMware</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/linux//" class="article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/05/31/owncloud虚拟机VMware扩容及apt修复/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-owncloud云端vmware扩容" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -585,11 +852,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">自我介绍</a>
+                <a href="javascript:void(0)" class="js-tag color4">ARM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">考研复试</a>
+                <a href="javascript:void(0)" class="js-tag color1">Apple chips(M1)</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -598,6 +869,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Weightless</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">自我介绍</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">考研复试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -617,7 +900,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color2">requirement</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">导入</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -633,19 +920,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">导入</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">requirement</a>
+                <a href="javascript:void(0)" class="js-tag color1">气相色谱分离条件选择</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">气相色谱分离条件选择</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -670,14 +949,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ARM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Apple chips(M1)</a>
               </li>
             
             <div class="clearfix"></div>

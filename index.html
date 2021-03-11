@@ -185,6 +185,114 @@
             
 
   
+    <article id="post-mac及win终端代理别名设置及其持久化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/03/11/mac及win终端代理别名设置及其持久化/" target="_blank">mac及win终端代理别名设置及其持久化</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/03/11/mac及win终端代理别名设置及其持久化/" class="archive-article-date">
+        <time datetime="2021-03-11T07:12:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-11</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>windows 配置cmd、powershell、git bash 参考<a href="https://zcdll.github.io/2018/01/27/proxy-on-windows-terminal/" target="_blank" rel="noopener">链接</a></p>
+<h1 id="更加方便的工具"><a href="#更加方便的工具" class="headerlink" title="更加方便的工具"></a>更加方便的工具</h1><p><a href="https://github.com/Prodesire/terminal-proxy" target="_blank" rel="noopener">github 链接</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/96055170" target="_blank" rel="noopener">知乎链接</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">首先是安装：</span><br><span class="line">pip install terminal-proxy</span><br><span class="line">然后配置一遍代理地址：</span><br><span class="line">proxy config <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">1080</span></span><br><span class="line">然后就可以愉快地在命令行中开启关闭代理了：</span><br><span class="line"><span class="comment"># 开启代理</span></span><br><span class="line">proxy on</span><br><span class="line"><span class="comment"># 查看代理</span></span><br><span class="line">proxy show</span><br><span class="line"><span class="comment"># 关闭代理</span></span><br><span class="line">proxy off</span><br></pre></td></tr></table></figure>
+<h1 id="Useage"><a href="#Useage" class="headerlink" title="Useage"></a>Useage</h1><h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install terminal-proxy</span><br></pre></td></tr></table></figure>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><h3 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxy config 127.0.0.1:1080</span><br></pre></td></tr></table></figure>
+<h3 id="Turn-on"><a href="#Turn-on" class="headerlink" title="Turn on"></a>Turn on</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># If you are on Windows, please run as administrator</span></span><br><span class="line"><span class="comment"># Turn on all proxies</span></span><br><span class="line">proxy on</span><br><span class="line"></span><br><span class="line"><span class="comment"># Turn on http proxy</span></span><br><span class="line">proxy on --http</span><br><span class="line"></span><br><span class="line"><span class="comment"># Turn on git proxy</span></span><br><span class="line">proxy on --git</span><br></pre></td></tr></table></figure>
+<h3 id="Show"><a href="#Show" class="headerlink" title="Show"></a>Show</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Show all proxies. Also supports --http and --git</span></span><br><span class="line">proxy show</span><br></pre></td></tr></table></figure>
+<h3 id="Turn-off"><a href="#Turn-off" class="headerlink" title="Turn off"></a>Turn off</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Turn off all proxies. Also supports --http and --git</span></span><br><span class="line">proxy off</span><br></pre></td></tr></table></figure>
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">terminal</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/代理//" class="article-tag-list-link color3">代理</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/代理/终端//" class="article-tag-list-link color3">终端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/03/11/mac及win终端代理别名设置及其持久化/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-RStudio、Ruby安装使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1071,11 +1179,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级特性</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级特性</a>
         		</li>
       		
 		</ul>
@@ -1097,91 +1205,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2021/01/19/python3-9-Function-Annotations/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-docker-learn" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/01/12/docker-learn/" target="_blank">docker基础概念[1]</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/01/12/docker-learn/" class="archive-article-date">
-        <time datetime="2021-01-12T13:58:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-12</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/docker//" class="article-tag-list-link color2">docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/01/12/docker-learn/">展开全文 >></a>
     </p>
     
 
@@ -1368,11 +1391,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">自我介绍</a>
+                <a href="javascript:void(0)" class="js-tag color4">ARM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">考研复试</a>
+                <a href="javascript:void(0)" class="js-tag color1">Apple chips(M1)</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1381,6 +1408,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Weightless</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">自我介绍</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">考研复试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1400,7 +1439,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color2">requirement</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">导入</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1416,19 +1459,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">导入</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">requirement</a>
+                <a href="javascript:void(0)" class="js-tag color1">气相色谱分离条件选择</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">气相色谱分离条件选择</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1453,14 +1488,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ARM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Apple chips(M1)</a>
               </li>
             
             <div class="clearfix"></div>
