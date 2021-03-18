@@ -10,18 +10,18 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="参考windows 配置cmd、powershell、git bash 参考链接 更加方便的工具github 链接 知乎链接 1234567891011首先是安装：pip install terminal-proxy然后配置一遍代理地址：proxy config 127.0.0.1:1080然后就可以愉快地在命令行中开启关闭代理了：# 开启代理proxy on# 查看代理proxy show# 关">
+  <meta name="description" content="参考windows 配置cmd、powershell、git bash 参考链接 使用1234567891011121314151617set http_proxy=http://127.0.0.1:1080set https_proxy=http://127.0.0.1:1080set http_proxy_user=userset http_proxy_pass=passset https_p">
 <meta name="keywords" content="terminal">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mac及win终端代理别名设置及其持久化">
 <meta property="og:url" content="jmsu.top/2021/03/11/mac及win终端代理别名设置及其持久化/index.html">
 <meta property="og:site_name" content="xiaozhe&#39;s blog">
-<meta property="og:description" content="参考windows 配置cmd、powershell、git bash 参考链接 更加方便的工具github 链接 知乎链接 1234567891011首先是安装：pip install terminal-proxy然后配置一遍代理地址：proxy config 127.0.0.1:1080然后就可以愉快地在命令行中开启关闭代理了：# 开启代理proxy on# 查看代理proxy show# 关">
+<meta property="og:description" content="参考windows 配置cmd、powershell、git bash 参考链接 使用1234567891011121314151617set http_proxy=http://127.0.0.1:1080set https_proxy=http://127.0.0.1:1080set http_proxy_user=userset http_proxy_pass=passset https_p">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-03-11T07:54:12.063Z">
+<meta property="og:updated_time" content="2021-03-11T13:54:29.705Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mac及win终端代理别名设置及其持久化">
-<meta name="twitter:description" content="参考windows 配置cmd、powershell、git bash 参考链接 更加方便的工具github 链接 知乎链接 1234567891011首先是安装：pip install terminal-proxy然后配置一遍代理地址：proxy config 127.0.0.1:1080然后就可以愉快地在命令行中开启关闭代理了：# 开启代理proxy on# 查看代理proxy show# 关">
+<meta name="twitter:description" content="参考windows 配置cmd、powershell、git bash 参考链接 使用1234567891011121314151617set http_proxy=http://127.0.0.1:1080set https_proxy=http://127.0.0.1:1080set http_proxy_user=userset http_proxy_pass=passset https_p">
   
     <link rel="alternative" href="/atom.xml" title="xiaozhe&#39;s blog" type="application/atom+xml">
   
@@ -215,7 +215,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">153字</span>
+      <span class="post-count">230字</span>
     </span>
   </span>
 
@@ -236,6 +236,8 @@
   <div class="article-entry" itemprop="articleBody">
     
     <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>windows 配置cmd、powershell、git bash 参考<a href="https://zcdll.github.io/2018/01/27/proxy-on-windows-terminal/" target="_blank" rel="noopener">链接</a></p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">set http_proxy=http://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line">set https_proxy=http://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line">set http_proxy_user=user</span><br><span class="line">set http_proxy_pass=pass</span><br><span class="line"></span><br><span class="line">set https_proxy_user=user</span><br><span class="line">set https_proxy_pass=pass</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 恢复</span><br><span class="line">set http_proxy=</span><br><span class="line"></span><br><span class="line">set https_proxy=</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Ubuntu 下命令为 export</span><br><span class="line"><span class="meta">#</span> export http_proxy=http://127.0.0.1:1080</span><br></pre></td></tr></table></figure>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p><code>curl -vv http://www.google.com</code>，用这条命令来验证，如果返回如下结果表示代理设置成功。</p>
 <h1 id="更加方便的工具"><a href="#更加方便的工具" class="headerlink" title="更加方便的工具"></a>更加方便的工具</h1><p><a href="https://github.com/Prodesire/terminal-proxy" target="_blank" rel="noopener">github 链接</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/96055170" target="_blank" rel="noopener">知乎链接</a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">首先是安装：</span><br><span class="line">pip install terminal-proxy</span><br><span class="line">然后配置一遍代理地址：</span><br><span class="line">proxy config <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">1080</span></span><br><span class="line">然后就可以愉快地在命令行中开启关闭代理了：</span><br><span class="line"><span class="comment"># 开启代理</span></span><br><span class="line">proxy on</span><br><span class="line"><span class="comment"># 查看代理</span></span><br><span class="line">proxy show</span><br><span class="line"><span class="comment"># 关闭代理</span></span><br><span class="line">proxy off</span><br></pre></td></tr></table></figure>
@@ -555,15 +557,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">自我介绍</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">考研复试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -595,11 +597,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">字符串编码</a>
+                <a href="javascript:void(0)" class="js-tag color3">导入</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">导入</a>
+                <a href="javascript:void(0)" class="js-tag color1">字符串编码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -615,27 +617,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">气相色谱分离条件选择</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -652,6 +638,22 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">药效学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
             
             <div class="clearfix"></div>

@@ -215,6 +215,8 @@
   <div class="article-entry" itemprop="articleBody">
     
     <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>windows 配置cmd、powershell、git bash 参考<a href="https://zcdll.github.io/2018/01/27/proxy-on-windows-terminal/" target="_blank" rel="noopener">链接</a></p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">set http_proxy=http://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line">set https_proxy=http://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line">set http_proxy_user=user</span><br><span class="line">set http_proxy_pass=pass</span><br><span class="line"></span><br><span class="line">set https_proxy_user=user</span><br><span class="line">set https_proxy_pass=pass</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 恢复</span><br><span class="line">set http_proxy=</span><br><span class="line"></span><br><span class="line">set https_proxy=</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Ubuntu 下命令为 export</span><br><span class="line"><span class="meta">#</span> export http_proxy=http://127.0.0.1:1080</span><br></pre></td></tr></table></figure>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p><code>curl -vv http://www.google.com</code>，用这条命令来验证，如果返回如下结果表示代理设置成功。</p>
 <h1 id="更加方便的工具"><a href="#更加方便的工具" class="headerlink" title="更加方便的工具"></a>更加方便的工具</h1><p><a href="https://github.com/Prodesire/terminal-proxy" target="_blank" rel="noopener">github 链接</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/96055170" target="_blank" rel="noopener">知乎链接</a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">首先是安装：</span><br><span class="line">pip install terminal-proxy</span><br><span class="line">然后配置一遍代理地址：</span><br><span class="line">proxy config <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">1080</span></span><br><span class="line">然后就可以愉快地在命令行中开启关闭代理了：</span><br><span class="line"><span class="comment"># 开启代理</span></span><br><span class="line">proxy on</span><br><span class="line"><span class="comment"># 查看代理</span></span><br><span class="line">proxy show</span><br><span class="line"><span class="comment"># 关闭代理</span></span><br><span class="line">proxy off</span><br></pre></td></tr></table></figure>
@@ -1028,7 +1030,8 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    
+    <h1 id="包的导入"><a href="#包的导入" class="headerlink" title="包的导入"></a>包的导入</h1><h2 id="从当前路径路径导入和顶层文件夹导入通用方法"><a href="#从当前路径路径导入和顶层文件夹导入通用方法" class="headerlink" title="从当前路径路径导入和顶层文件夹导入通用方法"></a>从当前路径路径导入和顶层文件夹导入通用方法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> icecream <span class="keyword">import</span> ic</span><br><span class="line">ic.configureOutput(includeContext=<span class="literal">True</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    ic(<span class="string">'尝试从当前目录导入'</span>)</span><br><span class="line">    <span class="keyword">from</span> xlsx_base_a <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">except</span> ModuleNotFoundError <span class="keyword">as</span> error:</span><br><span class="line">    ic(error)</span><br><span class="line">    ic(<span class="string">'尝试从添加首层路径，导入相关类'</span>)</span><br><span class="line">    <span class="keyword">if</span> __package__ <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">import</span> sys</span><br><span class="line">        sys.path.append(<span class="string">'../../../'</span>)</span><br><span class="line">    <span class="keyword">from</span> readmodule.xlsx_base_a <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    ic(<span class="string">'导入模块结束'</span>)</span><br></pre></td></tr></table></figure>
+
     
 
     
@@ -1449,15 +1452,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">自我介绍</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">考研复试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1489,11 +1492,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">字符串编码</a>
+                <a href="javascript:void(0)" class="js-tag color3">导入</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">导入</a>
+                <a href="javascript:void(0)" class="js-tag color1">字符串编码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1509,27 +1512,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">气相色谱分离条件选择</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1546,6 +1533,22 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">药效学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
             
             <div class="clearfix"></div>

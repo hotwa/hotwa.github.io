@@ -10,15 +10,18 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="python,导入">
+  <meta name="description" content="包的导入从当前路径路径导入和顶层文件夹导入通用方法1234567891011121314from icecream import icic.configureOutput(includeContext=True)try:    ic(&apos;尝试从当前目录导入&apos;)    from xlsx_base_a import *except ModuleNotFoundError as error:    ic">
+<meta name="keywords" content="python,导入">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python引入问题">
 <meta property="og:url" content="jmsu.top/2021/01/22/python引入问题/index.html">
 <meta property="og:site_name" content="xiaozhe&#39;s blog">
+<meta property="og:description" content="包的导入从当前路径路径导入和顶层文件夹导入通用方法1234567891011121314from icecream import icic.configureOutput(includeContext=True)try:    ic(&apos;尝试从当前目录导入&apos;)    from xlsx_base_a import *except ModuleNotFoundError as error:    ic">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-01-22T14:33:15.578Z">
+<meta property="og:updated_time" content="2021-03-18T07:31:03.839Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python引入问题">
+<meta name="twitter:description" content="包的导入从当前路径路径导入和顶层文件夹导入通用方法1234567891011121314from icecream import icic.configureOutput(includeContext=True)try:    ic(&apos;尝试从当前目录导入&apos;)    from xlsx_base_a import *except ModuleNotFoundError as error:    ic">
   
     <link rel="alternative" href="/atom.xml" title="xiaozhe&#39;s blog" type="application/atom+xml">
   
@@ -212,7 +215,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">0字</span>
+      <span class="post-count">88字</span>
     </span>
   </span>
 
@@ -232,7 +235,8 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    
+    <h1 id="包的导入"><a href="#包的导入" class="headerlink" title="包的导入"></a>包的导入</h1><h2 id="从当前路径路径导入和顶层文件夹导入通用方法"><a href="#从当前路径路径导入和顶层文件夹导入通用方法" class="headerlink" title="从当前路径路径导入和顶层文件夹导入通用方法"></a>从当前路径路径导入和顶层文件夹导入通用方法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> icecream <span class="keyword">import</span> ic</span><br><span class="line">ic.configureOutput(includeContext=<span class="literal">True</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    ic(<span class="string">'尝试从当前目录导入'</span>)</span><br><span class="line">    <span class="keyword">from</span> xlsx_base_a <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">except</span> ModuleNotFoundError <span class="keyword">as</span> error:</span><br><span class="line">    ic(error)</span><br><span class="line">    ic(<span class="string">'尝试从添加首层路径，导入相关类'</span>)</span><br><span class="line">    <span class="keyword">if</span> __package__ <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">import</span> sys</span><br><span class="line">        sys.path.append(<span class="string">'../../../'</span>)</span><br><span class="line">    <span class="keyword">from</span> readmodule.xlsx_base_a <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    ic(<span class="string">'导入模块结束'</span>)</span><br></pre></td></tr></table></figure>
+
     
 
     
@@ -553,15 +557,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">自我介绍</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">考研复试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -593,11 +597,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">字符串编码</a>
+                <a href="javascript:void(0)" class="js-tag color3">导入</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">导入</a>
+                <a href="javascript:void(0)" class="js-tag color1">字符串编码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -613,27 +617,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">气相色谱分离条件选择</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -650,6 +638,22 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">药效学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
             
             <div class="clearfix"></div>
