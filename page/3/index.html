@@ -185,6 +185,604 @@
             
 
   
+    <article id="post-数据库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/01/06/数据库/" target="_blank">数据库选择</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/01/06/数据库/" class="archive-article-date">
+        <time datetime="2021-01-06T08:55:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-06</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="关系型数据库"><a href="#关系型数据库" class="headerlink" title="关系型数据库"></a>关系型数据库</h1><h2 id="Mysql-and-PostgreSQL"><a href="#Mysql-and-PostgreSQL" class="headerlink" title="Mysql and PostgreSQL"></a>Mysql and PostgreSQL</h2><blockquote>
+<p>唯一标识符集采集数据</p>
+</blockquote>
+<h2 id="Ubuntu-20-04-mysql-配置"><a href="#Ubuntu-20-04-mysql-配置" class="headerlink" title="Ubuntu 20.04 mysql 配置"></a>Ubuntu 20.04 mysql 配置</h2><h1 id="非关系型数据库"><a href="#非关系型数据库" class="headerlink" title="非关系型数据库"></a>非关系型数据库</h1><h2 id="NoSQL（JSON）"><a href="#NoSQL（JSON）" class="headerlink" title="NoSQL（JSON）"></a>NoSQL（JSON）</h2>
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据存储</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/数据库//" class="article-tag-list-link color4">数据库</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/01/06/数据库/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-requirement-txt使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/12/29/requirement-txt使用/" target="_blank">requirement.txt使用</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/12/29/requirement-txt使用/" class="archive-article-date">
+        <time datetime="2020-12-29T11:06:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="基本使用（适用于虚拟环境）"><a href="#基本使用（适用于虚拟环境）" class="headerlink" title="基本使用（适用于虚拟环境）"></a>基本使用（适用于虚拟环境）</h2><p>生成<code>requirements.txt</code>文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure>
+<p>安装<code>requirements.txt</code>文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br><span class="line">pip install -r .\requrements.txt -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
+<h2 id="requirements-txt-文件格式"><a href="#requirements-txt-文件格式" class="headerlink" title="requirements.txt 文件格式"></a>requirements.txt 文件格式</h2><p>&gt;</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">asttokens==<span class="number">2.0</span><span class="number">.4</span></span><br><span class="line">colorama==<span class="number">0.4</span><span class="number">.4</span></span><br><span class="line">executing==<span class="number">0.5</span><span class="number">.4</span></span><br><span class="line">icecream==<span class="number">2.1</span><span class="number">.0</span></span><br><span class="line">Pygments==<span class="number">2.8</span><span class="number">.0</span></span><br><span class="line">PyMySQL==<span class="number">1.0</span><span class="number">.2</span></span><br><span class="line">six==<span class="number">1.15</span><span class="number">.0</span></span><br><span class="line">SQLAlchemy==<span class="number">1.3</span><span class="number">.23</span></span><br><span class="line">toml==<span class="number">0.10</span><span class="number">.2</span></span><br><span class="line">xlrd==<span class="number">1.2</span><span class="number">.0</span></span><br></pre></td></tr></table></figure>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">requirement</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/12/29/requirement-txt使用/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-virtualenv的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/12/29/virtualenv的使用/" target="_blank">virtualenv的使用及conda的使用</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/12/29/virtualenv的使用/" class="archive-article-date">
+        <time datetime="2020-12-29T10:45:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="VScode配置"><a href="#VScode配置" class="headerlink" title="VScode配置"></a>VScode配置</h3><h4 id="在vs-code中配置virtualenv虚拟环境的python解释器"><a href="#在vs-code中配置virtualenv虚拟环境的python解释器" class="headerlink" title="在vs code中配置virtualenv虚拟环境的python解释器"></a>在vs code中配置virtualenv虚拟环境的python解释器</h4><ul>
+<li><p>打开 <strong>vs code</strong> 在程序左下角找到 <strong>设置</strong></p>
+</li>
+<li><p>在 <strong>设置</strong> 中找到 <strong>扩展</strong></p>
+</li>
+<li><p>在 <strong>扩展</strong> 中找到任一 <strong>在settings.json中编辑</strong></p>
+</li>
+<li><p>点击左边的</p>
+</li>
+</ul>
+<p>  工作区设置</p>
+<p>  按如下设置</p>
+<blockquote>
+<p>{<br>“python.pythonPath”: ~/.virtualenvs/py36_django/bin/python”<br>}</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将代码中的 “py36_django” 更换为用户自己创建的virtualenv虚拟环境名称</span><br></pre></td></tr></table></figure>
+<h3 id="virtualenv使用"><a href="#virtualenv使用" class="headerlink" title="virtualenv使用"></a>virtualenv<a href="https://blog.csdn.net/yezhenquan123/article/details/79313110?utm_medium=distribute.pc_relevant.none-task-blog-searchFromBaidu-1.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-searchFromBaidu-1.control" target="_blank" rel="noopener">使用</a></h3><h3 id="virtualenv"><a href="#virtualenv" class="headerlink" title="virtualenv"></a>virtualenv</h3><blockquote>
+<p><strong>pip freeze &gt; requirements.txt</strong> </p>
+<p><strong>pip install -r requirements.txt</strong></p>
+</blockquote>
+<p>Python2 和 Python3 均支持的方式</p>
+<p><strong>安装</strong><br>pip install virtualenv</p>
+<p><strong>创建项目</strong><br>cd my_project_folder<br>virtualenv my_project</p>
+<p><strong>指定 python 版本</strong></p>
+<blockquote>
+<p><strong>virtualenv -p /usr/bin/python2.7 my_project</strong><br>或者在环境变量配置中加入<br>export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7</p>
+</blockquote>
+<p><strong>激活虚拟环境</strong><br>(Linux) source my_project/bin/activate<br>(Windows) my_project\Scripts\activate<br>(MacOS)source my_project\bin\activate</p>
+<p><strong>退出环境</strong><br>(Linux) my_project/bin/deactivate<br>(Windows) my_project\Scripts\deactivate.bat<br>(MacOS) my_project\bin\deactivate</p>
+<p><strong>virtualenv 常用命令选项</strong><br>virtualenv [OPTIONS] DEST_DIR</p>
+<p>Options:<br>–version　　　　　显示版本信息。<br>-h, –help　　　　　显示帮助信息。<br>-v, –verbose　　　增加后台输出的信息。<br>-q, –quiet　　　　控制后台输出的信息。<br>-p PYTHON_EXE, –python=PYTHON_EXE　　<br>　　　　　　　　　指定 Python 解释器<br>–clear　　　　　　清除虚拟环境中依赖库，初始化环境。<br>–system-site-packages<br>　　　　　　　　　使用当前 Python 主体上已安装的程序库。<br>–always-copy　　　一概不使用 符号链接，直接复制文件。<br>–no-setuptools　　Do not install setuptools in the new virtualenv.<br>–no-pip　　　　　Do not install pip in the new virtualenv.<br>–no-wheel　　　　Do not install wheel in the new virtualenv.</p>
+<h3 id="virtualenv-相关扩展"><a href="#virtualenv-相关扩展" class="headerlink" title="virtualenv 相关扩展"></a>virtualenv 相关扩展</h3><h5 id="virtualenvwrapper"><a href="#virtualenvwrapper" class="headerlink" title="virtualenvwrapper"></a>virtualenvwrapper</h5><p>virtualenv 的扩展包，能方便的管理 virtualenv</p>
+<p><strong>安装</strong><br>环境变量 WORKON_HOME 指定虚拟环境位置<br>(Linux)<br>pip install virtualenvwrapper<br>export WORKON_HOME=~/Envs<br>source /usr/local/bin/virtualenvwrapper.sh<br>(Windows)<br>pip install virtualenvwrapper-win<br>WORKON_HOME 默认值是 %USERPROFILE%Envs</p>
+<p><strong>基本用法</strong></p>
+<p>创建虚拟环境<br>mkvirtualenv myenv</p>
+<p>切换到虚拟环境<br>workon myenv</p>
+<p>虚拟环境和项目分开<br>mkproject my_project<br>虚拟环境在 WORKON_HOME 中，项目在 PROJECT_HOME 中</p>
+<p>退出虚拟环境<br>deactivate</p>
+<p>删除虚拟环境<br>rmvirtualenv myenv</p>
+<p><strong>或者手动删除</strong></p>
+<p>其它用法<br>lsvirtualenv 列举所有的环境。<br>cdvirtualenv [subdir] 导航到当前激活的虚拟环境的目录中<br>cdsitepackages [subdir] 和上面的类似，但是是直接进入到 site-packages 目录中<br>lssitepackages 显示 site-packages 目录中的内容<br>showvirtualenv [env] 显示指定环境的详情<br>cpvirtualenv [source] [dest] 复制一份虚拟环境<br>allvirtualenv 对当前虚拟环境执行统一的命令<br>add2virtualenv [dir] [dir] 把指定的目录加入当前使用的环境的path中，这常使用<br>于在多个project里面同时使用一个较大的库的情况<br>toggleglobalsitepackages -q 控制当前的环境是否使用全局的sitepackages目录</p>
+<h5 id="virtualenv-burrito"><a href="#virtualenv-burrito" class="headerlink" title="virtualenv-burrito"></a>virtualenv-burrito</h5><p>相当于 virtualenv + virtualenvwrapper ，不过只支持 python 2</p>
+<h5 id="autoenv"><a href="#autoenv" class="headerlink" title="autoenv"></a>autoenv</h5><p>当进入到一个包含 .env 的目录，autoenv 会自动激活该环境<br>pip install autoenv</p>
+<hr>
+<h3 id="venv"><a href="#venv" class="headerlink" title="venv"></a>venv</h3><p>Python3 支持的方式，原名又 pyvenv，python 3.6 已弃用</p>
+<p><strong>创建虚拟环境</strong><br>python3 -m venv /path/to/new/virtual/environment</p>
+<h1 id="Conda"><a href="#Conda" class="headerlink" title="Conda"></a>Conda</h1><h2 id="速查常用命令："><a href="#速查常用命令：" class="headerlink" title="速查常用命令："></a>速查常用命令：</h2><blockquote>
+<p>1）conda list 查看安装了哪些包。</p>
+<p>2）conda env list 或 conda info -e 查看当前存在哪些虚拟环境</p>
+<p>3）conda update conda 检查更新当前conda</p>
+</blockquote>
+<h2 id="创建虚拟python环境"><a href="#创建虚拟python环境" class="headerlink" title="创建虚拟python环境"></a>创建虚拟python环境</h2><p>conda create -n env_name python=3.9</p>
+<p>conda create -n env_name numpy [package] python=3.9 # 创建环境时同时安装必要的包</p>
+<p>conda install -n env_name [package] # 安装指定的package到env_name</p>
+<h3 id="指定路径创建虚拟环境"><a href="#指定路径创建虚拟环境" class="headerlink" title="指定路径创建虚拟环境"></a>指定路径创建虚拟环境</h3><blockquote>
+<p>conda create —prefix=/home/youyouza/PythonProject/cs/assign python=3.5</p>
+<h1 id="在目录-home-youyouza-PythonProject-cs-下创建名为-assign的虚拟环境"><a href="#在目录-home-youyouza-PythonProject-cs-下创建名为-assign的虚拟环境" class="headerlink" title="在目录  /home/youyouza/PythonProject/cs/下创建名为 assign的虚拟环境"></a>在目录  /home/youyouza/PythonProject/cs/下创建名为 assign的虚拟环境</h1></blockquote>
+<h2 id="激活环境"><a href="#激活环境" class="headerlink" title="激活环境"></a>激活环境</h2><h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><blockquote>
+<p>source activate env_name</p>
+</blockquote>
+<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><blockquote>
+<p>activate env_name</p>
+</blockquote>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><h3 id="删除虚拟环境"><a href="#删除虚拟环境" class="headerlink" title="删除虚拟环境"></a>删除虚拟环境</h3><blockquote>
+<p>conda remove -n env_name —all</p>
+</blockquote>
+<h3 id="删除环境中的某个包"><a href="#删除环境中的某个包" class="headerlink" title="删除环境中的某个包"></a>删除环境中的某个包</h3><blockquote>
+<p>conda remove —name $env_name $package_name</p>
+</blockquote>
+<h2 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h2><h3 id="Linux-1"><a href="#Linux-1" class="headerlink" title="Linux"></a>Linux</h3><blockquote>
+<p>source deactivate</p>
+</blockquote>
+<h3 id="Windows-1"><a href="#Windows-1" class="headerlink" title="Windows"></a>Windows</h3><blockquote>
+<p>deactivate env_name</p>
+</blockquote>
+<p>conda remove -n assign —all</p>
+<h2 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h2><h3 id="添加Anaconda的TUNA镜像"><a href="#添加Anaconda的TUNA镜像" class="headerlink" title="添加Anaconda的TUNA镜像"></a>添加Anaconda的TUNA镜像</h3><p><code>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</code></p>
+<h4 id="TUNA的help中镜像地址加有引号，需要去掉"><a href="#TUNA的help中镜像地址加有引号，需要去掉" class="headerlink" title="TUNA的help中镜像地址加有引号，需要去掉"></a>TUNA的help中镜像地址加有引号，需要去掉</h4><h4 id="设置搜索时显示通道地址"><a href="#设置搜索时显示通道地址" class="headerlink" title="设置搜索时显示通道地址"></a>设置搜索时显示通道地址</h4><p><code>conda config --set show_channel_urls yes</code></p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">virtualenv</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/12/29/virtualenv的使用/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-python-init" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/12/26/python-init/" target="_blank">python init</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/12/26/python-init/" class="archive-article-date">
+        <time datetime="2020-12-26T02:31:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-26</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="按照项目纯净环境打包python"><a href="#按照项目纯净环境打包python" class="headerlink" title="按照项目纯净环境打包python"></a>按照项目纯净环境打包python</h3><h4 id="安装python3-9-1"><a href="#安装python3-9-1" class="headerlink" title="安装python3.9.1"></a>安装python3.9.1</h4><h4 id="安装virtualenv，并在项目目录创建虚拟环境"><a href="#安装virtualenv，并在项目目录创建虚拟环境" class="headerlink" title="安装virtualenv，并在项目目录创建虚拟环境"></a>安装virtualenv，并在项目目录创建虚拟环境</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pip install virtualenv</span><br><span class="line">cd my_project</span><br><span class="line">mkdir <span class="literal">-p</span> .\my_project_env</span><br><span class="line"><span class="comment">#由于在最新使用中source无法在powershell中使用</span></span><br><span class="line">virtualenv my_project<span class="literal">-env</span></span><br><span class="line"><span class="comment">#使用默认的python环境搭建干净python环境，我这里是python3.9.1</span></span><br><span class="line">virtualenv <span class="literal">-p</span> python my_project_env</span><br></pre></td></tr></table></figure>
+<h4 id="激活环境"><a href="#激活环境" class="headerlink" title="激活环境"></a>激活环境</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">virtalenv tutorial</span><br><span class="line">.\my_project_env\Scripts\activate.bat</span><br><span class="line"><span class="comment">#激活后可以在命令行正常使用python虚拟环境</span></span><br></pre></td></tr></table></figure>
+<h4 id="激活环境后vscode显示，可以直接用该环境测试"><a href="#激活环境后vscode显示，可以直接用该环境测试" class="headerlink" title="激活环境后vscode显示，可以直接用该环境测试"></a>激活环境后vscode显示，可以直接用该环境测试</h4><p><img src="http://pic.jmsu.top/virtualenv-vscode.png" alt="image-20201226104521474"></p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/virtualenv//" class="article-tag-list-link color1">virtualenv</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/virtualenv/vscode//" class="article-tag-list-link color2">vscode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/12/26/python-init/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-docker基础概念-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/04/07/docker基础概念-1/" target="_blank">docker基础概念[1]</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/04/07/docker基础概念-1/" class="archive-article-date">
+        <time datetime="2020-04-07T05:16:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-07</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <ul>
+<li><p><strong>镜像</strong>(Image)</p>
+<blockquote>
+<p>类似操作系统的快照(静态)文件，可以简单理解为IOS文件。<br>和在安装IOS类似，在安装完成后，镜像相比原来没有做任何修改的文件，做了一些相应的配置，类似，环境变量、用户、应用程序。<strong>因为在docker可以四处迁移，类似虚拟机VMware软件一样，这样就有个好处，当你运行好镜像成为了一个容器，所有环境修改都配置完成，不必重新部署环境</strong></p>
+<blockquote>
+<p>深入理解：</p>
+<p>Docker设计时，就充分利用Union FS的技术，将其设计为分层存储的架构。镜像实际是由多层文件系统联合组成。<br>镜像构建时，会一层层构建，前一层是后一层的基础。每一层构建完就不会再发生改变，后一层上的任何改变只发生在自己这一层。比如， 删除前一层文件的操作，实际不是真的删除前一层的文件，而是仅在当前层标记为该文件已删除。在最终容器运行的时候，虽然不会看到这个文件，但是实际上该文件会-直跟随镜像。因此,在构建镜像的时候，需要额外小心，每- -层尽量只包含该层需要添加的东西，任何额外的东西应该在该层构建结束前清理掉。<br>分层存储的特征还使得镜像的复用、定制变的更为容易。甚至可以用之前构建好的镜像作为基础层，然后进一步添加新的层，以定制自己所需的内容,构建新的镜像。</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p><strong>容器</strong>(Container)</p>
+<blockquote>
+<p>系指运行起来的镜像（Image）。可以简单理解为动态的文件。如果吧镜像比作一个桶里面被冻成冰块的水，那么容器就是解冻之后的水可以加入各种调味料，搅拌变成浓香的火锅汤底。所以容器是可以被创建、启动、停止、删除、暂停的。</p>
+<blockquote>
+<p>深入理解：</p>
+<p>容器的实质是进程，但与直接在宿主执行的进程不同，容器进程运行于属于自己的独立的命名空间。前面讲过镜像使用的是分层存储，容器也是如此。<br>容器存储层的生存周期和容器-样，容器消亡时，容器存储层也随之消亡。因此，任何保存于容器存储层的信息都会随容器删除而丢失。<br>按照Docker最佳实践的要求，容器不应该向其存储层内写入任何数据，容器存储层要保持无状态化。<strong>所有的文件写入操作，都应该使用数据卷(Volume)、 或者绑定宿主目录</strong>， 在这些位置的读写会跳过容器存储层，直接对宿主(或网络存储)发生读写，其性能和稳定性更高。数据卷的生存周期独立于容器，容器消亡，数据卷不会消亡。因此，使用数据卷后，容器可以随意删除、重新run,数据却不会丢失。</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p>仓库（Repository）</p>
+<blockquote>
+<p>仓库类似代码仓库，存放镜像的地方。</p>
+<p>通常，一个仓库会包含同一一个软件不同版本的镜像，而标签就常用于对应该软件的各个版本。我们可以通过&lt;仓库名&gt;:&lt;标签&gt;的格式来指定具体是这个软件哪个版本的镜像。如果不给出标签，将以latest作为默认标签.。</p>
+<p>Docker Registry公开服务是开放给用户使用、允许用户管理镜像的Registry服务。- -般这类公开服务允许<br>用户免费上传、下载公开的镜像，并可能提供收费服务供用户管理私有镜像。<br>最常使用的Registry 公开服务是官方的Docker Hub，这也是默认的Registry,并拥有大量的高质量的官方<br>镜像，网址为: <a href="https://hub.docker.com" target="_blank" rel="noopener">https://hub.docker.com</a> 。在国内访问Docker Hub可能会比较慢国内也有- - 些云服务商提供类似于Docker Hub的公开服务。比如时速云镜像库、网易云镜像服务、阿里云镜像库等。除了使用公开服务外，用户还可以在本地搭建私有Docker Registry。Docker 官方提供了Docker Registry镜像，可以直接使用做为私有Registry 服务。开源的Docker Registry镜像只提供了Docker Registry API的服务端实现，足以支持docker命令，不影响使用。但不包含图形界面，以及镜像维护、用户管理、访问控制等高级功能。</p>
+</blockquote>
+</li>
+</ul>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/docker//" class="article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/04/07/docker基础概念-1/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-introduction" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -513,7 +1111,7 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
 <p><code>apt-key adv --keyserver keys.gnupg.net --recv-keys 40976EAF437D05B5 3B4FE6ACC0B21F32</code> </p>
 <p>—keyserver keyserver.ubuntu.com（可选）</p>
 <blockquote>
-<p>Executing: /tmp/apt-key-gpghome.sCeV5SAlQI/gpg.1.sh —keyserver keys.gnupg.net —recv-keys 40976EAF437D05B5 3B4FE6ACC0B21F32<br>gpg: key 3B4FE6ACC0B21F32: 20 signatures not checked due to missing keys<br>gpg: key 3B4FE6ACC0B21F32: public key “Ubuntu Archive Automatic Signing Key (2012) <a href="&#x6d;&#97;&#105;&#108;&#x74;&#x6f;&#x3a;&#x66;&#x74;&#112;&#x6d;&#97;&#x73;&#116;&#x65;&#114;&#x40;&#117;&#x62;&#117;&#110;&#116;&#117;&#46;&#x63;&#x6f;&#x6d;">&#x66;&#x74;&#112;&#x6d;&#97;&#x73;&#116;&#x65;&#114;&#x40;&#117;&#x62;&#117;&#110;&#116;&#117;&#46;&#x63;&#x6f;&#x6d;</a>“ imported<br>gpg: key 40976EAF437D05B5: 60 signatures not checked due to missing keys<br>gpg: key 40976EAF437D05B5: public key “Ubuntu Archive Automatic Signing Key <a href="&#x6d;&#x61;&#x69;&#108;&#116;&#x6f;&#58;&#x66;&#116;&#112;&#x6d;&#x61;&#x73;&#116;&#x65;&#114;&#64;&#x75;&#x62;&#117;&#110;&#116;&#117;&#46;&#99;&#x6f;&#109;">&#x66;&#116;&#112;&#x6d;&#x61;&#x73;&#116;&#x65;&#114;&#64;&#x75;&#x62;&#117;&#110;&#116;&#117;&#46;&#99;&#x6f;&#109;</a>“ imported<br>gpg: Total number processed: 2<br>gpg:               imported: 2</p>
+<p>Executing: /tmp/apt-key-gpghome.sCeV5SAlQI/gpg.1.sh —keyserver keys.gnupg.net —recv-keys 40976EAF437D05B5 3B4FE6ACC0B21F32<br>gpg: key 3B4FE6ACC0B21F32: 20 signatures not checked due to missing keys<br>gpg: key 3B4FE6ACC0B21F32: public key “Ubuntu Archive Automatic Signing Key (2012) <a href="&#x6d;&#x61;&#x69;&#x6c;&#116;&#111;&#58;&#x66;&#x74;&#112;&#x6d;&#97;&#115;&#116;&#101;&#x72;&#x40;&#x75;&#x62;&#x75;&#110;&#116;&#x75;&#46;&#99;&#111;&#x6d;">&#x66;&#x74;&#112;&#x6d;&#97;&#115;&#116;&#101;&#x72;&#x40;&#x75;&#x62;&#x75;&#110;&#116;&#x75;&#46;&#99;&#111;&#x6d;</a>“ imported<br>gpg: key 40976EAF437D05B5: 60 signatures not checked due to missing keys<br>gpg: key 40976EAF437D05B5: public key “Ubuntu Archive Automatic Signing Key <a href="&#109;&#x61;&#x69;&#x6c;&#116;&#x6f;&#x3a;&#x66;&#116;&#112;&#109;&#97;&#115;&#x74;&#101;&#114;&#x40;&#117;&#98;&#117;&#110;&#x74;&#117;&#46;&#99;&#111;&#109;">&#x66;&#116;&#112;&#109;&#97;&#115;&#x74;&#101;&#114;&#x40;&#117;&#98;&#117;&#110;&#x74;&#117;&#46;&#99;&#111;&#109;</a>“ imported<br>gpg: Total number processed: 2<br>gpg:               imported: 2</p>
 </blockquote>
 <p>然后</p>
 <p><code>sudo apt update</code> </p>
@@ -595,7 +1193,7 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
 <p><code>apt-key adv --keyserver keys.gnupg.net --recv-keys 40976EAF437D05B5 3B4FE6ACC0B21F32</code> </p>
 <p>—keyserver keyserver.ubuntu.com（可选）</p>
 <blockquote>
-<p>Executing: /tmp/apt-key-gpghome.sCeV5SAlQI/gpg.1.sh —keyserver keys.gnupg.net —recv-keys 40976EAF437D05B5 3B4FE6ACC0B21F32<br>gpg: key 3B4FE6ACC0B21F32: 20 signatures not checked due to missing keys<br>gpg: key 3B4FE6ACC0B21F32: public key “Ubuntu Archive Automatic Signing Key (2012) <a href="&#109;&#x61;&#105;&#x6c;&#116;&#111;&#58;&#102;&#x74;&#112;&#x6d;&#97;&#115;&#116;&#x65;&#114;&#x40;&#x75;&#x62;&#x75;&#x6e;&#x74;&#117;&#46;&#x63;&#x6f;&#x6d;">&#102;&#x74;&#112;&#x6d;&#97;&#115;&#116;&#x65;&#114;&#x40;&#x75;&#x62;&#x75;&#x6e;&#x74;&#117;&#46;&#x63;&#x6f;&#x6d;</a>“ imported<br>gpg: key 40976EAF437D05B5: 60 signatures not checked due to missing keys<br>gpg: key 40976EAF437D05B5: public key “Ubuntu Archive Automatic Signing Key <a href="&#109;&#x61;&#105;&#108;&#x74;&#x6f;&#58;&#102;&#116;&#112;&#109;&#x61;&#x73;&#116;&#101;&#114;&#64;&#117;&#98;&#117;&#110;&#116;&#117;&#46;&#99;&#x6f;&#x6d;">&#102;&#116;&#112;&#109;&#x61;&#x73;&#116;&#101;&#114;&#64;&#117;&#98;&#117;&#110;&#116;&#117;&#46;&#99;&#x6f;&#x6d;</a>“ imported<br>gpg: Total number processed: 2<br>gpg:               imported: 2</p>
+<p>Executing: /tmp/apt-key-gpghome.sCeV5SAlQI/gpg.1.sh —keyserver keys.gnupg.net —recv-keys 40976EAF437D05B5 3B4FE6ACC0B21F32<br>gpg: key 3B4FE6ACC0B21F32: 20 signatures not checked due to missing keys<br>gpg: key 3B4FE6ACC0B21F32: public key “Ubuntu Archive Automatic Signing Key (2012) <a href="&#109;&#x61;&#x69;&#108;&#116;&#111;&#x3a;&#x66;&#116;&#x70;&#109;&#97;&#115;&#116;&#101;&#114;&#x40;&#x75;&#98;&#x75;&#110;&#116;&#x75;&#46;&#99;&#x6f;&#109;">&#x66;&#116;&#x70;&#109;&#97;&#115;&#116;&#101;&#114;&#x40;&#x75;&#98;&#x75;&#110;&#116;&#x75;&#46;&#99;&#x6f;&#109;</a>“ imported<br>gpg: key 40976EAF437D05B5: 60 signatures not checked due to missing keys<br>gpg: key 40976EAF437D05B5: public key “Ubuntu Archive Automatic Signing Key <a href="&#x6d;&#x61;&#105;&#108;&#116;&#111;&#58;&#x66;&#x74;&#x70;&#109;&#x61;&#115;&#116;&#101;&#114;&#64;&#x75;&#x62;&#x75;&#110;&#x74;&#x75;&#46;&#x63;&#111;&#109;">&#x66;&#x74;&#x70;&#109;&#x61;&#115;&#116;&#101;&#114;&#64;&#x75;&#x62;&#x75;&#110;&#x74;&#x75;&#46;&#x63;&#111;&#109;</a>“ imported<br>gpg: Total number processed: 2<br>gpg:               imported: 2</p>
 </blockquote>
 <p>然后</p>
 <p><code>sudo apt update</code> </p>
@@ -807,7 +1405,7 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
 
 
   
-    <article id="post-绪论" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-RStudio、Ruby安装使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -815,7 +1413,7 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2019/04/20/绪论/" target="_blank">药理学绪论</a>
+	  <a class="article-title" href="/2019/04/20/RStudio、Ruby安装使用/" target="_blank">RStudio、Ruby安装使用</a>
   
     </h1>
   
@@ -823,7 +1421,7 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
 
   
   
-<a href="/2019/04/20/绪论/" class="archive-article-date">
+<a href="/2019/04/20/RStudio、Ruby安装使用/" class="archive-article-date">
         <time datetime="2019-04-20T01:18:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-20</time>
 </a>
 
@@ -836,20 +1434,14 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>药理学整理</p>
-<h1 id="第一章-序言"><a href="#第一章-序言" class="headerlink" title="第一章 序言"></a><strong>第一章 序言</strong></h1><h5 id="1-掌握药理学的性质和任务-药理学研究在新药研究中的作用"><a href="#1-掌握药理学的性质和任务-药理学研究在新药研究中的作用" class="headerlink" title="1. 掌握药理学的性质和任务, 药理学研究在新药研究中的作用;"></a>1. 掌握药理学的性质和任务, 药理学研究在新药研究中的作用;</h5><h5 id="2-熟悉新药的药理学研究内容和新药研究的基本程序"><a href="#2-熟悉新药的药理学研究内容和新药研究的基本程序" class="headerlink" title="2. 熟悉新药的药理学研究内容和新药研究的基本程序;"></a>2. 熟悉新药的药理学研究内容和新药研究的基本程序;</h5><h5 id="3-了解药理学的发展史和药理学的分支学科。"><a href="#3-了解药理学的发展史和药理学的分支学科。" class="headerlink" title="3. 了解药理学的发展史和药理学的分支学科。"></a>3. 了解药理学的发展史和药理学的分支学科。</h5><h4 id="重点内容：掌握药理学概念、性质和研究内容。"><a href="#重点内容：掌握药理学概念、性质和研究内容。" class="headerlink" title="重点内容：掌握药理学概念、性质和研究内容。"></a>重点内容：掌握药理学概念、性质和研究内容。</h4><blockquote>
-<p><strong>药理学</strong>是研究药物与机体（包括病原体）相互作用及作用规律的学科。</p>
-</blockquote>
-<h5 id="研究内容"><a href="#研究内容" class="headerlink" title="研究内容"></a>研究内容</h5><p>药效学：药物对机体的效应作用及原理，</p>
-<p>药动学：动作，四过一变。（吸收、代谢、分布、排泄过程，血药浓度时间变化规律）</p>
-<h5 id="药理学学科任务"><a href="#药理学学科任务" class="headerlink" title="药理学学科任务"></a>药理学学科任务</h5><ol>
-<li><p>阐明药物与机体相互作用的基本规律和原理，作为药物治疗学的基础，知道临床合理用药。</p>
-</li>
-<li><p>发现药物靶点，研究开发新药，发现药物新用途。</p>
-</li>
-<li><p>阐明生物机体生理、生物化学及病理过程提供重要的理论依据和研究方法，推动生命学科的发展。</p>
-</li>
-</ol>
+    <p>[TOC]</p>
+<h1 id="RStudio-使用ARM版Ruby-mac-M1-编译安装适用及x86Ruby安装使用"><a href="#RStudio-使用ARM版Ruby-mac-M1-编译安装适用及x86Ruby安装使用" class="headerlink" title="RStudio 使用ARM版Ruby mac M1 编译安装适用及x86Ruby安装使用"></a>RStudio 使用ARM版Ruby mac M1 编译安装适用及x86Ruby安装使用</h1><h2 id="安装ARM版homebrew"><a href="#安装ARM版homebrew" class="headerlink" title="安装ARM版homebrew"></a>安装ARM版homebrew</h2><p>参考<a href="https://zhuanlan.zhihu.com/p/349636719" target="_blank" rel="noopener">链接</a><br>使用命令（挂梯子或者镜像加速）<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install ruby # 当前安装为3.0.2版本，无法配合RStudio使用</span><br></pre></td></tr></table></figure></p>
+<h2 id="终端打开"><a href="#终端打开" class="headerlink" title="终端打开"></a>终端打开</h2><h3 id="做软连接替换掉系统自带的ruby"><a href="#做软连接替换掉系统自带的ruby" class="headerlink" title="做软连接替换掉系统自带的ruby"></a>做软连接替换掉系统自带的ruby</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /opt/homebrew/Cellar/ruby/3.0.0_1/bin/ruby /usr/local/bin/</span><br><span class="line">sudo ln -s /opt/homebrew/Cellar/ruby/3.0.0_1/bin/gem /usr/local/bin/</span><br></pre></td></tr></table></figure>
+<p>版本更新路径可能有所不同，可以在命令行使用<code>ruby -v</code>显示版本号</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ruby -v</span><br><span class="line"><span class="meta">#</span> ruby 3.0.0p0 (2020-12-25 revision 95aff21468) [arm64-darwin20]</span><br></pre></td></tr></table></figure>
+<h2 id="安装x86版Ruby-4-0-4"><a href="#安装x86版Ruby-4-0-4" class="headerlink" title="安装x86版Ruby 4.0.4"></a>安装x86版Ruby 4.0.4</h2><h3 id="安装好编译好的pkg的R包"><a href="#安装好编译好的pkg的R包" class="headerlink" title="安装好编译好的pkg的R包"></a>安装好编译好的pkg的R包</h3><p><a href="https://cran.r-project.org/" target="_blank" rel="noopener">链接</a></p>
+<h3 id="安装RStudio"><a href="#安装RStudio" class="headerlink" title="安装RStudio"></a>安装RStudio</h3><p><a href="https://rstudio.com/products/rstudio/download/#download" target="_blank" rel="noopener">链接</a></p>
+<h2 id="Rosetta2灵活使用"><a href="#Rosetta2灵活使用" class="headerlink" title="Rosetta2灵活使用"></a>Rosetta2灵活使用</h2><p>终端执行如下命令（使用Rosetta2 x86_64模式进行安装）<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arch -x86-64 brew update # 使用x86版本homebrew</span><br><span class="line"><span class="meta">#</span> arch -x86_64 + 命令（安装x86软件）</span><br></pre></td></tr></table></figure></p>
 
     
 
@@ -866,11 +1458,11 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">药动学</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">药效学</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
@@ -882,7 +1474,11 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/药理学//" class="article-tag-list-link color4">药理学</a>
+        			<a href="/categories/专业//" class="article-tag-list-link color3">专业</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/专业/测试//" class="article-tag-list-link color3">测试</a>
         		</li>
       		
 		</ul>
@@ -891,7 +1487,7 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2019/04/20/绪论/">展开全文 >></a>
+      <a class="article-more-a" href="/2019/04/20/RStudio、Ruby安装使用/">展开全文 >></a>
     </p>
     
 
@@ -923,7 +1519,7 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -1086,15 +1682,31 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ARM</a>
+                <a href="javascript:void(0)" class="js-tag color2">aria2c</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Apple chips(M1)</a>
+                <a href="javascript:void(0)" class="js-tag color1">conda</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">init</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ipython</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">自我介绍</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">考研复试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1106,15 +1718,19 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">init</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">高级特性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">terminal</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">自我介绍</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">考研复试</a>
+                <a href="javascript:void(0)" class="js-tag color1">字符串编码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1130,19 +1746,19 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">threading</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">导入</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color5">json</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">高级特性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">字符串编码</a>
+                <a href="javascript:void(0)" class="js-tag color2">requirement</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1150,7 +1766,7 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">requirement</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1162,15 +1778,27 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">气相色谱分离条件选择</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
+                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">药动学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">药效学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">自然语言处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">词汇分析</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1191,14 +1819,6 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">药动学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">药效学</a>
               </li>
             
             <div class="clearfix"></div>

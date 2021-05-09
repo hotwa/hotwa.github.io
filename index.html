@@ -185,6 +185,707 @@
             
 
   
+    <article id="post-python多线程多进程编程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/05/02/python多线程多进程编程/" target="_blank">python多线程多进程编程</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/05/02/python多线程多进程编程/" class="archive-article-date">
+        <time datetime="2021-05-02T04:15:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-02</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>[TOC]</p>
+<h1 id="多线程多进程"><a href="#多线程多进程" class="headerlink" title="多线程多进程"></a>多线程多进程</h1><h2 id="线程优点"><a href="#线程优点" class="headerlink" title="线程优点"></a>线程优点</h2><blockquote>
+<p>进程内的多个线程与主线程共享相同的数据空间，因此可以比单独的进程更容易地共享信息或彼此进行通信</p>
+<p>线程有时也被称为轻量级进程，它们不需要太多的内存开销; 它们比进程便宜。</p>
+</blockquote>
+<h2 id="线程特性"><a href="#线程特性" class="headerlink" title="线程特性"></a>线程特性</h2><p><strong>线程有一个开始，执行顺序和终止</strong>。 它有一个指令指针，可以跟踪其上下文中当前运行的位置。</p>
+<p>它可以被抢占(中断)。<br>当其他线程正在运行时，它可以临时保留(也称为睡眠) - 这称为让步。</p>
+<h2 id="两种不同线程"><a href="#两种不同线程" class="headerlink" title="两种不同线程"></a>两种不同线程</h2><p><strong>内核线程</strong><br><strong>用户线程</strong></p>
+<blockquote>
+<p>内核线程是操作系统的一部分，而用户空间线程未在内核中实现。</p>
+</blockquote>
+<h2 id="Python-3中使用线程"><a href="#Python-3中使用线程" class="headerlink" title="Python 3中使用线程"></a>Python 3中使用线程</h2><p>thread<br>threading<br>thread模块已被“不推荐”了很长一段时间。 鼓励用户使用threading模块。 因此，在Python 3中，thread模块不再可用。 但是，thread模块已被重命名为“thread”，用于Python 3中的向后兼容性。</p>
+<h2 id="守护线程"><a href="#守护线程" class="headerlink" title="守护线程"></a>守护线程</h2><p>主线程结束，子线程同时结束</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">threading</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/05/02/python多线程多进程编程/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-python处理json专栏" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/05/01/python处理json专栏/" target="_blank">python处理json专栏</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/05/01/python处理json专栏/" class="archive-article-date">
+        <time datetime="2021-05-01T03:51:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-01</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>[TOC]</p>
+<h1 id="json"><a href="#json" class="headerlink" title="json"></a>json</h1><h2 id="JSON简介"><a href="#JSON简介" class="headerlink" title="JSON简介"></a>JSON简介</h2><p>JSON（JavaScript Object Notation），是一种数据交互格式。</p>
+<ul>
+<li><strong>对象</strong>：用大括号表示，由键值对组成，每个键值对用逗号分隔开。其中key必须作为字符串而且是双引号，value可以是多种数据类型</li>
+<li><strong>数组</strong> ：用中括号表示，每个元素之间用逗号分隔开</li>
+</ul>
+<p>JSON格式与python格式的对应</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Python</th>
+<th style="text-align:left">JSON</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">dict</td>
+<td style="text-align:left">object</td>
+</tr>
+<tr>
+<td style="text-align:left">list，tuple</td>
+<td style="text-align:left">array</td>
+</tr>
+<tr>
+<td style="text-align:left">str</td>
+<td style="text-align:left">string</td>
+</tr>
+<tr>
+<td style="text-align:left">Int, float</td>
+<td style="text-align:left">number</td>
+</tr>
+<tr>
+<td style="text-align:left">True</td>
+<td style="text-align:left">true</td>
+</tr>
+<tr>
+<td style="text-align:left">False</td>
+<td style="text-align:left">false</td>
+</tr>
+<tr>
+<td style="text-align:left">None</td>
+<td style="text-align:left">null</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="将python数据与json数据相互转换"><a href="#将python数据与json数据相互转换" class="headerlink" title="将python数据与json数据相互转换"></a>将python数据与json数据相互转换</h2><ul>
+<li><p>导入JSON模块：import json</p>
+</li>
+<li><p>python数据转换成json字符串：</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">json_data = json.dumps(python_data)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>json字符串转换成python对象：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python_data = json.loads(json_data)</span><br></pre></td></tr></table></figure>
+<h1 id="使用pampy处理json数据"><a href="#使用pampy处理json数据" class="headerlink" title="使用pampy处理json数据"></a>使用pampy处理json数据</h1><h2 id="一种非正则的匹配模式"><a href="#一种非正则的匹配模式" class="headerlink" title="一种非正则的匹配模式"></a>一种非正则的匹配模式</h2><p><a href="https://github.com/santinic/pampy" target="_blank" rel="noopener">项目地址</a></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pampy</span><br></pre></td></tr></table></figure>
+<h3 id="特性1：HEAD-和-TAIL"><a href="#特性1：HEAD-和-TAIL" class="headerlink" title="特性1：HEAD 和 TAIL"></a><strong>特性1：HEAD 和 TAIL</strong></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pampy <span class="keyword">import</span> match, HEAD, TAIL, _</span><br><span class="line">x = [<span class="number">-1</span>, <span class="number">-2</span>, <span class="number">-3</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">print(match(x, [<span class="number">-1</span>, TAIL], <span class="keyword">lambda</span> t: [<span class="number">-1</span>, tuple(t)]))</span><br><span class="line"><span class="comment"># =&gt; [-1, (-2, -3, 0, 1, 2, 3)]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pampy <span class="keyword">import</span> match, HEAD, TAIL, _</span><br><span class="line"></span><br><span class="line">x = [<span class="number">-1</span>, <span class="number">-2</span>, <span class="number">-3</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line">print(match(x, [HEAD, _, _, <span class="number">0</span>, TAIL], <span class="keyword">lambda</span> h, a, b, t: (set([h, a, b]), tuple(t))))</span><br><span class="line"></span><br><span class="line"><span class="comment"># =&gt; (&#123;-3, -1, -2&#125;, (1, 2, 3))</span></span><br></pre></td></tr></table></figure>
+<h3 id="特性2：甚至能匹配字典中的键"><a href="#特性2：甚至能匹配字典中的键" class="headerlink" title="特性2：甚至能匹配字典中的键"></a><strong>特性2：甚至能匹配字典中的键</strong></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pampy <span class="keyword">import</span> match, HEAD, TAIL, _</span><br><span class="line"></span><br><span class="line">my_dict = &#123;</span><br><span class="line">    <span class="string">'global_setting'</span>: [<span class="number">1</span>, <span class="number">3</span>, <span class="number">3</span>],</span><br><span class="line">    <span class="string">'user_setting'</span>: &#123;</span><br><span class="line">        <span class="string">'face'</span>: [<span class="string">'beautiful'</span>, <span class="string">'ugly'</span>],</span><br><span class="line">        <span class="string">'mind'</span>: [<span class="string">'smart'</span>, <span class="string">'stupid'</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">result = match(my_dict, &#123; _: &#123;<span class="string">'face'</span>: _&#125;&#125;, <span class="keyword">lambda</span> key, son_value: (key, son_value))</span><br><span class="line"></span><br><span class="line">print(result)</span><br><span class="line"></span><br><span class="line"><span class="comment"># =&gt; ('user_setting', ['beautiful', 'ugly'])</span></span><br></pre></td></tr></table></figure>
+<h3 id="特性3-搭配正则"><a href="#特性3-搭配正则" class="headerlink" title="特性3: 搭配正则"></a><strong>特性3: 搭配正则</strong></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pampy <span class="keyword">import</span> match, HEAD, TAIL, _</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">what_is</span><span class="params">(pet)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> match(</span><br><span class="line">        pet, re.compile(<span class="string">'(\w+)，(\w)\w+鳕鱼$'</span>), <span class="keyword">lambda</span> mygod, you: you + <span class="string">"像鳕鱼"</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">print(what_is(<span class="string">'我的天，你长得真像鳕鱼'</span>))</span><br><span class="line"><span class="comment"># =&gt; '你像鳕鱼'</span></span><br></pre></td></tr></table></figure>
+<h1 id="使用glom处理数据"><a href="#使用glom处理数据" class="headerlink" title="使用glom处理数据"></a>使用glom处理数据</h1><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ol>
+<li>嵌套结构并基于路径访问</li>
+<li>使用轻量级的Pythonic规范进行声明性数据转换</li>
+<li>可读、有意义的错误信息</li>
+<li>内置数据探测和调试功能</li>
+</ol>
+<h2 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install glom</span><br></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">from glom import glom</span><br><span class="line"></span><br><span class="line">d = &#123;"a": &#123;"b": None&#125;&#125;</span><br><span class="line">print(glom(d, "a.b.c"))</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> glom(target, spec, **kwargs)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> target：目标数据，可以是dict、list或者其他任何对象</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> spec：是我们希望输出的内容</span></span><br></pre></td></tr></table></figure>
+<h2 id="单字典提取数据"><a href="#单字典提取数据" class="headerlink" title="单字典提取数据"></a>单字典提取数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> glom <span class="keyword">import</span> glom,Coalesce,CoalesceError</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">data_dict = &#123;<span class="string">'value'</span>:[&#123;<span class="string">'quality'</span>: <span class="number">3</span>,</span><br><span class="line">  <span class="string">'size'</span>: <span class="number">60283904</span>,</span><br><span class="line">  <span class="string">'videoUrl'</span>: <span class="string">'http://mooc2vod.stu.126.net/nos/hls/2019/11/15/1215370655_e5a979a439fb422cafa957c19adba5d1_shd.m3u8?ak=7909bff134372bffca53cdc2c17adc27a4c38c6336120510aea1ae1790819de812cc21d4352f358f081a335446cc0765f346fc814955a4680fe28bd5b3c7a9803059f726dc7bb86b92adbc3d5b34b132ebdec29f59cd7dceadd767389f807a6d9bb0a5ea14ff29775bd482caa79ccf8b'</span>,</span><br><span class="line">  <span class="string">'format'</span>: <span class="string">'hls'</span>,</span><br><span class="line">  <span class="string">'secondaryEncrypt'</span>: <span class="literal">False</span>,</span><br><span class="line">  <span class="string">'e'</span>: <span class="literal">False</span>,</span><br><span class="line">  <span class="string">'v'</span>: <span class="literal">None</span>,</span><br><span class="line">  <span class="string">'k'</span>: <span class="literal">None</span>&#125;,</span><br><span class="line"> &#123;<span class="string">'quality'</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="string">'size'</span>: <span class="number">35916290</span>,</span><br><span class="line">  <span class="string">'videoUrl'</span>: <span class="string">'http://mooc2vod.stu.126.net/nos/hls/2019/11/15/1215370655_ed8f32a5078d4312b1db80fc3d4b7e08_hd.m3u8?ak=7909bff134372bffca53cdc2c17adc27a4c38c6336120510aea1ae1790819de812cc21d4352f358f081a335446cc0765f346fc814955a4680fe28bd5b3c7a9803059f726dc7bb86b92adbc3d5b34b132ebdec29f59cd7dceadd767389f807a6d9bb0a5ea14ff29775bd482caa79ccf8b'</span>,</span><br><span class="line">  <span class="string">'format'</span>: <span class="string">'hls'</span>,</span><br><span class="line">  <span class="string">'secondaryEncrypt'</span>: <span class="literal">False</span>,</span><br><span class="line">  <span class="string">'e'</span>: <span class="literal">False</span>,</span><br><span class="line">  <span class="string">'v'</span>: <span class="literal">None</span>,</span><br><span class="line">  <span class="string">'k'</span>: <span class="literal">None</span>&#125;,</span><br><span class="line"> &#123;<span class="string">'quality'</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="string">'size'</span>: <span class="number">29888559</span>,</span><br><span class="line">  <span class="string">'videoUrl'</span>: <span class="string">'http://mooc2vod.stu.126.net/nos/hls/2019/11/15/1215370655_f322dc3caeb0438e8c6da9a987f265fb_sd.m3u8?ak=7909bff134372bffca53cdc2c17adc27a4c38c6336120510aea1ae1790819de812cc21d4352f358f081a335446cc0765f346fc814955a4680fe28bd5b3c7a9803059f726dc7bb86b92adbc3d5b34b132ebdec29f59cd7dceadd767389f807a6d9bb0a5ea14ff29775bd482caa79ccf8b'</span>,</span><br><span class="line">  <span class="string">'format'</span>: <span class="string">'hls'</span>,</span><br><span class="line">  <span class="string">'secondaryEncrypt'</span>: <span class="literal">False</span>,</span><br><span class="line">  <span class="string">'e'</span>: <span class="literal">False</span>,</span><br><span class="line">  <span class="string">'v'</span>: <span class="literal">None</span>,</span><br><span class="line">  <span class="string">'k'</span>: <span class="literal">None</span>&#125;]&#125;</span><br><span class="line"></span><br><span class="line">spec = &#123;<span class="string">"videoUrl"</span>: (<span class="string">"value"</span>, [<span class="string">"videoUrl"</span>])&#125; <span class="comment"># 设置匹配模式</span></span><br><span class="line">info = glom(data_dict,spec) <span class="comment"># 提取信息</span></span><br><span class="line">print(info)</span><br></pre></td></tr></table></figure>
+<h2 id="多个字典提取【Coalesce-方法的使用】"><a href="#多个字典提取【Coalesce-方法的使用】" class="headerlink" title="多个字典提取【Coalesce 方法的使用】"></a>多个字典提取【Coalesce 方法的使用】</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data_1 = &#123;<span class="string">"school"</span>: &#123;<span class="string">"student"</span>: [&#123;<span class="string">"name"</span>: <span class="string">"张三"</span>&#125;, &#123;<span class="string">"name"</span>: <span class="string">"李四"</span>&#125;]&#125;&#125;</span><br><span class="line">data_2 = &#123;<span class="string">"school"</span>: &#123;<span class="string">"teacher"</span>: [&#123;<span class="string">"name"</span>: <span class="string">"王老师"</span>&#125;, &#123;<span class="string">"name"</span>: <span class="string">"赵老师"</span>&#125;]&#125;&#125;</span><br><span class="line"></span><br><span class="line">spec = &#123;<span class="string">"name"</span>: (Coalesce(<span class="string">"school.student"</span>, <span class="string">"school.teacher"</span>), [<span class="string">"name"</span>])&#125;</span><br><span class="line"> </span><br><span class="line">print(glom(data_1, spec)) <span class="comment"># &#123;'name': ['张三', '李四']&#125;</span></span><br><span class="line">print(glom(data_2, spec)) <span class="comment"># &#123;'name': ['王老师', '赵老师']&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="计算取值"><a href="#计算取值" class="headerlink" title="计算取值"></a>计算取值</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data = &#123;<span class="string">"school"</span>: &#123;<span class="string">"student"</span>: [&#123;<span class="string">"name"</span>: <span class="string">"张三"</span>, <span class="string">"age"</span>: <span class="number">8</span>&#125;, &#123;<span class="string">"name"</span>: <span class="string">"李四"</span>, <span class="string">"age"</span>: <span class="number">10</span>&#125;]&#125;&#125;</span><br><span class="line">spec = &#123;<span class="string">"sum_age"</span>: (<span class="string">"school.student"</span>, [<span class="string">"age"</span>], sum)&#125;</span><br><span class="line">print(glom(data, spec)) <span class="comment"># &#123;'sum_age': 18&#125;</span></span><br></pre></td></tr></table></figure>
+<p><a href="https://blog.csdn.net/weixin_34138056/article/details/87990351" target="_blank" rel="noopener">更多使用方法参考</a></p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">json</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/05/01/python处理json专栏/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-aria2c使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/05/01/aria2c使用/" target="_blank">aria2c使用</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/05/01/aria2c使用/" class="archive-article-date">
+        <time datetime="2021-05-01T03:37:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-01</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>[TOC]</p>
+<h1 id="python-调用aria2c"><a href="#python-调用aria2c" class="headerlink" title="python 调用aria2c"></a>python 调用aria2c</h1><h2 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h2><p><a href="https://www.dazhuanlan.com/2019/10/11/5d9fa57fe857c/" target="_blank" rel="noopener">参考开启RPC模式</a></p>
+<h2 id="配置备份"><a href="#配置备份" class="headerlink" title="配置备份"></a>配置备份</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line">#使用代理</span><br><span class="line">#all-proxy=localhost:1080</span><br><span class="line">#添加引用页</span><br><span class="line">referer=http://images.dmzj.com/</span><br><span class="line"></span><br><span class="line">## 文件保存相关 ##</span><br><span class="line"></span><br><span class="line"># 文件保存目录</span><br><span class="line">dir=/home/naonao/Downloads</span><br><span class="line"># 启用磁盘缓存, 0为禁用缓存, 需1.16以上版本, 默认:16M</span><br><span class="line">disk-cache=32M</span><br><span class="line"># 断点续传</span><br><span class="line">continue=true</span><br><span class="line"> </span><br><span class="line"># 文件预分配方式, 能有效降低磁盘碎片, 默认:prealloc</span><br><span class="line"># 预分配所需时间: none &lt; falloc ? trunc &lt; prealloc</span><br><span class="line"># falloc和trunc则需要文件系统和内核支持</span><br><span class="line"># NTFS建议使用falloc, EXT3/4建议trunc, MAC 下需要注释此项</span><br><span class="line">file-allocation=falloc</span><br><span class="line"> </span><br><span class="line">## 下载连接相关 ##</span><br><span class="line"> </span><br><span class="line"># 最大同时下载任务数, 运行时可修改, 默认:5</span><br><span class="line">#max-concurrent-downloads=100</span><br><span class="line"># 同一服务器连接数, 添加时可指定, 默认:1</span><br><span class="line"># 官方的aria2最高设置为16, 如果需要设置任意数值请重新编译aria2</span><br><span class="line">max-connection-per-server=16</span><br><span class="line"># 整体下载速度限制, 运行时可修改, 默认:0（不限制）</span><br><span class="line">#max-overall-download-limit=0</span><br><span class="line"># 单个任务下载速度限制, 默认:0（不限制）</span><br><span class="line">max-download-limit=0</span><br><span class="line"># 整体上传速度限制, 运行时可修改, 默认:0（不限制）</span><br><span class="line">max-overall-upload-limit=0</span><br><span class="line"># 单个任务上传速度限制, 默认:0（不限制）</span><br><span class="line">#max-upload-limit=0</span><br><span class="line"># 禁用IPv6, 默认:false</span><br><span class="line"># disable-ipv6=true</span><br><span class="line"> </span><br><span class="line"># 最小文件分片大小, 添加时可指定, 取值范围1M -1024M, 默认:20M</span><br><span class="line"># 假定size=10M, 文件为20MiB 则使用两个来源下载; 文件为15MiB 则使用一个来源下载</span><br><span class="line">min-split-size=10M</span><br><span class="line"># 单个任务最大线程数, 添加时可指定, 默认:5</span><br><span class="line"># 建议同max-connection-per-server设置为相同值</span><br><span class="line">split=256</span><br><span class="line"> </span><br><span class="line">## 进度保存相关 ##</span><br><span class="line"> </span><br><span class="line"># 从会话文件中读取下载任务</span><br><span class="line"># input-file=/etc/aria2/aria2.session</span><br><span class="line"># 在Aria2退出时保存错误的、未完成的下载任务到会话文件</span><br><span class="line"># save-session=/etc/aria2/aria2.session</span><br><span class="line"># 定时保存会话, 0为退出时才保存, 需1.16.1以上版本, 默认:0</span><br><span class="line">save-session-interval=60</span><br><span class="line"> </span><br><span class="line">## RPC相关设置 ##</span><br><span class="line"> </span><br><span class="line"># 启用RPC, 默认:false</span><br><span class="line">enable-rpc=true</span><br><span class="line"># 允许所有来源, 默认:false</span><br><span class="line">rpc-allow-origin-all=true</span><br><span class="line"># 允许外部访问, 默认:false</span><br><span class="line">rpc-listen-all=true</span><br><span class="line"># RPC端口, 仅当默认端口被占用时修改</span><br><span class="line"># rpc-listen-port=6800</span><br><span class="line"># 设置的RPC授权令牌, v1.18.4新增功能, 取代 --rpc-user 和 --rpc-passwd 选项</span><br><span class="line">rpc-secret=mooc</span><br><span class="line"># 启动SSL</span><br><span class="line"># rpc-secure=true</span><br><span class="line"># 证书文件, 如果启用SSL则需要配置证书文件, 例如用https连接aria2</span><br><span class="line"># rpc-certificate=</span><br><span class="line"># rpc-private-key=</span><br><span class="line"> </span><br><span class="line">## BT/PT下载相关 ##</span><br><span class="line"> </span><br><span class="line"># 当下载的是一个种子(以.torrent结尾)时, 自动开始BT任务, 默认:true</span><br><span class="line">follow-torrent=true</span><br><span class="line"># 客户端伪装, PT需要</span><br><span class="line">peer-id-prefix=-TR2770-</span><br><span class="line">user-agent=User-Agent,Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36</span><br><span class="line"># 强制保存会话, 即使任务已经完成, 默认:false</span><br><span class="line"># 较新的版本开启后会在任务完成后依然保留.aria2文件</span><br><span class="line">#force-save=false</span><br><span class="line"># 继续之前的BT任务时, 无需再次校验, 默认:false</span><br><span class="line">bt-seed-unverified=true</span><br><span class="line"># 保存磁力链接元数据为种子文件(.torrent文件), 默认:false</span><br><span class="line"># bt-save-metadata=true</span><br><span class="line"># 单个种子最大连接数, 默认:55 0表示不限制</span><br><span class="line">bt-max-peers=0</span><br><span class="line"># 最小做种时间, 单位:分</span><br><span class="line"># seed-time = 60</span><br><span class="line"># 分离做种任务</span><br><span class="line">bt-detach-seed-only=true</span><br></pre></td></tr></table></figure>
+<h2 id="使用aria2p"><a href="#使用aria2p" class="headerlink" title="使用aria2p"></a>使用aria2p</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3.6 -m pip install aria2p[tui]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>tui对交互界面是必要的版本，如果不需要交互界面 直接安装aria2p即可</p>
+</blockquote>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">aria2c</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python/download//" class="article-tag-list-link color4">download</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/05/01/aria2c使用/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ipython使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/04/22/ipython使用/" target="_blank">ipython使用</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/04/22/ipython使用/" class="archive-article-date">
+        <time datetime="2021-04-22T13:29:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-22</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ipython</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python/教程//" class="article-tag-list-link color3">教程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/04/22/ipython使用/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-conda使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/04/20/conda使用/" target="_blank">conda使用</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/04/20/conda使用/" class="archive-article-date">
+        <time datetime="2021-04-20T12:28:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-20</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>[TOC]</p>
+<h1 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h1><h2 id="创建环境"><a href="#创建环境" class="headerlink" title="创建环境"></a>创建环境</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n python3 python=3.9.2 # -n name 环境名称</span><br></pre></td></tr></table></figure>
+<h2 id="进入环境"><a href="#进入环境" class="headerlink" title="进入环境"></a>进入环境</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate python3</span><br></pre></td></tr></table></figure>
+<h2 id="退出环境"><a href="#退出环境" class="headerlink" title="退出环境"></a>退出环境</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda deactivate</span><br></pre></td></tr></table></figure>
+<h2 id="删除环境"><a href="#删除环境" class="headerlink" title="删除环境"></a>删除环境</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda remove -n python3 --all</span><br></pre></td></tr></table></figure>
+<h2 id="环境克隆"><a href="#环境克隆" class="headerlink" title="环境克隆"></a>环境克隆</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n python3clone --clone python3</span><br></pre></td></tr></table></figure>
+<h2 id="查看conda所拥有的环境列表"><a href="#查看conda所拥有的环境列表" class="headerlink" title="查看conda所拥有的环境列表"></a>查看conda所拥有的环境列表</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda env list</span><br></pre></td></tr></table></figure>
+<h1 id="安装库依赖"><a href="#安装库依赖" class="headerlink" title="安装库依赖"></a>安装库依赖</h1><h2 id="安装指定依赖包"><a href="#安装指定依赖包" class="headerlink" title="安装指定依赖包"></a>安装指定依赖包</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install --yes --file requirements.txt</span><br></pre></td></tr></table></figure>
+<h2 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h2><h3 id="method-1"><a href="#method-1" class="headerlink" title="method 1"></a>method 1</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -n python3 pytorch <span class="comment"># 在名称为python3的环境中安装pytorch（未激活环境）</span></span><br></pre></td></tr></table></figure>
+<h3 id="method-2"><a href="#method-2" class="headerlink" title="method 2"></a>method 2</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source activate python3 <span class="comment"># 先进入python3环境</span></span><br><span class="line">conda install pytorch <span class="comment"># 安装pytorch</span></span><br></pre></td></tr></table></figure>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">conda</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python/科学计算//" class="article-tag-list-link color5">科学计算</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/04/20/conda使用/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-自然语言处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/04/15/自然语言处理/" target="_blank">自然语言处理</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/04/15/自然语言处理/" class="archive-article-date">
+        <time datetime="2021-04-15T08:44:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-15</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><script type="math/tex; mode=display">
+词频(TF)=\frac{某个词在文章中出现的次数}{文章的总词数}</script><script type="math/tex; mode=display">
+逆文档频率(IDF)=log(\frac{语料库的文档总数}{包含该词的文档数+ 1})</script><script type="math/tex; mode=display">
+TF - IDF =词频(TF)\times逆文档频率(IDF)</script>
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">自然语言处理</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">词汇分析</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/04/15/自然语言处理/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-PBD文件学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -630,715 +1331,9 @@
 
 
   
-    <article id="post-RStudio、Ruby安装使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/03/04/RStudio、Ruby安装使用/" target="_blank">RStudio、Ruby安装使用</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/03/04/RStudio、Ruby安装使用/" class="archive-article-date">
-        <time datetime="2021-03-04T08:29:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-04</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="RStudio-使用ARM版Ruby-mac-M1-编译安装适用及x86Ruby安装使用"><a href="#RStudio-使用ARM版Ruby-mac-M1-编译安装适用及x86Ruby安装使用" class="headerlink" title="RStudio 使用ARM版Ruby mac M1 编译安装适用及x86Ruby安装使用"></a>RStudio 使用ARM版Ruby mac M1 编译安装适用及x86Ruby安装使用</h1><h2 id="安装ARM版homebrew"><a href="#安装ARM版homebrew" class="headerlink" title="安装ARM版homebrew"></a>安装ARM版homebrew</h2><p>参考<a href="https://zhuanlan.zhihu.com/p/349636719" target="_blank" rel="noopener">链接</a><br>使用命令（挂梯子或者镜像加速）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install ruby # 当前安装为3.0.2版本，无法配合RStudio使用</span><br></pre></td></tr></table></figure>
-<h2 id="终端打开"><a href="#终端打开" class="headerlink" title="终端打开"></a>终端打开</h2><h3 id="做软连接替换掉系统自带的ruby"><a href="#做软连接替换掉系统自带的ruby" class="headerlink" title="做软连接替换掉系统自带的ruby"></a>做软连接替换掉系统自带的ruby</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /opt/homebrew/Cellar/ruby/3.0.0_1/bin/ruby /usr/local/bin/</span><br><span class="line">sudo ln -s /opt/homebrew/Cellar/ruby/3.0.0_1/bin/gem /usr/local/bin/</span><br></pre></td></tr></table></figure>
-<p>版本更新路径可能有所不同，可以在命令行使用<code>ruby -v</code>显示版本号</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ruby -v</span><br><span class="line"><span class="meta">#</span> ruby 3.0.0p0 (2020-12-25 revision 95aff21468) [arm64-darwin20]</span><br></pre></td></tr></table></figure>
-<h2 id="安装x86版Ruby-4-0-4"><a href="#安装x86版Ruby-4-0-4" class="headerlink" title="安装x86版Ruby 4.0.4"></a>安装x86版Ruby 4.0.4</h2><h3 id="安装好编译好的pkg的R包"><a href="#安装好编译好的pkg的R包" class="headerlink" title="安装好编译好的pkg的R包"></a>安装好编译好的pkg的R包</h3><p><a href="https://cran.r-project.org/" target="_blank" rel="noopener">链接</a></p>
-<h3 id="安装RStudio"><a href="#安装RStudio" class="headerlink" title="安装RStudio"></a>安装RStudio</h3><p><a href="https://rstudio.com/products/rstudio/download/#download" target="_blank" rel="noopener">链接</a></p>
-<h2 id="Rosetta2灵活使用"><a href="#Rosetta2灵活使用" class="headerlink" title="Rosetta2灵活使用"></a>Rosetta2灵活使用</h2><p>终端执行如下命令（使用Rosetta2 x86_64模式进行安装）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arch -x86-64 brew update # 使用x86版本homebrew</span><br><span class="line"><span class="meta">#</span> arch -x86_64 + 命令（安装x86软件）</span><br></pre></td></tr></table></figure>
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ARM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Apple chips(M1)</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Ruby//" class="article-tag-list-link color5">Ruby</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/03/04/RStudio、Ruby安装使用/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-toml使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/03/02/toml使用/" target="_blank">toml使用</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/03/02/toml使用/" class="archive-article-date">
-        <time datetime="2021-03-02T06:39:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-02</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="python-中toml配置文件使用"><a href="#python-中toml配置文件使用" class="headerlink" title="python 中toml配置文件使用"></a>python 中toml配置文件使用</h1><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://blog.csdn.net/metheir/article/details/82288198" target="_blank" rel="noopener">链接</a></p>
-<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>python 3.9.0</p>
-<p>toml 0.10.2</p>
-<h2 id="规范【重要】"><a href="#规范【重要】" class="headerlink" title="规范【重要】"></a>规范【重要】</h2><ul>
-<li>TOML 文档是大小写敏感的。</li>
-<li>TOML 文档<strong>必须是一个有效的 <code>UTF-8</code> 编码的 <code>Unicode</code> 文档</strong>。</li>
-<li>空白符只能是制表符（<code>0x09</code>）或空格（<code>0x20</code>）。</li>
-<li>换行符只能是 LF（<code>0x0A</code>）或 CRLF （<code>0x0D0A</code>）。</li>
-</ul>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/配置文件//" class="article-tag-list-link color5">配置文件</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/配置文件/toml//" class="article-tag-list-link color5">toml</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/03/02/toml使用/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-活性弹头预测" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/03/02/活性弹头预测/" target="_blank">活性弹头预测</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/03/02/活性弹头预测/" class="archive-article-date">
-        <time datetime="2021-03-02T06:39:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-02</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="活性弹头预测"><a href="#活性弹头预测" class="headerlink" title="活性弹头预测"></a>活性弹头预测</h1><h2 id="Pubmed-search"><a href="#Pubmed-search" class="headerlink" title="Pubmed search"></a>Pubmed search</h2><h3 id="keyword"><a href="#keyword" class="headerlink" title="keyword:"></a>keyword:</h3><blockquote>
-<p>reactive warhead prediction|warhead prediction|warhead forecast<br>reactive warhead forecast<br>active warhead prediction|warhead prediction（28）<br>active warhead forecast|warhead forecast（11）</p>
-</blockquote>
-<h3 id="弹头活性"><a href="#弹头活性" class="headerlink" title="弹头活性"></a>弹头活性</h3><p>warhead activity（269，402）</p>
-<h3 id="弹头预测"><a href="#弹头预测" class="headerlink" title="弹头预测"></a>弹头预测</h3><p>prediction of warhead（0）</p>
-<p>warhead prediction（7）</p>
-<h2 id="query-words-and-results"><a href="#query-words-and-results" class="headerlink" title="query words and results"></a>query words and results</h2><blockquote>
-<p>query = ‘((“2015/01/01”[Date - Publication] : “3000”[Date - Publication])) AND ((warhead) AND (activity))’</p>
-<p>results:<code>169</code></p>
-</blockquote>
-<h1 id="google学术"><a href="#google学术" class="headerlink" title="google学术"></a>google学术</h1><h2 id="搜索标题"><a href="#搜索标题" class="headerlink" title="搜索标题"></a>搜索标题</h2><blockquote>
-<p>intitle:”warhead activity”</p>
-<p>intitle:(“warhead” AND “activity”)</p>
-<p>:()英文状态 无空格</p>
-</blockquote>
-<h2 id="搜索作者"><a href="#搜索作者" class="headerlink" title="搜索作者"></a>搜索作者</h2><blockquote>
-<p>author:”Richard Fu”</p>
-</blockquote>
-<p><strong>注意这里需要用双引号包含，因为人名是一个整体，也就是说是一个短语。</strong></p>
-<h3 id="针对人名缩写解决方案"><a href="#针对人名缩写解决方案" class="headerlink" title="针对人名缩写解决方案"></a>针对人名缩写解决方案</h3><blockquote>
-<p>author:(“CC Li” OR “C Li” OR “Congcong Li”)</p>
-</blockquote>
-<h2 id="搜索文献来源期刊"><a href="#搜索文献来源期刊" class="headerlink" title="搜索文献来源期刊"></a>搜索文献来源期刊</h2><p>检索权威期刊，提高阅读文献的质量</p>
-<blockquote>
-<p>“warhead” source:”nature biotechnology”</p>
-</blockquote>
-<h2 id="搜索年限"><a href="#搜索年限" class="headerlink" title="搜索年限"></a>搜索年限</h2><p>左侧操作</p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">弹头</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">预测</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/科研//" class="article-tag-list-link color3">科研</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/03/02/活性弹头预测/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-网易云音乐外链及mp4g挂载" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/02/24/网易云音乐外链及mp4g挂载/" target="_blank">网易云音乐外链及mp3挂载</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/02/24/网易云音乐外链及mp4g挂载/" class="archive-article-date">
-        <time datetime="2021-02-24T08:16:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-24</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="markdown挂载网易云音乐"><a href="#markdown挂载网易云音乐" class="headerlink" title="markdown挂载网易云音乐"></a>markdown挂载网易云音乐</h1><h2 id="非自动播放效果"><a href="#非自动播放效果" class="headerlink" title="非自动播放效果"></a>非自动播放效果</h2><h3 id="使用video标签"><a href="#使用video标签" class="headerlink" title="使用video标签"></a>使用video标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;video width=&quot;480&quot; height=&quot;400&quot; controls&gt;     &lt;source src=&quot;http://music.163.com/song/media/outer/url?id=472045959.mp3&quot; type=&quot;audio/mp3&quot;&gt; &lt;/video&gt;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>将分享id <a href="http://music.163.com/song/media/outer/url?id=472045959.mp3" target="_blank" rel="noopener">http://music.163.com/song/media/outer/url?id=472045959.mp3</a> 修改即可</p>
-<p>备选链接（使用iframe标签自动播放）：<a href="http://link.hhtjim.com/163/472045959.mp3" target="_blank" rel="noopener">http://link.hhtjim.com/163/472045959.mp3</a></p>
-</blockquote>
-<h4 id="效果如下"><a href="#效果如下" class="headerlink" title="效果如下"></a>效果如下</h4><h5 id="type-”audio-mp3”"><a href="#type-”audio-mp3”" class="headerlink" title="type=”audio/mp3”"></a>type=”audio/mp3”</h5><video width="720" height="50" controls>
-    <source src="http://music.163.com/song/media/outer/url?id=472045959.mp3" type="audio/mp3">
-</video>
-
-<h5 id="type-type-”video-mp4”"><a href="#type-type-”video-mp4”" class="headerlink" title="type=type=”video/mp4”"></a>type=type=”video/mp4”</h5><video width="720" height="50" controls>
-    <source src="http://music.163.com/song/media/outer/url?id=472045959.mp3" type="video/mp4">
-</video>
-
-
-
-<h3 id="使用audio标签"><a href="#使用audio标签" class="headerlink" title="使用audio标签"></a>使用audio标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;audio controls height=&quot;100&quot; width=&quot;100&quot;&gt;</span><br><span class="line">    &lt;source src=&quot;http://music.163.com/song/media/outer/url?id=472045959.mp3&quot; type=&quot;audio/mpeg&quot;&gt;</span><br><span class="line">    &lt;embed height=&quot;50&quot; width=&quot;100&quot; src=&quot;http://music.163.com/song/media/outer/url?id=472045959.mp3&quot;&gt;</span><br><span class="line">&lt;/audio&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="效果如下-1"><a href="#效果如下-1" class="headerlink" title="效果如下"></a>效果如下</h4><audio controls height="100" width="100">
-    <source src="http://music.163.com/song/media/outer/url?id=472045959.mp3" type="audio/mpeg">
-    <embed height="50" width="100" src="http://music.163.com/song/media/outer/url?id=472045959.mp3">
-</audio>
-
-<h2 id="自动播放效果"><a href="#自动播放效果" class="headerlink" title="自动播放效果"></a>自动播放效果</h2><h3 id="使用iframe标签"><a href="#使用iframe标签" class="headerlink" title="使用iframe标签"></a>使用iframe标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe name=&quot;music&quot; src=&quot;http://link.hhtjim.com/163/472045959.mp3&quot; marginwidth=&quot;0px&quot; marginheight=&quot;0px&quot; width=100% height=&quot;80px&quot; frameborder=1 scrolling=&quot;yes&quot;&gt;</span><br><span class="line">&lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
-<h1 id="markdown挂载视频"><a href="#markdown挂载视频" class="headerlink" title="markdown挂载视频"></a>markdown挂载视频</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;video width=&quot;480&quot; height=&quot;400&quot; controls&gt;</span><br><span class="line">    &lt;source src=&quot;http://pic.jmsu.top/sunnerd.mp4&quot; type=&quot;video/mp4&quot;&gt;</span><br><span class="line">&lt;/video&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe height=498 width=510 src=&quot;https://v5-dy-f.ixigua.com/6f72a74d86b160e7c66db5ba75db769a/6036665c/video/tos/cn/tos-cn-ve-15/1cb550e737244e5ebbc66b762be742dd/&quot; frameborder=0 allowfullscreen&gt;&lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;video width=&quot;480&quot; height=&quot;400&quot; controls&gt;</span><br><span class="line">    &lt;source src=&quot;https://v5-dy-f.ixigua.com/6f72a74d86b160e7c66db5ba75db769a/6036665c/video/tos/cn/tos-cn-ve-15/1cb550e737244e5ebbc66b762be742dd/&quot; type=&quot;video/mp4&quot;&gt;</span><br><span class="line">&lt;/video&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="效果如下-markdown正常显示"><a href="#效果如下-markdown正常显示" class="headerlink" title="效果如下(markdown正常显示)"></a>效果如下(markdown正常显示)</h4><video width="480" height="400" controls>
-    <source src="http://pic.jmsu.top/sunnerd.mp4" type="video/mp4">
-</video>
-
-
-<p><a rel="noreferrer" target="_blank" src="http://v5-dy-f.ixigua.com/6f72a74d86b160e7c66db5ba75db769a/6036665c/video/tos/cn/tos-cn-ve-15/1cb550e737244e5ebbc66b762be742dd/"></a></p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/部署//" class="article-tag-list-link color3">部署</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/02/24/网易云音乐外链及mp4g挂载/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-music" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/02/24/music/" target="_blank">music</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/02/24/music/" class="archive-article-date">
-        <time datetime="2021-02-24T07:33:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-24</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="The-cure-lady-gaga"><a href="#The-cure-lady-gaga" class="headerlink" title="The cure - lady gaga"></a>The cure - lady gaga</h1><video width="720" height="50" controls>
-    <source src="http://music.163.com/song/media/outer/url?id=472045959.mp3" type="video/mp4">
-</video>
-
-
-<h1 id="Weightless"><a href="#Weightless" class="headerlink" title="Weightless"></a>Weightless</h1><blockquote>
-<p>解决压力</p>
-</blockquote>
-<video width="720" height="50" controls>
-    <source src="http://music.163.com/song/media/outer/url?id=30870608.mp3" type="video/mp4">
-</video>
-
-
-<h1 id="Sonata-for-Two-Pianos-in-D-Major-K448-II-Andante"><a href="#Sonata-for-Two-Pianos-in-D-Major-K448-II-Andante" class="headerlink" title="Sonata for Two Pianos in D Major, K448: II. Andante"></a>Sonata for Two Pianos in D Major, K448: II. Andante</h1><blockquote>
-<p>治疗失眠</p>
-</blockquote>
-<video width="720" height="50" controls>
-    <source src="http://music.163.com/song/media/outer/url?id=551331237.mp3" type="video/mp4">
-</video>
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">The cure</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Weightless</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/music//" class="article-tag-list-link color1">music</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/02/24/music/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vim快捷键" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/02/05/vim快捷键/" target="_blank">vim快捷键</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/02/05/vim快捷键/" class="archive-article-date">
-        <time datetime="2021-02-05T15:13:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-05</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="批量注释"><a href="#批量注释" class="headerlink" title="批量注释"></a>批量注释</h1><p><a href="https://www.cnblogs.com/davidshen/p/10248224.html" target="_blank" rel="noopener">链接</a></p>
-<blockquote>
-<p>批量插入字符快捷键：</p>
-<p>Ctrl+v进入VISUAL BLOCK（可视块）模式，按 j （向下选取列）或者 k （向上选取列），再按Shift + i 进入编辑模式然后输入你想要插入的字符（任意字符），再按两次Esc就可以实现批量插入字符，不仅仅实现批量注释而已。</p>
-<p>批量删除字符快捷键：</p>
-<p>Ctrl+v进入VISUAL BLOCK（可视块）模式，按 j （向下选取列）或者 k （向上选取列），直接（不用进入编辑模式）按 x 或者 d 就可以直接删去，再按Esc退出。</p>
-</blockquote>
-<hr>
-<h1 id="其他快捷键"><a href="#其他快捷键" class="headerlink" title="其他快捷键"></a>其他快捷键</h1><p><a href="https://blog.csdn.net/lhl1124281072/article/details/83148777" target="_blank" rel="noopener">链接</a></p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">常用快捷键</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vim</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux//" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/02/05/vim快捷键/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1501,15 +1496,31 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ARM</a>
+                <a href="javascript:void(0)" class="js-tag color2">aria2c</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Apple chips(M1)</a>
+                <a href="javascript:void(0)" class="js-tag color1">conda</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">init</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ipython</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">自我介绍</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">考研复试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1521,15 +1532,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">init</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">高级特性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">terminal</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">自我介绍</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">考研复试</a>
+                <a href="javascript:void(0)" class="js-tag color1">字符串编码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1545,19 +1560,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">threading</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">导入</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color5">json</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">高级特性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">字符串编码</a>
+                <a href="javascript:void(0)" class="js-tag color2">requirement</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1565,7 +1580,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">requirement</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1577,15 +1592,27 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">气相色谱分离条件选择</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
+                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">药动学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">药效学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">自然语言处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">词汇分析</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1606,14 +1633,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">药动学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">药效学</a>
               </li>
             
             <div class="clearfix"></div>
