@@ -185,6 +185,118 @@
             
 
   
+    <article id="post-RStudio、Ruby安装使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/04/20/RStudio、Ruby安装使用/" target="_blank">RStudio、Ruby安装使用</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/04/20/RStudio、Ruby安装使用/" class="archive-article-date">
+        <time datetime="2019-04-20T01:18:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-20</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>[TOC]</p>
+<h1 id="RStudio-使用ARM版Ruby-mac-M1-编译安装适用及x86Ruby安装使用"><a href="#RStudio-使用ARM版Ruby-mac-M1-编译安装适用及x86Ruby安装使用" class="headerlink" title="RStudio 使用ARM版Ruby mac M1 编译安装适用及x86Ruby安装使用"></a>RStudio 使用ARM版Ruby mac M1 编译安装适用及x86Ruby安装使用</h1><h2 id="安装ARM版homebrew"><a href="#安装ARM版homebrew" class="headerlink" title="安装ARM版homebrew"></a>安装ARM版homebrew</h2><p>参考<a href="https://zhuanlan.zhihu.com/p/349636719" target="_blank" rel="noopener">链接</a><br>使用命令（挂梯子或者镜像加速）<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install ruby # 当前安装为3.0.2版本，无法配合RStudio使用</span><br></pre></td></tr></table></figure></p>
+<h2 id="终端打开"><a href="#终端打开" class="headerlink" title="终端打开"></a>终端打开</h2><h3 id="做软连接替换掉系统自带的ruby"><a href="#做软连接替换掉系统自带的ruby" class="headerlink" title="做软连接替换掉系统自带的ruby"></a>做软连接替换掉系统自带的ruby</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /opt/homebrew/Cellar/ruby/3.0.0_1/bin/ruby /usr/local/bin/</span><br><span class="line">sudo ln -s /opt/homebrew/Cellar/ruby/3.0.0_1/bin/gem /usr/local/bin/</span><br></pre></td></tr></table></figure>
+<p>版本更新路径可能有所不同，可以在命令行使用<code>ruby -v</code>显示版本号</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ruby -v</span><br><span class="line"><span class="meta">#</span> ruby 3.0.0p0 (2020-12-25 revision 95aff21468) [arm64-darwin20]</span><br></pre></td></tr></table></figure>
+<h2 id="安装x86版Ruby-4-0-4"><a href="#安装x86版Ruby-4-0-4" class="headerlink" title="安装x86版Ruby 4.0.4"></a>安装x86版Ruby 4.0.4</h2><h3 id="安装好编译好的pkg的R包"><a href="#安装好编译好的pkg的R包" class="headerlink" title="安装好编译好的pkg的R包"></a>安装好编译好的pkg的R包</h3><p><a href="https://cran.r-project.org/" target="_blank" rel="noopener">链接</a></p>
+<h3 id="安装RStudio"><a href="#安装RStudio" class="headerlink" title="安装RStudio"></a>安装RStudio</h3><p><a href="https://rstudio.com/products/rstudio/download/#download" target="_blank" rel="noopener">链接</a></p>
+<h2 id="Rosetta2灵活使用"><a href="#Rosetta2灵活使用" class="headerlink" title="Rosetta2灵活使用"></a>Rosetta2灵活使用</h2><p>终端执行如下命令（使用Rosetta2 x86_64模式进行安装）<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arch -x86-64 brew update # 使用x86版本homebrew</span><br><span class="line"><span class="meta">#</span> arch -x86_64 + 命令（安装x86软件）</span><br></pre></td></tr></table></figure></p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/专业//" class="article-tag-list-link color3">专业</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/专业/测试//" class="article-tag-list-link color3">测试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/04/20/RStudio、Ruby安装使用/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-绪论" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -464,10 +576,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">aria2c</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">conda</a>
               </li>
              
@@ -480,7 +588,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">aria2c</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ipython</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">import</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">init</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -500,7 +620,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">init</a>
+                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">threading</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -508,11 +632,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">字符串编码</a>
+                <a href="javascript:void(0)" class="js-tag color3">导入</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -528,11 +648,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">threading</a>
+                <a href="javascript:void(0)" class="js-tag color1">字符串编码</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">导入</a>
+                <a href="javascript:void(0)" class="js-tag color5">异常输出</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -544,11 +664,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">异常输出</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
+                <a href="javascript:void(0)" class="js-tag color1">气相色谱分离条件选择</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -560,11 +676,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">气相色谱分离条件选择</a>
+                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
+                <a href="javascript:void(0)" class="js-tag color3">弹头</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">预测</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -576,19 +696,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">自然语言处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">词汇分析</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">弹头</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">预测</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -601,6 +709,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">自然语言处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">词汇分析</a>
               </li>
             
             <div class="clearfix"></div>

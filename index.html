@@ -185,6 +185,135 @@
             
 
   
+    <article id="post-import导入相关问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/05/14/import导入相关问题/" target="_blank">import导入相关问题</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/05/14/import导入相关问题/" class="archive-article-date">
+        <time datetime="2021-05-14T07:47:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-14</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>[TOC]</p>
+<h1 id="import-导入相关依赖详细介绍"><a href="#import-导入相关依赖详细介绍" class="headerlink" title="import 导入相关依赖详细介绍"></a>import 导入相关依赖详细介绍</h1><h2 id="导入的类型"><a href="#导入的类型" class="headerlink" title="导入的类型"></a>导入的类型</h2><p><a href="https://blog.csdn.net/qq_39852676/article/details/107863337" target="_blank" rel="noopener">参考博客</a></p>
+<h3 id="相对导入与绝对导入"><a href="#相对导入与绝对导入" class="headerlink" title="相对导入与绝对导入"></a>相对导入与绝对导入</h3><h4 id="相对导入"><a href="#相对导入" class="headerlink" title="相对导入"></a>相对导入</h4><blockquote>
+<p>相对导入分为：</p>
+</blockquote>
+<p><code>implicit relative import</code>（隐式相对导入）</p>
+<p><code>explicit relative import</code>（显示相对导入）</p>
+<h4 id="绝对导入（官方推荐）"><a href="#绝对导入（官方推荐）" class="headerlink" title="绝对导入（官方推荐）"></a>绝对导入（官方推荐）</h4><blockquote>
+<p>绝对导入的格式为 <code>import A.B</code> 或 <code>from A import B</code>，相对导入格式为 <code>from . import B</code> 或 <code>from ..A import B</code>，<strong>.代表当前模块，…代表上层模块，…代表上上层模块</strong>，依次类推。</p>
+</blockquote>
+<p>在没有明确指定包结构的情况下，Python 是根据 <strong>name</strong> 来决定一个模块在包中的结构的，如果是 <strong>main</strong> 则它本身是顶层模块，没有包结构，如果是A.B.C 结构，那么顶层模块是 A。基本上遵循这样的原则：</p>
+<p>如果是绝对导入，一个模块只能导入<strong>自身的子模块或和它的顶层模块同级别的模块及其子模块</strong><br>如果是相对导入，一个模块必须有包结构且只能导入<strong>它的顶层模块内部的模块</strong></p>
+<h2 id="init-py"><a href="#init-py" class="headerlink" title="_init_.py"></a>_<em>init_</em>.py</h2><p>在<code>python3.6</code>以后的文件夹中，<code>__init__.py</code> 将当前文件夹下作为一个包的目录层级。</p>
+<h2 id="导入下级模块"><a href="#导入下级模块" class="headerlink" title="导入下级模块"></a>导入下级模块</h2><blockquote>
+<p>程序结构如下：</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-- src</span><br><span class="line">  |-- mod1.py</span><br><span class="line">  |-- lib</span><br><span class="line">  |  |-- mod2.py</span><br><span class="line">  |-- test1.py</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这时看到<code>test1.py</code>和lib目录（即<code>mod2.py</code>的父级目录），如果想在程序<code>test1.py</code>中导入模块<code>mod2.py</code> ，可以在lib件夹中建立空文件<code>__init__.py</code>文件(也可以在该文件中自定义输出模块接口)，然后使用：</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> lib <span class="keyword">import</span> mod2</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line"><span class="keyword">import</span> lib.mod2</span><br></pre></td></tr></table></figure>
+<h2 id="导入同级模块"><a href="#导入同级模块" class="headerlink" title="导入同级模块"></a>导入同级模块</h2><p>程序结构如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-- src</span><br><span class="line">  |-- mod1.py</span><br><span class="line">  |-- test1.py</span><br></pre></td></tr></table></figure>
+<p>若在程序<code>test1.py</code>中导入模块<code>mod1</code>, 则直接使用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> mod1</span><br><span class="line">或</span><br><span class="line"><span class="keyword">from</span> mod1 <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
+<h2 id="导入上级模块"><a href="#导入上级模块" class="headerlink" title="导入上级模块"></a>导入上级模块</h2><h3 id="sys-path的作用"><a href="#sys-path的作用" class="headerlink" title="sys.path的作用"></a>sys.path的作用</h3><p>当使用import语句导入模块时，解释器会搜索<strong>当前模块所在目录</strong>以及<strong>sys.path指定的路径</strong>去找需要import的模块</p>
+<h3 id="层级结构"><a href="#层级结构" class="headerlink" title="层级结构"></a>层级结构</h3><p>程序结构如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-- src</span><br><span class="line">  |-- mod1.py</span><br><span class="line">  |-- lib</span><br><span class="line">  |  |-- mod2.py</span><br><span class="line">  |-- sub</span><br><span class="line">  |  |-- test2.py</span><br></pre></td></tr></table></figure>
+<h3 id="①-通过把绝对路径添加至sys-path"><a href="#①-通过把绝对路径添加至sys-path" class="headerlink" title="① 通过把绝对路径添加至sys.path"></a>① 通过把<strong>绝对路径</strong>添加至<code>sys.path</code></h3><p>这里想要实现test2.py调用mod1.py和mod2.py ，做法是我们先跳到src目录下面，直接可以调用mod1，然后在lib上当下建一个空文件<strong>init</strong>.py ，就可以像第二步调用子目录下的模块一样，通过from lib import mod2进行调用了。具体代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os,sys</span><br><span class="line"></span><br><span class="line">o_path = os.getcwd() <span class="comment"># 返回当前工作目录</span></span><br><span class="line">sys.path.append(o_path) <span class="comment"># 添加自己指定的搜索路径</span></span><br><span class="line"><span class="keyword">import</span> mod1</span><br><span class="line"><span class="keyword">from</span> lib <span class="keyword">import</span> mod2</span><br></pre></td></tr></table></figure>
+<h3 id="②-通过把相对目录层级添加至sys-path"><a href="#②-通过把相对目录层级添加至sys-path" class="headerlink" title="② 通过把相对目录层级添加至sys.path"></a>② 通过把<strong>相对目录层级</strong>添加至<code>sys.path</code></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os,sys</span><br><span class="line"></span><br><span class="line">sys.path.append(<span class="string">'../'</span>) <span class="comment"># 添加自己指定的搜索路径</span></span><br><span class="line"><span class="keyword">import</span> mod1</span><br><span class="line"><span class="keyword">from</span> lib <span class="keyword">import</span> mod2</span><br></pre></td></tr></table></figure>
+<p>可以考虑在不同层级下的导入情况下进行兼容处理。尝试使用try语句，直到导入成功。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">from</span> ..readmodule.xlsx_base <span class="keyword">import</span> xlsx_base</span><br><span class="line"><span class="keyword">except</span> (ModuleNotFoundError,ImportError):</span><br><span class="line">    <span class="keyword">from</span> readmodule.xlsx_base <span class="keyword">import</span> xlsx_base</span><br></pre></td></tr></table></figure>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">import</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/05/14/import导入相关问题/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-python多线程多进程编程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1221,116 +1350,6 @@ TF - IDF =词频(TF)\times逆文档频率(IDF)</script>
 
 
   
-    <article id="post-mac及win终端代理别名设置及其持久化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/03/11/mac及win终端代理别名设置及其持久化/" target="_blank">mac及win终端代理别名设置及其持久化</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/03/11/mac及win终端代理别名设置及其持久化/" class="archive-article-date">
-        <time datetime="2021-03-11T07:12:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-11</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>windows 配置cmd、powershell、git bash 参考<a href="https://zcdll.github.io/2018/01/27/proxy-on-windows-terminal/" target="_blank" rel="noopener">链接</a></p>
-<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">set http_proxy=http://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line">set https_proxy=http://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line">set http_proxy_user=user</span><br><span class="line">set http_proxy_pass=pass</span><br><span class="line"></span><br><span class="line">set https_proxy_user=user</span><br><span class="line">set https_proxy_pass=pass</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 恢复</span><br><span class="line">set http_proxy=</span><br><span class="line"></span><br><span class="line">set https_proxy=</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Ubuntu 下命令为 export</span><br><span class="line"><span class="meta">#</span> export http_proxy=http://127.0.0.1:1080</span><br></pre></td></tr></table></figure>
-<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p><code>curl -vv http://www.google.com</code>，用这条命令来验证，如果返回如下结果表示代理设置成功。</p>
-<h1 id="更加方便的工具"><a href="#更加方便的工具" class="headerlink" title="更加方便的工具"></a>更加方便的工具</h1><p><a href="https://github.com/Prodesire/terminal-proxy" target="_blank" rel="noopener">github 链接</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/96055170" target="_blank" rel="noopener">知乎链接</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">首先是安装：</span><br><span class="line">pip install terminal-proxy</span><br><span class="line">然后配置一遍代理地址：</span><br><span class="line">proxy config <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">1080</span></span><br><span class="line">然后就可以愉快地在命令行中开启关闭代理了：</span><br><span class="line"><span class="comment"># 开启代理</span></span><br><span class="line">proxy on</span><br><span class="line"><span class="comment"># 查看代理</span></span><br><span class="line">proxy show</span><br><span class="line"><span class="comment"># 关闭代理</span></span><br><span class="line">proxy off</span><br></pre></td></tr></table></figure>
-<h1 id="Useage"><a href="#Useage" class="headerlink" title="Useage"></a>Useage</h1><h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install terminal-proxy</span><br></pre></td></tr></table></figure>
-<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><h3 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxy config 127.0.0.1:1080</span><br></pre></td></tr></table></figure>
-<h3 id="Turn-on"><a href="#Turn-on" class="headerlink" title="Turn on"></a>Turn on</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># If you are on Windows, please run as administrator</span></span><br><span class="line"><span class="comment"># Turn on all proxies</span></span><br><span class="line">proxy on</span><br><span class="line"></span><br><span class="line"><span class="comment"># Turn on http proxy</span></span><br><span class="line">proxy on --http</span><br><span class="line"></span><br><span class="line"><span class="comment"># Turn on git proxy</span></span><br><span class="line">proxy on --git</span><br></pre></td></tr></table></figure>
-<h3 id="Show"><a href="#Show" class="headerlink" title="Show"></a>Show</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Show all proxies. Also supports --http and --git</span></span><br><span class="line">proxy show</span><br></pre></td></tr></table></figure>
-<h3 id="Turn-off"><a href="#Turn-off" class="headerlink" title="Turn off"></a>Turn off</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Turn off all proxies. Also supports --http and --git</span></span><br><span class="line">proxy off</span><br></pre></td></tr></table></figure>
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">terminal</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/代理//" class="article-tag-list-link color3">代理</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/代理/终端//" class="article-tag-list-link color3">终端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/03/11/mac及win终端代理别名设置及其持久化/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1496,10 +1515,6 @@ TF - IDF =词频(TF)\times逆文档频率(IDF)</script>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">aria2c</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">conda</a>
               </li>
              
@@ -1512,7 +1527,19 @@ TF - IDF =词频(TF)\times逆文档频率(IDF)</script>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">aria2c</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ipython</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">import</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">init</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1532,7 +1559,11 @@ TF - IDF =词频(TF)\times逆文档频率(IDF)</script>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">init</a>
+                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">threading</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1540,11 +1571,7 @@ TF - IDF =词频(TF)\times逆文档频率(IDF)</script>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">字符串编码</a>
+                <a href="javascript:void(0)" class="js-tag color3">导入</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1560,11 +1587,11 @@ TF - IDF =词频(TF)\times逆文档频率(IDF)</script>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">threading</a>
+                <a href="javascript:void(0)" class="js-tag color1">字符串编码</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">导入</a>
+                <a href="javascript:void(0)" class="js-tag color5">异常输出</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1576,11 +1603,7 @@ TF - IDF =词频(TF)\times逆文档频率(IDF)</script>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">异常输出</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
+                <a href="javascript:void(0)" class="js-tag color1">气相色谱分离条件选择</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1592,11 +1615,15 @@ TF - IDF =词频(TF)\times逆文档频率(IDF)</script>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">气相色谱分离条件选择</a>
+                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
+                <a href="javascript:void(0)" class="js-tag color3">弹头</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">预测</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1608,19 +1635,7 @@ TF - IDF =词频(TF)\times逆文档频率(IDF)</script>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">自然语言处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">词汇分析</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">弹头</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">预测</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1633,6 +1648,14 @@ TF - IDF =词频(TF)\times逆文档频率(IDF)</script>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">自然语言处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">词汇分析</a>
               </li>
             
             <div class="clearfix"></div>

@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="jmsu.top">
-  <title>Tag: Apple chips(M1) | xiaozhe&#39;s blog</title>
+  <title>import导入相关问题 | xiaozhe&#39;s blog</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="linux, golang ,python ,spider ,Mathjax">
-<meta property="og:type" content="website">
-<meta property="og:title" content="xiaozhe&#39;s blog">
-<meta property="og:url" content="jmsu.top/tags/Apple-chips-M1/index.html">
+  <meta name="description" content="[TOC] import 导入相关依赖详细介绍导入的类型参考博客 相对导入与绝对导入相对导入 相对导入分为：  implicit relative import（隐式相对导入） explicit relative import（显示相对导入） 绝对导入（官方推荐） 绝对导入的格式为 import A.B 或 from A import B，相对导入格式为 from . import B 或 fro">
+<meta name="keywords" content="import">
+<meta property="og:type" content="article">
+<meta property="og:title" content="import导入相关问题">
+<meta property="og:url" content="jmsu.top/2021/05/14/import导入相关问题/index.html">
 <meta property="og:site_name" content="xiaozhe&#39;s blog">
+<meta property="og:description" content="[TOC] import 导入相关依赖详细介绍导入的类型参考博客 相对导入与绝对导入相对导入 相对导入分为：  implicit relative import（隐式相对导入） explicit relative import（显示相对导入） 绝对导入（官方推荐） 绝对导入的格式为 import A.B 或 from A import B，相对导入格式为 from . import B 或 fro">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-05-14T08:52:41.472Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="xiaozhe&#39;s blog">
+<meta name="twitter:title" content="import导入相关问题">
+<meta name="twitter:description" content="[TOC] import 导入相关依赖详细介绍导入的类型参考博客 相对导入与绝对导入相对导入 相对导入分为：  implicit relative import（隐式相对导入） explicit relative import（显示相对导入） 绝对导入（官方推荐） 绝对导入的格式为 import A.B 或 from A import B，相对导入格式为 from . import B 或 fro">
   
     <link rel="alternative" href="/atom.xml" title="xiaozhe&#39;s blog" type="application/atom+xml">
   
@@ -178,80 +182,240 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-import导入相关问题" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/03/04/RStudio、Ruby安装使用/" class="archive-article-date">
-        <time datetime="2021-03-04T08:29:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-04</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/03/04/RStudio、Ruby安装使用/" target="_blank">RStudio、Ruby安装使用</a>
   
+    <h1 class="article-title" itemprop="name">
+      import导入相关问题
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2021/05/14/import导入相关问题/" class="archive-article-date">
+        <time datetime="2021-05-14T07:47:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-14</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">715字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">2分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>[TOC]</p>
+<h1 id="import-导入相关依赖详细介绍"><a href="#import-导入相关依赖详细介绍" class="headerlink" title="import 导入相关依赖详细介绍"></a>import 导入相关依赖详细介绍</h1><h2 id="导入的类型"><a href="#导入的类型" class="headerlink" title="导入的类型"></a>导入的类型</h2><p><a href="https://blog.csdn.net/qq_39852676/article/details/107863337" target="_blank" rel="noopener">参考博客</a></p>
+<h3 id="相对导入与绝对导入"><a href="#相对导入与绝对导入" class="headerlink" title="相对导入与绝对导入"></a>相对导入与绝对导入</h3><h4 id="相对导入"><a href="#相对导入" class="headerlink" title="相对导入"></a>相对导入</h4><blockquote>
+<p>相对导入分为：</p>
+</blockquote>
+<p><code>implicit relative import</code>（隐式相对导入）</p>
+<p><code>explicit relative import</code>（显示相对导入）</p>
+<h4 id="绝对导入（官方推荐）"><a href="#绝对导入（官方推荐）" class="headerlink" title="绝对导入（官方推荐）"></a>绝对导入（官方推荐）</h4><blockquote>
+<p>绝对导入的格式为 <code>import A.B</code> 或 <code>from A import B</code>，相对导入格式为 <code>from . import B</code> 或 <code>from ..A import B</code>，<strong>.代表当前模块，…代表上层模块，…代表上上层模块</strong>，依次类推。</p>
+</blockquote>
+<p>在没有明确指定包结构的情况下，Python 是根据 <strong>name</strong> 来决定一个模块在包中的结构的，如果是 <strong>main</strong> 则它本身是顶层模块，没有包结构，如果是A.B.C 结构，那么顶层模块是 A。基本上遵循这样的原则：</p>
+<p>如果是绝对导入，一个模块只能导入<strong>自身的子模块或和它的顶层模块同级别的模块及其子模块</strong><br>如果是相对导入，一个模块必须有包结构且只能导入<strong>它的顶层模块内部的模块</strong></p>
+<h2 id="init-py"><a href="#init-py" class="headerlink" title="_init_.py"></a>_<em>init_</em>.py</h2><p>在<code>python3.6</code>以后的文件夹中，<code>__init__.py</code> 将当前文件夹下作为一个包的目录层级。</p>
+<h2 id="导入下级模块"><a href="#导入下级模块" class="headerlink" title="导入下级模块"></a>导入下级模块</h2><blockquote>
+<p>程序结构如下：</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-- src</span><br><span class="line">  |-- mod1.py</span><br><span class="line">  |-- lib</span><br><span class="line">  |  |-- mod2.py</span><br><span class="line">  |-- test1.py</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这时看到<code>test1.py</code>和lib目录（即<code>mod2.py</code>的父级目录），如果想在程序<code>test1.py</code>中导入模块<code>mod2.py</code> ，可以在lib件夹中建立空文件<code>__init__.py</code>文件(也可以在该文件中自定义输出模块接口)，然后使用：</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> lib <span class="keyword">import</span> mod2</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line"><span class="keyword">import</span> lib.mod2</span><br></pre></td></tr></table></figure>
+<h2 id="导入同级模块"><a href="#导入同级模块" class="headerlink" title="导入同级模块"></a>导入同级模块</h2><p>程序结构如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-- src</span><br><span class="line">  |-- mod1.py</span><br><span class="line">  |-- test1.py</span><br></pre></td></tr></table></figure>
+<p>若在程序<code>test1.py</code>中导入模块<code>mod1</code>, 则直接使用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> mod1</span><br><span class="line">或</span><br><span class="line"><span class="keyword">from</span> mod1 <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
+<h2 id="导入上级模块"><a href="#导入上级模块" class="headerlink" title="导入上级模块"></a>导入上级模块</h2><h3 id="sys-path的作用"><a href="#sys-path的作用" class="headerlink" title="sys.path的作用"></a>sys.path的作用</h3><p>当使用import语句导入模块时，解释器会搜索<strong>当前模块所在目录</strong>以及<strong>sys.path指定的路径</strong>去找需要import的模块</p>
+<h3 id="层级结构"><a href="#层级结构" class="headerlink" title="层级结构"></a>层级结构</h3><p>程序结构如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-- src</span><br><span class="line">  |-- mod1.py</span><br><span class="line">  |-- lib</span><br><span class="line">  |  |-- mod2.py</span><br><span class="line">  |-- sub</span><br><span class="line">  |  |-- test2.py</span><br></pre></td></tr></table></figure>
+<h3 id="①-通过把绝对路径添加至sys-path"><a href="#①-通过把绝对路径添加至sys-path" class="headerlink" title="① 通过把绝对路径添加至sys.path"></a>① 通过把<strong>绝对路径</strong>添加至<code>sys.path</code></h3><p>这里想要实现test2.py调用mod1.py和mod2.py ，做法是我们先跳到src目录下面，直接可以调用mod1，然后在lib上当下建一个空文件<strong>init</strong>.py ，就可以像第二步调用子目录下的模块一样，通过from lib import mod2进行调用了。具体代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os,sys</span><br><span class="line"></span><br><span class="line">o_path = os.getcwd() <span class="comment"># 返回当前工作目录</span></span><br><span class="line">sys.path.append(o_path) <span class="comment"># 添加自己指定的搜索路径</span></span><br><span class="line"><span class="keyword">import</span> mod1</span><br><span class="line"><span class="keyword">from</span> lib <span class="keyword">import</span> mod2</span><br></pre></td></tr></table></figure>
+<h3 id="②-通过把相对目录层级添加至sys-path"><a href="#②-通过把相对目录层级添加至sys-path" class="headerlink" title="② 通过把相对目录层级添加至sys.path"></a>② 通过把<strong>相对目录层级</strong>添加至<code>sys.path</code></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os,sys</span><br><span class="line"></span><br><span class="line">sys.path.append(<span class="string">'../'</span>) <span class="comment"># 添加自己指定的搜索路径</span></span><br><span class="line"><span class="keyword">import</span> mod1</span><br><span class="line"><span class="keyword">from</span> lib <span class="keyword">import</span> mod2</span><br></pre></td></tr></table></figure>
+<p>可以考虑在不同层级下的导入情况下进行兼容处理。尝试使用try语句，直到导入成功。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">from</span> ..readmodule.xlsx_base <span class="keyword">import</span> xlsx_base</span><br><span class="line"><span class="keyword">except</span> (ModuleNotFoundError,ImportError):</span><br><span class="line">    <span class="keyword">from</span> readmodule.xlsx_base <span class="keyword">import</span> xlsx_base</span><br></pre></td></tr></table></figure>
+
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          ze.
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="jmsu.top/2021/05/14/import导入相关问题/" title="import导入相关问题" target="_blank">jmsu.top/2021/05/14/import导入相关问题/</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ARM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Apple chips(M1)</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">import</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Ruby//" class="article-tag-list-link color5">Ruby</a>
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+    
 
     
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http:jmsu.top/2021/05/14/import导入相关问题/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2021/05/02/python多线程多进程编程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python多线程多进程编程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
           </div>
@@ -295,9 +459,9 @@
 	var yiliaConfig = {
 		mathjax: [object Object],
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
@@ -412,15 +576,39 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ARM</a>
+                <a href="javascript:void(0)" class="js-tag color1">conda</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Apple chips(M1)</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">aria2c</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ipython</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">import</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">init</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">自我介绍</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">考研复试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -436,11 +624,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">自我介绍</a>
+                <a href="javascript:void(0)" class="js-tag color5">threading</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">考研复试</a>
+                <a href="javascript:void(0)" class="js-tag color5">高级特性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">导入</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -456,18 +648,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">导入</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">高级特性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">字符串编码</a>
               </li>
              
@@ -476,7 +656,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">requirement</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">气相色谱分离条件选择</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -492,19 +680,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">气相色谱分离条件选择</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">弹头</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">预测</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">药动学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">药效学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,11 +712,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">药动学</a>
+                <a href="javascript:void(0)" class="js-tag color2">自然语言处理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">药效学</a>
+                <a href="javascript:void(0)" class="js-tag color5">词汇分析</a>
               </li>
             
             <div class="clearfix"></div>
