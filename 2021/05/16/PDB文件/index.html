@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="jmsu.top">
-  <title>Archives: 2020 | xiaozhe&#39;s blog</title>
+  <title>PDB文件 | xiaozhe&#39;s blog</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="linux, golang ,python ,spider ,Mathjax">
-<meta property="og:type" content="website">
-<meta property="og:title" content="xiaozhe&#39;s blog">
-<meta property="og:url" content="jmsu.top/archives/2020/index.html">
+  <meta name="description" content="[TOC] 什么是PDB文件一种基于晶体衍射测定的分子结构，是一种蛋白质数据库文件。 PDB(Protein Data Bank)是一种标准文件格式, 其中包含原子的坐标等信息, 提交给 Protein Data Bank at the Research Collaboratory for Structural Bioinformatics (RCSB) 的结构都使用这种标准格式. 完整的PDB文">
+<meta name="keywords" content="详解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PDB文件">
+<meta property="og:url" content="jmsu.top/2021/05/16/PDB文件/index.html">
 <meta property="og:site_name" content="xiaozhe&#39;s blog">
+<meta property="og:description" content="[TOC] 什么是PDB文件一种基于晶体衍射测定的分子结构，是一种蛋白质数据库文件。 PDB(Protein Data Bank)是一种标准文件格式, 其中包含原子的坐标等信息, 提交给 Protein Data Bank at the Research Collaboratory for Structural Bioinformatics (RCSB) 的结构都使用这种标准格式. 完整的PDB文">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-05-16T09:04:17.394Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="xiaozhe&#39;s blog">
+<meta name="twitter:title" content="PDB文件">
+<meta name="twitter:description" content="[TOC] 什么是PDB文件一种基于晶体衍射测定的分子结构，是一种蛋白质数据库文件。 PDB(Protein Data Bank)是一种标准文件格式, 其中包含原子的坐标等信息, 提交给 Protein Data Bank at the Research Collaboratory for Structural Bioinformatics (RCSB) 的结构都使用这种标准格式. 完整的PDB文">
   
     <link rel="alternative" href="/atom.xml" title="xiaozhe&#39;s blog" type="application/atom+xml">
   
@@ -178,293 +182,395 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-PDB文件" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/12/29/requirement-txt使用/" class="archive-article-date">
-        <time datetime="2020-12-29T11:06:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-29</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/12/29/requirement-txt使用/" target="_blank">requirement.txt使用</a>
   
+    <h1 class="article-title" itemprop="name">
+      PDB文件
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2021/05/16/PDB文件/" class="archive-article-date">
+        <time datetime="2021-05-16T09:03:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-16</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">698字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">2分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>[TOC]</p>
+<h1 id="什么是PDB文件"><a href="#什么是PDB文件" class="headerlink" title="什么是PDB文件"></a>什么是PDB文件</h1><p>一种基于晶体衍射测定的分子结构，是一种蛋白质数据库文件。</p>
+<p><strong>PDB</strong>(Protein Data Bank)是一种标准文件格式, 其中包含原子的坐标等信息, 提交给 Protein Data Bank at the Research Collaboratory for Structural Bioinformatics (RCSB) 的结构都使用这种标准格式.</p>
+<p>完整的PDB文件提供了非常多的信息, 包括作者, 参考文献以及结构说明, 如二硫键, 螺旋, 片层, 活性位点. 在使用PDB文件时请记住, 一些建模软件可能不支持那些错误的输入格式.</p>
+<p>PDB格式以文本格式给出信息, 每一行信息称为一个 记录(record). 一个PDB文件通常包括很多不同类型的记录, 它们以特定的顺序排列, 用以描述结构.</p>
+<h2 id="电子云理论与PDB文件之间的关系"><a href="#电子云理论与PDB文件之间的关系" class="headerlink" title="电子云理论与PDB文件之间的关系"></a>电子云理论与PDB文件之间的关系</h2><p>在实际原子与原子之间中化学键连接中电子不断运动的，而基于晶体衍射产生的结果只是蛋白某个瞬间的电子状态。在真实过程中电子云不断运动，蛋白同时结构也是一个柔性结构，是一个<strong>动态的</strong>视频。基于晶体衍射的结果得到的结果是一个<strong>静态的</strong>结果，类似一张照片。</p>
+<h2 id="标题部分"><a href="#标题部分" class="headerlink" title="标题部分"></a>标题部分</h2><h3 id="HEADER"><a href="#HEADER" class="headerlink" title="HEADER"></a>HEADER</h3><p>分子类, 公布日期, ID号</p>
+<h3 id="OBSLTE"><a href="#OBSLTE" class="headerlink" title="OBSLTE"></a>OBSLTE</h3><p>: 注明此ID号已废弃, 改用新ID号</p>
+<h3 id="TITLE"><a href="#TITLE" class="headerlink" title="TITLE"></a>TITLE</h3><p>: 说明实验方法类型</p>
+<h3 id="CAVEAT"><a href="#CAVEAT" class="headerlink" title="CAVEAT"></a>CAVEAT</h3><p>: 可能的错误警告</p>
+<h3 id="COMPND"><a href="#COMPND" class="headerlink" title="COMPND"></a>COMPND</h3><p>: 化合物分子组成</p>
+<h3 id="SOURCE"><a href="#SOURCE" class="headerlink" title="SOURCE"></a>SOURCE</h3><p>: 化合物来源</p>
+<h3 id="KEYWDS"><a href="#KEYWDS" class="headerlink" title="KEYWDS"></a>KEYWDS</h3><p>: 关键词</p>
+<h3 id="EXPDTA"><a href="#EXPDTA" class="headerlink" title="EXPDTA"></a>EXPDTA</h3><p>: 测定结构所用的实验方法</p>
+<h3 id="AUTHOR"><a href="#AUTHOR" class="headerlink" title="AUTHOR"></a>AUTHOR</h3><p>: 结构测定者</p>
+<h3 id="REVDAT"><a href="#REVDAT" class="headerlink" title="REVDAT"></a>REVDAT</h3><p>: 修订日期及相关内容</p>
+<h3 id="SPRSDE"><a href="#SPRSDE" class="headerlink" title="SPRSDE"></a>SPRSDE</h3><p>: 已撤销或更改的相关记录</p>
+<h3 id="JRNL"><a href="#JRNL" class="headerlink" title="JRNL"></a>JRNL</h3><p>: 发表坐标的期刊</p>
+<h2 id="氨基酸编号"><a href="#氨基酸编号" class="headerlink" title="氨基酸编号"></a>氨基酸编号</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>希腊字母</th>
+<th>英文字母</th>
+<th>发音</th>
+<th>Alternate_location_indicator</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>α</td>
+<td>A</td>
+<td>Alpha</td>
+<td>A</td>
+</tr>
+<tr>
+<td>β</td>
+<td>B</td>
+<td>Beta</td>
+<td>B</td>
+</tr>
+<tr>
+<td>γ</td>
+<td>C</td>
+<td>Gamma</td>
+<td>G</td>
+</tr>
+<tr>
+<td>δ</td>
+<td>D</td>
+<td>Delta</td>
+<td>D</td>
+</tr>
+<tr>
+<td>ε</td>
+<td>E</td>
+<td>Epsilon</td>
+<td>E</td>
+</tr>
+<tr>
+<td>ζ</td>
+<td>F</td>
+<td>Zeta</td>
+<td>Z</td>
+</tr>
+<tr>
+<td>η</td>
+<td>G</td>
+<td>Eta</td>
+<td></td>
+</tr>
+<tr>
+<td>θ</td>
+<td>H</td>
+<td>Theta</td>
+<td></td>
+</tr>
+<tr>
+<td>ι</td>
+<td>I</td>
+<td>Iota</td>
+<td></td>
+</tr>
+<tr>
+<td>κ</td>
+<td>J</td>
+<td>Kappa</td>
+<td></td>
+</tr>
+<tr>
+<td>λ</td>
+<td>K</td>
+<td>Lambda</td>
+<td></td>
+</tr>
+<tr>
+<td>μ</td>
+<td>L</td>
+<td>Mu</td>
+<td></td>
+</tr>
+<tr>
+<td>ν</td>
+<td>M</td>
+<td>Nu</td>
+<td></td>
+</tr>
+<tr>
+<td>ξ</td>
+<td>N</td>
+<td>Xi</td>
+<td></td>
+</tr>
+<tr>
+<td>ο</td>
+<td>O</td>
+<td>Omicron</td>
+<td></td>
+</tr>
+<tr>
+<td>π</td>
+<td>P</td>
+<td>Pi</td>
+<td></td>
+</tr>
+<tr>
+<td>ρ</td>
+<td>Q</td>
+<td>Rho</td>
+<td></td>
+</tr>
+<tr>
+<td>σ</td>
+<td>R</td>
+<td>Sigma</td>
+<td></td>
+</tr>
+<tr>
+<td>τ</td>
+<td>S</td>
+<td>Tau</td>
+<td></td>
+</tr>
+<tr>
+<td>υ</td>
+<td>T</td>
+<td>Upsilon</td>
+<td></td>
+</tr>
+<tr>
+<td>φ</td>
+<td>U</td>
+<td>Phi</td>
+<td></td>
+</tr>
+<tr>
+<td>χ</td>
+<td>V</td>
+<td>Chi</td>
+<td></td>
+</tr>
+<tr>
+<td>ψ</td>
+<td>W</td>
+<td>Psi</td>
+<td></td>
+</tr>
+<tr>
+<td>ω</td>
+<td>X</td>
+<td>Omega</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Y</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Z</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="PDB原子表示"><a href="#PDB原子表示" class="headerlink" title="PDB原子表示"></a>PDB原子表示</h3><p>总结：对于在PDB文件第三列包含原子的元素名称(<strong>Atom name</strong>)以及原子的定位表述(<strong>Alternate_location_indicator</strong>),对于原子的定位表述为希腊字母的第一个字母的大写，上述表中已经整理部分并验证。对于Epsilon和Eta手写字母相同，暂不知具体在PDB表述。对于在后原子的定位表述中的阿拉伯数字，常常为化学结构具有对称性结构，其原子有同位等效性。在环中出现多。与IUPAC 名称命名一致，系统命名法。</p>
+
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          ze.
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="jmsu.top/2021/05/16/PDB文件/" title="PDB文件" target="_blank">jmsu.top/2021/05/16/PDB文件/</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">requirement</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">详解</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        			<a href="/categories/PDB文件//" class="article-tag-list-link color1">PDB文件</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http:jmsu.top/2021/05/16/PDB文件/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/12/29/virtualenv的使用/" class="archive-article-date">
-        <time datetime="2020-12-29T10:45:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-29</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2021/05/14/import导入相关问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">import导入相关问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/12/29/virtualenv的使用/" target="_blank">virtualenv的使用及conda的使用</a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">virtualenv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/12/26/python-init/" class="archive-article-date">
-        <time datetime="2020-12-26T02:31:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-26</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/12/26/python-init/" target="_blank">python init</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/virtualenv//" class="article-tag-list-link color1">virtualenv</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/virtualenv/vscode//" class="article-tag-list-link color2">vscode</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/04/07/docker基础概念-1/" class="archive-article-date">
-        <time datetime="2020-04-07T05:16:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-07</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/04/07/docker基础概念-1/" target="_blank">docker基础概念[1]</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/docker//" class="article-tag-list-link color2">docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/03/21/introduction/" class="archive-article-date">
-        <time datetime="2020-03-21T04:35:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-21</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/03/21/introduction/" target="_blank">研究生英语口语复试（1）</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">自我介绍</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">考研复试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/研究生//" class="article-tag-list-link color4">研究生</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -508,8 +614,8 @@
 	var yiliaConfig = {
 		mathjax: [object Object],
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
