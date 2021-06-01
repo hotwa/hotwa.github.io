@@ -5,23 +5,24 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="jmsu.top">
+  <link rel="dns-prefetch" href="http://jmsu.top">
   <title>PBD文件学习 | xiaozhe&#39;s blog</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="description" content="pdb文件参考 In PDB file format, the temperature factor is given in columns 61 - 66. alternate conformations are given in column 17  alternate location indicator and occupancy is given in columns 55 - 60 P">
-<meta name="keywords" content="PDB,生物信息学">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PBD文件学习">
-<meta property="og:url" content="jmsu.top/2021/04/06/PBD文件学习/index.html">
+<meta property="og:url" content="http://jmsu.top/2021/04/06/PBD%E6%96%87%E4%BB%B6%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="xiaozhe&#39;s blog">
 <meta property="og:description" content="pdb文件参考 In PDB file format, the temperature factor is given in columns 61 - 66. alternate conformations are given in column 17  alternate location indicator and occupancy is given in columns 55 - 60 P">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-04-06T13:33:28.774Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-04-06T13:32:13.000Z">
+<meta property="article:modified_time" content="2021-04-06T13:33:28.774Z">
+<meta property="article:author" content="ze.">
+<meta property="article:tag" content="PDB">
+<meta property="article:tag" content="生物信息学">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PBD文件学习">
-<meta name="twitter:description" content="pdb文件参考 In PDB file format, the temperature factor is given in columns 61 - 66. alternate conformations are given in column 17  alternate location indicator and occupancy is given in columns 55 - 60 P">
   
     <link rel="alternative" href="/atom.xml" title="xiaozhe&#39;s blog" type="application/atom+xml">
   
@@ -67,10 +68,8 @@
 			<img src="/assets/img/head.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-			<h1 class="header-author"><a href="/">ze.</a></h1>
+			<h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">记录点滴</p>
 		
 
 		<nav class="header-menu">
@@ -131,10 +130,8 @@
 				</a>
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">ze.</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>记录点滴<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -201,7 +198,7 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2021/04/06/PBD文件学习/" class="archive-article-date">
+<a href="/2021/04/06/PBD%E6%96%87%E4%BB%B6%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
         <time datetime="2021-04-06T13:32:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-06</time>
 </a>
 
@@ -235,15 +232,15 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p><a href="http://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/dealing-with-coordinates" target="_blank" rel="noopener">pdb文件参考</a></p>
+    <p><a target="_blank" rel="noopener" href="http://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/dealing-with-coordinates">pdb文件参考</a></p>
 <p>In PDB file format, the temperature factor is given in columns 61 - 66.</p>
 <p>alternate conformations are given in column 17 </p>
 <p>alternate location indicator and occupancy is given in columns 55 - 60</p>
 <p>PDB格式文件使用MODEL / ENDMDL关键字指示单个文件中的多个分子。最初创建该文件是为了存储包括相同结构的多个不同模型的坐标集，例如在NMR分析中获得的结构集合。当您查看这些文件时，您会看到数十个相似的分子全部重叠。现在，还将MODEL关键字用于生物组装文件中，以分隔从不对称单元生成的分子的许多对称拷贝</p>
-<p><a href="https://mmcif.wwpdb.org/docs/sw-examples/python/html/" target="_blank" rel="noopener">PDBX python解析器</a></p>
-<p><a href="http://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/primary-sequences-and-the-pdb-format" target="_blank" rel="noopener">了解PDB数据的指南</a></p>
-<h2 id="PDB数据简介"><a href="#PDB数据简介" class="headerlink" title="PDB数据简介"></a><a href="http://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/introduction" target="_blank" rel="noopener">PDB数据简介</a></h2><p>PDB档案库是原子坐标和其他描述蛋白质和其他重要生物大分子的信息的存储库。结构生物学家使用诸如<a href="http://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/methods-for-determining-structure" target="_blank" rel="noopener">X射线晶体学，NMR光谱和低温电子显微镜等方法</a>来确定每个原子在分子中相对于彼此的位置。然后，他们存储此信息，然后由wwPDB对其进行批注并公开发布到存档中。</p>
-<h2 id="PDB结构和PDBx-mmCIF格式的关系"><a href="#PDB结构和PDBx-mmCIF格式的关系" class="headerlink" title="PDB结构和PDBx/mmCIF格式的关系"></a><a href="http://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/beginner%E2%80%99s-guide-to-pdb-structures-and-the-pdbx-mmcif-format" target="_blank" rel="noopener">PDB结构和PDBx/mmCIF格式的关系</a></h2><h3 id="PDBx-mmCIF格式（使用ASCII字符集）"><a href="#PDBx-mmCIF格式（使用ASCII字符集）" class="headerlink" title="PDBx/mmCIF格式（使用ASCII字符集）"></a>PDBx/mmCIF格式（使用ASCII字符集）</h3><p>CIF（晶体学信息文件）扩展（mmCIF）</p>
+<p><a target="_blank" rel="noopener" href="https://mmcif.wwpdb.org/docs/sw-examples/python/html/">PDBX python解析器</a></p>
+<p><a target="_blank" rel="noopener" href="http://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/primary-sequences-and-the-pdb-format">了解PDB数据的指南</a></p>
+<h2 id="PDB数据简介"><a href="#PDB数据简介" class="headerlink" title="PDB数据简介"></a><a target="_blank" rel="noopener" href="http://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/introduction">PDB数据简介</a></h2><p>PDB档案库是原子坐标和其他描述蛋白质和其他重要生物大分子的信息的存储库。结构生物学家使用诸如<a target="_blank" rel="noopener" href="http://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/methods-for-determining-structure">X射线晶体学，NMR光谱和低温电子显微镜等方法</a>来确定每个原子在分子中相对于彼此的位置。然后，他们存储此信息，然后由wwPDB对其进行批注并公开发布到存档中。</p>
+<h2 id="PDB结构和PDBx-mmCIF格式的关系"><a href="#PDB结构和PDBx-mmCIF格式的关系" class="headerlink" title="PDB结构和PDBx/mmCIF格式的关系"></a><a target="_blank" rel="noopener" href="http://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/beginner%E2%80%99s-guide-to-pdb-structures-and-the-pdbx-mmcif-format">PDB结构和PDBx/mmCIF格式的关系</a></h2><h3 id="PDBx-mmCIF格式（使用ASCII字符集）"><a href="#PDBx-mmCIF格式（使用ASCII字符集）" class="headerlink" title="PDBx/mmCIF格式（使用ASCII字符集）"></a>PDBx/mmCIF格式（使用ASCII字符集）</h3><p>CIF（晶体学信息文件）扩展（mmCIF）</p>
 <p>支持代表大型结构，复杂化学反应以及新的和混合实验方法的数据。</p>
 <p>PDBx / mmCIF功能强大。PDBx / mmCIF明确记录了通用数据项（例如原子和残基标识符）之间的所有关系。</p>
 <blockquote>
@@ -254,7 +251,7 @@
 <blockquote>
 <p>可以在单个PDB条目中表示的原子，<strong>残基或链的数量没有任何限制</strong></p>
 </blockquote>
-<h2 id="PDB文件"><a href="#PDB文件" class="headerlink" title="PDB文件"></a><a href="http://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/dealing-with-coordinates" target="_blank" rel="noopener">PDB文件</a></h2><p>在PDB文件格式中，TER记录用于分隔蛋白质和核酸链。</p>
+<h2 id="PDB文件"><a href="#PDB文件" class="headerlink" title="PDB文件"></a><a target="_blank" rel="noopener" href="http://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/dealing-with-coordinates">PDB文件</a></h2><p>在PDB文件格式中，TER记录用于分隔蛋白质和核酸链。</p>
 <p>PDB格式文件使用MODEL / ENDMDL关键字指示单个文件中的多个分子。</p>
 <p>由于PDB规范来自于PDBx/mmCIF一些晶体结构信息，所以大致与PDB相当其中不同在于</p>
 <p>PDB文件没有loop_字段的描述信息</p>
@@ -279,7 +276,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="jmsu.top/2021/04/06/PBD文件学习/" title="PBD文件学习" target="_blank">jmsu.top/2021/04/06/PBD文件学习/</a>
+          <a href="http://jmsu.top/2021/04/06/PBD文件学习/" title="PBD文件学习" target="_blank">http://jmsu.top/2021/04/06/PBD文件学习/</a>
         </li>
         
       </ul>
@@ -370,7 +367,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http:jmsu.top/2021/04/06/PBD文件学习/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://jmsu.top/2021/04/06/PBD%E6%96%87%E4%BB%B6%E5%AD%A6%E4%B9%A0/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -385,7 +382,7 @@
 
 <nav id="article-nav">
   
-    <a href="/2021/04/15/自然语言处理/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/04/15/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -395,7 +392,7 @@
     </a>
   
   
-    <a href="/2021/03/19/git使用/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2021/03/19/git%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">git使用</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -441,7 +438,7 @@
       <div class="footer-left">
         &copy;
         2018-2021
-        <a href="jmsu.top/" target="_blank">ze.</a>
+        <a href="http://jmsu.top/" target="_blank">ze.</a>
       </div>
       <div class="footer-right">
 		
@@ -594,10 +591,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">conda</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
@@ -606,15 +599,23 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">aria2c</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">conda</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">docking</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">init</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">import</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">aria2c</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -642,6 +643,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">owncloud</a>
               </li>
              
@@ -654,15 +659,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">threading</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">高级特性</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">导入</a>
+                <a href="javascript:void(0)" class="js-tag color5">json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">threading</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -670,7 +675,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">json</a>
+                <a href="javascript:void(0)" class="js-tag color3">导入</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -698,23 +703,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">药动学</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">药效学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">自然语言处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">词汇分析</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -735,6 +732,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">自然语言处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">词汇分析</a>
               </li>
             
             <div class="clearfix"></div>

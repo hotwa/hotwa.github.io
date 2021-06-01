@@ -5,23 +5,23 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="jmsu.top">
+  <link rel="dns-prefetch" href="http://jmsu.top">
   <title>docker基础概念[1] | xiaozhe&#39;s blog</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="description" content="镜像(Image)  类似操作系统的快照(静态)文件，可以简单理解为IOS文件。和在安装IOS类似，在安装完成后，镜像相比原来没有做任何修改的文件，做了一些相应的配置，类似，环境变量、用户、应用程序。因为在docker可以四处迁移，类似虚拟机VMware软件一样，这样就有个好处，当你运行好镜像成为了一个容器，所有环境修改都配置完成，不必重新部署环境  深入理解： Docker设计时，就充分利用U">
-<meta name="keywords" content="linux, golang ,python ,spider ,Mathjax">
 <meta property="og:type" content="article">
 <meta property="og:title" content="docker基础概念[1]">
-<meta property="og:url" content="jmsu.top/2020/04/07/docker基础概念-1/index.html">
+<meta property="og:url" content="http://jmsu.top/2020/04/07/docker%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5-1/index.html">
 <meta property="og:site_name" content="xiaozhe&#39;s blog">
 <meta property="og:description" content="镜像(Image)  类似操作系统的快照(静态)文件，可以简单理解为IOS文件。和在安装IOS类似，在安装完成后，镜像相比原来没有做任何修改的文件，做了一些相应的配置，类似，环境变量、用户、应用程序。因为在docker可以四处迁移，类似虚拟机VMware软件一样，这样就有个好处，当你运行好镜像成为了一个容器，所有环境修改都配置完成，不必重新部署环境  深入理解： Docker设计时，就充分利用U">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-07T07:51:03.487Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-04-07T05:16:29.000Z">
+<meta property="article:modified_time" content="2020-04-07T07:51:03.487Z">
+<meta property="article:author" content="ze.">
+<meta property="article:tag" content="linux, golang ,python ,spider ,Mathjax">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="docker基础概念[1]">
-<meta name="twitter:description" content="镜像(Image)  类似操作系统的快照(静态)文件，可以简单理解为IOS文件。和在安装IOS类似，在安装完成后，镜像相比原来没有做任何修改的文件，做了一些相应的配置，类似，环境变量、用户、应用程序。因为在docker可以四处迁移，类似虚拟机VMware软件一样，这样就有个好处，当你运行好镜像成为了一个容器，所有环境修改都配置完成，不必重新部署环境  深入理解： Docker设计时，就充分利用U">
   
     <link rel="alternative" href="/atom.xml" title="xiaozhe&#39;s blog" type="application/atom+xml">
   
@@ -67,10 +67,8 @@
 			<img src="/assets/img/head.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-			<h1 class="header-author"><a href="/">ze.</a></h1>
+			<h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">记录点滴</p>
 		
 
 		<nav class="header-menu">
@@ -131,10 +129,8 @@
 				</a>
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">ze.</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>记录点滴<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -201,7 +197,7 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/04/07/docker基础概念-1/" class="archive-article-date">
+<a href="/2020/04/07/docker%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5-1/" class="archive-article-date">
         <time datetime="2020-04-07T05:16:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-07</time>
 </a>
 
@@ -258,7 +254,7 @@
 <blockquote>
 <p>仓库类似代码仓库，存放镜像的地方。</p>
 <p>通常，一个仓库会包含同一一个软件不同版本的镜像，而标签就常用于对应该软件的各个版本。我们可以通过&lt;仓库名&gt;:&lt;标签&gt;的格式来指定具体是这个软件哪个版本的镜像。如果不给出标签，将以latest作为默认标签.。</p>
-<p>Docker Registry公开服务是开放给用户使用、允许用户管理镜像的Registry服务。- -般这类公开服务允许<br>用户免费上传、下载公开的镜像，并可能提供收费服务供用户管理私有镜像。<br>最常使用的Registry 公开服务是官方的Docker Hub，这也是默认的Registry,并拥有大量的高质量的官方<br>镜像，网址为: <a href="https://hub.docker.com" target="_blank" rel="noopener">https://hub.docker.com</a> 。在国内访问Docker Hub可能会比较慢国内也有- - 些云服务商提供类似于Docker Hub的公开服务。比如时速云镜像库、网易云镜像服务、阿里云镜像库等。除了使用公开服务外，用户还可以在本地搭建私有Docker Registry。Docker 官方提供了Docker Registry镜像，可以直接使用做为私有Registry 服务。开源的Docker Registry镜像只提供了Docker Registry API的服务端实现，足以支持docker命令，不影响使用。但不包含图形界面，以及镜像维护、用户管理、访问控制等高级功能。</p>
+<p>Docker Registry公开服务是开放给用户使用、允许用户管理镜像的Registry服务。- -般这类公开服务允许<br>用户免费上传、下载公开的镜像，并可能提供收费服务供用户管理私有镜像。<br>最常使用的Registry 公开服务是官方的Docker Hub，这也是默认的Registry,并拥有大量的高质量的官方<br>镜像，网址为: <a target="_blank" rel="noopener" href="https://hub.docker.com">https://hub.docker.com</a> 。在国内访问Docker Hub可能会比较慢国内也有- - 些云服务商提供类似于Docker Hub的公开服务。比如时速云镜像库、网易云镜像服务、阿里云镜像库等。除了使用公开服务外，用户还可以在本地搭建私有Docker Registry。Docker 官方提供了Docker Registry镜像，可以直接使用做为私有Registry 服务。开源的Docker Registry镜像只提供了Docker Registry API的服务端实现，足以支持docker命令，不影响使用。但不包含图形界面，以及镜像维护、用户管理、访问控制等高级功能。</p>
 </blockquote>
 </li>
 </ul>
@@ -276,7 +272,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="jmsu.top/2020/04/07/docker基础概念-1/" title="docker基础概念[1]" target="_blank">jmsu.top/2020/04/07/docker基础概念-1/</a>
+          <a href="http://jmsu.top/2020/04/07/docker基础概念-1/" title="docker基础概念[1]" target="_blank">http://jmsu.top/2020/04/07/docker基础概念-1/</a>
         </li>
         
       </ul>
@@ -348,7 +344,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http:jmsu.top/2020/04/07/docker基础概念-1/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://jmsu.top/2020/04/07/docker%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5-1/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -409,7 +405,7 @@
       <div class="footer-left">
         &copy;
         2018-2021
-        <a href="jmsu.top/" target="_blank">ze.</a>
+        <a href="http://jmsu.top/" target="_blank">ze.</a>
       </div>
       <div class="footer-right">
 		
@@ -562,10 +558,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">conda</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
@@ -574,15 +566,23 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">aria2c</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">conda</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">docking</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">init</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">import</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">aria2c</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -610,6 +610,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">owncloud</a>
               </li>
              
@@ -622,15 +626,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">threading</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">高级特性</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">导入</a>
+                <a href="javascript:void(0)" class="js-tag color5">json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">threading</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -638,7 +642,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">json</a>
+                <a href="javascript:void(0)" class="js-tag color3">导入</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -666,23 +670,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">药动学</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">药效学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">自然语言处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">词汇分析</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -703,6 +699,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">自然语言处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">词汇分析</a>
               </li>
             
             <div class="clearfix"></div>
