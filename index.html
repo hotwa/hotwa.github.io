@@ -181,6 +181,204 @@
             
 
   
+    <article id="post-newifi3-openwrt" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/06/13/newifi3-openwrt/" target="_blank">newifi3 openwrt</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/06/13/newifi3-openwrt/" class="archive-article-date">
+        <time datetime="2021-06-13T10:21:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-13</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>[TOC]</p>
+<h1 id="openwrt-软件挂载外部U盘"><a href="#openwrt-软件挂载外部U盘" class="headerlink" title="openwrt 软件挂载外部U盘"></a>openwrt 软件挂载外部U盘</h1><h2 id="在使用国内源"><a href="#在使用国内源" class="headerlink" title="在使用国内源"></a>在使用国内源</h2><p>需要注意openwrt是否安装openssl，因为国内源都是https</p>
+<h2 id="关于U盘存储格式"><a href="#关于U盘存储格式" class="headerlink" title="关于U盘存储格式"></a>关于U盘存储格式</h2><p>大容量推荐exfat<br>其他则ext3等格式<br>也需要提前安装相应的包支持</p>
+<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><p>/etc/opkg.conf<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">dest root /</span><br><span class="line">dest usb /mnt/sda1/optware</span><br><span class="line">dest ram /tmp</span><br><span class="line">lists_dir ext /var/opkg-lists</span><br><span class="line">option overlay_root /mnt/sda1/overlay</span><br><span class="line"><span class="meta">#</span><span class="bash"> option check_signature <span class="comment"># 关闭签名验证</span></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 配置腾讯源</span></span><br><span class="line">src/gz openwrt_core https://mirrors.cloud.tencent.com/lede/snapshots/targets/ramips/mt7621/packages</span><br><span class="line">src/gz openwrt_base https://mirrors.cloud.tencent.com/lede/snapshots/packages/mipsel_24kc/base</span><br><span class="line">src/gz openwrt_helloworld https://mirrors.cloud.tencent.com/lede/snapshots/packages/mipsel_24kc/helloworld</span><br><span class="line">src/gz openwrt_luci https://mirrors.cloud.tencent.com/lede/releases/18.06.8/packages/mipsel_24kc/luci</span><br><span class="line">src/gz openwrt_packages https://mirrors.cloud.tencent.com/lede/snapshots/packages/mipsel_24kc/packages</span><br><span class="line">src/gz openwrt_routing https://mirrors.cloud.tencent.com/lede/snapshots/packages/mipsel_24kc/routing</span><br><span class="line">src/gz openwrt_telephony https://mirrors.cloud.tencent.com/lede/snapshots/packages/mipsel_24kc/telephony</span><br></pre></td></tr></table></figure></p>
+<h2 id="修改环境变量"><a href="#修改环境变量" class="headerlink" title="修改环境变量"></a>修改环境变量</h2><p>修改/etc/profile<br>文件提前在挂载u盘上创建好<br>参考<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export LD_LIBRARY_PATH=&quot;/mnt/sda1/optware/usr/lib:/mnt/sda1/optware/lib&quot;</span><br><span class="line">export PATH=&quot;/usr/sbin:/usr/bin:/sbin:/bin:/mnt/sda1/optware/usr/bin:/mnt/sda1/optware/usr/sbin&quot;</span><br></pre></td></tr></table></figure><br>生效<code>source /etc/profile</code></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">opkg install python3 --dest usb</span><br><span class="line">opkg install python3-pip -d usb</span><br></pre></td></tr></table></figure>
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">newifi3</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/openwrt//" class="article-tag-list-link color3">openwrt</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/06/13/newifi3-openwrt/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-食物记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/06/12/%E9%A3%9F%E7%89%A9%E8%AE%B0%E5%BD%95/" target="_blank">食物记录</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/06/12/%E9%A3%9F%E7%89%A9%E8%AE%B0%E5%BD%95/" class="archive-article-date">
+        <time datetime="2021-06-12T12:34:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-12</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>[TOC]</p>
+<h1 id=""><a href="#" class="headerlink" title=" "></a> </h1>
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">饮食</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/生活//" class="article-tag-list-link color3">生活</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/06/12/%E9%A3%9F%E7%89%A9%E8%AE%B0%E5%BD%95/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-pandas" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1292,220 +1490,6 @@
 
 
   
-    <article id="post-ipython使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/04/22/ipython%E4%BD%BF%E7%94%A8/" target="_blank">ipython使用</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/04/22/ipython%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-        <time datetime="2021-04-22T13:29:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-22</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ipython</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python/教程//" class="article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/04/22/ipython%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-conda使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/04/20/conda%E4%BD%BF%E7%94%A8/" target="_blank">conda使用</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/04/20/conda%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-        <time datetime="2021-04-20T12:28:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-20</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>[TOC]</p>
-<h1 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h1><h2 id="创建环境"><a href="#创建环境" class="headerlink" title="创建环境"></a>创建环境</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n python3 python=3.9.2 # -n name 环境名称</span><br></pre></td></tr></table></figure>
-<h2 id="进入环境"><a href="#进入环境" class="headerlink" title="进入环境"></a>进入环境</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate python3</span><br></pre></td></tr></table></figure>
-<h2 id="退出环境"><a href="#退出环境" class="headerlink" title="退出环境"></a>退出环境</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda deactivate</span><br></pre></td></tr></table></figure>
-<h2 id="删除环境"><a href="#删除环境" class="headerlink" title="删除环境"></a>删除环境</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda remove -n python3 --all</span><br></pre></td></tr></table></figure>
-<h2 id="环境克隆"><a href="#环境克隆" class="headerlink" title="环境克隆"></a>环境克隆</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n python3clone --clone python3</span><br></pre></td></tr></table></figure>
-<h2 id="查看conda所拥有的环境列表"><a href="#查看conda所拥有的环境列表" class="headerlink" title="查看conda所拥有的环境列表"></a>查看conda所拥有的环境列表</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda env list</span><br></pre></td></tr></table></figure>
-<h1 id="安装库依赖"><a href="#安装库依赖" class="headerlink" title="安装库依赖"></a>安装库依赖</h1><h2 id="安装指定依赖包"><a href="#安装指定依赖包" class="headerlink" title="安装指定依赖包"></a>安装指定依赖包</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install --yes --file requirements.txt</span><br></pre></td></tr></table></figure>
-<h2 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h2><h3 id="method-1"><a href="#method-1" class="headerlink" title="method 1"></a>method 1</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -n python3 pytorch <span class="comment"># 在名称为python3的环境中安装pytorch（未激活环境）</span></span><br></pre></td></tr></table></figure>
-<h3 id="method-2"><a href="#method-2" class="headerlink" title="method 2"></a>method 2</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source activate python3 <span class="comment"># 先进入python3环境</span></span><br><span class="line">conda install pytorch <span class="comment"># 安装pytorch</span></span><br></pre></td></tr></table></figure>
-<h1 id="conda报错"><a href="#conda报错" class="headerlink" title="conda报错"></a>conda报错</h1><p><code>CondaHTTPError: HTTP 000 CONNECTION FAILED for url &lt;https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/win-64/repodata.json</code></p>
-<ol>
-<li>打开Power Shell，执行“<strong>conda config —remove-key channels</strong>”命令，恢复Anaconda的源为默认。</li>
-</ol>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">conda</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python/科学计算//" class="article-tag-list-link color5">科学计算</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/04/20/conda%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1832,6 +1816,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">词汇分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">饮食</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">newifi3</a>
               </li>
             
             <div class="clearfix"></div>

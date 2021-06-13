@@ -181,6 +181,220 @@
             
 
   
+    <article id="post-ipython使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/04/22/ipython%E4%BD%BF%E7%94%A8/" target="_blank">ipython使用</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/04/22/ipython%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+        <time datetime="2021-04-22T13:29:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-22</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ipython</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python/教程//" class="article-tag-list-link color3">教程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/04/22/ipython%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-conda使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/04/20/conda%E4%BD%BF%E7%94%A8/" target="_blank">conda使用</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/04/20/conda%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+        <time datetime="2021-04-20T12:28:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-20</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>[TOC]</p>
+<h1 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h1><h2 id="创建环境"><a href="#创建环境" class="headerlink" title="创建环境"></a>创建环境</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n python3 python=3.9.2 # -n name 环境名称</span><br></pre></td></tr></table></figure>
+<h2 id="进入环境"><a href="#进入环境" class="headerlink" title="进入环境"></a>进入环境</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate python3</span><br></pre></td></tr></table></figure>
+<h2 id="退出环境"><a href="#退出环境" class="headerlink" title="退出环境"></a>退出环境</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda deactivate</span><br></pre></td></tr></table></figure>
+<h2 id="删除环境"><a href="#删除环境" class="headerlink" title="删除环境"></a>删除环境</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda remove -n python3 --all</span><br></pre></td></tr></table></figure>
+<h2 id="环境克隆"><a href="#环境克隆" class="headerlink" title="环境克隆"></a>环境克隆</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n python3clone --clone python3</span><br></pre></td></tr></table></figure>
+<h2 id="查看conda所拥有的环境列表"><a href="#查看conda所拥有的环境列表" class="headerlink" title="查看conda所拥有的环境列表"></a>查看conda所拥有的环境列表</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda env list</span><br></pre></td></tr></table></figure>
+<h1 id="安装库依赖"><a href="#安装库依赖" class="headerlink" title="安装库依赖"></a>安装库依赖</h1><h2 id="安装指定依赖包"><a href="#安装指定依赖包" class="headerlink" title="安装指定依赖包"></a>安装指定依赖包</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install --yes --file requirements.txt</span><br></pre></td></tr></table></figure>
+<h2 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h2><h3 id="method-1"><a href="#method-1" class="headerlink" title="method 1"></a>method 1</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -n python3 pytorch <span class="comment"># 在名称为python3的环境中安装pytorch（未激活环境）</span></span><br></pre></td></tr></table></figure>
+<h3 id="method-2"><a href="#method-2" class="headerlink" title="method 2"></a>method 2</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source activate python3 <span class="comment"># 先进入python3环境</span></span><br><span class="line">conda install pytorch <span class="comment"># 安装pytorch</span></span><br></pre></td></tr></table></figure>
+<h1 id="conda报错"><a href="#conda报错" class="headerlink" title="conda报错"></a>conda报错</h1><p><code>CondaHTTPError: HTTP 000 CONNECTION FAILED for url &lt;https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/win-64/repodata.json</code></p>
+<ol>
+<li>打开Power Shell，执行“<strong>conda config —remove-key channels</strong>”命令，恢复Anaconda的源为默认。</li>
+</ol>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">conda</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python/科学计算//" class="article-tag-list-link color5">科学计算</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/04/20/conda%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-docking中药物特异性结合" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1098,268 +1312,6 @@ TF - IDF =词频(TF)\times逆文档频率(IDF)</script>
 
 
   
-    <article id="post-活性弹头预测" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/03/02/%E6%B4%BB%E6%80%A7%E5%BC%B9%E5%A4%B4%E9%A2%84%E6%B5%8B/" target="_blank">活性弹头预测</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/03/02/%E6%B4%BB%E6%80%A7%E5%BC%B9%E5%A4%B4%E9%A2%84%E6%B5%8B/" class="archive-article-date">
-        <time datetime="2021-03-02T06:39:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-02</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="活性弹头预测"><a href="#活性弹头预测" class="headerlink" title="活性弹头预测"></a>活性弹头预测</h1><h2 id="Pubmed-search"><a href="#Pubmed-search" class="headerlink" title="Pubmed search"></a>Pubmed search</h2><h3 id="keyword"><a href="#keyword" class="headerlink" title="keyword:"></a>keyword:</h3><blockquote>
-<p>reactive warhead prediction|warhead prediction|warhead forecast<br>reactive warhead forecast<br>active warhead prediction|warhead prediction（28）<br>active warhead forecast|warhead forecast（11）</p>
-</blockquote>
-<h3 id="弹头活性"><a href="#弹头活性" class="headerlink" title="弹头活性"></a>弹头活性</h3><p>warhead activity（269，402）</p>
-<h3 id="弹头预测"><a href="#弹头预测" class="headerlink" title="弹头预测"></a>弹头预测</h3><p>prediction of warhead（0）</p>
-<p>warhead prediction（7）</p>
-<h2 id="query-words-and-results"><a href="#query-words-and-results" class="headerlink" title="query words and results"></a>query words and results</h2><blockquote>
-<p>query = ‘((“2015/01/01”[Date - Publication] : “3000”[Date - Publication])) AND ((warhead) AND (activity))’</p>
-<p>results:<code>169</code></p>
-</blockquote>
-<h1 id="google学术"><a href="#google学术" class="headerlink" title="google学术"></a>google学术</h1><h2 id="搜索标题"><a href="#搜索标题" class="headerlink" title="搜索标题"></a>搜索标题</h2><blockquote>
-<p>intitle:”warhead activity”</p>
-<p>intitle:(“warhead” AND “activity”)</p>
-<p>:()英文状态 无空格</p>
-</blockquote>
-<h2 id="搜索作者"><a href="#搜索作者" class="headerlink" title="搜索作者"></a>搜索作者</h2><blockquote>
-<p>author:”Richard Fu”</p>
-</blockquote>
-<p><strong>注意这里需要用双引号包含，因为人名是一个整体，也就是说是一个短语。</strong></p>
-<h3 id="针对人名缩写解决方案"><a href="#针对人名缩写解决方案" class="headerlink" title="针对人名缩写解决方案"></a>针对人名缩写解决方案</h3><blockquote>
-<p>author:(“CC Li” OR “C Li” OR “Congcong Li”)</p>
-</blockquote>
-<h2 id="搜索文献来源期刊"><a href="#搜索文献来源期刊" class="headerlink" title="搜索文献来源期刊"></a>搜索文献来源期刊</h2><p>检索权威期刊，提高阅读文献的质量</p>
-<blockquote>
-<p>“warhead” source:”nature biotechnology”</p>
-</blockquote>
-<h2 id="搜索年限"><a href="#搜索年限" class="headerlink" title="搜索年限"></a>搜索年限</h2><p>左侧操作</p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">弹头</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">预测</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/科研//" class="article-tag-list-link color3">科研</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/03/02/%E6%B4%BB%E6%80%A7%E5%BC%B9%E5%A4%B4%E9%A2%84%E6%B5%8B/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-网易云音乐外链及mp4g挂载" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/02/24/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E5%A4%96%E9%93%BE%E5%8F%8Amp4g%E6%8C%82%E8%BD%BD/" target="_blank">网易云音乐外链及mp3挂载</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/02/24/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E5%A4%96%E9%93%BE%E5%8F%8Amp4g%E6%8C%82%E8%BD%BD/" class="archive-article-date">
-        <time datetime="2021-02-24T08:16:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-24</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="markdown挂载网易云音乐"><a href="#markdown挂载网易云音乐" class="headerlink" title="markdown挂载网易云音乐"></a>markdown挂载网易云音乐</h1><h2 id="非自动播放效果"><a href="#非自动播放效果" class="headerlink" title="非自动播放效果"></a>非自动播放效果</h2><h3 id="使用video标签"><a href="#使用video标签" class="headerlink" title="使用video标签"></a>使用video标签</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;video width=&quot;480&quot; height=&quot;400&quot; controls&gt;     &lt;source src=&quot;http://music.163.com/song/media/outer/url?id=472045959.mp3&quot; type=&quot;audio/mp3&quot;&gt; &lt;/video&gt;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>将分享id <a target="_blank" rel="noopener" href="http://music.163.com/song/media/outer/url?id=472045959.mp3">http://music.163.com/song/media/outer/url?id=472045959.mp3</a> 修改即可</p>
-<p>备选链接（使用iframe标签自动播放）：<a target="_blank" rel="noopener" href="http://link.hhtjim.com/163/472045959.mp3">http://link.hhtjim.com/163/472045959.mp3</a></p>
-</blockquote>
-<h4 id="效果如下"><a href="#效果如下" class="headerlink" title="效果如下"></a>效果如下</h4><h5 id="type-”audio-mp3”"><a href="#type-”audio-mp3”" class="headerlink" title="type=”audio/mp3”"></a>type=”audio/mp3”</h5><video width="720" height="50" controls>
-    <source src="http://music.163.com/song/media/outer/url?id=472045959.mp3" type="audio/mp3">
-</video>
-
-<h5 id="type-type-”video-mp4”"><a href="#type-type-”video-mp4”" class="headerlink" title="type=type=”video/mp4”"></a>type=type=”video/mp4”</h5><video width="720" height="50" controls>
-    <source src="http://music.163.com/song/media/outer/url?id=472045959.mp3" type="video/mp4">
-</video>
-
-
-
-<h3 id="使用audio标签"><a href="#使用audio标签" class="headerlink" title="使用audio标签"></a>使用audio标签</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;audio controls height=&quot;100&quot; width=&quot;100&quot;&gt;</span><br><span class="line">    &lt;source src=&quot;http://music.163.com/song/media/outer/url?id=472045959.mp3&quot; type=&quot;audio/mpeg&quot;&gt;</span><br><span class="line">    &lt;embed height=&quot;50&quot; width=&quot;100&quot; src=&quot;http://music.163.com/song/media/outer/url?id=472045959.mp3&quot;&gt;</span><br><span class="line">&lt;/audio&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="效果如下-1"><a href="#效果如下-1" class="headerlink" title="效果如下"></a>效果如下</h4><audio controls height="100" width="100">
-    <source src="http://music.163.com/song/media/outer/url?id=472045959.mp3" type="audio/mpeg">
-    <embed height="50" width="100" src="http://music.163.com/song/media/outer/url?id=472045959.mp3">
-</audio>
-
-<h2 id="自动播放效果"><a href="#自动播放效果" class="headerlink" title="自动播放效果"></a>自动播放效果</h2><h3 id="使用iframe标签"><a href="#使用iframe标签" class="headerlink" title="使用iframe标签"></a>使用iframe标签</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe name=&quot;music&quot; src=&quot;http://link.hhtjim.com/163/472045959.mp3&quot; marginwidth=&quot;0px&quot; marginheight=&quot;0px&quot; width=100% height=&quot;80px&quot; frameborder=1 scrolling=&quot;yes&quot;&gt;</span><br><span class="line">&lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
-<h1 id="markdown挂载视频"><a href="#markdown挂载视频" class="headerlink" title="markdown挂载视频"></a>markdown挂载视频</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;video width=&quot;480&quot; height=&quot;400&quot; controls&gt;</span><br><span class="line">    &lt;source src=&quot;http://pic.jmsu.top/sunnerd.mp4&quot; type=&quot;video/mp4&quot;&gt;</span><br><span class="line">&lt;/video&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe height=498 width=510 src=&quot;https://v5-dy-f.ixigua.com/6f72a74d86b160e7c66db5ba75db769a/6036665c/video/tos/cn/tos-cn-ve-15/1cb550e737244e5ebbc66b762be742dd/&quot; frameborder=0 allowfullscreen&gt;&lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;video width=&quot;480&quot; height=&quot;400&quot; controls&gt;</span><br><span class="line">    &lt;source src=&quot;https://v5-dy-f.ixigua.com/6f72a74d86b160e7c66db5ba75db769a/6036665c/video/tos/cn/tos-cn-ve-15/1cb550e737244e5ebbc66b762be742dd/&quot; type=&quot;video/mp4&quot;&gt;</span><br><span class="line">&lt;/video&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="效果如下-markdown正常显示"><a href="#效果如下-markdown正常显示" class="headerlink" title="效果如下(markdown正常显示)"></a>效果如下(markdown正常显示)</h4><video width="480" height="400" controls>
-    <source src="http://pic.jmsu.top/sunnerd.mp4" type="video/mp4">
-</video>
-
-
-<p><a rel="noreferrer" target="_blank" src="http://v5-dy-f.ixigua.com/6f72a74d86b160e7c66db5ba75db769a/6036665c/video/tos/cn/tos-cn-ve-15/1cb550e737244e5ebbc66b762be742dd/"></a></p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/部署//" class="article-tag-list-link color3">部署</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/02/24/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E5%A4%96%E9%93%BE%E5%8F%8Amp4g%E6%8C%82%E8%BD%BD/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
@@ -1686,6 +1638,14 @@ TF - IDF =词频(TF)\times逆文档频率(IDF)</script>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">词汇分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">饮食</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">newifi3</a>
               </li>
             
             <div class="clearfix"></div>
