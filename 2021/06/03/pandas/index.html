@@ -18,7 +18,7 @@
 <meta property="og:description" content="[TOC] pandas关于iloc与lociloc:以number为编号获取值。 loc:以key获取值。 取值操作12df1.loc[1,&amp;#x27;pubmedid&amp;#x27;] # 同等a &#x3D; df1.loc[1][&amp;#x27;pubmedid&amp;#x27;] # 先行值后列值df1.iloc[0,0] # 同等df1.iloc[0][0]和df1.iat[0,1] # 先行值后列值 赋值操">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-06-03T07:56:19.000Z">
-<meta property="article:modified_time" content="2021-06-03T08:15:14.000Z">
+<meta property="article:modified_time" content="2021-07-12T01:13:20.901Z">
 <meta property="article:author" content="ze.">
 <meta property="article:tag" content="pandas">
 <meta name="twitter:card" content="summary">
@@ -211,7 +211,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">108字</span>
+      <span class="post-count">133字</span>
     </span>
   </span>
 
@@ -236,6 +236,8 @@
 <p><code>loc</code>:以key获取值。</p>
 <h3 id="取值操作"><a href="#取值操作" class="headerlink" title="取值操作"></a>取值操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df1.loc[<span class="number">1</span>,<span class="string">&#x27;pubmedid&#x27;</span>] <span class="comment"># 同等a = df1.loc[1][&#x27;pubmedid&#x27;] # 先行值后列值</span></span><br><span class="line">df1.iloc[<span class="number">0</span>,<span class="number">0</span>] <span class="comment"># 同等df1.iloc[0][0]和df1.iat[0,1] # 先行值后列值</span></span><br></pre></td></tr></table></figure>
 <h3 id="赋值操作"><a href="#赋值操作" class="headerlink" title="赋值操作"></a>赋值操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df1.loc[<span class="number">1</span>,<span class="string">&#x27;pubmedid&#x27;</span>] = <span class="string">&#x27;sdfdf&#x27;</span> <span class="comment"># df1.loc[1][&#x27;pubmedid&#x27;] = &#x27;sdfdf&#x27; # 报错</span></span><br><span class="line">df1.iloc[<span class="number">0</span>,-<span class="number">2</span>] = <span class="string">&#x27;111111111&#x27;</span> <span class="comment"># df1.iloc[0][-2] = &#x27;111111111&#x27; # 报错</span></span><br></pre></td></tr></table></figure>
+<h3 id="降重操作"><a href="#降重操作" class="headerlink" title="降重操作"></a>降重操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df1 = df.drop_duplicates([<span class="string">&#x27;paper&#x27;</span>])</span><br></pre></td></tr></table></figure>
+<h3 id="计数统计"><a href="#计数统计" class="headerlink" title="计数统计"></a>计数统计</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">result = df[<span class="string">&#x27;Census_OSInstallLanguageIdentifier&#x27;</span>].value_counts().plot(kind=<span class="string">&#x27;bar&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/mrwuzs/p/11325205.html">reference</a></p>
 
     
@@ -546,11 +548,23 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">morgan</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">fingerprints</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">PDB</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">生物信息学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">详解</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -566,31 +580,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">详解</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">conda</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">docking</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ipython</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">import</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">init</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -602,6 +596,22 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">import</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ipython</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">docking</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">The cure</a>
               </li>
              
@@ -610,11 +620,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">newifi3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">newifi3</a>
+                <a href="javascript:void(0)" class="js-tag color2">pandas</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -634,11 +648,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">字符串编码</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">pandas</a>
+                <a href="javascript:void(0)" class="js-tag color5">json</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -646,7 +656,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">json</a>
+                <a href="javascript:void(0)" class="js-tag color1">字符串编码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -662,10 +672,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">常用快捷键</a>
               </li>
              
@@ -674,11 +680,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
+                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">气相色谱分离条件选择</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据清洗</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -707,10 +721,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据清洗</a>
               </li>
              
               <li class="article-tag-list-item">

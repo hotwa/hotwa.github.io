@@ -181,6 +181,225 @@
             
 
   
+    <article id="post-mac及win终端代理别名设置及其持久化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/03/11/mac%E5%8F%8Awin%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%E5%88%AB%E5%90%8D%E8%AE%BE%E7%BD%AE%E5%8F%8A%E5%85%B6%E6%8C%81%E4%B9%85%E5%8C%96/" target="_blank">mac及win终端代理别名设置及其持久化</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/03/11/mac%E5%8F%8Awin%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%E5%88%AB%E5%90%8D%E8%AE%BE%E7%BD%AE%E5%8F%8A%E5%85%B6%E6%8C%81%E4%B9%85%E5%8C%96/" class="archive-article-date">
+        <time datetime="2021-03-11T07:12:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-11</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>windows 配置cmd、powershell、git bash 参考<a target="_blank" rel="noopener" href="https://zcdll.github.io/2018/01/27/proxy-on-windows-terminal/">链接</a></p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">set http_proxy=http://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line">set https_proxy=http://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line">set http_proxy_user=user</span><br><span class="line">set http_proxy_pass=pass</span><br><span class="line"></span><br><span class="line">set https_proxy_user=user</span><br><span class="line">set https_proxy_pass=pass</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 恢复</span></span><br><span class="line">set http_proxy=</span><br><span class="line"></span><br><span class="line">set https_proxy=</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Ubuntu 下命令为 <span class="built_in">export</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">export</span> http_proxy=http://127.0.0.1:1080</span></span><br></pre></td></tr></table></figure>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p><code>curl -vv http://www.google.com</code>，用这条命令来验证，如果返回如下结果表示代理设置成功。</p>
+<h1 id="更加方便的工具"><a href="#更加方便的工具" class="headerlink" title="更加方便的工具"></a>更加方便的工具</h1><p><a target="_blank" rel="noopener" href="https://github.com/Prodesire/terminal-proxy">github 链接</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/96055170">知乎链接</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">首先是安装：</span><br><span class="line">pip install terminal-proxy</span><br><span class="line">然后配置一遍代理地址：</span><br><span class="line">proxy config <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">1080</span></span><br><span class="line">然后就可以愉快地在命令行中开启关闭代理了：</span><br><span class="line"><span class="comment"># 开启代理</span></span><br><span class="line">proxy on</span><br><span class="line"><span class="comment"># 查看代理</span></span><br><span class="line">proxy show</span><br><span class="line"><span class="comment"># 关闭代理</span></span><br><span class="line">proxy off</span><br></pre></td></tr></table></figure>
+<h1 id="Useage"><a href="#Useage" class="headerlink" title="Useage"></a>Useage</h1><h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install terminal-proxy</span><br></pre></td></tr></table></figure>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><h3 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxy config 127.0.0.1:1080</span><br></pre></td></tr></table></figure>
+<h3 id="Turn-on"><a href="#Turn-on" class="headerlink" title="Turn on"></a>Turn on</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># If you are on Windows, please run as administrator</span></span><br><span class="line"><span class="comment"># Turn on all proxies</span></span><br><span class="line">proxy on</span><br><span class="line"></span><br><span class="line"><span class="comment"># Turn on http proxy</span></span><br><span class="line">proxy on --http</span><br><span class="line"></span><br><span class="line"><span class="comment"># Turn on git proxy</span></span><br><span class="line">proxy on --git</span><br></pre></td></tr></table></figure>
+<h3 id="Show"><a href="#Show" class="headerlink" title="Show"></a>Show</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Show all proxies. Also supports --http and --git</span></span><br><span class="line">proxy show</span><br></pre></td></tr></table></figure>
+<h3 id="Turn-off"><a href="#Turn-off" class="headerlink" title="Turn off"></a>Turn off</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Turn off all proxies. Also supports --http and --git</span></span><br><span class="line">proxy off</span><br></pre></td></tr></table></figure>
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">terminal</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/代理//" class="article-tag-list-link color3">代理</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/代理/终端//" class="article-tag-list-link color3">终端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/03/11/mac%E5%8F%8Awin%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%E5%88%AB%E5%90%8D%E8%AE%BE%E7%BD%AE%E5%8F%8A%E5%85%B6%E6%8C%81%E4%B9%85%E5%8C%96/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-toml使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/03/02/toml%E4%BD%BF%E7%94%A8/" target="_blank">toml使用</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/03/02/toml%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+        <time datetime="2021-03-02T06:39:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-02</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="python-中toml配置文件使用"><a href="#python-中toml配置文件使用" class="headerlink" title="python 中toml配置文件使用"></a>python 中toml配置文件使用</h1><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/metheir/article/details/82288198">链接</a></p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>python 3.9.0</p>
+<p>toml 0.10.2</p>
+<h2 id="规范【重要】"><a href="#规范【重要】" class="headerlink" title="规范【重要】"></a>规范【重要】</h2><ul>
+<li>TOML 文档是大小写敏感的。</li>
+<li>TOML 文档<strong>必须是一个有效的 <code>UTF-8</code> 编码的 <code>Unicode</code> 文档</strong>。</li>
+<li>空白符只能是制表符（<code>0x09</code>）或空格（<code>0x20</code>）。</li>
+<li>换行符只能是 LF（<code>0x0A</code>）或 CRLF （<code>0x0D0A</code>）。</li>
+</ul>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/配置文件//" class="article-tag-list-link color5">配置文件</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/配置文件/toml//" class="article-tag-list-link color5">toml</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/03/02/toml%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-活性弹头预测" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1084,217 +1303,9 @@
 
 
   
-    <article id="post-python字符串编码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/01/06/python%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%BC%96%E7%A0%81/" target="_blank">python字符串编码</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/01/06/python%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%BC%96%E7%A0%81/" class="archive-article-date">
-        <time datetime="2021-01-06T08:55:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-06</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install chardet</span><br></pre></td></tr></table></figure>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chardet.detect(b<span class="string">&#x27;Hello, world!&#x27;</span>)</span><br><span class="line">&#123;<span class="string">&#x27;encoding&#x27;</span>: <span class="string">&#x27;ascii&#x27;</span>, <span class="string">&#x27;confidence&#x27;</span>: <span class="number">1.0</span>, <span class="string">&#x27;language&#x27;</span>: <span class="string">&#x27;&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="关于encode与decode的使用"><a href="#关于encode与decode的使用" class="headerlink" title="关于encode与decode的使用"></a>关于encode与decode的使用</h3><blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">text.decode(<span class="string">&#x27;unicode-escape&#x27;</span>)</span><br><span class="line"><span class="built_in">str</span>.encode() <span class="comment">#把一个字符串转换为其raw bytes形式</span></span><br><span class="line"><span class="built_in">bytes</span>.decode() <span class="comment">#把raw bytes转换为其字符串形式</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">字符串编码</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/编码//" class="article-tag-list-link color3">编码</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/01/06/python%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%BC%96%E7%A0%81/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数据库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/01/06/%E6%95%B0%E6%8D%AE%E5%BA%93/" target="_blank">数据库选择</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/01/06/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="archive-article-date">
-        <time datetime="2021-01-06T08:55:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-06</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="关系型数据库"><a href="#关系型数据库" class="headerlink" title="关系型数据库"></a>关系型数据库</h1><h2 id="Mysql-and-PostgreSQL"><a href="#Mysql-and-PostgreSQL" class="headerlink" title="Mysql and PostgreSQL"></a>Mysql and PostgreSQL</h2><blockquote>
-<p>唯一标识符集采集数据</p>
-</blockquote>
-<h2 id="Ubuntu-20-04-mysql-配置"><a href="#Ubuntu-20-04-mysql-配置" class="headerlink" title="Ubuntu 20.04 mysql 配置"></a>Ubuntu 20.04 mysql 配置</h2><h1 id="非关系型数据库"><a href="#非关系型数据库" class="headerlink" title="非关系型数据库"></a>非关系型数据库</h1><h2 id="NoSQL（JSON）"><a href="#NoSQL（JSON）" class="headerlink" title="NoSQL（JSON）"></a>NoSQL（JSON）</h2>
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据存储</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/数据库//" class="article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/01/06/%E6%95%B0%E6%8D%AE%E5%BA%93/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1449,11 +1460,23 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">morgan</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">fingerprints</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">PDB</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">生物信息学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">详解</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1469,31 +1492,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">详解</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">conda</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">docking</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ipython</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">import</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">init</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1505,6 +1508,22 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">import</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ipython</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">docking</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">The cure</a>
               </li>
              
@@ -1513,11 +1532,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">newifi3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">newifi3</a>
+                <a href="javascript:void(0)" class="js-tag color2">pandas</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1537,11 +1560,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">字符串编码</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">pandas</a>
+                <a href="javascript:void(0)" class="js-tag color5">json</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1549,7 +1568,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">json</a>
+                <a href="javascript:void(0)" class="js-tag color1">字符串编码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1565,10 +1584,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">常用快捷键</a>
               </li>
              
@@ -1577,11 +1592,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
+                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">气相色谱分离条件选择</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据清洗</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1610,10 +1633,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据清洗</a>
               </li>
              
               <li class="article-tag-list-item">
