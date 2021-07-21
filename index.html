@@ -1310,7 +1310,7 @@
 
 
   
-    <article id="post-python多线程多进程编程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-itertools使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -1318,7 +1318,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2021/05/02/python%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%A4%9A%E8%BF%9B%E7%A8%8B%E7%BC%96%E7%A8%8B/" target="_blank">python多线程多进程编程</a>
+	  <a class="article-title" href="/2021/05/14/itertools%E4%BD%BF%E7%94%A8/" target="_blank">itertools使用</a>
   
     </h1>
   
@@ -1326,8 +1326,8 @@
 
   
   
-<a href="/2021/05/02/python%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%A4%9A%E8%BF%9B%E7%A8%8B%E7%BC%96%E7%A8%8B/" class="archive-article-date">
-        <time datetime="2021-05-02T04:15:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-02</time>
+<a href="/2021/05/14/itertools%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+        <time datetime="2021-05-14T07:47:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-14</time>
 </a>
 
   
@@ -1339,20 +1339,45 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>[TOC]</p>
-<h1 id="多线程多进程"><a href="#多线程多进程" class="headerlink" title="多线程多进程"></a>多线程多进程</h1><h2 id="线程优点"><a href="#线程优点" class="headerlink" title="线程优点"></a>线程优点</h2><blockquote>
-<p>进程内的多个线程与主线程共享相同的数据空间，因此可以比单独的进程更容易地共享信息或彼此进行通信</p>
-<p>线程有时也被称为轻量级进程，它们不需要太多的内存开销; 它们比进程便宜。</p>
-</blockquote>
-<h2 id="线程特性"><a href="#线程特性" class="headerlink" title="线程特性"></a>线程特性</h2><p><strong>线程有一个开始，执行顺序和终止</strong>。 它有一个指令指针，可以跟踪其上下文中当前运行的位置。</p>
-<p>它可以被抢占(中断)。<br>当其他线程正在运行时，它可以临时保留(也称为睡眠) - 这称为让步。</p>
-<h2 id="两种不同线程"><a href="#两种不同线程" class="headerlink" title="两种不同线程"></a>两种不同线程</h2><p><strong>内核线程</strong><br><strong>用户线程</strong></p>
-<blockquote>
-<p>内核线程是操作系统的一部分，而用户空间线程未在内核中实现。</p>
-</blockquote>
-<h2 id="Python-3中使用线程"><a href="#Python-3中使用线程" class="headerlink" title="Python 3中使用线程"></a>Python 3中使用线程</h2><p>thread<br>threading<br>thread模块已被“不推荐”了很长一段时间。 鼓励用户使用threading模块。 因此，在Python 3中，thread模块不再可用。 但是，thread模块已被重命名为“thread”，用于Python 3中的向后兼容性。</p>
-<h2 id="守护线程"><a href="#守护线程" class="headerlink" title="守护线程"></a>守护线程</h2><p>主线程结束，子线程同时结束</p>
-
+    <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> itertools</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># accumulate</span></span><br><span class="line">x1 = itertools.accumulate(<span class="built_in">range</span>(<span class="number">10</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(x1))</span><br></pre></td></tr></table></figure>
+<pre><code>[0, 1, 3, 6, 10, 15, 21, 28, 36, 45]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># chain 连接多个列表的方法</span></span><br><span class="line">x2 = itertools.chain(<span class="built_in">range</span>(<span class="number">3</span>), <span class="built_in">range</span>(<span class="number">4</span>), [<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(x2))</span><br></pre></td></tr></table></figure>
+<pre><code>[0, 1, 2, 0, 1, 2, 3, 3, 2, 1]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 列表或生成器中指定数目的元素不重复的所有组合</span></span><br><span class="line">x3 = itertools.combinations(<span class="built_in">range</span>(<span class="number">4</span>), <span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(x3))</span><br></pre></td></tr></table></figure>
+<pre><code>[(0, 1, 2), (0, 1, 3), (0, 2, 3), (1, 2, 3)]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 允许重复元素的组合</span></span><br><span class="line">x4 = itertools.combinations_with_replacement(<span class="string">&#x27;ABC&#x27;</span>, <span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(x4))</span><br></pre></td></tr></table></figure>
+<pre><code>[(&#39;A&#39;, &#39;A&#39;), (&#39;A&#39;, &#39;B&#39;), (&#39;A&#39;, &#39;C&#39;), (&#39;B&#39;, &#39;B&#39;), (&#39;B&#39;, &#39;C&#39;), (&#39;C&#39;, &#39;C&#39;)]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 按照真值表筛选元素</span></span><br><span class="line">x5 = itertools.compress(<span class="built_in">range</span>(<span class="number">5</span>), (<span class="literal">True</span>, <span class="literal">False</span>, <span class="literal">True</span>, <span class="literal">True</span>, <span class="literal">False</span>))<span class="built_in">print</span>(<span class="built_in">list</span>(x5))</span><br></pre></td></tr></table></figure>
+<pre><code>[0, 2, 3]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一个计数器,可以指定起始位置和步长</span></span><br><span class="line">x6 = itertools.count(start=<span class="number">20</span>, step=-<span class="number">1</span>)<span class="built_in">print</span>(<span class="built_in">list</span>(itertools.islice(x6, <span class="number">0</span>, <span class="number">10</span>, <span class="number">1</span>)))</span><br></pre></td></tr></table></figure>
+<pre><code>[20, 19, 18, 17, 16, 15, 14, 13, 12, 11]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 循环指定的列表和迭代器</span></span><br><span class="line">x7 = itertools.cycle(<span class="string">&#x27;ABC&#x27;</span>)<span class="built_in">print</span>(<span class="built_in">list</span>(itertools.islice(x7, <span class="number">0</span>, <span class="number">10</span>, <span class="number">1</span>)))</span><br></pre></td></tr></table></figure>
+<pre><code>[&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;A&#39;]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 按照真值函数丢弃掉列表和迭代器前面的元素</span></span><br><span class="line">x8 = itertools.dropwhile(<span class="keyword">lambda</span> e: e &lt; <span class="number">5</span>, [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)])<span class="built_in">print</span>(<span class="built_in">list</span>(x8))</span><br></pre></td></tr></table></figure>
+<pre><code>[5, 6, 7, 8, 9]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 保留对应真值为False的元素</span></span><br><span class="line">x9 = itertools.filterfalse(<span class="keyword">lambda</span> e: e &lt; <span class="number">5</span>, (<span class="number">1</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span>, <span class="number">4</span>))<span class="built_in">print</span>(<span class="built_in">list</span>(x9))</span><br></pre></td></tr></table></figure>
+<pre><code>[5, 6, 9]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 按照分组函数的值对元素进行分组</span></span><br><span class="line">x10 = itertools.groupby(<span class="built_in">range</span>(<span class="number">10</span>), <span class="keyword">lambda</span> x: x &lt; <span class="number">5</span> <span class="keyword">or</span> x &gt; <span class="number">8</span>)</span><br><span class="line"><span class="keyword">for</span> condition, numbers <span class="keyword">in</span> x10:</span><br><span class="line">    <span class="built_in">print</span>(condition, <span class="built_in">list</span>(numbers))</span><br></pre></td></tr></table></figure>
+<pre><code>True [0, 1, 2, 3, 4]False [5, 6, 7, 8]True [9][]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对迭代器进行切片</span></span><br><span class="line">x11 = itertools.islice(<span class="built_in">range</span>(<span class="number">10</span>), <span class="number">0</span>, <span class="number">9</span>, <span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(x11))</span><br></pre></td></tr></table></figure>
+<pre><code>[0, 2, 4, 6, 8]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 产生指定数目的元素的所有排列(顺序有关)</span></span><br><span class="line">x12 = itertools.permutations(<span class="built_in">range</span>(<span class="number">4</span>), <span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(x12))</span><br></pre></td></tr></table></figure>
+<pre><code>[(0, 1, 2), (0, 1, 3), (0, 2, 1), (0, 2, 3), (0, 3, 1), (0, 3, 2), (1, 0, 2), (1, 0, 3), (1, 2, 0), (1, 2, 3), (1, 3, 0), (1, 3, 2), (2, 0, 1), (2, 0, 3), (2, 1, 0), (2, 1, 3), (2, 3, 0), (2, 3, 1), (3, 0, 1), (3, 0, 2), (3, 1, 0), (3, 1, 2), (3, 2, 0), (3, 2, 1)]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 产生多个列表和迭代器的(积)</span></span><br><span class="line">x13 = itertools.product(<span class="string">&#x27;ABC&#x27;</span>, <span class="built_in">range</span>(<span class="number">3</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(x13))</span><br></pre></td></tr></table></figure>
+<pre><code>[(&#39;A&#39;, 0), (&#39;A&#39;, 1), (&#39;A&#39;, 2), (&#39;B&#39;, 0), (&#39;B&#39;, 1), (&#39;B&#39;, 2), (&#39;C&#39;, 0), (&#39;C&#39;, 1), (&#39;C&#39;, 2)]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 简单的生成一个拥有指定数目元素的迭代器</span></span><br><span class="line">x14 = itertools.repeat(<span class="number">0</span>, <span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(x14))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 类似map</span></span><br><span class="line">x15 = itertools.starmap(<span class="built_in">str</span>.islower, <span class="string">&#x27;aBCDefGhI&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(x15))</span><br></pre></td></tr></table></figure>
+<pre><code>[True, False, False, False, True, True, False, True, False]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 与dropwhile相反，保留元素直至真值函数值为假。</span></span><br><span class="line">x16 = itertools.takewhile(<span class="keyword">lambda</span> e: e &lt; <span class="number">5</span>, <span class="built_in">range</span>(<span class="number">10</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(x16))</span><br></pre></td></tr></table></figure>
+<pre><code>[0, 1, 2, 3, 4]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成指定数目的迭代器</span></span><br><span class="line">x17 = itertools.tee(<span class="built_in">range</span>(<span class="number">10</span>), <span class="number">2</span>)</span><br><span class="line"><span class="keyword">for</span> letters <span class="keyword">in</span> x17:</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">list</span>(letters))</span><br></pre></td></tr></table></figure>
+<pre><code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 类似于zip，不过已较长的列表和迭代器的长度为准</span></span><br><span class="line">x = itertools.zip_longest(<span class="built_in">range</span>(<span class="number">3</span>), <span class="built_in">range</span>(<span class="number">5</span>))</span><br><span class="line">y = <span class="built_in">zip</span>(<span class="built_in">range</span>(<span class="number">3</span>), <span class="built_in">range</span>(<span class="number">5</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(x))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(y))</span><br></pre></td></tr></table></figure>
+<pre><code>[(0, 0), (1, 1), (2, 2), (None, 3), (None, 4)]
+[(0, 0), (1, 1), (2, 2)]
+</code></pre>
     
 
     
@@ -1368,7 +1393,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">threading</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">generate</a>
         		</li>
       		
 		</ul>
@@ -1389,7 +1414,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2021/05/02/python%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%A4%9A%E8%BF%9B%E7%A8%8B%E7%BC%96%E7%A8%8B/">展开全文 >></a>
+      <a class="article-more-a" href="/2021/05/14/itertools%E4%BD%BF%E7%94%A8/">展开全文 >></a>
     </p>
     
 
@@ -1761,6 +1786,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">饮食</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">generate</a>
               </li>
             
             <div class="clearfix"></div>

@@ -181,6 +181,115 @@
             
 
   
+    <article id="post-python多线程多进程编程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/05/02/python%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%A4%9A%E8%BF%9B%E7%A8%8B%E7%BC%96%E7%A8%8B/" target="_blank">python多线程多进程编程</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/05/02/python%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%A4%9A%E8%BF%9B%E7%A8%8B%E7%BC%96%E7%A8%8B/" class="archive-article-date">
+        <time datetime="2021-05-02T04:15:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-02</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>[TOC]</p>
+<h1 id="多线程多进程"><a href="#多线程多进程" class="headerlink" title="多线程多进程"></a>多线程多进程</h1><h2 id="线程优点"><a href="#线程优点" class="headerlink" title="线程优点"></a>线程优点</h2><blockquote>
+<p>进程内的多个线程与主线程共享相同的数据空间，因此可以比单独的进程更容易地共享信息或彼此进行通信</p>
+<p>线程有时也被称为轻量级进程，它们不需要太多的内存开销; 它们比进程便宜。</p>
+</blockquote>
+<h2 id="线程特性"><a href="#线程特性" class="headerlink" title="线程特性"></a>线程特性</h2><p><strong>线程有一个开始，执行顺序和终止</strong>。 它有一个指令指针，可以跟踪其上下文中当前运行的位置。</p>
+<p>它可以被抢占(中断)。<br>当其他线程正在运行时，它可以临时保留(也称为睡眠) - 这称为让步。</p>
+<h2 id="两种不同线程"><a href="#两种不同线程" class="headerlink" title="两种不同线程"></a>两种不同线程</h2><p><strong>内核线程</strong><br><strong>用户线程</strong></p>
+<blockquote>
+<p>内核线程是操作系统的一部分，而用户空间线程未在内核中实现。</p>
+</blockquote>
+<h2 id="Python-3中使用线程"><a href="#Python-3中使用线程" class="headerlink" title="Python 3中使用线程"></a>Python 3中使用线程</h2><p>thread<br>threading<br>thread模块已被“不推荐”了很长一段时间。 鼓励用户使用threading模块。 因此，在Python 3中，thread模块不再可用。 但是，thread模块已被重命名为“thread”，用于Python 3中的向后兼容性。</p>
+<h2 id="守护线程"><a href="#守护线程" class="headerlink" title="守护线程"></a>守护线程</h2><p>主线程结束，子线程同时结束</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">threading</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/05/02/python%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%A4%9A%E8%BF%9B%E7%A8%8B%E7%BC%96%E7%A8%8B/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-python处理json专栏" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1269,109 +1378,6 @@ TF - IDF =词频(TF)\times逆文档频率(IDF)</script>
 
 
   
-    <article id="post-python输出异常信息" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/03/18/python%E8%BE%93%E5%87%BA%E5%BC%82%E5%B8%B8%E4%BF%A1%E6%81%AF/" target="_blank">python输出异常信息</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/03/18/python%E8%BE%93%E5%87%BA%E5%BC%82%E5%B8%B8%E4%BF%A1%E6%81%AF/" class="archive-article-date">
-        <time datetime="2021-03-18T08:20:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-18</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="Python使用traceback-print-exc-来代替print-e-来输出详细的异常信息"><a href="#Python使用traceback-print-exc-来代替print-e-来输出详细的异常信息" class="headerlink" title="Python使用traceback.print_exc()来代替print e 来输出详细的异常信息"></a>Python使用traceback.print_exc()来代替print e 来输出详细的异常信息</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:  </span><br><span class="line">    <span class="number">1</span>/<span class="number">0</span>  </span><br><span class="line"><span class="keyword">except</span> Exception,e:  </span><br><span class="line">    <span class="built_in">print</span> e  </span><br></pre></td></tr></table></figure>
-<h2 id="使用traceback追踪错误"><a href="#使用traceback追踪错误" class="headerlink" title="使用traceback追踪错误"></a>使用traceback追踪错误</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> traceback  </span><br><span class="line"><span class="keyword">try</span>:  </span><br><span class="line">    <span class="number">1</span>/<span class="number">0</span>  </span><br><span class="line"><span class="keyword">except</span> Exception,e:  </span><br><span class="line">    traceback.print_exc()  </span><br></pre></td></tr></table></figure>
-<h3 id="调试输出"><a href="#调试输出" class="headerlink" title="调试输出"></a>调试输出</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">traceback.print_exc()跟traceback.format_exc()有什么区别呢？</span><br><span class="line">format_exc()返回字符串，print_exc()则直接给打印出来。</span><br><span class="line">即traceback.print_exc()与<span class="built_in">print</span> traceback.format_exc()效果是一样的。</span><br><span class="line">print_exc()还可以接受file参数直接写入到一个文件。比如</span><br><span class="line">traceback.print_exc(file=<span class="built_in">open</span>(<span class="string">&#x27;tb.txt&#x27;</span>,<span class="string">&#x27;w+&#x27;</span>))</span><br><span class="line">写入到tb.txt文件去。</span><br></pre></td></tr></table></figure>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">异常输出</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python/traceback//" class="article-tag-list-link color5">traceback</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/03/18/python%E8%BE%93%E5%87%BA%E5%BC%82%E5%B8%B8%E4%BF%A1%E6%81%AF/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
@@ -1714,6 +1720,10 @@ TF - IDF =词频(TF)\times逆文档频率(IDF)</script>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">饮食</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">generate</a>
               </li>
             
             <div class="clearfix"></div>
