@@ -18,7 +18,7 @@
 <meta property="og:description" content="[TOC] import 导入相关依赖详细介绍导入的类型参考博客 相对导入与绝对导入相对导入 相对导入分为：  implicit relative import（隐式相对导入） explicit relative import（显示相对导入） 绝对导入（官方推荐） 绝对导入的格式为 import A.B 或 from A import B，相对导入格式为 from . import B 或 fro">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-05-14T07:47:52.000Z">
-<meta property="article:modified_time" content="2021-05-14T08:52:41.472Z">
+<meta property="article:modified_time" content="2021-07-20T08:05:32.000Z">
 <meta property="article:author" content="ze.">
 <meta property="article:tag" content="import">
 <meta name="twitter:card" content="summary">
@@ -211,7 +211,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">717字</span>
+      <span class="post-count">1.2k字</span>
     </span>
   </span>
 
@@ -220,7 +220,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">2分</span>
+      <span class="post-count">4分</span>
     </span>
   </span>
 </div>
@@ -264,6 +264,13 @@
 <h3 id="②-通过把相对目录层级添加至sys-path"><a href="#②-通过把相对目录层级添加至sys-path" class="headerlink" title="② 通过把相对目录层级添加至sys.path"></a>② 通过把<strong>相对目录层级</strong>添加至<code>sys.path</code></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os,sys</span><br><span class="line"></span><br><span class="line">sys.path.append(<span class="string">&#x27;../&#x27;</span>) <span class="comment"># 添加自己指定的搜索路径</span></span><br><span class="line"><span class="keyword">import</span> mod1</span><br><span class="line"><span class="keyword">from</span> lib <span class="keyword">import</span> mod2</span><br></pre></td></tr></table></figure>
 <p>可以考虑在不同层级下的导入情况下进行兼容处理。尝试使用try语句，直到导入成功。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">from</span> ..readmodule.xlsx_base <span class="keyword">import</span> xlsx_base</span><br><span class="line"><span class="keyword">except</span> (ModuleNotFoundError,ImportError):</span><br><span class="line">    <span class="keyword">from</span> readmodule.xlsx_base <span class="keyword">import</span> xlsx_base</span><br></pre></td></tr></table></figure>
+<h1 id="不同环境下的导入问题"><a href="#不同环境下的导入问题" class="headerlink" title="不同环境下的导入问题"></a>不同环境下的导入问题</h1><h2 id="sys-path"><a href="#sys-path" class="headerlink" title="sys.path"></a>sys.path</h2><p>python3导入包是从sys.path这一临时列表中找相应的包，如果找不到就会产生相应的报错。<br>这一入口为在执行py文件是调用，结束的时候回销毁作为临时的找包文件的入口</p>
+<h2 id="添加上级入口的两种方法"><a href="#添加上级入口的两种方法" class="headerlink" title="添加上级入口的两种方法"></a>添加上级入口的两种方法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import sys,os</span><br><span class="line"># 在sys.path中添加上层目录可以自动导入相关py文件（依赖__init__.py）</span><br><span class="line">sys.path.appen(&#x27;/..&#x27;) # 通过相对路径导入上层路径，好处可以上跳目录层级，缺点是需要每层都需要是包结构（__init__.py)</span><br><span class="line"># 只导入上层目录（绝对路径导入的方式）</span><br><span class="line">parent_path = os.path.dirname(sys.path[0])</span><br><span class="line">if parent_path not in sys.path:</span><br><span class="line">    sys.path.append(parent_path)</span><br></pre></td></tr></table></figure>
+<h2 id="添加任意路径的方法"><a href="#添加任意路径的方法" class="headerlink" title="添加任意路径的方法"></a>添加任意路径的方法</h2><p>python3.9测试<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 随心导入自己想的目录层级</span></span><br><span class="line">path = os.path.split(sys.path[<span class="number">0</span>])[<span class="number">1</span>] <span class="comment"># 获取上层目录绝对路径</span></span><br><span class="line">path1 = os.path.split(path)[<span class="number">1</span>]</span><br><span class="line"><span class="comment"># 最后将自己想要的目录分割好后添加至sys.path</span></span><br><span class="line">sys.path.append(path1) <span class="comment"># 此时添加的是上两级的目录层级的绝对路径</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="anaconda环境"><a href="#anaconda环境" class="headerlink" title="anaconda环境"></a>anaconda环境</h2><p>python3.8下测试<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 和原始的环境不太一样anaconda不会从sys.path里面我们添加的路径寻找包，它回默认在Anaconda3下自己的Anaconda3\lib\site-packages\path下寻找</span></span><br><span class="line"><span class="comment"># 由于anaconda3有自己的path路径所以当入口使用 `from path import file_dir` 是在Anaconda3\lib\site-packages\path下导入所以失败</span></span><br><span class="line"><span class="comment"># 重命名为path_.py 使用 `from path_ import file_dir`导入成功 </span></span><br></pre></td></tr></table></figure></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote>
+<p>总结：<br>不适合这样添加多个寻找包的目录层级至sys.path,会造成目录层级寻找的时候较为混乱<br>如果需要只确认主目录层级入口直接参考anaconda替换sys.path[0]的变量即可</p>
+</blockquote>
 
     
 
@@ -386,8 +393,8 @@
     </a>
   
   
-    <a href="/2021/05/02/python%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%A4%9A%E8%BF%9B%E7%A8%8B%E7%BC%96%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">python多线程多进程编程</div>
+    <a href="/2021/05/14/itertools%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">itertools使用</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -573,15 +580,23 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">morgan</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">fingerprints</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">详解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">PDB</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">生物信息学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">详解</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -601,6 +616,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">dockerfile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">docking</a>
               </li>
              
@@ -613,15 +632,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ipython</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">自我介绍</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">考研复试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">generate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ipython</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">miniconda</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -634,6 +661,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Weightless</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">newifi3</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -653,6 +684,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">pandas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">高级特性</a>
               </li>
              
@@ -665,11 +700,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">字符串编码</a>
+                <a href="javascript:void(0)" class="js-tag color3">导入</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">导入</a>
+                <a href="javascript:void(0)" class="js-tag color1">字符串编码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -681,6 +716,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">常用快捷键</a>
               </li>
              
@@ -689,11 +728,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">气相色谱分离条件选择</a>
+                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">virtualenv</a>
+                <a href="javascript:void(0)" class="js-tag color1">气相色谱分离条件选择</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -701,11 +740,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">药动学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">药效学</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据清洗</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -714,6 +749,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">预测</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">药动学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">药效学</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -737,7 +780,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据清洗</a>
+                <a href="javascript:void(0)" class="js-tag color3">饮食</a>
               </li>
             
             <div class="clearfix"></div>
