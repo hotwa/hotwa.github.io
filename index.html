@@ -181,6 +181,127 @@
             
 
   
+    <article id="post-dynamic_create_func" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/10/04/dynamic_create_func/" target="_blank">python动态的创建函数</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/10/04/dynamic_create_func/" class="archive-article-date">
+        <time datetime="2021-10-04T03:10:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-04</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="python动态的创建函数"><a href="#python动态的创建函数" class="headerlink" title="python动态的创建函数"></a>python动态的创建函数</h1><p>types.FunctionType()参数解释</p>
+<p><a target="_blank" rel="noopener" href="https://www.jb51.net/article/158464.htm">refenerce1</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/olivetree123/p/5067685.html">refenerce2</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> types <span class="keyword">import</span> FunctionType,CodeType</span><br></pre></td></tr></table></figure>
+<p><code>code</code>[必须]:内部是一个PyCodeobject，作为types.CodeType对外开放。非内置方法拥有一个<strong>code</strong>属性，该属性保存了相应的代码对象。利用内置 compile() 方法，可以在运行期创建types.CodeType对象。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span>():</span></span><br><span class="line">    default_var = <span class="string">&#x27;func&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> default_var</span><br><span class="line">newfuncname = FunctionType(code=func.__code__,<span class="built_in">globals</span>=&#123;&#125;)</span><br></pre></td></tr></table></figure>
+<p><code>globals</code>[必须]:如果一个函数引用的变量不是在局部定义的，而是作为参数转入、由默认参数值提供、或者通过闭包上下文提供，则它会在 globals 字典中查找。换句话说这里表示并<strong>不是只传参的字典</strong>(传参的参数是<code>argdef</code>,后面介绍)，而是当在函数内部中变量，例如<code>default_var</code>在函数传参中没有，则会从上下文中的全局字典中进行寻找名称为<code>default_var</code>的变量。内置的 globals() 方法会返回一个对当前模块的全局符号表（global symbol table）的引用 ，因此能被用来提供一个总是与当前表的状态相一致的字典。传入任意其它的字典也是可以的，可以通过传入其他的字典对全局变量中的字典的值进行修改。</p>
+<p><code>name</code>[可选]:控制所返回的函数的<strong>name</strong> 属性。只真正对 lambdas 有用（由于匿名性，它们通常没有名称），并且重命名函数。对使用关键词<code>def</code>定义的函数无效。</p>
+<p><code>argdefs</code>[可选]:通过传入一个包含任意类型的对象的元组，提供一个方式来供应默认参数值。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span>(<span class="params">var</span>):</span></span><br><span class="line">    <span class="keyword">return</span> var</span><br><span class="line"></span><br><span class="line">In [<span class="number">1</span>]: newfuncname = FunctionType(code=func.__code__,<span class="built_in">globals</span>=&#123;&#125;,argdefs=(<span class="string">&#x27;default_var&#x27;</span>,))</span><br><span class="line"></span><br><span class="line">In [<span class="number">2</span>]: newfuncname()</span><br><span class="line">Out[<span class="number">2</span>]: <span class="string">&#x27;default_var&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p><code>closure</code>[可选]:一个cell 对象的元组。创建 cell 对象并非完全是直截了当的，因为需要调用 CPython 的内部组件，但有一个库可以令它更加方便：exalt</p>
+<p>如果需要在 CPython（PyPy，Jython，…）以外的其它 Python VM 中执行，可能不应该触及，因为它严重地依赖于实现细节。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">module_code = <span class="built_in">compile</span>(<span class="string">&#x27;def foobar(): return &quot;foobar&quot;&#x27;</span>, <span class="string">&#x27;&lt;string&gt;&#x27;</span>, <span class="string">&#x27;exec&#x27;</span>)</span><br><span class="line">function_code = [c <span class="keyword">for</span> c <span class="keyword">in</span> module_code.co_consts <span class="keyword">if</span> <span class="built_in">isinstance</span>(c, CodeType)][<span class="number">0</span>]</span><br><span class="line">foobar = FunctionType(function_code, &#123;&#125;)</span><br><span class="line"><span class="built_in">print</span>(foobar())</span><br></pre></td></tr></table></figure>
+<pre><code>foobar
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foo_code = <span class="built_in">compile</span>(<span class="string">&#x27;def foo(): return &quot;bar&quot;&#x27;</span>, <span class="string">&quot;&lt;string&gt;&quot;</span>, <span class="string">&quot;exec&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>compile() 是一个内置方法，因此同时也是文档丰富的。</p>
+<p>exec 模式被用到，因为定义函数需用多个语句。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foo_func = FunctionType(foo_code.co_consts[<span class="number">0</span>], <span class="built_in">globals</span>(), <span class="string">&quot;foo&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>聚合全部内容，并将动态创建的函数指定给一个变量。</p>
+<p>那个被前一句代码编译成的函数，成为了生成的代码对象的第一个常量，因此仅仅指向 foo_code 是不充分的。这是 exec 模式的直接后果，因为生成的代码对象可以包含多个常量。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(foo_func())</span><br></pre></td></tr></table></figure>
+<pre><code>bar
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foo_func.__name__</span><br></pre></td></tr></table></figure>
+<pre><code>&#39;foo&#39;
+</code></pre><p>name 命名生效</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">FunctionType</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/10/04/dynamic_create_func/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-PyG2Plot可视化数据" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1057,127 +1178,6 @@
 
 
   
-    <article id="post-数据清洗" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/06/02/%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97/" target="_blank">数据清洗</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/06/02/%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97/" class="archive-article-date">
-        <time datetime="2021-06-02T01:51:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-02</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="我的数据清洗小工具箱"><a href="#我的数据清洗小工具箱" class="headerlink" title="我的数据清洗小工具箱"></a>我的数据清洗小工具箱</h2><p>在下面的代码片段中，数据清洗代码被封装在了一些函数中，代码的目的十分直观。你可以直接使用这些代码，无需将它们嵌入到需要进行少量参数修改的函数中。</p>
-<p><strong>1. 删除多列数据</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def drop_multiple_col(col_names_list, df): </span><br><span class="line">    &#x27;&#x27;&#x27;</span><br><span class="line">    AIM    -&gt; Drop multiple columns based on their column names </span><br><span class="line"></span><br><span class="line">    INPUT  -&gt; List of column names, df</span><br><span class="line"></span><br><span class="line">    OUTPUT -&gt; updated df with dropped columns </span><br><span class="line">    ------</span><br><span class="line">    &#x27;&#x27;&#x27;</span><br><span class="line">    df.drop(col_names_list, axis=1, inplace=True)</span><br><span class="line">    return df</span><br></pre></td></tr></table></figure>
-<p>有时，并不是所有列的数据都对我们的数据分析工作有用。因此，「df.drop」可以方便地删掉你选定的列。</p>
-<p><strong>2. 转换 Dtypes</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def change_dtypes(col_int, col_float, df): </span><br><span class="line">    &#x27;&#x27;&#x27;</span><br><span class="line">    AIM    -&gt; Changing dtypes to save memory</span><br><span class="line"></span><br><span class="line">    INPUT  -&gt; List of column names (int, float), df</span><br><span class="line"></span><br><span class="line">    OUTPUT -&gt; updated df with smaller memory  </span><br><span class="line">    ------</span><br><span class="line">    &#x27;&#x27;&#x27;</span><br><span class="line">    df[col_int] = df[col_int].astype(&#x27;int32&#x27;)</span><br><span class="line">    df[col_float] = df[col_float].astype(&#x27;float32&#x27;)</span><br></pre></td></tr></table></figure>
-<p>当我们面对更大的数据集时，我们需要对「dtypes」进行转换，从而节省内存。如果你有兴趣学习如何使用「Pandas」来处理大数据，我强烈推荐你阅读「Why and How to Use Pandas with Large Data」这篇文章（<a target="_blank" rel="noopener" href="https://towardsdatascience.com/why-and-how-to-use-pandas-with-large-data-9594dda2ea4c）。">https://towardsdatascience.com/why-and-how-to-use-pandas-with-large-data-9594dda2ea4c）。</a></p>
-<p><strong>3. 将分类变量转换为数值变量</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def convert_cat2num(df):</span><br><span class="line">    # Convert categorical variable to numerical variable</span><br><span class="line">    num_encode = &#123;&#x27;col_1&#x27; : &#123;&#x27;YES&#x27;:1, &#x27;NO&#x27;:0&#125;,</span><br><span class="line">                  &#x27;col_2&#x27;  : &#123;&#x27;WON&#x27;:1, &#x27;LOSE&#x27;:0, &#x27;DRAW&#x27;:0&#125;&#125;  </span><br><span class="line">    df.replace(num_encode, inplace=True)  </span><br></pre></td></tr></table></figure>
-<p>有一些机器学习模型要求变量是以数值形式存在的。这时，我们就需要将分类变量转换成数值变量然后再将它们作为模型的输入。对于数据可视化任务来说，我建议大家保留分类变量，从而让可视化结果有更明确的解释，便于理解。</p>
-<p><strong>4. 检查缺失的数据</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def check_missing_data(df):</span><br><span class="line">    # check for any missing data in the df (display in descending order)</span><br><span class="line">    return df.isnull().sum().sort_values(ascending=False)</span><br></pre></td></tr></table></figure>
-<p>如果你想要检查每一列中有多少缺失的数据，这可能是最快的方法。这种方法可以让你更清楚地知道哪些列有更多的缺失数据，帮助你决定接下来在数据清洗和数据分析工作中应该采取怎样的行动。</p>
-<p><strong>5. 删除列中的字符串</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def remove_col_str(df):</span><br><span class="line">    # remove a portion of string in a dataframe column - col_1</span><br><span class="line">    df[&#x27;col_1&#x27;].replace(&#x27;\n&#x27;, &#x27;&#x27;, regex=True, inplace=True)</span><br><span class="line"></span><br><span class="line">    # remove all the characters after &amp;# (including &amp;#) for column - col_1</span><br><span class="line">    df[&#x27;col_1&#x27;].replace(&#x27; &amp;#.*&#x27;, &#x27;&#x27;, regex=True, inplace=True)</span><br></pre></td></tr></table></figure>
-<p>有时你可能会看到一行新的字符，或在字符串列中看到一些奇怪的符号。你可以很容易地使用 df[‘col_1’].replace 来处理该问题，其中「col_1」是数据帧 df 中的一列。</p>
-<p><strong>6. 删除列中的空格</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def remove_col_white_space(df):</span><br><span class="line">    # remove white space at the beginning of string </span><br><span class="line">    df[col] = df[col].str.lstrip()</span><br></pre></td></tr></table></figure>
-<p>当数据十分混乱时，很多意想不到的情况都会发生。在字符串的开头有一些空格是很常见的。因此，当你想要删除列中字符串开头的空格时，这种方法很实用。</p>
-<p><strong>7. 将两列字符串数据（在一定条件下）拼接起来</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def concat_col_str_condition(df):</span><br><span class="line">    # concat 2 columns with strings if the last 3 letters of the first column are &#x27;pil&#x27;</span><br><span class="line">    mask = df[&#x27;col_1&#x27;].str.endswith(&#x27;pil&#x27;, na=False)</span><br><span class="line">    col_new = df[mask][&#x27;col_1&#x27;] + df[mask][&#x27;col_2&#x27;]</span><br><span class="line">    col_new.replace(&#x27;pil&#x27;, &#x27; &#x27;, regex=True, inplace=True)  # replace the &#x27;pil&#x27; with emtpy space</span><br></pre></td></tr></table></figure>
-<p>当你希望在一定条件下将两列字符串数据组合在一起时，这种方法很有用。例如，你希望当第一列以某些特定的字母结尾时，将第一列和第二列数据拼接在一起。根据你的需要，还可以在拼接工作完成后将结尾的字母删除掉。</p>
-<p><strong>8. 转换时间戳（从字符串类型转换为日期「DateTime」格式）</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def convert_str_datetime(df): </span><br><span class="line">    &#x27;&#x27;&#x27;</span><br><span class="line">    AIM    -&gt; Convert datetime(String) to datetime(format we want)</span><br><span class="line"></span><br><span class="line">    INPUT  -&gt; df</span><br><span class="line"></span><br><span class="line">    OUTPUT -&gt; updated df with new datetime format </span><br><span class="line">    ------</span><br><span class="line">    &#x27;&#x27;&#x27;</span><br><span class="line">    df.insert(loc=2, column=&#x27;timestamp&#x27;, value=pd.to_datetime(df.transdate, format=&#x27;%Y-%m-%d %H:%M:%S.%f&#x27;))</span><br></pre></td></tr></table></figure>
-<p>在处理时间序列数据时，你可能会遇到字符串格式的时间戳列。这意味着我们可能不得不将字符串格式的数据转换为根据我们的需求指定的日期「datetime」格式，以便使用这些数据进行有意义的分析和展示。</p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据清洗</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/06/02/%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1347,19 +1347,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PDB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">生物信息学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">生物信息学</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1375,14 +1375,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">docking</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">init</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">import</a>
               </li>
              
@@ -1395,11 +1387,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ipython</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">generate</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ipython</a>
+                <a href="javascript:void(0)" class="js-tag color3">docking</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1408,6 +1404,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">terminal</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">init</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1447,19 +1447,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">json</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">threading</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">导入</a>
+                <a href="javascript:void(0)" class="js-tag color5">json</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">字符串编码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">导入</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1487,15 +1487,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">气相色谱分离条件选择</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据清洗</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">气相色谱分离条件选择</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1536,6 +1536,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">饮食</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">FunctionType</a>
               </li>
             
             <div class="clearfix"></div>

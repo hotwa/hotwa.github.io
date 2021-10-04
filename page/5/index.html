@@ -181,6 +181,118 @@
             
 
   
+    <article id="post-docker基础概念-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/04/07/docker%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5-1/" target="_blank">docker基础概念[1]</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/04/07/docker%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5-1/" class="archive-article-date">
+        <time datetime="2020-04-07T05:16:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-07</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <ul>
+<li><p><strong>镜像</strong>(Image)</p>
+<blockquote>
+<p>类似操作系统的快照(静态)文件，可以简单理解为IOS文件。<br>和在安装IOS类似，在安装完成后，镜像相比原来没有做任何修改的文件，做了一些相应的配置，类似，环境变量、用户、应用程序。<strong>因为在docker可以四处迁移，类似虚拟机VMware软件一样，这样就有个好处，当你运行好镜像成为了一个容器，所有环境修改都配置完成，不必重新部署环境</strong></p>
+<blockquote>
+<p>深入理解：</p>
+<p>Docker设计时，就充分利用Union FS的技术，将其设计为分层存储的架构。镜像实际是由多层文件系统联合组成。<br>镜像构建时，会一层层构建，前一层是后一层的基础。每一层构建完就不会再发生改变，后一层上的任何改变只发生在自己这一层。比如， 删除前一层文件的操作，实际不是真的删除前一层的文件，而是仅在当前层标记为该文件已删除。在最终容器运行的时候，虽然不会看到这个文件，但是实际上该文件会-直跟随镜像。因此,在构建镜像的时候，需要额外小心，每- -层尽量只包含该层需要添加的东西，任何额外的东西应该在该层构建结束前清理掉。<br>分层存储的特征还使得镜像的复用、定制变的更为容易。甚至可以用之前构建好的镜像作为基础层，然后进一步添加新的层，以定制自己所需的内容,构建新的镜像。</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p><strong>容器</strong>(Container)</p>
+<blockquote>
+<p>系指运行起来的镜像（Image）。可以简单理解为动态的文件。如果吧镜像比作一个桶里面被冻成冰块的水，那么容器就是解冻之后的水可以加入各种调味料，搅拌变成浓香的火锅汤底。所以容器是可以被创建、启动、停止、删除、暂停的。</p>
+<blockquote>
+<p>深入理解：</p>
+<p>容器的实质是进程，但与直接在宿主执行的进程不同，容器进程运行于属于自己的独立的命名空间。前面讲过镜像使用的是分层存储，容器也是如此。<br>容器存储层的生存周期和容器-样，容器消亡时，容器存储层也随之消亡。因此，任何保存于容器存储层的信息都会随容器删除而丢失。<br>按照Docker最佳实践的要求，容器不应该向其存储层内写入任何数据，容器存储层要保持无状态化。<strong>所有的文件写入操作，都应该使用数据卷(Volume)、 或者绑定宿主目录</strong>， 在这些位置的读写会跳过容器存储层，直接对宿主(或网络存储)发生读写，其性能和稳定性更高。数据卷的生存周期独立于容器，容器消亡，数据卷不会消亡。因此，使用数据卷后，容器可以随意删除、重新run,数据却不会丢失。</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p>仓库（Repository）</p>
+<blockquote>
+<p>仓库类似代码仓库，存放镜像的地方。</p>
+<p>通常，一个仓库会包含同一一个软件不同版本的镜像，而标签就常用于对应该软件的各个版本。我们可以通过&lt;仓库名&gt;:&lt;标签&gt;的格式来指定具体是这个软件哪个版本的镜像。如果不给出标签，将以latest作为默认标签.。</p>
+<p>Docker Registry公开服务是开放给用户使用、允许用户管理镜像的Registry服务。- -般这类公开服务允许<br>用户免费上传、下载公开的镜像，并可能提供收费服务供用户管理私有镜像。<br>最常使用的Registry 公开服务是官方的Docker Hub，这也是默认的Registry,并拥有大量的高质量的官方<br>镜像，网址为: <a target="_blank" rel="noopener" href="https://hub.docker.com">https://hub.docker.com</a> 。在国内访问Docker Hub可能会比较慢国内也有- - 些云服务商提供类似于Docker Hub的公开服务。比如时速云镜像库、网易云镜像服务、阿里云镜像库等。除了使用公开服务外，用户还可以在本地搭建私有Docker Registry。Docker 官方提供了Docker Registry镜像，可以直接使用做为私有Registry 服务。开源的Docker Registry镜像只提供了Docker Registry API的服务端实现，足以支持docker命令，不影响使用。但不包含图形界面，以及镜像维护、用户管理、访问控制等高级功能。</p>
+</blockquote>
+</li>
+</ul>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/docker//" class="article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/04/07/docker%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5-1/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-introduction" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -509,7 +621,7 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
 <p><code>apt-key adv --keyserver keys.gnupg.net --recv-keys 40976EAF437D05B5 3B4FE6ACC0B21F32</code> </p>
 <p>—keyserver keyserver.ubuntu.com（可选）</p>
 <blockquote>
-<p>Executing: /tmp/apt-key-gpghome.sCeV5SAlQI/gpg.1.sh —keyserver keys.gnupg.net —recv-keys 40976EAF437D05B5 3B4FE6ACC0B21F32<br>gpg: key 3B4FE6ACC0B21F32: 20 signatures not checked due to missing keys<br>gpg: key 3B4FE6ACC0B21F32: public key “Ubuntu Archive Automatic Signing Key (2012) <a href="&#x6d;&#x61;&#x69;&#108;&#116;&#111;&#x3a;&#x66;&#116;&#112;&#x6d;&#x61;&#115;&#x74;&#x65;&#x72;&#x40;&#117;&#98;&#117;&#110;&#x74;&#117;&#46;&#x63;&#x6f;&#109;">&#x66;&#116;&#112;&#x6d;&#x61;&#115;&#x74;&#x65;&#x72;&#x40;&#117;&#98;&#117;&#110;&#x74;&#117;&#46;&#x63;&#x6f;&#109;</a>“ imported<br>gpg: key 40976EAF437D05B5: 60 signatures not checked due to missing keys<br>gpg: key 40976EAF437D05B5: public key “Ubuntu Archive Automatic Signing Key <a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#111;&#58;&#102;&#x74;&#x70;&#109;&#97;&#115;&#x74;&#x65;&#x72;&#64;&#117;&#x62;&#117;&#110;&#116;&#117;&#46;&#x63;&#x6f;&#x6d;">&#102;&#x74;&#x70;&#109;&#97;&#115;&#x74;&#x65;&#x72;&#64;&#117;&#x62;&#117;&#110;&#116;&#117;&#46;&#x63;&#x6f;&#x6d;</a>“ imported<br>gpg: Total number processed: 2<br>gpg:               imported: 2</p>
+<p>Executing: /tmp/apt-key-gpghome.sCeV5SAlQI/gpg.1.sh —keyserver keys.gnupg.net —recv-keys 40976EAF437D05B5 3B4FE6ACC0B21F32<br>gpg: key 3B4FE6ACC0B21F32: 20 signatures not checked due to missing keys<br>gpg: key 3B4FE6ACC0B21F32: public key “Ubuntu Archive Automatic Signing Key (2012) <a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#x6f;&#x3a;&#x66;&#x74;&#112;&#109;&#97;&#115;&#116;&#x65;&#x72;&#x40;&#x75;&#x62;&#117;&#x6e;&#116;&#x75;&#x2e;&#x63;&#111;&#109;">&#x66;&#x74;&#112;&#109;&#97;&#115;&#116;&#x65;&#x72;&#x40;&#x75;&#x62;&#117;&#x6e;&#116;&#x75;&#x2e;&#x63;&#111;&#109;</a>“ imported<br>gpg: key 40976EAF437D05B5: 60 signatures not checked due to missing keys<br>gpg: key 40976EAF437D05B5: public key “Ubuntu Archive Automatic Signing Key <a href="&#109;&#97;&#x69;&#x6c;&#x74;&#111;&#x3a;&#x66;&#116;&#112;&#109;&#x61;&#115;&#x74;&#x65;&#114;&#64;&#117;&#x62;&#x75;&#110;&#x74;&#x75;&#x2e;&#x63;&#111;&#109;">&#x66;&#116;&#112;&#109;&#x61;&#115;&#x74;&#x65;&#114;&#64;&#117;&#x62;&#x75;&#110;&#x74;&#x75;&#x2e;&#x63;&#111;&#109;</a>“ imported<br>gpg: Total number processed: 2<br>gpg:               imported: 2</p>
 </blockquote>
 <p>然后</p>
 <p><code>sudo apt update</code> </p>
@@ -591,7 +703,7 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
 <p><code>apt-key adv --keyserver keys.gnupg.net --recv-keys 40976EAF437D05B5 3B4FE6ACC0B21F32</code> </p>
 <p>—keyserver keyserver.ubuntu.com（可选）</p>
 <blockquote>
-<p>Executing: /tmp/apt-key-gpghome.sCeV5SAlQI/gpg.1.sh —keyserver keys.gnupg.net —recv-keys 40976EAF437D05B5 3B4FE6ACC0B21F32<br>gpg: key 3B4FE6ACC0B21F32: 20 signatures not checked due to missing keys<br>gpg: key 3B4FE6ACC0B21F32: public key “Ubuntu Archive Automatic Signing Key (2012) <a href="&#109;&#x61;&#105;&#x6c;&#116;&#x6f;&#x3a;&#x66;&#116;&#x70;&#x6d;&#x61;&#115;&#x74;&#x65;&#114;&#x40;&#117;&#98;&#117;&#x6e;&#x74;&#x75;&#46;&#99;&#x6f;&#109;">&#x66;&#116;&#x70;&#x6d;&#x61;&#115;&#x74;&#x65;&#114;&#x40;&#117;&#98;&#117;&#x6e;&#x74;&#x75;&#46;&#99;&#x6f;&#109;</a>“ imported<br>gpg: key 40976EAF437D05B5: 60 signatures not checked due to missing keys<br>gpg: key 40976EAF437D05B5: public key “Ubuntu Archive Automatic Signing Key <a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#x6f;&#58;&#x66;&#x74;&#x70;&#x6d;&#97;&#115;&#x74;&#101;&#x72;&#64;&#x75;&#98;&#x75;&#x6e;&#116;&#117;&#46;&#99;&#x6f;&#x6d;">&#x66;&#x74;&#x70;&#x6d;&#97;&#115;&#x74;&#101;&#x72;&#64;&#x75;&#98;&#x75;&#x6e;&#116;&#117;&#46;&#99;&#x6f;&#x6d;</a>“ imported<br>gpg: Total number processed: 2<br>gpg:               imported: 2</p>
+<p>Executing: /tmp/apt-key-gpghome.sCeV5SAlQI/gpg.1.sh —keyserver keys.gnupg.net —recv-keys 40976EAF437D05B5 3B4FE6ACC0B21F32<br>gpg: key 3B4FE6ACC0B21F32: 20 signatures not checked due to missing keys<br>gpg: key 3B4FE6ACC0B21F32: public key “Ubuntu Archive Automatic Signing Key (2012) <a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#x6f;&#58;&#102;&#x74;&#112;&#109;&#x61;&#115;&#116;&#x65;&#114;&#x40;&#x75;&#x62;&#117;&#x6e;&#x74;&#x75;&#46;&#x63;&#111;&#x6d;">&#102;&#x74;&#112;&#109;&#x61;&#115;&#116;&#x65;&#114;&#x40;&#x75;&#x62;&#117;&#x6e;&#x74;&#x75;&#46;&#x63;&#111;&#x6d;</a>“ imported<br>gpg: key 40976EAF437D05B5: 60 signatures not checked due to missing keys<br>gpg: key 40976EAF437D05B5: public key “Ubuntu Archive Automatic Signing Key <a href="&#109;&#97;&#x69;&#108;&#x74;&#111;&#58;&#x66;&#116;&#112;&#x6d;&#97;&#x73;&#116;&#x65;&#x72;&#x40;&#117;&#98;&#117;&#x6e;&#116;&#117;&#46;&#99;&#111;&#109;">&#x66;&#116;&#112;&#x6d;&#97;&#x73;&#116;&#x65;&#x72;&#x40;&#117;&#98;&#117;&#x6e;&#116;&#117;&#46;&#99;&#111;&#109;</a>“ imported<br>gpg: Total number processed: 2<br>gpg:               imported: 2</p>
 </blockquote>
 <p>然后</p>
 <p><code>sudo apt update</code> </p>
@@ -1198,19 +1310,19 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PDB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">生物信息学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">生物信息学</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1226,14 +1338,6 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">docking</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">init</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">import</a>
               </li>
              
@@ -1246,11 +1350,15 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ipython</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">generate</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ipython</a>
+                <a href="javascript:void(0)" class="js-tag color3">docking</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1259,6 +1367,10 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">terminal</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">init</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1298,19 +1410,19 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">json</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">threading</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">导入</a>
+                <a href="javascript:void(0)" class="js-tag color5">json</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">字符串编码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">导入</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1338,15 +1450,15 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">气相色谱分离条件选择</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据清洗</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">气相色谱分离条件选择</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1387,6 +1499,10 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">饮食</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">FunctionType</a>
               </li>
             
             <div class="clearfix"></div>
