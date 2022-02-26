@@ -181,7 +181,7 @@
             
 
   
-    <article id="post-vim快捷键" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-newifi3-openwrt" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -189,7 +189,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2021/02/05/vim%E5%BF%AB%E6%8D%B7%E9%94%AE/" target="_blank">vim快捷键</a>
+	  <a class="article-title" href="/2021/06/13/newifi3-openwrt/" target="_blank">newifi3 openwrt</a>
   
     </h1>
   
@@ -197,8 +197,8 @@
 
   
   
-<a href="/2021/02/05/vim%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="archive-article-date">
-        <time datetime="2021-02-05T15:13:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-05</time>
+<a href="/2021/06/13/newifi3-openwrt/" class="archive-article-date">
+        <time datetime="2021-06-13T10:21:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-13</time>
 </a>
 
   
@@ -210,16 +210,13 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="批量注释"><a href="#批量注释" class="headerlink" title="批量注释"></a>批量注释</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/davidshen/p/10248224.html">链接</a></p>
-<blockquote>
-<p>批量插入字符快捷键：</p>
-<p>Ctrl+v进入VISUAL BLOCK（可视块）模式，按 j （向下选取列）或者 k （向上选取列），再按Shift + i 进入编辑模式然后输入你想要插入的字符（任意字符），再按两次Esc就可以实现批量插入字符，不仅仅实现批量注释而已。</p>
-<p>批量删除字符快捷键：</p>
-<p>Ctrl+v进入VISUAL BLOCK（可视块）模式，按 j （向下选取列）或者 k （向上选取列），直接（不用进入编辑模式）按 x 或者 d 就可以直接删去，再按Esc退出。</p>
-</blockquote>
-<hr>
-<h1 id="其他快捷键"><a href="#其他快捷键" class="headerlink" title="其他快捷键"></a>其他快捷键</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/lhl1124281072/article/details/83148777">链接</a></p>
-
+    <p>[TOC]</p>
+<h1 id="openwrt-软件挂载外部U盘"><a href="#openwrt-软件挂载外部U盘" class="headerlink" title="openwrt 软件挂载外部U盘"></a>openwrt 软件挂载外部U盘</h1><h2 id="在使用国内源"><a href="#在使用国内源" class="headerlink" title="在使用国内源"></a>在使用国内源</h2><p>需要注意openwrt是否安装openssl，因为国内源都是https</p>
+<h2 id="关于U盘存储格式"><a href="#关于U盘存储格式" class="headerlink" title="关于U盘存储格式"></a>关于U盘存储格式</h2><p>大容量推荐exfat<br>其他则ext3等格式<br>也需要提前安装相应的包支持</p>
+<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><p>/etc/opkg.conf<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">dest root /</span><br><span class="line">dest usb /mnt/sda1/optware</span><br><span class="line">dest ram /tmp</span><br><span class="line">lists_dir ext /var/opkg-lists</span><br><span class="line">option overlay_root /mnt/sda1/optware/overlay</span><br><span class="line">option check_signature</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">src/gz openwrt_core https://mirrors.cloud.tencent.com/lede/snapshots/targets/ramips/mt7621/packages</span></span><br><span class="line"><span class="meta">#</span><span class="bash">src/gz openwrt_base https://mirrors.cloud.tencent.com/lede/snapshots/packages/mipsel_24kc/base</span></span><br><span class="line"><span class="meta">#</span><span class="bash">src/gz openwrt_helloworld https://mirrors.cloud.tencent.com/lede/snapshots/packages/mipsel_24kc/helloworld</span></span><br><span class="line"><span class="meta">#</span><span class="bash">src/gz openwrt_luci https://mirrors.cloud.tencent.com/lede/releases/18.06.8/packages/mipsel_24kc/luci</span></span><br><span class="line"><span class="meta">#</span><span class="bash">src/gz openwrt_packages https://mirrors.cloud.tencent.com/lede/snapshots/packages/mipsel_24kc/packages</span></span><br><span class="line"><span class="meta">#</span><span class="bash">src/gz openwrt_routing https://mirrors.cloud.tencent.com/lede/snapshots/packages/mipsel_24kc/routing</span></span><br><span class="line"><span class="meta">#</span><span class="bash">src/gz openwrt_telephony https://mirrors.cloud.tencent.com/lede/snapshots/packages/mipsel_24kc/telephony</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="修改环境变量"><a href="#修改环境变量" class="headerlink" title="修改环境变量"></a>修改环境变量</h2><p>修改/etc/profile<br>文件提前在挂载u盘上创建好<br>参考<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export LD_LIBRARY_PATH=&quot;/mnt/sda1/optware/usr/lib:/mnt/sda1/optware/lib&quot;</span><br><span class="line">export PATH=&quot;/usr/sbin:/usr/bin:/sbin:/bin:/mnt/sda1/optware/usr/bin:/mnt/sda1/optware/usr/sbin&quot;</span><br></pre></td></tr></table></figure><br>生效<code>source /etc/profile</code></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">opkg install python3 --dest usb</span><br><span class="line">opkg install python3-pip -d usb</span><br><span class="line"><span class="meta">#</span><span class="bash"> --force-depends 可以适当在报错的时候使用</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">opkg install python3-pip --dest usb</span><br><span class="line">/usr/bin/python3 -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple  --upgrade pip  </span><br><span class="line">pip install ipython -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
     
 
     
@@ -235,11 +232,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">常用快捷键</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vim</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">newifi3</a>
         		</li>
       		
 		</ul>
@@ -251,7 +244,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/linux//" class="article-tag-list-link color1">linux</a>
+        			<a href="/categories/openwrt//" class="article-tag-list-link color3">openwrt</a>
         		</li>
       		
 		</ul>
@@ -260,7 +253,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2021/02/05/vim%E5%BF%AB%E6%8D%B7%E9%94%AE/">展开全文 >></a>
+      <a class="article-more-a" href="/2021/06/13/newifi3-openwrt/">展开全文 >></a>
     </p>
     
 
@@ -290,7 +283,7 @@
 
 
   
-    <article id="post-python引入问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-食物记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -298,7 +291,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2021/01/22/python%E5%BC%95%E5%85%A5%E9%97%AE%E9%A2%98/" target="_blank">python引入问题</a>
+	  <a class="article-title" href="/2021/06/12/%E9%A3%9F%E7%89%A9%E8%AE%B0%E5%BD%95/" target="_blank">食物记录</a>
   
     </h1>
   
@@ -306,8 +299,8 @@
 
   
   
-<a href="/2021/01/22/python%E5%BC%95%E5%85%A5%E9%97%AE%E9%A2%98/" class="archive-article-date">
-        <time datetime="2021-01-22T14:32:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-22</time>
+<a href="/2021/06/12/%E9%A3%9F%E7%89%A9%E8%AE%B0%E5%BD%95/" class="archive-article-date">
+        <time datetime="2021-06-12T12:34:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-12</time>
 </a>
 
   
@@ -319,8 +312,8 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="包的导入"><a href="#包的导入" class="headerlink" title="包的导入"></a>包的导入</h1><h2 id="从当前路径路径导入和顶层文件夹导入通用方法"><a href="#从当前路径路径导入和顶层文件夹导入通用方法" class="headerlink" title="从当前路径路径导入和顶层文件夹导入通用方法"></a>从当前路径路径导入和顶层文件夹导入通用方法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> icecream <span class="keyword">import</span> ic</span><br><span class="line">ic.configureOutput(includeContext=<span class="literal">True</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    ic(<span class="string">&#x27;尝试从当前目录导入&#x27;</span>)</span><br><span class="line">    <span class="keyword">from</span> xlsx_base_a <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">except</span> ModuleNotFoundError <span class="keyword">as</span> error:</span><br><span class="line">    ic(error)</span><br><span class="line">    ic(<span class="string">&#x27;尝试从添加首层路径，导入相关类&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> __package__ <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">import</span> sys</span><br><span class="line">        sys.path.append(<span class="string">&#x27;../../../&#x27;</span>)</span><br><span class="line">    <span class="keyword">from</span> readmodule.xlsx_base_a <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    ic(<span class="string">&#x27;导入模块结束&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
+    <p>[TOC]</p>
+<h1 id=""><a href="#" class="headerlink" title=" "></a> </h1>
     
 
     
@@ -336,11 +329,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">导入</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">饮食</a>
         		</li>
       		
 		</ul>
@@ -352,7 +341,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/模块//" class="article-tag-list-link color3">模块</a>
+        			<a href="/categories/生活//" class="article-tag-list-link color3">生活</a>
         		</li>
       		
 		</ul>
@@ -361,7 +350,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2021/01/22/python%E5%BC%95%E5%85%A5%E9%97%AE%E9%A2%98/">展开全文 >></a>
+      <a class="article-more-a" href="/2021/06/12/%E9%A3%9F%E7%89%A9%E8%AE%B0%E5%BD%95/">展开全文 >></a>
     </p>
     
 
@@ -391,7 +380,7 @@
 
 
   
-    <article id="post-python3-9-Function-Annotations" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-pandas" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -399,7 +388,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2021/01/19/python3-9-Function-Annotations/" target="_blank">python3.9 Function Annotations</a>
+	  <a class="article-title" href="/2021/06/03/pandas/" target="_blank">pandas操作</a>
   
     </h1>
   
@@ -407,8 +396,8 @@
 
   
   
-<a href="/2021/01/19/python3-9-Function-Annotations/" class="archive-article-date">
-        <time datetime="2021-01-19T01:52:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-19</time>
+<a href="/2021/06/03/pandas/" class="archive-article-date">
+        <time datetime="2021-06-03T07:56:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-03</time>
 </a>
 
   
@@ -420,219 +409,19 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级特性</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/函数注解//" class="article-tag-list-link color5">函数注解</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/01/19/python3-9-Function-Annotations/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-docker-learn" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/01/12/docker-learn/" target="_blank">docker基础概念[1]</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/01/12/docker-learn/" class="archive-article-date">
-        <time datetime="2021-01-12T13:58:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-12</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/docker//" class="article-tag-list-link color2">docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/01/12/docker-learn/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-python类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/01/07/python%E7%B1%BB/" target="_blank">python类</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/01/07/python%E7%B1%BB/" class="archive-article-date">
-        <time datetime="2021-01-07T02:25:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-07</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="python类"><a href="#python类" class="headerlink" title="python类"></a>python类</h1><ol>
-<li>普通类继承object</li>
-<li>抽象基类继承abc</li>
-</ol>
-<hr>
-<h1 id="高级特性"><a href="#高级特性" class="headerlink" title="高级特性"></a>高级特性</h1><p><code>构造函数</code></p>
-<blockquote>
-<p>构造函数不同于普通方法的地方在于，将在对象创建后<strong>自动调用</strong>它们。</p>
-</blockquote>
-<p><code>构造函数内置方法</code></p>
-<p><code>__init__</code>: add some varvale in function</p>
-<p><code>__del__</code>:destructor, 析构函数。这个方法在对象被销毁（作为垃圾被搜集）前被调用。</p>
-<h2 id="重写普通方法和特殊的构造函数"><a href="#重写普通方法和特殊的构造函数" class="headerlink" title="重写普通方法和特殊的构造函数"></a>重写普通方法和特殊的构造函数</h2><p>在子类中重写了构造函数（在子类中重新初始化了内部变量<code>__init__</code>，导致在子类中不含有超类（父类）中内置属性），则无法调用超类中的方法是出现报错。</p>
-<hr>
-<h1 id="self，cls，staticmethod，classmethod"><a href="#self，cls，staticmethod，classmethod" class="headerlink" title="self，cls，staticmethod，classmethod"></a>self，cls，staticmethod，classmethod</h1><blockquote>
-<p>例子</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>:</span></span><br><span class="line">    belong_to = <span class="string">&#x27;earthman&#x27;</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,skin, name</span>):</span></span><br><span class="line">        self.skin = skin</span><br><span class="line">        self.name = name</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_skin</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.skin</span><br><span class="line">        </span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">menthod_cls</span>(<span class="params">cls</span>):</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;cls&#125;</span>,hello，<span class="subst">&#123;Person.belong_to&#125;</span>&#x27;</span>)</span><br><span class="line">        </span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="comment"># 减少实例化对象的开销，如果方法没有用到实例化的任何属性和方法，推荐使用静态类方法</span></span><br><span class="line">    <span class="comment"># 属于类的方法放到类里面，利于组织代码，容易阅读。</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">menthod_state</span>():</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;hello，<span class="subst">&#123;Person.belong_to&#125;</span>&#x27;</span>)</span><br><span class="line">        </span><br><span class="line">lm = Person(<span class="string">&#x27;yellow&#x27;</span>, <span class="string">&#x27;李明&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(lm.get_skin())</span><br><span class="line"><span class="built_in">print</span>(Person.menthod_cls())</span><br><span class="line"><span class="built_in">print</span>(lm.menthod_cls())</span><br><span class="line"><span class="built_in">print</span>(Person.menthod_state())</span><br><span class="line"></span><br><span class="line"><span class="comment"># cls和self有什么特点</span></span><br><span class="line"><span class="comment"># 类的方法，第一个参数必须是self或者是cls（必须用classmethod装饰），这是一种约定。</span></span><br><span class="line"><span class="comment"># cls，表示的是类本身，self表示实例化具体对象的本身。好比说在解析器执行代码的时候，具体的Person类也是一个对象，cls是Person的引用。slef就是lm对象的引用。</span></span><br></pre></td></tr></table></figure>
-<p>@classmethod，第一个参数必须是cls，类方法，<strong>可以来调用类的属性，类的方法，实例化对象</strong>等，避免硬编码。比如上面使用类.方法()，实例化.方法()效果是一样的。<strong>重构类的时候不必要修改构造函数，只需要额外添加你要处理的函数（使用场景）。</strong>我在看scrapy代码中发现不少这类型的方法，现在想来确实是用在重构中多些，之前还看不懂。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lm = Person(<span class="string">&#x27;yellow&#x27;</span>, <span class="string">&#x27;李明&#x27;</span>)</span><br><span class="line">lm.get_skin()<span class="comment">#类成员方法</span></span><br><span class="line"><span class="comment">#也可以这样使用,一样能用</span></span><br><span class="line">Person.get_skin(lm)</span><br></pre></td></tr></table></figure>
-<p>lm现在是一个具体叫李明的人，那么在调用Person成员方法的时候，会隐式传递lm对象给get_skin()，也就是self。那为什么非要把self写到方法中？在官方python文档有解释：</p>
-<p>在python中没有局部变量声明，加self就可以表示本实例化的变量/方法。<strong>可以理解成类里面的全局变量</strong>,局部变量和实例变量存在于两个不同的命名空间中，您需要告诉 Python 使用哪个命名空间。</p>
-<p>那么对于cls参数其实也类似，必须告诉调用的方法，具体的类名，通过cls传递类对象进行调用。在重构的时候，也用得着。</p>
-<h2 id="classmethod"><a href="#classmethod" class="headerlink" title="classmethod"></a>classmethod</h2><p>1—classmethod设计的目的是什么呢？</p>
-<p>事实上与Python面向对象编程有关的，由于Python不支持多个的參数重载构造函数，比方在C++里，构造函数能够依据參数个数不一样。能够写多个构造函数。Python为了解决问题，採用classmethod修饰符的方式，这样定义出来的函数就能够在类对象实例化之前调用这些函数，就相当于多个构造函数，解决多个构造函数的代码写在类外面的问题。</p>
-<p>2—-类最基本的作用是实例化出一个对象，但是有的时候再实例化之前，就需要先和类做一定的交互，这种交互可能会影响实际实例化的过程，所以必须放在调用构造函数之前。大概也可能是因为这个原因出现了classmethod</p>
-<p>3—-直接一点来说，我们知道对于一个普通的类，我们要使用其中的函数的话，需要对类进行实例化，而一个类中，某个函数前面加上了staticmethod或者classmethod的话，那么这个函数就可以不通过实例化直接调用，可以通过类名进行调用的</p>
-<p>4—-@classmethod 定义的类方法是可选构造函数中，我们定义了一个类方法，类方法的<strong>第一个参数(cls)指代的就是类本身</strong>。<strong>类方法会用这个类来创建并返回最终的实例。</strong>使用类方法的另一个好处就是在继承的时候，保证了<strong>子类使用可选构造函数构造出来的类是子类的实例而不是父类的实例</strong>。</p>
+    <p>[TOC]</p>
+<h1 id="pandas"><a href="#pandas" class="headerlink" title="pandas"></a>pandas</h1><h2 id="关于iloc与loc"><a href="#关于iloc与loc" class="headerlink" title="关于iloc与loc"></a>关于iloc与loc</h2><p><code>iloc</code>:以number为编号获取值。</p>
+<p><code>loc</code>:以key获取值。</p>
+<h3 id="取值操作"><a href="#取值操作" class="headerlink" title="取值操作"></a>取值操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df1.loc[<span class="number">1</span>,<span class="string">&#x27;pubmedid&#x27;</span>] <span class="comment"># 同等a = df1.loc[1][&#x27;pubmedid&#x27;] # 先行值后列值</span></span><br><span class="line">df1.iloc[<span class="number">0</span>,<span class="number">0</span>] <span class="comment"># 同等df1.iloc[0][0]和df1.iat[0,1] # 先行值后列值</span></span><br></pre></td></tr></table></figure>
+<h3 id="赋值操作"><a href="#赋值操作" class="headerlink" title="赋值操作"></a>赋值操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df1.loc[<span class="number">1</span>,<span class="string">&#x27;pubmedid&#x27;</span>] = <span class="string">&#x27;sdfdf&#x27;</span> <span class="comment"># df1.loc[1][&#x27;pubmedid&#x27;] = &#x27;sdfdf&#x27; # 报错</span></span><br><span class="line">df1.iloc[<span class="number">0</span>,-<span class="number">2</span>] = <span class="string">&#x27;111111111&#x27;</span> <span class="comment"># df1.iloc[0][-2] = &#x27;111111111&#x27; # 报错</span></span><br></pre></td></tr></table></figure>
+<h3 id="降重操作"><a href="#降重操作" class="headerlink" title="降重操作"></a>降重操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df1 = df.drop_duplicates([<span class="string">&#x27;paper&#x27;</span>])</span><br></pre></td></tr></table></figure>
+<h3 id="计数统计"><a href="#计数统计" class="headerlink" title="计数统计"></a>计数统计</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">result = df[<span class="string">&#x27;Census_OSInstallLanguageIdentifier&#x27;</span>].value_counts().plot(kind=<span class="string">&#x27;bar&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="选取特定值行"><a href="#选取特定值行" class="headerlink" title="选取特定值行"></a>选取特定值行</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df1 = df[df[<span class="string">&#x27;year&#x27;</span>]==<span class="string">&#x27;2016&#x27;</span>] <span class="comment"># 选取年份为2016 的行，注意2016的类型是int还是str</span></span><br></pre></td></tr></table></figure>
+<h2 id="统计"><a href="#统计" class="headerlink" title="统计"></a>统计</h2><h3 id="根据列值长度筛选"><a href="#根据列值长度筛选" class="headerlink" title="根据列值长度筛选"></a>根据列值长度筛选</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = df[df[<span class="string">&#x27;Residue_name1&#x27;</span>].<span class="built_in">str</span>.<span class="built_in">len</span>()==<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="查看数目统计信息"><a href="#查看数目统计信息" class="headerlink" title="查看数目统计信息"></a>查看数目统计信息</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">&#x27;区域&#x27;</span>].value_counts()</span><br><span class="line"><span class="built_in">print</span>(df[<span class="string">&#x27;区域&#x27;</span>].value_counts(ascending=<span class="literal">True</span>)) <span class="comment"># 升序</span></span><br></pre></td></tr></table></figure>
+<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><h3 id="相同信息连接"><a href="#相同信息连接" class="headerlink" title="相同信息连接"></a>相同信息连接</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res = pd.concat(reslist,join=<span class="string">&#x27;inner&#x27;</span>) <span class="comment"># reslist为含有dataframe的列表 并且只连接相同列</span></span><br></pre></td></tr></table></figure>
+<h2 id="快速筛选的方法"><a href="#快速筛选的方法" class="headerlink" title="快速筛选的方法"></a>快速筛选的方法</h2><h3 id="query-类似SQL"><a href="#query-类似SQL" class="headerlink" title="query(类似SQL)"></a>query(类似SQL)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df1 = df.query(<span class="string">&#x27;LigandName in (&quot;HEC&quot;,&quot;NAG&quot;,&quot;SF4&quot;,&quot;HEM&quot;,&quot;FAD&quot;,&quot;FES&quot;,&quot;F3S&quot;,&quot;FE2&quot;)&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/mrwuzs/p/11325205.html">reference</a></p>
 
     
 
@@ -649,321 +438,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高级特性</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/类//" class="article-tag-list-link color2">类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/01/07/python%E7%B1%BB/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-python字符串编码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/01/06/python%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%BC%96%E7%A0%81/" target="_blank">python字符串编码</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/01/06/python%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%BC%96%E7%A0%81/" class="archive-article-date">
-        <time datetime="2021-01-06T08:55:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-06</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install chardet</span><br></pre></td></tr></table></figure>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chardet.detect(b<span class="string">&#x27;Hello, world!&#x27;</span>)</span><br><span class="line">&#123;<span class="string">&#x27;encoding&#x27;</span>: <span class="string">&#x27;ascii&#x27;</span>, <span class="string">&#x27;confidence&#x27;</span>: <span class="number">1.0</span>, <span class="string">&#x27;language&#x27;</span>: <span class="string">&#x27;&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="关于encode与decode的使用"><a href="#关于encode与decode的使用" class="headerlink" title="关于encode与decode的使用"></a>关于encode与decode的使用</h3><blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">text.decode(<span class="string">&#x27;unicode-escape&#x27;</span>)</span><br><span class="line"><span class="built_in">str</span>.encode() <span class="comment">#把一个字符串转换为其raw bytes形式</span></span><br><span class="line"><span class="built_in">bytes</span>.decode() <span class="comment">#把raw bytes转换为其字符串形式</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">字符串编码</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/编码//" class="article-tag-list-link color3">编码</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/01/06/python%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%BC%96%E7%A0%81/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数据库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/01/06/%E6%95%B0%E6%8D%AE%E5%BA%93/" target="_blank">数据库选择</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/01/06/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="archive-article-date">
-        <time datetime="2021-01-06T08:55:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-06</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="关系型数据库"><a href="#关系型数据库" class="headerlink" title="关系型数据库"></a>关系型数据库</h1><h2 id="Mysql-and-PostgreSQL"><a href="#Mysql-and-PostgreSQL" class="headerlink" title="Mysql and PostgreSQL"></a>Mysql and PostgreSQL</h2><blockquote>
-<p>唯一标识符集采集数据</p>
-</blockquote>
-<h2 id="Ubuntu-20-04-mysql-配置"><a href="#Ubuntu-20-04-mysql-配置" class="headerlink" title="Ubuntu 20.04 mysql 配置"></a>Ubuntu 20.04 mysql 配置</h2><h1 id="非关系型数据库"><a href="#非关系型数据库" class="headerlink" title="非关系型数据库"></a>非关系型数据库</h1><h2 id="NoSQL（JSON）"><a href="#NoSQL（JSON）" class="headerlink" title="NoSQL（JSON）"></a>NoSQL（JSON）</h2>
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据存储</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/数据库//" class="article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/01/06/%E6%95%B0%E6%8D%AE%E5%BA%93/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-requirement-txt使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/12/29/requirement-txt%E4%BD%BF%E7%94%A8/" target="_blank">requirement.txt使用</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/12/29/requirement-txt%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-        <time datetime="2020-12-29T11:06:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-29</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="基本使用（适用于虚拟环境）"><a href="#基本使用（适用于虚拟环境）" class="headerlink" title="基本使用（适用于虚拟环境）"></a>基本使用（适用于虚拟环境）</h2><p>生成<code>requirements.txt</code>文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure>
-<p>安装<code>requirements.txt</code>文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br><span class="line">pip install -r .\requrements.txt -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
-<h2 id="requirements-txt-文件格式"><a href="#requirements-txt-文件格式" class="headerlink" title="requirements.txt 文件格式"></a>requirements.txt 文件格式</h2><p>&gt;</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">asttokens==<span class="number">2.0</span><span class="number">.4</span></span><br><span class="line">colorama==<span class="number">0.4</span><span class="number">.4</span></span><br><span class="line">executing==<span class="number">0.5</span><span class="number">.4</span></span><br><span class="line">icecream==<span class="number">2.1</span><span class="number">.0</span></span><br><span class="line">Pygments==<span class="number">2.8</span><span class="number">.0</span></span><br><span class="line">PyMySQL==<span class="number">1.0</span><span class="number">.2</span></span><br><span class="line">six==<span class="number">1.15</span><span class="number">.0</span></span><br><span class="line">SQLAlchemy==<span class="number">1.3</span><span class="number">.23</span></span><br><span class="line">toml==<span class="number">0.10</span><span class="number">.2</span></span><br><span class="line">xlrd==<span class="number">1.2</span><span class="number">.0</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">requirement</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">pandas</a>
         		</li>
       		
 		</ul>
@@ -984,7 +459,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2020/12/29/requirement-txt%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+      <a class="article-more-a" href="/2021/06/03/pandas/">展开全文 >></a>
     </p>
     
 
@@ -1014,7 +489,7 @@
 
 
   
-    <article id="post-virtualenv的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-数据清洗" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -1022,7 +497,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2020/12/29/virtualenv%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_blank">virtualenv的使用及conda的使用</a>
+	  <a class="article-title" href="/2021/06/02/%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97/" target="_blank">数据清洗</a>
   
     </h1>
   
@@ -1030,8 +505,8 @@
 
   
   
-<a href="/2020/12/29/virtualenv%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-        <time datetime="2020-12-29T10:45:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-29</time>
+<a href="/2021/06/02/%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97/" class="archive-article-date">
+        <time datetime="2021-06-02T01:51:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-02</time>
 </a>
 
   
@@ -1043,84 +518,31 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h3 id="VScode配置"><a href="#VScode配置" class="headerlink" title="VScode配置"></a>VScode配置</h3><h4 id="在vs-code中配置virtualenv虚拟环境的python解释器"><a href="#在vs-code中配置virtualenv虚拟环境的python解释器" class="headerlink" title="在vs code中配置virtualenv虚拟环境的python解释器"></a>在vs code中配置virtualenv虚拟环境的python解释器</h4><ul>
-<li><p>打开 <strong>vs code</strong> 在程序左下角找到 <strong>设置</strong></p>
-</li>
-<li><p>在 <strong>设置</strong> 中找到 <strong>扩展</strong></p>
-</li>
-<li><p>在 <strong>扩展</strong> 中找到任一 <strong>在settings.json中编辑</strong></p>
-</li>
-<li><p>点击左边的</p>
-</li>
-</ul>
-<p>  工作区设置</p>
-<p>  按如下设置</p>
-<blockquote>
-<p>{<br>“python.pythonPath”: ~/.virtualenvs/py36_django/bin/python”<br>}</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将代码中的 “py36_django” 更换为用户自己创建的virtualenv虚拟环境名称</span><br></pre></td></tr></table></figure>
-<h3 id="virtualenv使用"><a href="#virtualenv使用" class="headerlink" title="virtualenv使用"></a>virtualenv<a target="_blank" rel="noopener" href="https://blog.csdn.net/yezhenquan123/article/details/79313110?utm_medium=distribute.pc_relevant.none-task-blog-searchFromBaidu-1.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-searchFromBaidu-1.control">使用</a></h3><h3 id="virtualenv"><a href="#virtualenv" class="headerlink" title="virtualenv"></a>virtualenv</h3><blockquote>
-<p><strong>pip freeze &gt; requirements.txt</strong> </p>
-<p><strong>pip install -r requirements.txt</strong></p>
-</blockquote>
-<p>Python2 和 Python3 均支持的方式</p>
-<p><strong>安装</strong><br>pip install virtualenv</p>
-<p><strong>创建项目</strong><br>cd my_project_folder<br>virtualenv my_project</p>
-<p><strong>指定 python 版本</strong></p>
-<blockquote>
-<p><strong>virtualenv -p /usr/bin/python2.7 my_project</strong><br>或者在环境变量配置中加入<br>export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7</p>
-</blockquote>
-<p><strong>激活虚拟环境</strong><br>(Linux) source my_project/bin/activate<br>(Windows) my_project\Scripts\activate<br>(MacOS)source my_project\bin\activate</p>
-<p><strong>退出环境</strong><br>(Linux) my_project/bin/deactivate<br>(Windows) my_project\Scripts\deactivate.bat<br>(MacOS) my_project\bin\deactivate</p>
-<p><strong>virtualenv 常用命令选项</strong><br>virtualenv [OPTIONS] DEST_DIR</p>
-<p>Options:<br>–version　　　　　显示版本信息。<br>-h, –help　　　　　显示帮助信息。<br>-v, –verbose　　　增加后台输出的信息。<br>-q, –quiet　　　　控制后台输出的信息。<br>-p PYTHON_EXE, –python=PYTHON_EXE　　<br>　　　　　　　　　指定 Python 解释器<br>–clear　　　　　　清除虚拟环境中依赖库，初始化环境。<br>–system-site-packages<br>　　　　　　　　　使用当前 Python 主体上已安装的程序库。<br>–always-copy　　　一概不使用 符号链接，直接复制文件。<br>–no-setuptools　　Do not install setuptools in the new virtualenv.<br>–no-pip　　　　　Do not install pip in the new virtualenv.<br>–no-wheel　　　　Do not install wheel in the new virtualenv.</p>
-<h3 id="virtualenv-相关扩展"><a href="#virtualenv-相关扩展" class="headerlink" title="virtualenv 相关扩展"></a>virtualenv 相关扩展</h3><h5 id="virtualenvwrapper"><a href="#virtualenvwrapper" class="headerlink" title="virtualenvwrapper"></a>virtualenvwrapper</h5><p>virtualenv 的扩展包，能方便的管理 virtualenv</p>
-<p><strong>安装</strong><br>环境变量 WORKON_HOME 指定虚拟环境位置<br>(Linux)<br>pip install virtualenvwrapper<br>export WORKON_HOME=~/Envs<br>source /usr/local/bin/virtualenvwrapper.sh<br>(Windows)<br>pip install virtualenvwrapper-win<br>WORKON_HOME 默认值是 %USERPROFILE%Envs</p>
-<p><strong>基本用法</strong></p>
-<p>创建虚拟环境<br>mkvirtualenv myenv</p>
-<p>切换到虚拟环境<br>workon myenv</p>
-<p>虚拟环境和项目分开<br>mkproject my_project<br>虚拟环境在 WORKON_HOME 中，项目在 PROJECT_HOME 中</p>
-<p>退出虚拟环境<br>deactivate</p>
-<p>删除虚拟环境<br>rmvirtualenv myenv</p>
-<p><strong>或者手动删除</strong></p>
-<p>其它用法<br>lsvirtualenv 列举所有的环境。<br>cdvirtualenv [subdir] 导航到当前激活的虚拟环境的目录中<br>cdsitepackages [subdir] 和上面的类似，但是是直接进入到 site-packages 目录中<br>lssitepackages 显示 site-packages 目录中的内容<br>showvirtualenv [env] 显示指定环境的详情<br>cpvirtualenv [source] [dest] 复制一份虚拟环境<br>allvirtualenv 对当前虚拟环境执行统一的命令<br>add2virtualenv [dir] [dir] 把指定的目录加入当前使用的环境的path中，这常使用<br>于在多个project里面同时使用一个较大的库的情况<br>toggleglobalsitepackages -q 控制当前的环境是否使用全局的sitepackages目录</p>
-<h5 id="virtualenv-burrito"><a href="#virtualenv-burrito" class="headerlink" title="virtualenv-burrito"></a>virtualenv-burrito</h5><p>相当于 virtualenv + virtualenvwrapper ，不过只支持 python 2</p>
-<h5 id="autoenv"><a href="#autoenv" class="headerlink" title="autoenv"></a>autoenv</h5><p>当进入到一个包含 .env 的目录，autoenv 会自动激活该环境<br>pip install autoenv</p>
-<hr>
-<h3 id="venv"><a href="#venv" class="headerlink" title="venv"></a>venv</h3><p>Python3 支持的方式，原名又 pyvenv，python 3.6 已弃用</p>
-<p><strong>创建虚拟环境</strong><br>python3 -m venv /path/to/new/virtual/environment</p>
-<h1 id="Conda"><a href="#Conda" class="headerlink" title="Conda"></a>Conda</h1><h2 id="速查常用命令："><a href="#速查常用命令：" class="headerlink" title="速查常用命令："></a>速查常用命令：</h2><blockquote>
-<p>1）conda list 查看安装了哪些包。</p>
-<p>2）conda env list 或 conda info -e 查看当前存在哪些虚拟环境</p>
-<p>3）conda update conda 检查更新当前conda</p>
-</blockquote>
-<h2 id="创建虚拟python环境"><a href="#创建虚拟python环境" class="headerlink" title="创建虚拟python环境"></a>创建虚拟python环境</h2><p>conda create -n env_name python=3.9</p>
-<p>conda create -n env_name numpy [package] python=3.9 # 创建环境时同时安装必要的包</p>
-<p>conda install -n env_name [package] # 安装指定的package到env_name</p>
-<h3 id="指定路径创建虚拟环境"><a href="#指定路径创建虚拟环境" class="headerlink" title="指定路径创建虚拟环境"></a>指定路径创建虚拟环境</h3><blockquote>
-<p>conda create —prefix=/home/youyouza/PythonProject/cs/assign python=3.5</p>
-<h1 id="在目录-home-youyouza-PythonProject-cs-下创建名为-assign的虚拟环境"><a href="#在目录-home-youyouza-PythonProject-cs-下创建名为-assign的虚拟环境" class="headerlink" title="在目录  /home/youyouza/PythonProject/cs/下创建名为 assign的虚拟环境"></a>在目录  /home/youyouza/PythonProject/cs/下创建名为 assign的虚拟环境</h1></blockquote>
-<h2 id="激活环境"><a href="#激活环境" class="headerlink" title="激活环境"></a>激活环境</h2><h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><blockquote>
-<p>source activate env_name</p>
-</blockquote>
-<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><blockquote>
-<p>activate env_name</p>
-</blockquote>
-<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><h3 id="删除虚拟环境"><a href="#删除虚拟环境" class="headerlink" title="删除虚拟环境"></a>删除虚拟环境</h3><blockquote>
-<p>conda remove -n env_name —all</p>
-</blockquote>
-<h3 id="删除环境中的某个包"><a href="#删除环境中的某个包" class="headerlink" title="删除环境中的某个包"></a>删除环境中的某个包</h3><blockquote>
-<p>conda remove —name $env_name $package_name</p>
-</blockquote>
-<h2 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h2><h3 id="Linux-1"><a href="#Linux-1" class="headerlink" title="Linux"></a>Linux</h3><blockquote>
-<p>source deactivate</p>
-</blockquote>
-<h3 id="Windows-1"><a href="#Windows-1" class="headerlink" title="Windows"></a>Windows</h3><blockquote>
-<p>deactivate env_name</p>
-</blockquote>
-<p>conda remove -n assign —all</p>
-<h2 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h2><h3 id="添加Anaconda的TUNA镜像"><a href="#添加Anaconda的TUNA镜像" class="headerlink" title="添加Anaconda的TUNA镜像"></a>添加Anaconda的TUNA镜像</h3><p><code>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</code></p>
-<h4 id="TUNA的help中镜像地址加有引号，需要去掉"><a href="#TUNA的help中镜像地址加有引号，需要去掉" class="headerlink" title="TUNA的help中镜像地址加有引号，需要去掉"></a>TUNA的help中镜像地址加有引号，需要去掉</h4><h4 id="设置搜索时显示通道地址"><a href="#设置搜索时显示通道地址" class="headerlink" title="设置搜索时显示通道地址"></a>设置搜索时显示通道地址</h4><p><code>conda config --set show_channel_urls yes</code></p>
+    <h2 id="我的数据清洗小工具箱"><a href="#我的数据清洗小工具箱" class="headerlink" title="我的数据清洗小工具箱"></a>我的数据清洗小工具箱</h2><p>在下面的代码片段中，数据清洗代码被封装在了一些函数中，代码的目的十分直观。你可以直接使用这些代码，无需将它们嵌入到需要进行少量参数修改的函数中。</p>
+<p><strong>1. 删除多列数据</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def drop_multiple_col(col_names_list, df): </span><br><span class="line">    &#x27;&#x27;&#x27;</span><br><span class="line">    AIM    -&gt; Drop multiple columns based on their column names </span><br><span class="line"></span><br><span class="line">    INPUT  -&gt; List of column names, df</span><br><span class="line"></span><br><span class="line">    OUTPUT -&gt; updated df with dropped columns </span><br><span class="line">    ------</span><br><span class="line">    &#x27;&#x27;&#x27;</span><br><span class="line">    df.drop(col_names_list, axis=1, inplace=True)</span><br><span class="line">    return df</span><br></pre></td></tr></table></figure>
+<p>有时，并不是所有列的数据都对我们的数据分析工作有用。因此，「df.drop」可以方便地删掉你选定的列。</p>
+<p><strong>2. 转换 Dtypes</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def change_dtypes(col_int, col_float, df): </span><br><span class="line">    &#x27;&#x27;&#x27;</span><br><span class="line">    AIM    -&gt; Changing dtypes to save memory</span><br><span class="line"></span><br><span class="line">    INPUT  -&gt; List of column names (int, float), df</span><br><span class="line"></span><br><span class="line">    OUTPUT -&gt; updated df with smaller memory  </span><br><span class="line">    ------</span><br><span class="line">    &#x27;&#x27;&#x27;</span><br><span class="line">    df[col_int] = df[col_int].astype(&#x27;int32&#x27;)</span><br><span class="line">    df[col_float] = df[col_float].astype(&#x27;float32&#x27;)</span><br></pre></td></tr></table></figure>
+<p>当我们面对更大的数据集时，我们需要对「dtypes」进行转换，从而节省内存。如果你有兴趣学习如何使用「Pandas」来处理大数据，我强烈推荐你阅读「Why and How to Use Pandas with Large Data」这篇文章（<a target="_blank" rel="noopener" href="https://towardsdatascience.com/why-and-how-to-use-pandas-with-large-data-9594dda2ea4c）。">https://towardsdatascience.com/why-and-how-to-use-pandas-with-large-data-9594dda2ea4c）。</a></p>
+<p><strong>3. 将分类变量转换为数值变量</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def convert_cat2num(df):</span><br><span class="line">    # Convert categorical variable to numerical variable</span><br><span class="line">    num_encode = &#123;&#x27;col_1&#x27; : &#123;&#x27;YES&#x27;:1, &#x27;NO&#x27;:0&#125;,</span><br><span class="line">                  &#x27;col_2&#x27;  : &#123;&#x27;WON&#x27;:1, &#x27;LOSE&#x27;:0, &#x27;DRAW&#x27;:0&#125;&#125;  </span><br><span class="line">    df.replace(num_encode, inplace=True)  </span><br></pre></td></tr></table></figure>
+<p>有一些机器学习模型要求变量是以数值形式存在的。这时，我们就需要将分类变量转换成数值变量然后再将它们作为模型的输入。对于数据可视化任务来说，我建议大家保留分类变量，从而让可视化结果有更明确的解释，便于理解。</p>
+<p><strong>4. 检查缺失的数据</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def check_missing_data(df):</span><br><span class="line">    # check for any missing data in the df (display in descending order)</span><br><span class="line">    return df.isnull().sum().sort_values(ascending=False)</span><br></pre></td></tr></table></figure>
+<p>如果你想要检查每一列中有多少缺失的数据，这可能是最快的方法。这种方法可以让你更清楚地知道哪些列有更多的缺失数据，帮助你决定接下来在数据清洗和数据分析工作中应该采取怎样的行动。</p>
+<p><strong>5. 删除列中的字符串</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def remove_col_str(df):</span><br><span class="line">    # remove a portion of string in a dataframe column - col_1</span><br><span class="line">    df[&#x27;col_1&#x27;].replace(&#x27;\n&#x27;, &#x27;&#x27;, regex=True, inplace=True)</span><br><span class="line"></span><br><span class="line">    # remove all the characters after &amp;# (including &amp;#) for column - col_1</span><br><span class="line">    df[&#x27;col_1&#x27;].replace(&#x27; &amp;#.*&#x27;, &#x27;&#x27;, regex=True, inplace=True)</span><br></pre></td></tr></table></figure>
+<p>有时你可能会看到一行新的字符，或在字符串列中看到一些奇怪的符号。你可以很容易地使用 df[‘col_1’].replace 来处理该问题，其中「col_1」是数据帧 df 中的一列。</p>
+<p><strong>6. 删除列中的空格</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def remove_col_white_space(df):</span><br><span class="line">    # remove white space at the beginning of string </span><br><span class="line">    df[col] = df[col].str.lstrip()</span><br></pre></td></tr></table></figure>
+<p>当数据十分混乱时，很多意想不到的情况都会发生。在字符串的开头有一些空格是很常见的。因此，当你想要删除列中字符串开头的空格时，这种方法很实用。</p>
+<p><strong>7. 将两列字符串数据（在一定条件下）拼接起来</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def concat_col_str_condition(df):</span><br><span class="line">    # concat 2 columns with strings if the last 3 letters of the first column are &#x27;pil&#x27;</span><br><span class="line">    mask = df[&#x27;col_1&#x27;].str.endswith(&#x27;pil&#x27;, na=False)</span><br><span class="line">    col_new = df[mask][&#x27;col_1&#x27;] + df[mask][&#x27;col_2&#x27;]</span><br><span class="line">    col_new.replace(&#x27;pil&#x27;, &#x27; &#x27;, regex=True, inplace=True)  # replace the &#x27;pil&#x27; with emtpy space</span><br></pre></td></tr></table></figure>
+<p>当你希望在一定条件下将两列字符串数据组合在一起时，这种方法很有用。例如，你希望当第一列以某些特定的字母结尾时，将第一列和第二列数据拼接在一起。根据你的需要，还可以在拼接工作完成后将结尾的字母删除掉。</p>
+<p><strong>8. 转换时间戳（从字符串类型转换为日期「DateTime」格式）</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def convert_str_datetime(df): </span><br><span class="line">    &#x27;&#x27;&#x27;</span><br><span class="line">    AIM    -&gt; Convert datetime(String) to datetime(format we want)</span><br><span class="line"></span><br><span class="line">    INPUT  -&gt; df</span><br><span class="line"></span><br><span class="line">    OUTPUT -&gt; updated df with new datetime format </span><br><span class="line">    ------</span><br><span class="line">    &#x27;&#x27;&#x27;</span><br><span class="line">    df.insert(loc=2, column=&#x27;timestamp&#x27;, value=pd.to_datetime(df.transdate, format=&#x27;%Y-%m-%d %H:%M:%S.%f&#x27;))</span><br></pre></td></tr></table></figure>
+<p>在处理时间序列数据时，你可能会遇到字符串格式的时间戳列。这意味着我们可能不得不将字符串格式的数据转换为根据我们的需求指定的日期「datetime」格式，以便使用这些数据进行有意义的分析和展示。</p>
 
     
 
@@ -1137,11 +559,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">virtualenv</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据清洗</a>
         		</li>
       		
 		</ul>
@@ -1162,110 +580,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2020/12/29/virtualenv%E7%9A%84%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-python-init" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/12/26/python-init/" target="_blank">python init</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/12/26/python-init/" class="archive-article-date">
-        <time datetime="2020-12-26T02:31:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-26</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="按照项目纯净环境打包python"><a href="#按照项目纯净环境打包python" class="headerlink" title="按照项目纯净环境打包python"></a>按照项目纯净环境打包python</h3><h4 id="安装python3-9-1"><a href="#安装python3-9-1" class="headerlink" title="安装python3.9.1"></a>安装python3.9.1</h4><h4 id="安装virtualenv，并在项目目录创建虚拟环境"><a href="#安装virtualenv，并在项目目录创建虚拟环境" class="headerlink" title="安装virtualenv，并在项目目录创建虚拟环境"></a>安装virtualenv，并在项目目录创建虚拟环境</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pip install virtualenv</span><br><span class="line"><span class="built_in">cd</span> my_project</span><br><span class="line">mkdir <span class="literal">-p</span> .\my_project_env</span><br><span class="line"><span class="comment">#由于在最新使用中source无法在powershell中使用</span></span><br><span class="line">virtualenv my_project<span class="literal">-env</span></span><br><span class="line"><span class="comment">#使用默认的python环境搭建干净python环境，我这里是python3.9.1</span></span><br><span class="line">virtualenv <span class="literal">-p</span> python my_project_env</span><br></pre></td></tr></table></figure>
-<h4 id="激活环境"><a href="#激活环境" class="headerlink" title="激活环境"></a>激活环境</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">virtalenv tutorial</span><br><span class="line">.\my_project_env\Scripts\activate.bat</span><br><span class="line"><span class="comment">#激活后可以在命令行正常使用python虚拟环境</span></span><br></pre></td></tr></table></figure>
-<h4 id="激活环境后vscode显示，可以直接用该环境测试"><a href="#激活环境后vscode显示，可以直接用该环境测试" class="headerlink" title="激活环境后vscode显示，可以直接用该环境测试"></a>激活环境后vscode显示，可以直接用该环境测试</h4><p><img src="http://pic.jmsu.top/virtualenv-vscode.png" alt="image-20201226104521474"></p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/virtualenv//" class="article-tag-list-link color1">virtualenv</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/virtualenv/vscode//" class="article-tag-list-link color2">vscode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/12/26/python-init/">展开全文 >></a>
+      <a class="article-more-a" href="/2021/06/02/%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97/">展开全文 >></a>
     </p>
     
 
@@ -1297,7 +612,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1310,7 +625,7 @@
     <div id="footer-info">
       <div class="footer-left">
         &copy;
-        2018-2021
+        2018-2022
         <a href="http://jmsu.top/" target="_blank">ze.</a>
       </div>
       <div class="footer-right">
@@ -1460,23 +775,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">详解</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">PDB</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">生物信息学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">详解</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1488,7 +795,23 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">dockerfile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">docking</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">FunctionType</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1508,23 +831,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">init</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">generate</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">docking</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">miniconda</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">init</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1533,6 +848,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Weightless</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1560,15 +879,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Path</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">高级特性</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">threading</a>
+                <a href="javascript:void(0)" class="js-tag color5">json</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">json</a>
+                <a href="javascript:void(0)" class="js-tag color5">threading</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1592,6 +915,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">subprocess</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cmd</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">常用快捷键</a>
               </li>
              
@@ -1604,15 +935,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
+                <a href="javascript:void(0)" class="js-tag color1">气相色谱分离条件选择</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据清洗</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">气相色谱分离条件选择</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1624,23 +951,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">药动学</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">药效学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1656,7 +975,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">FunctionType</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">pymol</a>
               </li>
             
             <div class="clearfix"></div>
