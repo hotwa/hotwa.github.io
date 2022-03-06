@@ -181,6 +181,389 @@
             
 
   
+    <article id="post-import导入相关问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/05/14/import%E5%AF%BC%E5%85%A5%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" target="_blank">import导入相关问题</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/05/14/import%E5%AF%BC%E5%85%A5%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" class="archive-article-date">
+        <time datetime="2021-05-14T07:47:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-14</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>[TOC]</p>
+<h1 id="import-导入相关依赖详细介绍"><a href="#import-导入相关依赖详细介绍" class="headerlink" title="import 导入相关依赖详细介绍"></a>import 导入相关依赖详细介绍</h1><h2 id="导入的类型"><a href="#导入的类型" class="headerlink" title="导入的类型"></a>导入的类型</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39852676/article/details/107863337">参考博客</a></p>
+<h3 id="相对导入与绝对导入"><a href="#相对导入与绝对导入" class="headerlink" title="相对导入与绝对导入"></a>相对导入与绝对导入</h3><h4 id="相对导入"><a href="#相对导入" class="headerlink" title="相对导入"></a>相对导入</h4><blockquote>
+<p>相对导入分为：</p>
+</blockquote>
+<p><code>implicit relative import</code>（隐式相对导入）</p>
+<p><code>explicit relative import</code>（显示相对导入）</p>
+<h4 id="绝对导入（官方推荐）"><a href="#绝对导入（官方推荐）" class="headerlink" title="绝对导入（官方推荐）"></a>绝对导入（官方推荐）</h4><blockquote>
+<p>绝对导入的格式为 <code>import A.B</code> 或 <code>from A import B</code>，相对导入格式为 <code>from . import B</code> 或 <code>from ..A import B</code>，<strong>.代表当前模块，…代表上层模块，…代表上上层模块</strong>，依次类推。</p>
+</blockquote>
+<p>在没有明确指定包结构的情况下，Python 是根据 <strong>name</strong> 来决定一个模块在包中的结构的，如果是 <strong>main</strong> 则它本身是顶层模块，没有包结构，如果是A.B.C 结构，那么顶层模块是 A。基本上遵循这样的原则：</p>
+<p>如果是绝对导入，一个模块只能导入<strong>自身的子模块或和它的顶层模块同级别的模块及其子模块</strong><br>如果是相对导入，一个模块必须有包结构且只能导入<strong>它的顶层模块内部的模块</strong></p>
+<h2 id="init-py"><a href="#init-py" class="headerlink" title="_init_.py"></a>_<em>init_</em>.py</h2><p>在<code>python3.6</code>以后的文件夹中，<code>__init__.py</code> 将当前文件夹下作为一个包的目录层级。</p>
+<h2 id="导入下级模块"><a href="#导入下级模块" class="headerlink" title="导入下级模块"></a>导入下级模块</h2><blockquote>
+<p>程序结构如下：</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-- src</span><br><span class="line">  |-- mod1.py</span><br><span class="line">  |-- lib</span><br><span class="line">  |  |-- mod2.py</span><br><span class="line">  |-- test1.py</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这时看到<code>test1.py</code>和lib目录（即<code>mod2.py</code>的父级目录），如果想在程序<code>test1.py</code>中导入模块<code>mod2.py</code> ，可以在lib件夹中建立空文件<code>__init__.py</code>文件(也可以在该文件中自定义输出模块接口)，然后使用：</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> lib <span class="keyword">import</span> mod2</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line"><span class="keyword">import</span> lib.mod2</span><br></pre></td></tr></table></figure>
+<h2 id="导入同级模块"><a href="#导入同级模块" class="headerlink" title="导入同级模块"></a>导入同级模块</h2><p>程序结构如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-- src</span><br><span class="line">  |-- mod1.py</span><br><span class="line">  |-- test1.py</span><br></pre></td></tr></table></figure>
+<p>若在程序<code>test1.py</code>中导入模块<code>mod1</code>, 则直接使用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> mod1</span><br><span class="line">或</span><br><span class="line"><span class="keyword">from</span> mod1 <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
+<h2 id="导入上级模块"><a href="#导入上级模块" class="headerlink" title="导入上级模块"></a>导入上级模块</h2><h3 id="sys-path的作用"><a href="#sys-path的作用" class="headerlink" title="sys.path的作用"></a>sys.path的作用</h3><p>当使用import语句导入模块时，解释器会搜索<strong>当前模块所在目录</strong>以及<strong>sys.path指定的路径</strong>去找需要import的模块</p>
+<h3 id="层级结构"><a href="#层级结构" class="headerlink" title="层级结构"></a>层级结构</h3><p>程序结构如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-- src</span><br><span class="line">  |-- mod1.py</span><br><span class="line">  |-- lib</span><br><span class="line">  |  |-- mod2.py</span><br><span class="line">  |-- sub</span><br><span class="line">  |  |-- test2.py</span><br></pre></td></tr></table></figure>
+<h3 id="①-通过把绝对路径添加至sys-path"><a href="#①-通过把绝对路径添加至sys-path" class="headerlink" title="① 通过把绝对路径添加至sys.path"></a>① 通过把<strong>绝对路径</strong>添加至<code>sys.path</code></h3><p>这里想要实现test2.py调用mod1.py和mod2.py ，做法是我们先跳到src目录下面，直接可以调用mod1，然后在lib上当下建一个空文件<strong>init</strong>.py ，就可以像第二步调用子目录下的模块一样，通过from lib import mod2进行调用了。具体代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os,sys</span><br><span class="line"></span><br><span class="line">o_path = os.getcwd() <span class="comment"># 返回当前工作目录</span></span><br><span class="line">sys.path.append(o_path) <span class="comment"># 添加自己指定的搜索路径</span></span><br><span class="line"><span class="keyword">import</span> mod1</span><br><span class="line"><span class="keyword">from</span> lib <span class="keyword">import</span> mod2</span><br></pre></td></tr></table></figure>
+<h3 id="②-通过把相对目录层级添加至sys-path"><a href="#②-通过把相对目录层级添加至sys-path" class="headerlink" title="② 通过把相对目录层级添加至sys.path"></a>② 通过把<strong>相对目录层级</strong>添加至<code>sys.path</code></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os,sys</span><br><span class="line"></span><br><span class="line">sys.path.append(<span class="string">&#x27;../&#x27;</span>) <span class="comment"># 添加自己指定的搜索路径</span></span><br><span class="line"><span class="keyword">import</span> mod1</span><br><span class="line"><span class="keyword">from</span> lib <span class="keyword">import</span> mod2</span><br></pre></td></tr></table></figure>
+<p>可以考虑在不同层级下的导入情况下进行兼容处理。尝试使用try语句，直到导入成功。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">from</span> ..readmodule.xlsx_base <span class="keyword">import</span> xlsx_base</span><br><span class="line"><span class="keyword">except</span> (ModuleNotFoundError,ImportError):</span><br><span class="line">    <span class="keyword">from</span> readmodule.xlsx_base <span class="keyword">import</span> xlsx_base</span><br></pre></td></tr></table></figure>
+<h1 id="不同环境下的导入问题"><a href="#不同环境下的导入问题" class="headerlink" title="不同环境下的导入问题"></a>不同环境下的导入问题</h1><h2 id="sys-path"><a href="#sys-path" class="headerlink" title="sys.path"></a>sys.path</h2><p>python3导入包是从sys.path这一临时列表中找相应的包，如果找不到就会产生相应的报错。<br>这一入口为在执行py文件是调用，结束的时候回销毁作为临时的找包文件的入口</p>
+<h2 id="添加上级入口的两种方法"><a href="#添加上级入口的两种方法" class="headerlink" title="添加上级入口的两种方法"></a>添加上级入口的两种方法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import sys,os</span><br><span class="line"># 在sys.path中添加上层目录可以自动导入相关py文件（依赖__init__.py）</span><br><span class="line">sys.path.appen(&#x27;/..&#x27;) # 通过相对路径导入上层路径，好处可以上跳目录层级，缺点是需要每层都需要是包结构（__init__.py)</span><br><span class="line"># 只导入上层目录（绝对路径导入的方式）</span><br><span class="line">parent_path = os.path.dirname(sys.path[0])</span><br><span class="line">if parent_path not in sys.path:</span><br><span class="line">    sys.path.append(parent_path)</span><br></pre></td></tr></table></figure>
+<h2 id="添加任意路径的方法"><a href="#添加任意路径的方法" class="headerlink" title="添加任意路径的方法"></a>添加任意路径的方法</h2><h3 id="获取当前文件的绝对路径"><a href="#获取当前文件的绝对路径" class="headerlink" title="获取当前文件的绝对路径"></a>获取当前文件的绝对路径</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path_root = os.path.realpath(__file__)</span><br></pre></td></tr></table></figure>
+<h3 id="python3-9测试改方法"><a href="#python3-9测试改方法" class="headerlink" title="python3.9测试改方法"></a>python3.9测试改方法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 随心导入自己想的目录层级</span></span><br><span class="line">path = os.path.split(sys.path[<span class="number">0</span>])[<span class="number">0</span>] <span class="comment"># 获取上层目录绝对路径</span></span><br><span class="line">path1 = os.path.split(path)[<span class="number">0</span>]</span><br><span class="line"><span class="comment"># 最后将自己想要的目录分割好后添加至sys.path</span></span><br><span class="line">sys.path.append(path1) <span class="comment"># 此时添加的是上两级的目录层级的绝对路径</span></span><br></pre></td></tr></table></figure>
+<p>在python环境下<code>sys.path[0]</code>获取的路径为当前py文件文件路径，<code>path1 = os.path.split(sys.path[0])[1]</code>获取当前py文件文件目录，可以通过再次分割获取在上一级的目录<code>os.path.split(path1)[1]</code></p>
+<p>在anaconda环境下<code>sys.path[0]</code>获取的路径为anaconda安装路径,如果需要获取当前py文件的绝对路径则需要使用<code>os.path.realpath(__file__)</code></p>
+<h2 id="anaconda环境"><a href="#anaconda环境" class="headerlink" title="anaconda环境"></a>anaconda环境</h2><p>python3.8下测试</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 和原始的环境不太一样anaconda不会从sys.path里面我们添加的路径寻找包，它回默认在Anaconda3下自己的Anaconda3\lib\site-packages\path下寻找</span></span><br><span class="line"><span class="comment"># 由于anaconda3有自己的path路径所以当入口使用 `from path import file_dir` 是在Anaconda3\lib\site-packages\path下导入所以失败</span></span><br><span class="line"><span class="comment"># 重命名为path_.py 使用 `from path_ import file_dir`导入成功 </span></span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote>
+<p>总结：<br>不适合这样添加多个寻找包的目录层级至sys.path,会造成目录层级寻找的时候较为混乱<br>如果需要只确认主目录层级入口直接参考anaconda替换sys.path[0]的变量即可</p>
+</blockquote>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">import</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/05/14/import%E5%AF%BC%E5%85%A5%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-itertools使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/05/14/itertools%E4%BD%BF%E7%94%A8/" target="_blank">itertools使用</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/05/14/itertools%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+        <time datetime="2021-05-14T07:47:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-14</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> itertools</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># accumulate</span></span><br><span class="line">x1 = itertools.accumulate(<span class="built_in">range</span>(<span class="number">10</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(x1))</span><br></pre></td></tr></table></figure>
+<pre><code>[0, 1, 3, 6, 10, 15, 21, 28, 36, 45]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># chain 连接多个列表的方法</span></span><br><span class="line">x2 = itertools.chain(<span class="built_in">range</span>(<span class="number">3</span>), <span class="built_in">range</span>(<span class="number">4</span>), [<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(x2))</span><br></pre></td></tr></table></figure>
+<pre><code>[0, 1, 2, 0, 1, 2, 3, 3, 2, 1]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 列表或生成器中指定数目的元素不重复的所有组合</span></span><br><span class="line">x3 = itertools.combinations(<span class="built_in">range</span>(<span class="number">4</span>), <span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(x3))</span><br></pre></td></tr></table></figure>
+<pre><code>[(0, 1, 2), (0, 1, 3), (0, 2, 3), (1, 2, 3)]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 允许重复元素的组合</span></span><br><span class="line">x4 = itertools.combinations_with_replacement(<span class="string">&#x27;ABC&#x27;</span>, <span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(x4))</span><br></pre></td></tr></table></figure>
+<pre><code>[(&#39;A&#39;, &#39;A&#39;), (&#39;A&#39;, &#39;B&#39;), (&#39;A&#39;, &#39;C&#39;), (&#39;B&#39;, &#39;B&#39;), (&#39;B&#39;, &#39;C&#39;), (&#39;C&#39;, &#39;C&#39;)]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 按照真值表筛选元素</span></span><br><span class="line">x5 = itertools.compress(<span class="built_in">range</span>(<span class="number">5</span>), (<span class="literal">True</span>, <span class="literal">False</span>, <span class="literal">True</span>, <span class="literal">True</span>, <span class="literal">False</span>))<span class="built_in">print</span>(<span class="built_in">list</span>(x5))</span><br></pre></td></tr></table></figure>
+<pre><code>[0, 2, 3]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一个计数器,可以指定起始位置和步长</span></span><br><span class="line">x6 = itertools.count(start=<span class="number">20</span>, step=-<span class="number">1</span>)<span class="built_in">print</span>(<span class="built_in">list</span>(itertools.islice(x6, <span class="number">0</span>, <span class="number">10</span>, <span class="number">1</span>)))</span><br></pre></td></tr></table></figure>
+<pre><code>[20, 19, 18, 17, 16, 15, 14, 13, 12, 11]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 循环指定的列表和迭代器</span></span><br><span class="line">x7 = itertools.cycle(<span class="string">&#x27;ABC&#x27;</span>)<span class="built_in">print</span>(<span class="built_in">list</span>(itertools.islice(x7, <span class="number">0</span>, <span class="number">10</span>, <span class="number">1</span>)))</span><br></pre></td></tr></table></figure>
+<pre><code>[&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;A&#39;]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 按照真值函数丢弃掉列表和迭代器前面的元素</span></span><br><span class="line">x8 = itertools.dropwhile(<span class="keyword">lambda</span> e: e &lt; <span class="number">5</span>, [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)])<span class="built_in">print</span>(<span class="built_in">list</span>(x8))</span><br></pre></td></tr></table></figure>
+<pre><code>[5, 6, 7, 8, 9]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 保留对应真值为False的元素</span></span><br><span class="line">x9 = itertools.filterfalse(<span class="keyword">lambda</span> e: e &lt; <span class="number">5</span>, (<span class="number">1</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span>, <span class="number">4</span>))<span class="built_in">print</span>(<span class="built_in">list</span>(x9))</span><br></pre></td></tr></table></figure>
+<pre><code>[5, 6, 9]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 按照分组函数的值对元素进行分组</span></span><br><span class="line">x10 = itertools.groupby(<span class="built_in">range</span>(<span class="number">10</span>), <span class="keyword">lambda</span> x: x &lt; <span class="number">5</span> <span class="keyword">or</span> x &gt; <span class="number">8</span>)</span><br><span class="line"><span class="keyword">for</span> condition, numbers <span class="keyword">in</span> x10:</span><br><span class="line">    <span class="built_in">print</span>(condition, <span class="built_in">list</span>(numbers))</span><br></pre></td></tr></table></figure>
+<pre><code>True [0, 1, 2, 3, 4]False [5, 6, 7, 8]True [9][]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对迭代器进行切片</span></span><br><span class="line">x11 = itertools.islice(<span class="built_in">range</span>(<span class="number">10</span>), <span class="number">0</span>, <span class="number">9</span>, <span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(x11))</span><br></pre></td></tr></table></figure>
+<pre><code>[0, 2, 4, 6, 8]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 产生指定数目的元素的所有排列(顺序有关)</span></span><br><span class="line">x12 = itertools.permutations(<span class="built_in">range</span>(<span class="number">4</span>), <span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(x12))</span><br></pre></td></tr></table></figure>
+<pre><code>[(0, 1, 2), (0, 1, 3), (0, 2, 1), (0, 2, 3), (0, 3, 1), (0, 3, 2), (1, 0, 2), (1, 0, 3), (1, 2, 0), (1, 2, 3), (1, 3, 0), (1, 3, 2), (2, 0, 1), (2, 0, 3), (2, 1, 0), (2, 1, 3), (2, 3, 0), (2, 3, 1), (3, 0, 1), (3, 0, 2), (3, 1, 0), (3, 1, 2), (3, 2, 0), (3, 2, 1)]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 产生多个列表和迭代器的(积)</span></span><br><span class="line">x13 = itertools.product(<span class="string">&#x27;ABC&#x27;</span>, <span class="built_in">range</span>(<span class="number">3</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(x13))</span><br></pre></td></tr></table></figure>
+<pre><code>[(&#39;A&#39;, 0), (&#39;A&#39;, 1), (&#39;A&#39;, 2), (&#39;B&#39;, 0), (&#39;B&#39;, 1), (&#39;B&#39;, 2), (&#39;C&#39;, 0), (&#39;C&#39;, 1), (&#39;C&#39;, 2)]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 简单的生成一个拥有指定数目元素的迭代器</span></span><br><span class="line">x14 = itertools.repeat(<span class="number">0</span>, <span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(x14))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 类似map</span></span><br><span class="line">x15 = itertools.starmap(<span class="built_in">str</span>.islower, <span class="string">&#x27;aBCDefGhI&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(x15))</span><br></pre></td></tr></table></figure>
+<pre><code>[True, False, False, False, True, True, False, True, False]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 与dropwhile相反，保留元素直至真值函数值为假。</span></span><br><span class="line">x16 = itertools.takewhile(<span class="keyword">lambda</span> e: e &lt; <span class="number">5</span>, <span class="built_in">range</span>(<span class="number">10</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(x16))</span><br></pre></td></tr></table></figure>
+<pre><code>[0, 1, 2, 3, 4]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成指定数目的迭代器</span></span><br><span class="line">x17 = itertools.tee(<span class="built_in">range</span>(<span class="number">10</span>), <span class="number">2</span>)</span><br><span class="line"><span class="keyword">for</span> letters <span class="keyword">in</span> x17:</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">list</span>(letters))</span><br></pre></td></tr></table></figure>
+<pre><code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 类似于zip，不过已较长的列表和迭代器的长度为准</span></span><br><span class="line">x = itertools.zip_longest(<span class="built_in">range</span>(<span class="number">3</span>), <span class="built_in">range</span>(<span class="number">5</span>))</span><br><span class="line">y = <span class="built_in">zip</span>(<span class="built_in">range</span>(<span class="number">3</span>), <span class="built_in">range</span>(<span class="number">5</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(x))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(y))</span><br></pre></td></tr></table></figure>
+<pre><code>[(0, 0), (1, 1), (2, 2), (None, 3), (None, 4)]
+[(0, 0), (1, 1), (2, 2)]
+</code></pre>
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">generate</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/05/14/itertools%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-python多线程多进程编程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/05/02/python%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%A4%9A%E8%BF%9B%E7%A8%8B%E7%BC%96%E7%A8%8B/" target="_blank">python多线程多进程编程</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/05/02/python%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%A4%9A%E8%BF%9B%E7%A8%8B%E7%BC%96%E7%A8%8B/" class="archive-article-date">
+        <time datetime="2021-05-02T04:15:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-02</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>[TOC]</p>
+<h1 id="多线程多进程"><a href="#多线程多进程" class="headerlink" title="多线程多进程"></a>多线程多进程</h1><h2 id="线程优点"><a href="#线程优点" class="headerlink" title="线程优点"></a>线程优点</h2><blockquote>
+<p>进程内的多个线程与主线程共享相同的数据空间，因此可以比单独的进程更容易地共享信息或彼此进行通信</p>
+<p>线程有时也被称为轻量级进程，它们不需要太多的内存开销; 它们比进程便宜。</p>
+</blockquote>
+<h2 id="线程特性"><a href="#线程特性" class="headerlink" title="线程特性"></a>线程特性</h2><p><strong>线程有一个开始，执行顺序和终止</strong>。 它有一个指令指针，可以跟踪其上下文中当前运行的位置。</p>
+<p>它可以被抢占(中断)。<br>当其他线程正在运行时，它可以临时保留(也称为睡眠) - 这称为让步。</p>
+<h2 id="两种不同线程"><a href="#两种不同线程" class="headerlink" title="两种不同线程"></a>两种不同线程</h2><p><strong>内核线程</strong><br><strong>用户线程</strong></p>
+<blockquote>
+<p>内核线程是操作系统的一部分，而用户空间线程未在内核中实现。</p>
+</blockquote>
+<h2 id="Python-3中使用线程"><a href="#Python-3中使用线程" class="headerlink" title="Python 3中使用线程"></a>Python 3中使用线程</h2><p>thread<br>threading<br>thread模块已被“不推荐”了很长一段时间。 鼓励用户使用threading模块。 因此，在Python 3中，thread模块不再可用。 但是，thread模块已被重命名为“thread”，用于Python 3中的向后兼容性。</p>
+<h2 id="守护线程"><a href="#守护线程" class="headerlink" title="守护线程"></a>守护线程</h2><p>主线程结束，子线程同时结束</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">threading</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/05/02/python%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%A4%9A%E8%BF%9B%E7%A8%8B%E7%BC%96%E7%A8%8B/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-python处理json专栏" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -353,332 +736,9 @@
 
 
   
-    <article id="post-aria2c使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/05/01/aria2c%E4%BD%BF%E7%94%A8/" target="_blank">aria2c使用</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/05/01/aria2c%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-        <time datetime="2021-05-01T03:37:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-01</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>[TOC]</p>
-<h1 id="python-调用aria2c"><a href="#python-调用aria2c" class="headerlink" title="python 调用aria2c"></a>python 调用aria2c</h1><h2 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h2><p><a target="_blank" rel="noopener" href="https://www.dazhuanlan.com/2019/10/11/5d9fa57fe857c/">参考开启RPC模式</a></p>
-<h2 id="配置备份"><a href="#配置备份" class="headerlink" title="配置备份"></a>配置备份</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line">#使用代理</span><br><span class="line">#all-proxy=localhost:1080</span><br><span class="line">#添加引用页</span><br><span class="line">referer=http://images.dmzj.com/</span><br><span class="line"></span><br><span class="line">## 文件保存相关 ##</span><br><span class="line"></span><br><span class="line"># 文件保存目录</span><br><span class="line">dir=/home/naonao/Downloads</span><br><span class="line"># 启用磁盘缓存, 0为禁用缓存, 需1.16以上版本, 默认:16M</span><br><span class="line">disk-cache=32M</span><br><span class="line"># 断点续传</span><br><span class="line">continue=true</span><br><span class="line"> </span><br><span class="line"># 文件预分配方式, 能有效降低磁盘碎片, 默认:prealloc</span><br><span class="line"># 预分配所需时间: none &lt; falloc ? trunc &lt; prealloc</span><br><span class="line"># falloc和trunc则需要文件系统和内核支持</span><br><span class="line"># NTFS建议使用falloc, EXT3/4建议trunc, MAC 下需要注释此项</span><br><span class="line">file-allocation=falloc</span><br><span class="line"> </span><br><span class="line">## 下载连接相关 ##</span><br><span class="line"> </span><br><span class="line"># 最大同时下载任务数, 运行时可修改, 默认:5</span><br><span class="line">#max-concurrent-downloads=100</span><br><span class="line"># 同一服务器连接数, 添加时可指定, 默认:1</span><br><span class="line"># 官方的aria2最高设置为16, 如果需要设置任意数值请重新编译aria2</span><br><span class="line">max-connection-per-server=16</span><br><span class="line"># 整体下载速度限制, 运行时可修改, 默认:0（不限制）</span><br><span class="line">#max-overall-download-limit=0</span><br><span class="line"># 单个任务下载速度限制, 默认:0（不限制）</span><br><span class="line">max-download-limit=0</span><br><span class="line"># 整体上传速度限制, 运行时可修改, 默认:0（不限制）</span><br><span class="line">max-overall-upload-limit=0</span><br><span class="line"># 单个任务上传速度限制, 默认:0（不限制）</span><br><span class="line">#max-upload-limit=0</span><br><span class="line"># 禁用IPv6, 默认:false</span><br><span class="line"># disable-ipv6=true</span><br><span class="line"> </span><br><span class="line"># 最小文件分片大小, 添加时可指定, 取值范围1M -1024M, 默认:20M</span><br><span class="line"># 假定size=10M, 文件为20MiB 则使用两个来源下载; 文件为15MiB 则使用一个来源下载</span><br><span class="line">min-split-size=10M</span><br><span class="line"># 单个任务最大线程数, 添加时可指定, 默认:5</span><br><span class="line"># 建议同max-connection-per-server设置为相同值</span><br><span class="line">split=256</span><br><span class="line"> </span><br><span class="line">## 进度保存相关 ##</span><br><span class="line"> </span><br><span class="line"># 从会话文件中读取下载任务</span><br><span class="line"># input-file=/etc/aria2/aria2.session</span><br><span class="line"># 在Aria2退出时保存错误的、未完成的下载任务到会话文件</span><br><span class="line"># save-session=/etc/aria2/aria2.session</span><br><span class="line"># 定时保存会话, 0为退出时才保存, 需1.16.1以上版本, 默认:0</span><br><span class="line">save-session-interval=60</span><br><span class="line"> </span><br><span class="line">## RPC相关设置 ##</span><br><span class="line"> </span><br><span class="line"># 启用RPC, 默认:false</span><br><span class="line">enable-rpc=true</span><br><span class="line"># 允许所有来源, 默认:false</span><br><span class="line">rpc-allow-origin-all=true</span><br><span class="line"># 允许外部访问, 默认:false</span><br><span class="line">rpc-listen-all=true</span><br><span class="line"># RPC端口, 仅当默认端口被占用时修改</span><br><span class="line"># rpc-listen-port=6800</span><br><span class="line"># 设置的RPC授权令牌, v1.18.4新增功能, 取代 --rpc-user 和 --rpc-passwd 选项</span><br><span class="line">rpc-secret=mooc</span><br><span class="line"># 启动SSL</span><br><span class="line"># rpc-secure=true</span><br><span class="line"># 证书文件, 如果启用SSL则需要配置证书文件, 例如用https连接aria2</span><br><span class="line"># rpc-certificate=</span><br><span class="line"># rpc-private-key=</span><br><span class="line"> </span><br><span class="line">## BT/PT下载相关 ##</span><br><span class="line"> </span><br><span class="line"># 当下载的是一个种子(以.torrent结尾)时, 自动开始BT任务, 默认:true</span><br><span class="line">follow-torrent=true</span><br><span class="line"># 客户端伪装, PT需要</span><br><span class="line">peer-id-prefix=-TR2770-</span><br><span class="line">user-agent=User-Agent,Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36</span><br><span class="line"># 强制保存会话, 即使任务已经完成, 默认:false</span><br><span class="line"># 较新的版本开启后会在任务完成后依然保留.aria2文件</span><br><span class="line">#force-save=false</span><br><span class="line"># 继续之前的BT任务时, 无需再次校验, 默认:false</span><br><span class="line">bt-seed-unverified=true</span><br><span class="line"># 保存磁力链接元数据为种子文件(.torrent文件), 默认:false</span><br><span class="line"># bt-save-metadata=true</span><br><span class="line"># 单个种子最大连接数, 默认:55 0表示不限制</span><br><span class="line">bt-max-peers=0</span><br><span class="line"># 最小做种时间, 单位:分</span><br><span class="line"># seed-time = 60</span><br><span class="line"># 分离做种任务</span><br><span class="line">bt-detach-seed-only=true</span><br></pre></td></tr></table></figure>
-<h2 id="使用aria2p"><a href="#使用aria2p" class="headerlink" title="使用aria2p"></a>使用aria2p</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3.6 -m pip install aria2p[tui]</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>tui对交互界面是必要的版本，如果不需要交互界面 直接安装aria2p即可</p>
-</blockquote>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">aria2c</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python/download//" class="article-tag-list-link color4">download</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/05/01/aria2c%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ipython使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/04/22/ipython%E4%BD%BF%E7%94%A8/" target="_blank">ipython使用</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/04/22/ipython%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-        <time datetime="2021-04-22T13:29:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-22</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ipython</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python/教程//" class="article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/04/22/ipython%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-conda使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/04/20/conda%E4%BD%BF%E7%94%A8/" target="_blank">conda使用</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/04/20/conda%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-        <time datetime="2021-04-20T12:28:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-20</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>[TOC]</p>
-<h1 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h1><h2 id="创建环境"><a href="#创建环境" class="headerlink" title="创建环境"></a>创建环境</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n python3 python=3.9.2 # -n name 环境名称</span><br></pre></td></tr></table></figure>
-<h2 id="进入环境"><a href="#进入环境" class="headerlink" title="进入环境"></a>进入环境</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate python3</span><br></pre></td></tr></table></figure>
-<h2 id="退出环境"><a href="#退出环境" class="headerlink" title="退出环境"></a>退出环境</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda deactivate</span><br></pre></td></tr></table></figure>
-<h2 id="删除环境"><a href="#删除环境" class="headerlink" title="删除环境"></a>删除环境</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda remove -n python3 --all</span><br></pre></td></tr></table></figure>
-<h2 id="环境克隆"><a href="#环境克隆" class="headerlink" title="环境克隆"></a>环境克隆</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n python3clone --clone python3</span><br></pre></td></tr></table></figure>
-<h2 id="查看conda所拥有的环境列表"><a href="#查看conda所拥有的环境列表" class="headerlink" title="查看conda所拥有的环境列表"></a>查看conda所拥有的环境列表</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda env list</span><br></pre></td></tr></table></figure>
-<h1 id="安装库依赖"><a href="#安装库依赖" class="headerlink" title="安装库依赖"></a>安装库依赖</h1><h2 id="安装指定依赖包"><a href="#安装指定依赖包" class="headerlink" title="安装指定依赖包"></a>安装指定依赖包</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install --yes --file requirements.txt</span><br></pre></td></tr></table></figure>
-<h2 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h2><h3 id="method-1"><a href="#method-1" class="headerlink" title="method 1"></a>method 1</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -n python3 pytorch <span class="comment"># 在名称为python3的环境中安装pytorch（未激活环境）</span></span><br></pre></td></tr></table></figure>
-<h3 id="method-2"><a href="#method-2" class="headerlink" title="method 2"></a>method 2</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source activate python3 <span class="comment"># 先进入python3环境</span></span><br><span class="line">conda install pytorch <span class="comment"># 安装pytorch</span></span><br></pre></td></tr></table></figure>
-<h1 id="conda报错"><a href="#conda报错" class="headerlink" title="conda报错"></a>conda报错</h1><p><code>CondaHTTPError: HTTP 000 CONNECTION FAILED for url &lt;https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/win-64/repodata.json</code></p>
-<ol>
-<li>打开Power Shell，执行“<strong>conda config —remove-key channels</strong>”命令，恢复Anaconda的源为默认。</li>
-</ol>
-<h1 id="conda备份与还原"><a href="#conda备份与还原" class="headerlink" title="conda备份与还原"></a>conda备份与还原</h1><h2 id="conda备份"><a href="#conda备份" class="headerlink" title="conda备份"></a>conda备份</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda env export &gt; environment.yaml</span><br></pre></td></tr></table></figure>
-<h2 id="conda还原"><a href="#conda还原" class="headerlink" title="conda还原"></a>conda还原</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda env create -f environment.yaml</span><br></pre></td></tr></table></figure>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">conda</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python/科学计算//" class="article-tag-list-link color5">科学计算</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/04/20/conda%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/7/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/7/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -853,11 +913,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">aria2c</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">conda</a>
+                <a href="javascript:void(0)" class="js-tag color5">生物计算</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -866,6 +922,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">aria2c</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">conda</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -897,15 +965,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">init</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">generate</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">miniconda</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">init</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -917,15 +989,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">newifi3</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -941,19 +1009,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">pandas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Path</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">高级特性</a>
+                <a href="javascript:void(0)" class="js-tag color2">pandas</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">高级特性</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -989,6 +1057,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">tailscale</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">常用快捷键</a>
               </li>
              
@@ -1005,6 +1077,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据清洗</a>
               </li>
              
@@ -1017,23 +1093,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">药动学</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">药效学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">自然语言处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">词汇分析</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1050,6 +1114,22 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">自然语言处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">词汇分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PyG2Plot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">k8s</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -181,6 +181,389 @@
             
 
   
+    <article id="post-数据库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/01/06/%E6%95%B0%E6%8D%AE%E5%BA%93/" target="_blank">数据库选择</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/01/06/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="archive-article-date">
+        <time datetime="2021-01-06T08:55:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-06</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="关系型数据库"><a href="#关系型数据库" class="headerlink" title="关系型数据库"></a>关系型数据库</h1><h2 id="Mysql-and-PostgreSQL"><a href="#Mysql-and-PostgreSQL" class="headerlink" title="Mysql and PostgreSQL"></a>Mysql and PostgreSQL</h2><blockquote>
+<p>唯一标识符集采集数据</p>
+</blockquote>
+<h2 id="Ubuntu-20-04-mysql-配置"><a href="#Ubuntu-20-04-mysql-配置" class="headerlink" title="Ubuntu 20.04 mysql 配置"></a>Ubuntu 20.04 mysql 配置</h2><h1 id="非关系型数据库"><a href="#非关系型数据库" class="headerlink" title="非关系型数据库"></a>非关系型数据库</h1><h2 id="NoSQL（JSON）"><a href="#NoSQL（JSON）" class="headerlink" title="NoSQL（JSON）"></a>NoSQL（JSON）</h2>
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据存储</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/数据库//" class="article-tag-list-link color4">数据库</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/01/06/%E6%95%B0%E6%8D%AE%E5%BA%93/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-requirement-txt使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/12/29/requirement-txt%E4%BD%BF%E7%94%A8/" target="_blank">requirement.txt使用</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/12/29/requirement-txt%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+        <time datetime="2020-12-29T11:06:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="基本使用（适用于虚拟环境）"><a href="#基本使用（适用于虚拟环境）" class="headerlink" title="基本使用（适用于虚拟环境）"></a>基本使用（适用于虚拟环境）</h2><p>生成<code>requirements.txt</code>文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure>
+<p>安装<code>requirements.txt</code>文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br><span class="line">pip install -r .\requrements.txt -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
+<h2 id="requirements-txt-文件格式"><a href="#requirements-txt-文件格式" class="headerlink" title="requirements.txt 文件格式"></a>requirements.txt 文件格式</h2><p>&gt;</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">asttokens==<span class="number">2.0</span><span class="number">.4</span></span><br><span class="line">colorama==<span class="number">0.4</span><span class="number">.4</span></span><br><span class="line">executing==<span class="number">0.5</span><span class="number">.4</span></span><br><span class="line">icecream==<span class="number">2.1</span><span class="number">.0</span></span><br><span class="line">Pygments==<span class="number">2.8</span><span class="number">.0</span></span><br><span class="line">PyMySQL==<span class="number">1.0</span><span class="number">.2</span></span><br><span class="line">six==<span class="number">1.15</span><span class="number">.0</span></span><br><span class="line">SQLAlchemy==<span class="number">1.3</span><span class="number">.23</span></span><br><span class="line">toml==<span class="number">0.10</span><span class="number">.2</span></span><br><span class="line">xlrd==<span class="number">1.2</span><span class="number">.0</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">requirement</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/12/29/requirement-txt%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-virtualenv的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/12/29/virtualenv%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_blank">virtualenv的使用及conda的使用</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/12/29/virtualenv%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+        <time datetime="2020-12-29T10:45:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-29</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="VScode配置"><a href="#VScode配置" class="headerlink" title="VScode配置"></a>VScode配置</h3><h4 id="在vs-code中配置virtualenv虚拟环境的python解释器"><a href="#在vs-code中配置virtualenv虚拟环境的python解释器" class="headerlink" title="在vs code中配置virtualenv虚拟环境的python解释器"></a>在vs code中配置virtualenv虚拟环境的python解释器</h4><ul>
+<li><p>打开 <strong>vs code</strong> 在程序左下角找到 <strong>设置</strong></p>
+</li>
+<li><p>在 <strong>设置</strong> 中找到 <strong>扩展</strong></p>
+</li>
+<li><p>在 <strong>扩展</strong> 中找到任一 <strong>在settings.json中编辑</strong></p>
+</li>
+<li><p>点击左边的</p>
+</li>
+</ul>
+<p>  工作区设置</p>
+<p>  按如下设置</p>
+<blockquote>
+<p>{<br>“python.pythonPath”: ~/.virtualenvs/py36_django/bin/python”<br>}</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将代码中的 “py36_django” 更换为用户自己创建的virtualenv虚拟环境名称</span><br></pre></td></tr></table></figure>
+<h3 id="virtualenv使用"><a href="#virtualenv使用" class="headerlink" title="virtualenv使用"></a>virtualenv<a target="_blank" rel="noopener" href="https://blog.csdn.net/yezhenquan123/article/details/79313110?utm_medium=distribute.pc_relevant.none-task-blog-searchFromBaidu-1.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-searchFromBaidu-1.control">使用</a></h3><h3 id="virtualenv"><a href="#virtualenv" class="headerlink" title="virtualenv"></a>virtualenv</h3><blockquote>
+<p><strong>pip freeze &gt; requirements.txt</strong> </p>
+<p><strong>pip install -r requirements.txt</strong></p>
+</blockquote>
+<p>Python2 和 Python3 均支持的方式</p>
+<p><strong>安装</strong><br>pip install virtualenv</p>
+<p><strong>创建项目</strong><br>cd my_project_folder<br>virtualenv my_project</p>
+<p><strong>指定 python 版本</strong></p>
+<blockquote>
+<p><strong>virtualenv -p /usr/bin/python2.7 my_project</strong><br>或者在环境变量配置中加入<br>export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7</p>
+</blockquote>
+<p><strong>激活虚拟环境</strong><br>(Linux) source my_project/bin/activate<br>(Windows) my_project\Scripts\activate<br>(MacOS)source my_project\bin\activate</p>
+<p><strong>退出环境</strong><br>(Linux) my_project/bin/deactivate<br>(Windows) my_project\Scripts\deactivate.bat<br>(MacOS) my_project\bin\deactivate</p>
+<p><strong>virtualenv 常用命令选项</strong><br>virtualenv [OPTIONS] DEST_DIR</p>
+<p>Options:<br>–version　　　　　显示版本信息。<br>-h, –help　　　　　显示帮助信息。<br>-v, –verbose　　　增加后台输出的信息。<br>-q, –quiet　　　　控制后台输出的信息。<br>-p PYTHON_EXE, –python=PYTHON_EXE　　<br>　　　　　　　　　指定 Python 解释器<br>–clear　　　　　　清除虚拟环境中依赖库，初始化环境。<br>–system-site-packages<br>　　　　　　　　　使用当前 Python 主体上已安装的程序库。<br>–always-copy　　　一概不使用 符号链接，直接复制文件。<br>–no-setuptools　　Do not install setuptools in the new virtualenv.<br>–no-pip　　　　　Do not install pip in the new virtualenv.<br>–no-wheel　　　　Do not install wheel in the new virtualenv.</p>
+<h3 id="virtualenv-相关扩展"><a href="#virtualenv-相关扩展" class="headerlink" title="virtualenv 相关扩展"></a>virtualenv 相关扩展</h3><h5 id="virtualenvwrapper"><a href="#virtualenvwrapper" class="headerlink" title="virtualenvwrapper"></a>virtualenvwrapper</h5><p>virtualenv 的扩展包，能方便的管理 virtualenv</p>
+<p><strong>安装</strong><br>环境变量 WORKON_HOME 指定虚拟环境位置<br>(Linux)<br>pip install virtualenvwrapper<br>export WORKON_HOME=~/Envs<br>source /usr/local/bin/virtualenvwrapper.sh<br>(Windows)<br>pip install virtualenvwrapper-win<br>WORKON_HOME 默认值是 %USERPROFILE%Envs</p>
+<p><strong>基本用法</strong></p>
+<p>创建虚拟环境<br>mkvirtualenv myenv</p>
+<p>切换到虚拟环境<br>workon myenv</p>
+<p>虚拟环境和项目分开<br>mkproject my_project<br>虚拟环境在 WORKON_HOME 中，项目在 PROJECT_HOME 中</p>
+<p>退出虚拟环境<br>deactivate</p>
+<p>删除虚拟环境<br>rmvirtualenv myenv</p>
+<p><strong>或者手动删除</strong></p>
+<p>其它用法<br>lsvirtualenv 列举所有的环境。<br>cdvirtualenv [subdir] 导航到当前激活的虚拟环境的目录中<br>cdsitepackages [subdir] 和上面的类似，但是是直接进入到 site-packages 目录中<br>lssitepackages 显示 site-packages 目录中的内容<br>showvirtualenv [env] 显示指定环境的详情<br>cpvirtualenv [source] [dest] 复制一份虚拟环境<br>allvirtualenv 对当前虚拟环境执行统一的命令<br>add2virtualenv [dir] [dir] 把指定的目录加入当前使用的环境的path中，这常使用<br>于在多个project里面同时使用一个较大的库的情况<br>toggleglobalsitepackages -q 控制当前的环境是否使用全局的sitepackages目录</p>
+<h5 id="virtualenv-burrito"><a href="#virtualenv-burrito" class="headerlink" title="virtualenv-burrito"></a>virtualenv-burrito</h5><p>相当于 virtualenv + virtualenvwrapper ，不过只支持 python 2</p>
+<h5 id="autoenv"><a href="#autoenv" class="headerlink" title="autoenv"></a>autoenv</h5><p>当进入到一个包含 .env 的目录，autoenv 会自动激活该环境<br>pip install autoenv</p>
+<hr>
+<h3 id="venv"><a href="#venv" class="headerlink" title="venv"></a>venv</h3><p>Python3 支持的方式，原名又 pyvenv，python 3.6 已弃用</p>
+<p><strong>创建虚拟环境</strong><br>python3 -m venv /path/to/new/virtual/environment</p>
+<h1 id="Conda"><a href="#Conda" class="headerlink" title="Conda"></a>Conda</h1><h2 id="速查常用命令："><a href="#速查常用命令：" class="headerlink" title="速查常用命令："></a>速查常用命令：</h2><blockquote>
+<p>1）conda list 查看安装了哪些包。</p>
+<p>2）conda env list 或 conda info -e 查看当前存在哪些虚拟环境</p>
+<p>3）conda update conda 检查更新当前conda</p>
+</blockquote>
+<h2 id="创建虚拟python环境"><a href="#创建虚拟python环境" class="headerlink" title="创建虚拟python环境"></a>创建虚拟python环境</h2><p>conda create -n env_name python=3.9</p>
+<p>conda create -n env_name numpy [package] python=3.9 # 创建环境时同时安装必要的包</p>
+<p>conda install -n env_name [package] # 安装指定的package到env_name</p>
+<h3 id="指定路径创建虚拟环境"><a href="#指定路径创建虚拟环境" class="headerlink" title="指定路径创建虚拟环境"></a>指定路径创建虚拟环境</h3><blockquote>
+<p>conda create —prefix=/home/youyouza/PythonProject/cs/assign python=3.5</p>
+<h1 id="在目录-home-youyouza-PythonProject-cs-下创建名为-assign的虚拟环境"><a href="#在目录-home-youyouza-PythonProject-cs-下创建名为-assign的虚拟环境" class="headerlink" title="在目录  /home/youyouza/PythonProject/cs/下创建名为 assign的虚拟环境"></a>在目录  /home/youyouza/PythonProject/cs/下创建名为 assign的虚拟环境</h1></blockquote>
+<h2 id="激活环境"><a href="#激活环境" class="headerlink" title="激活环境"></a>激活环境</h2><h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><blockquote>
+<p>source activate env_name</p>
+</blockquote>
+<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><blockquote>
+<p>activate env_name</p>
+</blockquote>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><h3 id="删除虚拟环境"><a href="#删除虚拟环境" class="headerlink" title="删除虚拟环境"></a>删除虚拟环境</h3><blockquote>
+<p>conda remove -n env_name —all</p>
+</blockquote>
+<h3 id="删除环境中的某个包"><a href="#删除环境中的某个包" class="headerlink" title="删除环境中的某个包"></a>删除环境中的某个包</h3><blockquote>
+<p>conda remove —name $env_name $package_name</p>
+</blockquote>
+<h2 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h2><h3 id="Linux-1"><a href="#Linux-1" class="headerlink" title="Linux"></a>Linux</h3><blockquote>
+<p>source deactivate</p>
+</blockquote>
+<h3 id="Windows-1"><a href="#Windows-1" class="headerlink" title="Windows"></a>Windows</h3><blockquote>
+<p>deactivate env_name</p>
+</blockquote>
+<p>conda remove -n assign —all</p>
+<h2 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h2><h3 id="添加Anaconda的TUNA镜像"><a href="#添加Anaconda的TUNA镜像" class="headerlink" title="添加Anaconda的TUNA镜像"></a>添加Anaconda的TUNA镜像</h3><p><code>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</code></p>
+<h4 id="TUNA的help中镜像地址加有引号，需要去掉"><a href="#TUNA的help中镜像地址加有引号，需要去掉" class="headerlink" title="TUNA的help中镜像地址加有引号，需要去掉"></a>TUNA的help中镜像地址加有引号，需要去掉</h4><h4 id="设置搜索时显示通道地址"><a href="#设置搜索时显示通道地址" class="headerlink" title="设置搜索时显示通道地址"></a>设置搜索时显示通道地址</h4><p><code>conda config --set show_channel_urls yes</code></p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">virtualenv</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/12/29/virtualenv%E7%9A%84%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-python-init" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -284,347 +667,9 @@
 
 
   
-    <article id="post-docker基础概念-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/04/07/docker%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5-1/" target="_blank">docker基础概念[1]</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/04/07/docker%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5-1/" class="archive-article-date">
-        <time datetime="2020-04-07T05:16:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-07</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <ul>
-<li><p><strong>镜像</strong>(Image)</p>
-<blockquote>
-<p>类似操作系统的快照(静态)文件，可以简单理解为IOS文件。<br>和在安装IOS类似，在安装完成后，镜像相比原来没有做任何修改的文件，做了一些相应的配置，类似，环境变量、用户、应用程序。<strong>因为在docker可以四处迁移，类似虚拟机VMware软件一样，这样就有个好处，当你运行好镜像成为了一个容器，所有环境修改都配置完成，不必重新部署环境</strong></p>
-<blockquote>
-<p>深入理解：</p>
-<p>Docker设计时，就充分利用Union FS的技术，将其设计为分层存储的架构。镜像实际是由多层文件系统联合组成。<br>镜像构建时，会一层层构建，前一层是后一层的基础。每一层构建完就不会再发生改变，后一层上的任何改变只发生在自己这一层。比如， 删除前一层文件的操作，实际不是真的删除前一层的文件，而是仅在当前层标记为该文件已删除。在最终容器运行的时候，虽然不会看到这个文件，但是实际上该文件会-直跟随镜像。因此,在构建镜像的时候，需要额外小心，每- -层尽量只包含该层需要添加的东西，任何额外的东西应该在该层构建结束前清理掉。<br>分层存储的特征还使得镜像的复用、定制变的更为容易。甚至可以用之前构建好的镜像作为基础层，然后进一步添加新的层，以定制自己所需的内容,构建新的镜像。</p>
-</blockquote>
-</blockquote>
-</li>
-<li><p><strong>容器</strong>(Container)</p>
-<blockquote>
-<p>系指运行起来的镜像（Image）。可以简单理解为动态的文件。如果吧镜像比作一个桶里面被冻成冰块的水，那么容器就是解冻之后的水可以加入各种调味料，搅拌变成浓香的火锅汤底。所以容器是可以被创建、启动、停止、删除、暂停的。</p>
-<blockquote>
-<p>深入理解：</p>
-<p>容器的实质是进程，但与直接在宿主执行的进程不同，容器进程运行于属于自己的独立的命名空间。前面讲过镜像使用的是分层存储，容器也是如此。<br>容器存储层的生存周期和容器-样，容器消亡时，容器存储层也随之消亡。因此，任何保存于容器存储层的信息都会随容器删除而丢失。<br>按照Docker最佳实践的要求，容器不应该向其存储层内写入任何数据，容器存储层要保持无状态化。<strong>所有的文件写入操作，都应该使用数据卷(Volume)、 或者绑定宿主目录</strong>， 在这些位置的读写会跳过容器存储层，直接对宿主(或网络存储)发生读写，其性能和稳定性更高。数据卷的生存周期独立于容器，容器消亡，数据卷不会消亡。因此，使用数据卷后，容器可以随意删除、重新run,数据却不会丢失。</p>
-</blockquote>
-</blockquote>
-</li>
-<li><p>仓库（Repository）</p>
-<blockquote>
-<p>仓库类似代码仓库，存放镜像的地方。</p>
-<p>通常，一个仓库会包含同一一个软件不同版本的镜像，而标签就常用于对应该软件的各个版本。我们可以通过&lt;仓库名&gt;:&lt;标签&gt;的格式来指定具体是这个软件哪个版本的镜像。如果不给出标签，将以latest作为默认标签.。</p>
-<p>Docker Registry公开服务是开放给用户使用、允许用户管理镜像的Registry服务。- -般这类公开服务允许<br>用户免费上传、下载公开的镜像，并可能提供收费服务供用户管理私有镜像。<br>最常使用的Registry 公开服务是官方的Docker Hub，这也是默认的Registry,并拥有大量的高质量的官方<br>镜像，网址为: <a target="_blank" rel="noopener" href="https://hub.docker.com">https://hub.docker.com</a> 。在国内访问Docker Hub可能会比较慢国内也有- - 些云服务商提供类似于Docker Hub的公开服务。比如时速云镜像库、网易云镜像服务、阿里云镜像库等。除了使用公开服务外，用户还可以在本地搭建私有Docker Registry。Docker 官方提供了Docker Registry镜像，可以直接使用做为私有Registry 服务。开源的Docker Registry镜像只提供了Docker Registry API的服务端实现，足以支持docker命令，不影响使用。但不包含图形界面，以及镜像维护、用户管理、访问控制等高级功能。</p>
-</blockquote>
-</li>
-</ul>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/docker//" class="article-tag-list-link color2">docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/04/07/docker%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5-1/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-introduction" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/03/21/introduction/" target="_blank">研究生英语口语复试（1）</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/03/21/introduction/" class="archive-article-date">
-        <time datetime="2020-03-21T04:35:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-21</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h4 id="First-of-introduction"><a href="#First-of-introduction" class="headerlink" title="First of introduction"></a>First of introduction</h4><blockquote>
-<p>I’m graduating form JMS University this June which has a history of 70 years. It shares many same characteristics with Jilin University. Both of them have a refreshing and scholarly atmosphere. Four years’ studying there made me an independent, optimistic and strict student. I pretty appreciate the education my university gave me. Thank you for your time!</p>
-</blockquote>
-<h4 id="Second-of-introduction"><a href="#Second-of-introduction" class="headerlink" title="Second of introduction"></a>Second of introduction</h4><blockquote>
-<p>Good morning, professors. First of all, please allow me to express my appreciation for the opportunity that you give me to join this interview. And I hope I can make a good performance today. Eventually enroll in the university in September. Now let me introduce myself to you. My name is XXX, 23 years old. I was ，born in XXX province, and I am a senior student XXX University. My major in pharmacy, and I will get my bachelor degree after my graduation in July. I hope I could get the opportunity to finish my postgraduate course in XXX University. I have desired it for a long time. In the past 4 years, I spend most of my time on study. Always being one of the top students in our class. Besides, I have attended several organizations and as a chief in that one. Through this, my character became more and more confidence and outgoing. At the same time, I think I can quick in mind and careful in every thing. In addition, my favorite pastime is surf online, study in computer technology and do physical exercise. That’s all, thank you again for give me such a valuable opportunity.</p>
-</blockquote>
-<h4 id="My-family"><a href="#My-family" class="headerlink" title="My family"></a>My family</h4><blockquote>
-<p>There are 3 members in my family, of course, my parents an 1. My father’s job is sells in a company. He often goes out on business, so I have ever been to several cities with him and that open my mind. My mother is a salesman. During my prepare for the postgraduate exam, my parents’ love and support have always been my power and I hope I will be able to repay them in the future. I love them. That’s<br>all, Thank you.</p>
-</blockquote>
-<h4 id="My-university"><a href="#My-university" class="headerlink" title="My university"></a>My university</h4><blockquote>
-<p>I am a senior student at XXX University, which has a history over 70 years. It shares same characteristics with other University of Technology. It have a refreshing and scholarly atmosphere. 4 years’ studying there made me an independent boy. I appreciate the education my university give me. of course, I am look forward XXX (所报考的大学) become my university after 5 months. Thank you.</p>
-</blockquote>
-<h4 id="Reason-for-further-study"><a href="#Reason-for-further-study" class="headerlink" title="Reason for further study"></a>Reason for further study</h4><blockquote>
-<p>I think there several reasons. First of all, I love my major, with development of economy, the society needs more and more person with high-technology, especially in this competitive modern world, so 1 am not satisfied with such knowledge. I hope I could have a better understanding in my major knowledge. I suppose this is the most important factor in my decision. Besides, I love the feeling in the campus, this living compare with the outside of the campus, I think it is so spirit that I don’t wanna go. In a word, 1 think the postgraduate studies can enrich my knowledge and give me a solid foundation for my future profession. Thank you.</p>
-</blockquote>
-<h4 id="Plan-of-postgraduate"><a href="#Plan-of-postgraduate" class="headerlink" title="Plan of postgraduate"></a>Plan of postgraduate</h4><blockquote>
-<p>​    If luckily I got the chance to learning XXX (专业) in XXX University. I will concentrate on the study and research in this field.<br>​    First, I will hard to learn the theoretical knowledge, construeting a solid base for my future work.<br>​    Second, I would like to do some practical work with the help of the teacher.Through this, I can get something that cannot be acquired from the textbooks. I believe after 3 years of learning, I can get more useful know ledge. Thank you for your time.</p>
-</blockquote>
-<h4 id="Some-other-question"><a href="#Some-other-question" class="headerlink" title="Some other question"></a>Some other question</h4><blockquote>
-<p><strong>“What can you tell me about yourself?” (“关于你自己，你能告诉我些什么?)</strong></p>
-</blockquote>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">自我介绍</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">考研复试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/研究生//" class="article-tag-list-link color4">研究生</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/03/21/introduction/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-关于气相色谱中的速率理论" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/08/07/%E5%85%B3%E4%BA%8E%E6%B0%94%E7%9B%B8%E8%89%B2%E8%B0%B1%E4%B8%AD%E7%9A%84%E9%80%9F%E7%8E%87%E7%90%86%E8%AE%BA/" target="_blank">关于气相色谱中的速率理论</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/08/07/%E5%85%B3%E4%BA%8E%E6%B0%94%E7%9B%B8%E8%89%B2%E8%B0%B1%E4%B8%AD%E7%9A%84%E9%80%9F%E7%8E%87%E7%90%86%E8%AE%BA/" class="archive-article-date">
-        <time datetime="2019-08-07T12:43:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-07</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <script type="math/tex; mode=display">
-H=A+\dfrac Bu+Cu</script><script type="math/tex; mode=display">
-H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(D_g\ {\alpha}\  \dfrac{T}{\sqrt M}) , (D_1\ {\alpha}\ \dfrac{1}{\eta})$ , ${\alpha}\ $ 表示正相关</p>
-<p>$H:为塔板高度\<br>A:为涡流扩散项，常数\<br>\gamma:填充物料因子\<br>D_g:组分在载气中的扩散系数D_g\ {\alpha}\  \dfrac{T}{\sqrt M}\<br>T:为柱温\<br>M:为载气的相对分子质量\<br>k:容量因子\<br>d_f:固定液液膜的厚度。\<br>D_1:组分在固定液中的扩散系数,D_1\ {\alpha}\ \dfrac{1}{\eta}\<br>C_g:组分在气相中的传质阻抗，气相色谱中可以忽略。$ </p>
-<h3 id="分离条件的选择-GC"><a href="#分离条件的选择-GC" class="headerlink" title="分离条件的选择$GC$"></a><strong>分离条件的选择$GC$</strong></h3><p>$<br>分离度R=\dfrac{2t{R2}-t{R1}}{W_1+W_2}当W_1=W_2时，R=\dfrac{\sqrt n}{4}\dfrac{\alpha-1}{\alpha}*\dfrac{K_2}{1+K_2}\<br>\dfrac{\sqrt n}{4}为柱效项，\dfrac{\alpha-1}{\alpha}为柱选择性项，\dfrac{K_2}{1+K_2}为柱容量项\<br>\alpha:分配系数\alpha=\dfrac{K_2}{K_1}=\dfrac{k_2}{k_1}，分配系数反应了固定液的选择性，\alpha越大选择性也高。当\alpha=0时R=0，一般要求K&gt;1.5。\<br>\alpha与固定液的用量和分配系数有关，受柱温影响。$</p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">气相色谱分离条件选择</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/速率理论方程//" class="article-tag-list-link color2">速率理论方程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/速率理论方程/分析化学//" class="article-tag-list-link color5">分析化学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/08/07/%E5%85%B3%E4%BA%8E%E6%B0%94%E7%9B%B8%E8%89%B2%E8%B0%B1%E4%B8%AD%E7%9A%84%E9%80%9F%E7%8E%87%E7%90%86%E8%AE%BA/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/11/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/13/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/11/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/13/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -799,11 +844,7 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">aria2c</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">conda</a>
+                <a href="javascript:void(0)" class="js-tag color5">生物计算</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -812,6 +853,18 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">aria2c</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">conda</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -843,15 +896,19 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">init</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">generate</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">miniconda</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">init</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -863,15 +920,11 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">newifi3</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -887,19 +940,19 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">pandas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Path</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">高级特性</a>
+                <a href="javascript:void(0)" class="js-tag color2">pandas</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">高级特性</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -935,6 +988,10 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">tailscale</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">常用快捷键</a>
               </li>
              
@@ -951,6 +1008,10 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据清洗</a>
               </li>
              
@@ -963,23 +1024,11 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">药动学</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">药效学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">自然语言处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">词汇分析</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -996,6 +1045,22 @@ H=A+{\gamma}{D_g}+\dfrac{2k}{3(1+k)^2}\dfrac{d_f^2}{D_1}+C_g</script><p>$其中(
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">自然语言处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">词汇分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PyG2Plot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">k8s</a>
               </li>
              
               <li class="article-tag-list-item">

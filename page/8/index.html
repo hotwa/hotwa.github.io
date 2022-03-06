@@ -181,6 +181,357 @@
             
 
   
+    <article id="post-nvm管理nodejs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/04/20/nvm%E7%AE%A1%E7%90%86nodejs/" target="_blank">nvm管理nodejs</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/04/20/nvm%E7%AE%A1%E7%90%86nodejs/" class="archive-article-date">
+        <time datetime="2021-04-20T12:28:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-20</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>[TOC]</p>
+<h1 id="nvm-install"><a href="#nvm-install" class="headerlink" title="nvm install"></a>nvm install</h1><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">choco install nvm</span><br></pre></td></tr></table></figure>
+<h1 id="Quick-start"><a href="#Quick-start" class="headerlink" title="Quick start"></a>Quick start</h1><h2 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm list</span><br></pre></td></tr></table></figure>
+<h2 id="安装自定义版本"><a href="#安装自定义版本" class="headerlink" title="安装自定义版本"></a>安装自定义版本</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nvm install 12.14.0</span><br><span class="line">nvs add lts # 添加最新LTS版本</span><br><span class="line">nvs add latest # 添加最新版本</span><br></pre></td></tr></table></figure>
+<h2 id="使用特定版本"><a href="#使用特定版本" class="headerlink" title="使用特定版本"></a>使用特定版本</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm use 12.14.0</span><br></pre></td></tr></table></figure>
+<h2 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm uninstall 12.14.0</span><br></pre></td></tr></table></figure>
+<h2 id="settings-txt修改镜像"><a href="#settings-txt修改镜像" class="headerlink" title="settings.txt修改镜像"></a>settings.txt修改镜像</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node_mirror: https://npm.taobao.org/mirrors/node/ </span><br><span class="line">npm_mirror: https://npm.taobao.org/mirrors/npm/</span><br></pre></td></tr></table></figure>
+<h2 id="mac-通过brew安装nvm"><a href="#mac-通过brew安装nvm" class="headerlink" title="mac 通过brew安装nvm"></a>mac 通过brew安装nvm</h2><p>针对M1 chips</p>
+<h3 id="问题1：在安装完成后并未在-opt-homebrew-bin添加软链接。"><a href="#问题1：在安装完成后并未在-opt-homebrew-bin添加软链接。" class="headerlink" title="问题1：在安装完成后并未在/opt/homebrew/bin添加软链接。"></a>问题1：在安装完成后并未在<code>/opt/homebrew/bin</code>添加软链接。</h3><p>原因：未添加<code>nvm</code>环境变量</p>
+<p>解决方案：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">brew install nvm</span><br><span class="line">source $(brew --prefix nvm)/nvm.sh # 执行shell将nvm初始化</span><br><span class="line">source ~/.bash_profile </span><br></pre></td></tr></table></figure>
+<h3 id="问题2：无法安装指定nodejs版本"><a href="#问题2：无法安装指定nodejs版本" class="headerlink" title="问题2：无法安装指定nodejs版本"></a>问题2：无法安装指定nodejs版本</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install 10.14.0 # 安装</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>报错No Xcode or CLT version detected!</p>
+</blockquote>
+<p>解决方案：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf $(xcode-select -print-path) # 没有output正常</span><br><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>
+<h1 id="使用n进行nodejs版本管理"><a href="#使用n进行nodejs版本管理" class="headerlink" title="使用n进行nodejs版本管理"></a>使用n进行nodejs版本管理</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40183053/article/details/107390818">链接</a></p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">nvm</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/nodejs//" class="article-tag-list-link color2">nodejs</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/04/20/nvm%E7%AE%A1%E7%90%86nodejs/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-自然语言处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/04/15/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" target="_blank">自然语言处理</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/04/15/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" class="archive-article-date">
+        <time datetime="2021-04-15T08:44:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-15</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><script type="math/tex; mode=display">
+词频(TF)=\frac{某个词在文章中出现的次数}{文章的总词数}</script><script type="math/tex; mode=display">
+逆文档频率(IDF)=log(\frac{语料库的文档总数}{包含该词的文档数+ 1})</script><script type="math/tex; mode=display">
+TF - IDF =词频(TF)\times逆文档频率(IDF)</script>
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">自然语言处理</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">词汇分析</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/04/15/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-PBD文件学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/04/06/PBD%E6%96%87%E4%BB%B6%E5%AD%A6%E4%B9%A0/" target="_blank">PBD文件学习</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/04/06/PBD%E6%96%87%E4%BB%B6%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
+        <time datetime="2021-04-06T13:32:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-06</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p><a target="_blank" rel="noopener" href="http://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/dealing-with-coordinates">pdb文件参考</a></p>
+<p>In PDB file format, the temperature factor is given in columns 61 - 66.</p>
+<p>alternate conformations are given in column 17 </p>
+<p>alternate location indicator and occupancy is given in columns 55 - 60</p>
+<p>PDB格式文件使用MODEL / ENDMDL关键字指示单个文件中的多个分子。最初创建该文件是为了存储包括相同结构的多个不同模型的坐标集，例如在NMR分析中获得的结构集合。当您查看这些文件时，您会看到数十个相似的分子全部重叠。现在，还将MODEL关键字用于生物组装文件中，以分隔从不对称单元生成的分子的许多对称拷贝</p>
+<p><a target="_blank" rel="noopener" href="https://mmcif.wwpdb.org/docs/sw-examples/python/html/">PDBX python解析器</a></p>
+<p><a target="_blank" rel="noopener" href="http://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/primary-sequences-and-the-pdb-format">了解PDB数据的指南</a></p>
+<h2 id="PDB数据简介"><a href="#PDB数据简介" class="headerlink" title="PDB数据简介"></a><a target="_blank" rel="noopener" href="http://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/introduction">PDB数据简介</a></h2><p>PDB档案库是原子坐标和其他描述蛋白质和其他重要生物大分子的信息的存储库。结构生物学家使用诸如<a target="_blank" rel="noopener" href="http://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/methods-for-determining-structure">X射线晶体学，NMR光谱和低温电子显微镜等方法</a>来确定每个原子在分子中相对于彼此的位置。然后，他们存储此信息，然后由wwPDB对其进行批注并公开发布到存档中。</p>
+<h2 id="PDB结构和PDBx-mmCIF格式的关系"><a href="#PDB结构和PDBx-mmCIF格式的关系" class="headerlink" title="PDB结构和PDBx/mmCIF格式的关系"></a><a target="_blank" rel="noopener" href="http://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/beginner%E2%80%99s-guide-to-pdb-structures-and-the-pdbx-mmcif-format">PDB结构和PDBx/mmCIF格式的关系</a></h2><h3 id="PDBx-mmCIF格式（使用ASCII字符集）"><a href="#PDBx-mmCIF格式（使用ASCII字符集）" class="headerlink" title="PDBx/mmCIF格式（使用ASCII字符集）"></a>PDBx/mmCIF格式（使用ASCII字符集）</h3><p>CIF（晶体学信息文件）扩展（mmCIF）</p>
+<p>支持代表大型结构，复杂化学反应以及新的和混合实验方法的数据。</p>
+<p>PDBx / mmCIF功能强大。PDBx / mmCIF明确记录了通用数据项（例如原子和残基标识符）之间的所有关系。</p>
+<blockquote>
+<p>The tabular style is used when there are multiple values for each token. In this style, a loop_ token is followed by rows of data item names and then white-space delimited data values. </p>
+<p>使用空格分隔</p>
+</blockquote>
+<p>优点：</p>
+<blockquote>
+<p>可以在单个PDB条目中表示的原子，<strong>残基或链的数量没有任何限制</strong></p>
+</blockquote>
+<h2 id="PDB文件"><a href="#PDB文件" class="headerlink" title="PDB文件"></a><a target="_blank" rel="noopener" href="http://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/dealing-with-coordinates">PDB文件</a></h2><p>在PDB文件格式中，TER记录用于分隔蛋白质和核酸链。</p>
+<p>PDB格式文件使用MODEL / ENDMDL关键字指示单个文件中的多个分子。</p>
+<p>由于PDB规范来自于PDBx/mmCIF一些晶体结构信息，所以大致与PDB相当其中不同在于</p>
+<p>PDB文件没有loop_字段的描述信息</p>
+<p>TER分隔蛋白与核酸链</p>
+<p>MODEL / ENDMDL关键字指示单个文件中的多个分子</p>
+<h4 id="温度因素"><a href="#温度因素" class="headerlink" title="温度因素"></a>温度因素</h4><p>对于储存的温度系数值影响，autodock vina计算过程中温度的影响。</p>
+<p>PDB的结构在温度的影响下原子是否发生移动，电子云密度是否发生变化，影响其共价键的距离，从而影响活性。</p>
+<blockquote>
+<p>这些运动以及由此产生的电子密度的拖尾，通过B值或温度因子被合并到原子模型中。拖影的量与B值的大小成正比。小于10的值会创建一个非常清晰的原子模型，表明该原子移动不多，并且在晶体中所有分子中的位置相同。大于50左右的值表示原子正在移动太多以至于几乎看不到原子。蛋白质表面的原子经常发生这种情况，其中长的侧链可在周围的水中自由摆动。</p>
+</blockquote>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PDB</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">生物信息学</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/warhead//" class="article-tag-list-link color3">warhead</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/warhead/晶体结构//" class="article-tag-list-link color5">晶体结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/04/06/PBD%E6%96%87%E4%BB%B6%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-git使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -279,331 +630,9 @@
 
 
   
-    <article id="post-python输出异常信息" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/03/18/python%E8%BE%93%E5%87%BA%E5%BC%82%E5%B8%B8%E4%BF%A1%E6%81%AF/" target="_blank">python输出异常信息</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/03/18/python%E8%BE%93%E5%87%BA%E5%BC%82%E5%B8%B8%E4%BF%A1%E6%81%AF/" class="archive-article-date">
-        <time datetime="2021-03-18T08:20:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-18</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="Python使用traceback-print-exc-来代替print-e-来输出详细的异常信息"><a href="#Python使用traceback-print-exc-来代替print-e-来输出详细的异常信息" class="headerlink" title="Python使用traceback.print_exc()来代替print e 来输出详细的异常信息"></a>Python使用traceback.print_exc()来代替print e 来输出详细的异常信息</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:  </span><br><span class="line">    <span class="number">1</span>/<span class="number">0</span>  </span><br><span class="line"><span class="keyword">except</span> Exception,e:  </span><br><span class="line">    <span class="built_in">print</span> e  </span><br></pre></td></tr></table></figure>
-<h2 id="使用traceback追踪错误"><a href="#使用traceback追踪错误" class="headerlink" title="使用traceback追踪错误"></a>使用traceback追踪错误</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> traceback  </span><br><span class="line"><span class="keyword">try</span>:  </span><br><span class="line">    <span class="number">1</span>/<span class="number">0</span>  </span><br><span class="line"><span class="keyword">except</span> Exception,e:  </span><br><span class="line">    traceback.print_exc()  </span><br></pre></td></tr></table></figure>
-<h3 id="调试输出"><a href="#调试输出" class="headerlink" title="调试输出"></a>调试输出</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">traceback.print_exc()跟traceback.format_exc()有什么区别呢？</span><br><span class="line">format_exc()返回字符串，print_exc()则直接给打印出来。</span><br><span class="line">即traceback.print_exc()与<span class="built_in">print</span> traceback.format_exc()效果是一样的。</span><br><span class="line">print_exc()还可以接受file参数直接写入到一个文件。比如</span><br><span class="line">traceback.print_exc(file=<span class="built_in">open</span>(<span class="string">&#x27;tb.txt&#x27;</span>,<span class="string">&#x27;w+&#x27;</span>))</span><br><span class="line">写入到tb.txt文件去。</span><br></pre></td></tr></table></figure>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">异常输出</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python/traceback//" class="article-tag-list-link color5">traceback</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/03/18/python%E8%BE%93%E5%87%BA%E5%BC%82%E5%B8%B8%E4%BF%A1%E6%81%AF/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-mac及win终端代理别名设置及其持久化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/03/11/mac%E5%8F%8Awin%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%E5%88%AB%E5%90%8D%E8%AE%BE%E7%BD%AE%E5%8F%8A%E5%85%B6%E6%8C%81%E4%B9%85%E5%8C%96/" target="_blank">mac及win终端代理别名设置及其持久化</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/03/11/mac%E5%8F%8Awin%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%E5%88%AB%E5%90%8D%E8%AE%BE%E7%BD%AE%E5%8F%8A%E5%85%B6%E6%8C%81%E4%B9%85%E5%8C%96/" class="archive-article-date">
-        <time datetime="2021-03-11T07:12:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-11</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>windows 配置cmd、powershell、git bash 参考<a target="_blank" rel="noopener" href="https://zcdll.github.io/2018/01/27/proxy-on-windows-terminal/">链接</a></p>
-<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">set http_proxy=http://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line">set https_proxy=http://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line">set http_proxy_user=user</span><br><span class="line">set http_proxy_pass=pass</span><br><span class="line"></span><br><span class="line">set https_proxy_user=user</span><br><span class="line">set https_proxy_pass=pass</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 恢复</span></span><br><span class="line">set http_proxy=</span><br><span class="line"></span><br><span class="line">set https_proxy=</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Ubuntu 下命令为 <span class="built_in">export</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">export</span> http_proxy=http://127.0.0.1:1080</span></span><br></pre></td></tr></table></figure>
-<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p><code>curl -vv http://www.google.com</code>，用这条命令来验证，如果返回如下结果表示代理设置成功。</p>
-<h1 id="更加方便的工具"><a href="#更加方便的工具" class="headerlink" title="更加方便的工具"></a>更加方便的工具</h1><p><a target="_blank" rel="noopener" href="https://github.com/Prodesire/terminal-proxy">github 链接</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/96055170">知乎链接</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">首先是安装：</span><br><span class="line">pip install terminal-proxy</span><br><span class="line">然后配置一遍代理地址：</span><br><span class="line">proxy config <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">1080</span></span><br><span class="line">然后就可以愉快地在命令行中开启关闭代理了：</span><br><span class="line"><span class="comment"># 开启代理</span></span><br><span class="line">proxy on</span><br><span class="line"><span class="comment"># 查看代理</span></span><br><span class="line">proxy show</span><br><span class="line"><span class="comment"># 关闭代理</span></span><br><span class="line">proxy off</span><br></pre></td></tr></table></figure>
-<h1 id="Useage"><a href="#Useage" class="headerlink" title="Useage"></a>Useage</h1><h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install terminal-proxy</span><br></pre></td></tr></table></figure>
-<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><h3 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxy config 127.0.0.1:1080</span><br></pre></td></tr></table></figure>
-<h3 id="Turn-on"><a href="#Turn-on" class="headerlink" title="Turn on"></a>Turn on</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># If you are on Windows, please run as administrator</span></span><br><span class="line"><span class="comment"># Turn on all proxies</span></span><br><span class="line">proxy on</span><br><span class="line"></span><br><span class="line"><span class="comment"># Turn on http proxy</span></span><br><span class="line">proxy on --http</span><br><span class="line"></span><br><span class="line"><span class="comment"># Turn on git proxy</span></span><br><span class="line">proxy on --git</span><br></pre></td></tr></table></figure>
-<h3 id="Show"><a href="#Show" class="headerlink" title="Show"></a>Show</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Show all proxies. Also supports --http and --git</span></span><br><span class="line">proxy show</span><br></pre></td></tr></table></figure>
-<h3 id="Turn-off"><a href="#Turn-off" class="headerlink" title="Turn off"></a>Turn off</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Turn off all proxies. Also supports --http and --git</span></span><br><span class="line">proxy off</span><br></pre></td></tr></table></figure>
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">terminal</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/代理//" class="article-tag-list-link color3">代理</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/代理/终端//" class="article-tag-list-link color3">终端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/03/11/mac%E5%8F%8Awin%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%E5%88%AB%E5%90%8D%E8%AE%BE%E7%BD%AE%E5%8F%8A%E5%85%B6%E6%8C%81%E4%B9%85%E5%8C%96/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-toml使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/03/02/toml%E4%BD%BF%E7%94%A8/" target="_blank">toml使用</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/03/02/toml%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-        <time datetime="2021-03-02T06:39:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-02</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="python-中toml配置文件使用"><a href="#python-中toml配置文件使用" class="headerlink" title="python 中toml配置文件使用"></a>python 中toml配置文件使用</h1><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/metheir/article/details/82288198">链接</a></p>
-<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>python 3.9.0</p>
-<p>toml 0.10.2</p>
-<h2 id="规范【重要】"><a href="#规范【重要】" class="headerlink" title="规范【重要】"></a>规范【重要】</h2><ul>
-<li>TOML 文档是大小写敏感的。</li>
-<li>TOML 文档<strong>必须是一个有效的 <code>UTF-8</code> 编码的 <code>Unicode</code> 文档</strong>。</li>
-<li>空白符只能是制表符（<code>0x09</code>）或空格（<code>0x20</code>）。</li>
-<li>换行符只能是 LF（<code>0x0A</code>）或 CRLF （<code>0x0D0A</code>）。</li>
-</ul>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/配置文件//" class="article-tag-list-link color5">配置文件</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/配置文件/toml//" class="article-tag-list-link color5">toml</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/03/02/toml%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/7/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/9/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/7/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/9/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -778,11 +807,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">aria2c</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">conda</a>
+                <a href="javascript:void(0)" class="js-tag color5">生物计算</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -791,6 +816,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">aria2c</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">conda</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -822,15 +859,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">init</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">generate</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">miniconda</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">init</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -842,15 +883,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">newifi3</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -866,19 +903,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">pandas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Path</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">高级特性</a>
+                <a href="javascript:void(0)" class="js-tag color2">pandas</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">高级特性</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -914,6 +951,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">tailscale</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">常用快捷键</a>
               </li>
              
@@ -930,6 +971,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据清洗</a>
               </li>
              
@@ -942,23 +987,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">药动学</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">药效学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">自然语言处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">词汇分析</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -975,6 +1008,22 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">自然语言处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">词汇分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PyG2Plot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">k8s</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -181,6 +181,326 @@
             
 
   
+    <article id="post-Kotlin" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/10/06/Kotlin/" target="_blank">Kotlin</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/10/06/Kotlin/" class="archive-article-date">
+        <time datetime="2021-10-06T11:30:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-06</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>[TOC]</p>
+<h1 id=""><a href="#" class="headerlink" title=" "></a> </h1>
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/kotlin//" class="article-tag-list-link color2">kotlin</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/10/06/Kotlin/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-dynamic_create_func" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/10/04/dynamic_create_func/" target="_blank">python动态的创建函数</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/10/04/dynamic_create_func/" class="archive-article-date">
+        <time datetime="2021-10-04T03:10:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-04</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="python动态的创建函数"><a href="#python动态的创建函数" class="headerlink" title="python动态的创建函数"></a>python动态的创建函数</h1><p>types.FunctionType()参数解释</p>
+<p><a target="_blank" rel="noopener" href="https://www.jb51.net/article/158464.htm">refenerce1</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/olivetree123/p/5067685.html">refenerce2</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> types <span class="keyword">import</span> FunctionType,CodeType</span><br></pre></td></tr></table></figure>
+<p><code>code</code>[必须]:内部是一个PyCodeobject，作为types.CodeType对外开放。非内置方法拥有一个<strong>code</strong>属性，该属性保存了相应的代码对象。利用内置 compile() 方法，可以在运行期创建types.CodeType对象。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span>():</span></span><br><span class="line">    default_var = <span class="string">&#x27;func&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> default_var</span><br><span class="line">newfuncname = FunctionType(code=func.__code__,<span class="built_in">globals</span>=&#123;&#125;)</span><br></pre></td></tr></table></figure>
+<p><code>globals</code>[必须]:如果一个函数引用的变量不是在局部定义的，而是作为参数转入、由默认参数值提供、或者通过闭包上下文提供，则它会在 globals 字典中查找。换句话说这里表示并<strong>不是只传参的字典</strong>(传参的参数是<code>argdef</code>,后面介绍)，而是当在函数内部中变量，例如<code>default_var</code>在函数传参中没有，则会从上下文中的全局字典中进行寻找名称为<code>default_var</code>的变量。内置的 globals() 方法会返回一个对当前模块的全局符号表（global symbol table）的引用 ，因此能被用来提供一个总是与当前表的状态相一致的字典。传入任意其它的字典也是可以的，可以通过传入其他的字典对全局变量中的字典的值进行修改。</p>
+<p><code>name</code>[可选]:控制所返回的函数的<strong>name</strong> 属性。只真正对 lambdas 有用（由于匿名性，它们通常没有名称），并且重命名函数。对使用关键词<code>def</code>定义的函数无效。</p>
+<p><code>argdefs</code>[可选]:通过传入一个包含任意类型的对象的元组，提供一个方式来供应默认参数值。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span>(<span class="params">var</span>):</span></span><br><span class="line">    <span class="keyword">return</span> var</span><br><span class="line"></span><br><span class="line">In [<span class="number">1</span>]: newfuncname = FunctionType(code=func.__code__,<span class="built_in">globals</span>=&#123;&#125;,argdefs=(<span class="string">&#x27;default_var&#x27;</span>,))</span><br><span class="line"></span><br><span class="line">In [<span class="number">2</span>]: newfuncname()</span><br><span class="line">Out[<span class="number">2</span>]: <span class="string">&#x27;default_var&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p><code>closure</code>[可选]:一个cell 对象的元组。创建 cell 对象并非完全是直截了当的，因为需要调用 CPython 的内部组件，但有一个库可以令它更加方便：exalt</p>
+<p>如果需要在 CPython（PyPy，Jython，…）以外的其它 Python VM 中执行，可能不应该触及，因为它严重地依赖于实现细节。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">module_code = <span class="built_in">compile</span>(<span class="string">&#x27;def foobar(): return &quot;foobar&quot;&#x27;</span>, <span class="string">&#x27;&lt;string&gt;&#x27;</span>, <span class="string">&#x27;exec&#x27;</span>)</span><br><span class="line">function_code = [c <span class="keyword">for</span> c <span class="keyword">in</span> module_code.co_consts <span class="keyword">if</span> <span class="built_in">isinstance</span>(c, CodeType)][<span class="number">0</span>]</span><br><span class="line">foobar = FunctionType(function_code, &#123;&#125;)</span><br><span class="line"><span class="built_in">print</span>(foobar())</span><br></pre></td></tr></table></figure>
+<pre><code>foobar
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foo_code = <span class="built_in">compile</span>(<span class="string">&#x27;def foo(): return &quot;bar&quot;&#x27;</span>, <span class="string">&quot;&lt;string&gt;&quot;</span>, <span class="string">&quot;exec&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>compile() 是一个内置方法，因此同时也是文档丰富的。</p>
+<p>exec 模式被用到，因为定义函数需用多个语句。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foo_func = FunctionType(foo_code.co_consts[<span class="number">0</span>], <span class="built_in">globals</span>(), <span class="string">&quot;foo&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>聚合全部内容，并将动态创建的函数指定给一个变量。</p>
+<p>那个被前一句代码编译成的函数，成为了生成的代码对象的第一个常量，因此仅仅指向 foo_code 是不充分的。这是 exec 模式的直接后果，因为生成的代码对象可以包含多个常量。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(foo_func())</span><br></pre></td></tr></table></figure>
+<pre><code>bar
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foo_func.__name__</span><br></pre></td></tr></table></figure>
+<pre><code>&#39;foo&#39;
+</code></pre><p>name 命名生效</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">FunctionType</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/10/04/dynamic_create_func/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-rsa创建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/08/01/rsa%E5%88%9B%E5%BB%BA/" target="_blank">rsa创建</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/08/01/rsa%E5%88%9B%E5%BB%BA/" class="archive-article-date">
+        <time datetime="2021-08-01T00:17:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-01</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="rsa密钥创建"><a href="#rsa密钥创建" class="headerlink" title="rsa密钥创建"></a>rsa密钥创建</h1><h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><h3 id="openssl"><a href="#openssl" class="headerlink" title="openssl"></a>openssl</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">choco install openssl -y</span><br></pre></td></tr></table></figure>
+<h3 id="创建私钥"><a href="#创建私钥" class="headerlink" title="创建私钥"></a>创建私钥</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">genrsa -out rsa_private_key.pem 2048</span><br></pre></td></tr></table></figure>
+<p>将这个文件通过文本编辑器打开，将看到你所需要的私钥，使用时记得把—-BEGIN PRIVATE KEY—-，—-END PRIVATE KEY—-字样删掉，这是注释。</p>
+<h3 id="创建公钥"><a href="#创建公钥" class="headerlink" title="创建公钥"></a>创建公钥</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsa -in rsa_private_key.pem -pubout -out rsa_public_key.pem</span><br></pre></td></tr></table></figure>
+<h3 id="公钥格式转化"><a href="#公钥格式转化" class="headerlink" title="公钥格式转化"></a>公钥格式转化</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -f rsa_public_key.pem -i -mPKCS8 &gt; id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p><strong>该命令仅限linux下执行，window没有重定向语句</strong></p>
+<h3 id="ssh连接事前确认与准备"><a href="#ssh连接事前确认与准备" class="headerlink" title="ssh连接事前确认与准备"></a>ssh连接事前确认与准备</h3><p>~/.ssh目录下只有know_hosts的设定，使用ip连接本机时提示密码输入，说明没有进行ssh的密钥对的设定或者设定不成功，这里由于根本没有密钥对，所以是有设定。</p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a><em>注意事项</em></h3><ul>
+<li>公钥需要使用转化后的文件(id_rsa.pub)</li>
+<li>私钥内容不需要改变，名称需要修改为id_rsa</li>
+</ul>
+<h3 id="RSA私钥转换成-PKCS8-格式"><a href="#RSA私钥转换成-PKCS8-格式" class="headerlink" title="RSA私钥转换成 PKCS8 格式"></a>RSA私钥转换成 PKCS8 格式</h3><p>该格式一般java调用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkcs8 -topk8 -inform PEM -in rsa_private_key.pem -outform PEM -nocrypt</span><br></pre></td></tr></table></figure>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssh</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/rsa//" class="article-tag-list-link color4">rsa</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/rsa/shell//" class="article-tag-list-link color1">shell</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/08/01/rsa%E5%88%9B%E5%BB%BA/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-jupyterlab创建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -287,307 +607,9 @@
 
 
   
-    <article id="post-docker的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/07/29/docker%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_blank">dockerfile的使用</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/07/29/docker%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-        <time datetime="2021-07-29T13:27:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-29</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="Dockerfile构建"><a href="#Dockerfile构建" class="headerlink" title="Dockerfile构建"></a>Dockerfile构建</h1><h2 id="名称问题"><a href="#名称问题" class="headerlink" title="名称问题"></a>名称问题</h2><p>正确<code>Dockerfile</code></p>
-<p>错误<code>dockerfile</code> <code>Dockerfile.txt</code>等</p>
-<h2 id="执行dockerfile"><a href="#执行dockerfile" class="headerlink" title="执行dockerfile"></a>执行dockerfile</h2><h3 id="创建镜像"><a href="#创建镜像" class="headerlink" title="创建镜像"></a>创建镜像</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> win10 powershell 管理员模式</span></span><br><span class="line">docker build -f /Dockerfile -t hotwa/pyrosettav1.0 .</span><br><span class="line"><span class="meta">#</span><span class="bash"> linux</span> </span><br><span class="line">sudo docker -f /Dockerfile -t hotwa/pyrosettav1.0</span><br></pre></td></tr></table></figure>
-<h3 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p [expose port] [tagname]</span><br></pre></td></tr></table></figure>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">dockerfile</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/docker//" class="article-tag-list-link color2">docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/07/29/docker%E7%9A%84%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-用Pandas快速做出高颜值图形" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/07/12/%E7%94%A8Pandas%E5%BF%AB%E9%80%9F%E5%81%9A%E5%87%BA%E9%AB%98%E9%A2%9C%E5%80%BC%E5%9B%BE%E5%BD%A2/" target="_blank">用Pandas快速做出高颜值图形</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/07/12/%E7%94%A8Pandas%E5%BF%AB%E9%80%9F%E5%81%9A%E5%87%BA%E9%AB%98%E9%A2%9C%E5%80%BC%E5%9B%BE%E5%BD%A2/" class="archive-article-date">
-        <time datetime="2021-07-12T01:10:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>[TOC]</p>
-<h1 id="Pandas快速出图"><a href="#Pandas快速出图" class="headerlink" title="Pandas快速出图"></a>Pandas快速出图</h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/369624906">参考链接</a></p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">pandas</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/07/12/%E7%94%A8Pandas%E5%BF%AB%E9%80%9F%E5%81%9A%E5%87%BA%E9%AB%98%E9%A2%9C%E5%80%BC%E5%9B%BE%E5%BD%A2/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Morgan-Fingerprints" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/06/27/Morgan-Fingerprints/" target="_blank">Morgan Fingerprints</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/06/27/Morgan-Fingerprints/" class="archive-article-date">
-        <time datetime="2021-06-27T02:39:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-27</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">morgan</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">fingerprints</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/RDkit//" class="article-tag-list-link color1">RDkit</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/06/27/Morgan-Fingerprints/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -762,11 +784,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">aria2c</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">conda</a>
+                <a href="javascript:void(0)" class="js-tag color5">生物计算</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -775,6 +793,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">aria2c</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">conda</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -806,15 +836,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">init</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">generate</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">miniconda</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">init</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -826,15 +860,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">newifi3</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -850,19 +880,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">pandas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Path</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">高级特性</a>
+                <a href="javascript:void(0)" class="js-tag color2">pandas</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">高级特性</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -898,6 +928,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">tailscale</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">常用快捷键</a>
               </li>
              
@@ -914,6 +948,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据清洗</a>
               </li>
              
@@ -926,23 +964,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">药动学</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">药效学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">自然语言处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">词汇分析</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -959,6 +985,22 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">自然语言处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">词汇分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PyG2Plot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">k8s</a>
               </li>
              
               <li class="article-tag-list-item">

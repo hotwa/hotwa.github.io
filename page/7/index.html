@@ -181,6 +181,329 @@
             
 
   
+    <article id="post-aria2c使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/05/01/aria2c%E4%BD%BF%E7%94%A8/" target="_blank">aria2c使用</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/05/01/aria2c%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+        <time datetime="2021-05-01T03:37:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-01</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>[TOC]</p>
+<h1 id="python-调用aria2c"><a href="#python-调用aria2c" class="headerlink" title="python 调用aria2c"></a>python 调用aria2c</h1><h2 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h2><p><a target="_blank" rel="noopener" href="https://www.dazhuanlan.com/2019/10/11/5d9fa57fe857c/">参考开启RPC模式</a></p>
+<h2 id="配置备份"><a href="#配置备份" class="headerlink" title="配置备份"></a>配置备份</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line">#使用代理</span><br><span class="line">#all-proxy=localhost:1080</span><br><span class="line">#添加引用页</span><br><span class="line">referer=http://images.dmzj.com/</span><br><span class="line"></span><br><span class="line">## 文件保存相关 ##</span><br><span class="line"></span><br><span class="line"># 文件保存目录</span><br><span class="line">dir=/home/naonao/Downloads</span><br><span class="line"># 启用磁盘缓存, 0为禁用缓存, 需1.16以上版本, 默认:16M</span><br><span class="line">disk-cache=32M</span><br><span class="line"># 断点续传</span><br><span class="line">continue=true</span><br><span class="line"> </span><br><span class="line"># 文件预分配方式, 能有效降低磁盘碎片, 默认:prealloc</span><br><span class="line"># 预分配所需时间: none &lt; falloc ? trunc &lt; prealloc</span><br><span class="line"># falloc和trunc则需要文件系统和内核支持</span><br><span class="line"># NTFS建议使用falloc, EXT3/4建议trunc, MAC 下需要注释此项</span><br><span class="line">file-allocation=falloc</span><br><span class="line"> </span><br><span class="line">## 下载连接相关 ##</span><br><span class="line"> </span><br><span class="line"># 最大同时下载任务数, 运行时可修改, 默认:5</span><br><span class="line">#max-concurrent-downloads=100</span><br><span class="line"># 同一服务器连接数, 添加时可指定, 默认:1</span><br><span class="line"># 官方的aria2最高设置为16, 如果需要设置任意数值请重新编译aria2</span><br><span class="line">max-connection-per-server=16</span><br><span class="line"># 整体下载速度限制, 运行时可修改, 默认:0（不限制）</span><br><span class="line">#max-overall-download-limit=0</span><br><span class="line"># 单个任务下载速度限制, 默认:0（不限制）</span><br><span class="line">max-download-limit=0</span><br><span class="line"># 整体上传速度限制, 运行时可修改, 默认:0（不限制）</span><br><span class="line">max-overall-upload-limit=0</span><br><span class="line"># 单个任务上传速度限制, 默认:0（不限制）</span><br><span class="line">#max-upload-limit=0</span><br><span class="line"># 禁用IPv6, 默认:false</span><br><span class="line"># disable-ipv6=true</span><br><span class="line"> </span><br><span class="line"># 最小文件分片大小, 添加时可指定, 取值范围1M -1024M, 默认:20M</span><br><span class="line"># 假定size=10M, 文件为20MiB 则使用两个来源下载; 文件为15MiB 则使用一个来源下载</span><br><span class="line">min-split-size=10M</span><br><span class="line"># 单个任务最大线程数, 添加时可指定, 默认:5</span><br><span class="line"># 建议同max-connection-per-server设置为相同值</span><br><span class="line">split=256</span><br><span class="line"> </span><br><span class="line">## 进度保存相关 ##</span><br><span class="line"> </span><br><span class="line"># 从会话文件中读取下载任务</span><br><span class="line"># input-file=/etc/aria2/aria2.session</span><br><span class="line"># 在Aria2退出时保存错误的、未完成的下载任务到会话文件</span><br><span class="line"># save-session=/etc/aria2/aria2.session</span><br><span class="line"># 定时保存会话, 0为退出时才保存, 需1.16.1以上版本, 默认:0</span><br><span class="line">save-session-interval=60</span><br><span class="line"> </span><br><span class="line">## RPC相关设置 ##</span><br><span class="line"> </span><br><span class="line"># 启用RPC, 默认:false</span><br><span class="line">enable-rpc=true</span><br><span class="line"># 允许所有来源, 默认:false</span><br><span class="line">rpc-allow-origin-all=true</span><br><span class="line"># 允许外部访问, 默认:false</span><br><span class="line">rpc-listen-all=true</span><br><span class="line"># RPC端口, 仅当默认端口被占用时修改</span><br><span class="line"># rpc-listen-port=6800</span><br><span class="line"># 设置的RPC授权令牌, v1.18.4新增功能, 取代 --rpc-user 和 --rpc-passwd 选项</span><br><span class="line">rpc-secret=mooc</span><br><span class="line"># 启动SSL</span><br><span class="line"># rpc-secure=true</span><br><span class="line"># 证书文件, 如果启用SSL则需要配置证书文件, 例如用https连接aria2</span><br><span class="line"># rpc-certificate=</span><br><span class="line"># rpc-private-key=</span><br><span class="line"> </span><br><span class="line">## BT/PT下载相关 ##</span><br><span class="line"> </span><br><span class="line"># 当下载的是一个种子(以.torrent结尾)时, 自动开始BT任务, 默认:true</span><br><span class="line">follow-torrent=true</span><br><span class="line"># 客户端伪装, PT需要</span><br><span class="line">peer-id-prefix=-TR2770-</span><br><span class="line">user-agent=User-Agent,Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36</span><br><span class="line"># 强制保存会话, 即使任务已经完成, 默认:false</span><br><span class="line"># 较新的版本开启后会在任务完成后依然保留.aria2文件</span><br><span class="line">#force-save=false</span><br><span class="line"># 继续之前的BT任务时, 无需再次校验, 默认:false</span><br><span class="line">bt-seed-unverified=true</span><br><span class="line"># 保存磁力链接元数据为种子文件(.torrent文件), 默认:false</span><br><span class="line"># bt-save-metadata=true</span><br><span class="line"># 单个种子最大连接数, 默认:55 0表示不限制</span><br><span class="line">bt-max-peers=0</span><br><span class="line"># 最小做种时间, 单位:分</span><br><span class="line"># seed-time = 60</span><br><span class="line"># 分离做种任务</span><br><span class="line">bt-detach-seed-only=true</span><br></pre></td></tr></table></figure>
+<h2 id="使用aria2p"><a href="#使用aria2p" class="headerlink" title="使用aria2p"></a>使用aria2p</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3.6 -m pip install aria2p[tui]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>tui对交互界面是必要的版本，如果不需要交互界面 直接安装aria2p即可</p>
+</blockquote>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">aria2c</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python/download//" class="article-tag-list-link color4">download</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/05/01/aria2c%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ipython使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/04/22/ipython%E4%BD%BF%E7%94%A8/" target="_blank">ipython使用</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/04/22/ipython%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+        <time datetime="2021-04-22T13:29:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-22</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ipython</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python/教程//" class="article-tag-list-link color3">教程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/04/22/ipython%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-conda使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/04/20/conda%E4%BD%BF%E7%94%A8/" target="_blank">conda使用</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/04/20/conda%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+        <time datetime="2021-04-20T12:28:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-20</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>[TOC]</p>
+<h1 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h1><h2 id="创建环境"><a href="#创建环境" class="headerlink" title="创建环境"></a>创建环境</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n python3 python=3.9.2 # -n name 环境名称</span><br></pre></td></tr></table></figure>
+<h2 id="进入环境"><a href="#进入环境" class="headerlink" title="进入环境"></a>进入环境</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate python3</span><br></pre></td></tr></table></figure>
+<h2 id="退出环境"><a href="#退出环境" class="headerlink" title="退出环境"></a>退出环境</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda deactivate</span><br></pre></td></tr></table></figure>
+<h2 id="删除环境"><a href="#删除环境" class="headerlink" title="删除环境"></a>删除环境</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda remove -n python3 --all</span><br></pre></td></tr></table></figure>
+<h2 id="环境克隆"><a href="#环境克隆" class="headerlink" title="环境克隆"></a>环境克隆</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n python3clone --clone python3</span><br></pre></td></tr></table></figure>
+<h2 id="查看conda所拥有的环境列表"><a href="#查看conda所拥有的环境列表" class="headerlink" title="查看conda所拥有的环境列表"></a>查看conda所拥有的环境列表</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda env list</span><br></pre></td></tr></table></figure>
+<h1 id="安装库依赖"><a href="#安装库依赖" class="headerlink" title="安装库依赖"></a>安装库依赖</h1><h2 id="安装指定依赖包"><a href="#安装指定依赖包" class="headerlink" title="安装指定依赖包"></a>安装指定依赖包</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install --yes --file requirements.txt</span><br></pre></td></tr></table></figure>
+<h2 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h2><h3 id="method-1"><a href="#method-1" class="headerlink" title="method 1"></a>method 1</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -n python3 pytorch <span class="comment"># 在名称为python3的环境中安装pytorch（未激活环境）</span></span><br></pre></td></tr></table></figure>
+<h3 id="method-2"><a href="#method-2" class="headerlink" title="method 2"></a>method 2</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source activate python3 <span class="comment"># 先进入python3环境</span></span><br><span class="line">conda install pytorch <span class="comment"># 安装pytorch</span></span><br></pre></td></tr></table></figure>
+<h1 id="conda报错"><a href="#conda报错" class="headerlink" title="conda报错"></a>conda报错</h1><p><code>CondaHTTPError: HTTP 000 CONNECTION FAILED for url &lt;https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/win-64/repodata.json</code></p>
+<ol>
+<li>打开Power Shell，执行“<strong>conda config —remove-key channels</strong>”命令，恢复Anaconda的源为默认。</li>
+</ol>
+<h1 id="conda备份与还原"><a href="#conda备份与还原" class="headerlink" title="conda备份与还原"></a>conda备份与还原</h1><h2 id="conda备份"><a href="#conda备份" class="headerlink" title="conda备份"></a>conda备份</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda env export &gt; environment.yaml</span><br></pre></td></tr></table></figure>
+<h2 id="conda还原"><a href="#conda还原" class="headerlink" title="conda还原"></a>conda还原</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda env create -f environment.yaml</span><br></pre></td></tr></table></figure>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">conda</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python/科学计算//" class="article-tag-list-link color5">科学计算</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/04/20/conda%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-docking中药物特异性结合" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -327,360 +650,9 @@
 
 
   
-    <article id="post-nvm管理nodejs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/04/20/nvm%E7%AE%A1%E7%90%86nodejs/" target="_blank">nvm管理nodejs</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/04/20/nvm%E7%AE%A1%E7%90%86nodejs/" class="archive-article-date">
-        <time datetime="2021-04-20T12:28:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-20</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>[TOC]</p>
-<h1 id="nvm-install"><a href="#nvm-install" class="headerlink" title="nvm install"></a>nvm install</h1><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">choco install nvm</span><br></pre></td></tr></table></figure>
-<h1 id="Quick-start"><a href="#Quick-start" class="headerlink" title="Quick start"></a>Quick start</h1><h2 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm list</span><br></pre></td></tr></table></figure>
-<h2 id="安装自定义版本"><a href="#安装自定义版本" class="headerlink" title="安装自定义版本"></a>安装自定义版本</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nvm install 12.14.0</span><br><span class="line">nvs add lts # 添加最新LTS版本</span><br><span class="line">nvs add latest # 添加最新版本</span><br></pre></td></tr></table></figure>
-<h2 id="使用特定版本"><a href="#使用特定版本" class="headerlink" title="使用特定版本"></a>使用特定版本</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm use 12.14.0</span><br></pre></td></tr></table></figure>
-<h2 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm uninstall 12.14.0</span><br></pre></td></tr></table></figure>
-<h2 id="settings-txt修改镜像"><a href="#settings-txt修改镜像" class="headerlink" title="settings.txt修改镜像"></a>settings.txt修改镜像</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node_mirror: https://npm.taobao.org/mirrors/node/ </span><br><span class="line">npm_mirror: https://npm.taobao.org/mirrors/npm/</span><br></pre></td></tr></table></figure>
-<h2 id="mac-通过brew安装nvm"><a href="#mac-通过brew安装nvm" class="headerlink" title="mac 通过brew安装nvm"></a>mac 通过brew安装nvm</h2><p>针对M1 chips</p>
-<h3 id="问题1：在安装完成后并未在-opt-homebrew-bin添加软链接。"><a href="#问题1：在安装完成后并未在-opt-homebrew-bin添加软链接。" class="headerlink" title="问题1：在安装完成后并未在/opt/homebrew/bin添加软链接。"></a>问题1：在安装完成后并未在<code>/opt/homebrew/bin</code>添加软链接。</h3><p>原因：未添加<code>nvm</code>环境变量</p>
-<p>解决方案：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">brew install nvm</span><br><span class="line">source $(brew --prefix nvm)/nvm.sh # 执行shell将nvm初始化</span><br><span class="line">source ~/.bash_profile </span><br></pre></td></tr></table></figure>
-<h3 id="问题2：无法安装指定nodejs版本"><a href="#问题2：无法安装指定nodejs版本" class="headerlink" title="问题2：无法安装指定nodejs版本"></a>问题2：无法安装指定nodejs版本</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install 10.14.0 # 安装</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>报错No Xcode or CLT version detected!</p>
-</blockquote>
-<p>解决方案：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf $(xcode-select -print-path) # 没有output正常</span><br><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>
-<h1 id="使用n进行nodejs版本管理"><a href="#使用n进行nodejs版本管理" class="headerlink" title="使用n进行nodejs版本管理"></a>使用n进行nodejs版本管理</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40183053/article/details/107390818">链接</a></p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">nvm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/nodejs//" class="article-tag-list-link color2">nodejs</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/04/20/nvm%E7%AE%A1%E7%90%86nodejs/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-自然语言处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/04/15/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" target="_blank">自然语言处理</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/04/15/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" class="archive-article-date">
-        <time datetime="2021-04-15T08:44:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-15</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><script type="math/tex; mode=display">
-词频(TF)=\frac{某个词在文章中出现的次数}{文章的总词数}</script><script type="math/tex; mode=display">
-逆文档频率(IDF)=log(\frac{语料库的文档总数}{包含该词的文档数+ 1})</script><script type="math/tex; mode=display">
-TF - IDF =词频(TF)\times逆文档频率(IDF)</script>
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">自然语言处理</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">词汇分析</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/04/15/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-PBD文件学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/04/06/PBD%E6%96%87%E4%BB%B6%E5%AD%A6%E4%B9%A0/" target="_blank">PBD文件学习</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/04/06/PBD%E6%96%87%E4%BB%B6%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-        <time datetime="2021-04-06T13:32:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-06</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p><a target="_blank" rel="noopener" href="http://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/dealing-with-coordinates">pdb文件参考</a></p>
-<p>In PDB file format, the temperature factor is given in columns 61 - 66.</p>
-<p>alternate conformations are given in column 17 </p>
-<p>alternate location indicator and occupancy is given in columns 55 - 60</p>
-<p>PDB格式文件使用MODEL / ENDMDL关键字指示单个文件中的多个分子。最初创建该文件是为了存储包括相同结构的多个不同模型的坐标集，例如在NMR分析中获得的结构集合。当您查看这些文件时，您会看到数十个相似的分子全部重叠。现在，还将MODEL关键字用于生物组装文件中，以分隔从不对称单元生成的分子的许多对称拷贝</p>
-<p><a target="_blank" rel="noopener" href="https://mmcif.wwpdb.org/docs/sw-examples/python/html/">PDBX python解析器</a></p>
-<p><a target="_blank" rel="noopener" href="http://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/primary-sequences-and-the-pdb-format">了解PDB数据的指南</a></p>
-<h2 id="PDB数据简介"><a href="#PDB数据简介" class="headerlink" title="PDB数据简介"></a><a target="_blank" rel="noopener" href="http://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/introduction">PDB数据简介</a></h2><p>PDB档案库是原子坐标和其他描述蛋白质和其他重要生物大分子的信息的存储库。结构生物学家使用诸如<a target="_blank" rel="noopener" href="http://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/methods-for-determining-structure">X射线晶体学，NMR光谱和低温电子显微镜等方法</a>来确定每个原子在分子中相对于彼此的位置。然后，他们存储此信息，然后由wwPDB对其进行批注并公开发布到存档中。</p>
-<h2 id="PDB结构和PDBx-mmCIF格式的关系"><a href="#PDB结构和PDBx-mmCIF格式的关系" class="headerlink" title="PDB结构和PDBx/mmCIF格式的关系"></a><a target="_blank" rel="noopener" href="http://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/beginner%E2%80%99s-guide-to-pdb-structures-and-the-pdbx-mmcif-format">PDB结构和PDBx/mmCIF格式的关系</a></h2><h3 id="PDBx-mmCIF格式（使用ASCII字符集）"><a href="#PDBx-mmCIF格式（使用ASCII字符集）" class="headerlink" title="PDBx/mmCIF格式（使用ASCII字符集）"></a>PDBx/mmCIF格式（使用ASCII字符集）</h3><p>CIF（晶体学信息文件）扩展（mmCIF）</p>
-<p>支持代表大型结构，复杂化学反应以及新的和混合实验方法的数据。</p>
-<p>PDBx / mmCIF功能强大。PDBx / mmCIF明确记录了通用数据项（例如原子和残基标识符）之间的所有关系。</p>
-<blockquote>
-<p>The tabular style is used when there are multiple values for each token. In this style, a loop_ token is followed by rows of data item names and then white-space delimited data values. </p>
-<p>使用空格分隔</p>
-</blockquote>
-<p>优点：</p>
-<blockquote>
-<p>可以在单个PDB条目中表示的原子，<strong>残基或链的数量没有任何限制</strong></p>
-</blockquote>
-<h2 id="PDB文件"><a href="#PDB文件" class="headerlink" title="PDB文件"></a><a target="_blank" rel="noopener" href="http://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/dealing-with-coordinates">PDB文件</a></h2><p>在PDB文件格式中，TER记录用于分隔蛋白质和核酸链。</p>
-<p>PDB格式文件使用MODEL / ENDMDL关键字指示单个文件中的多个分子。</p>
-<p>由于PDB规范来自于PDBx/mmCIF一些晶体结构信息，所以大致与PDB相当其中不同在于</p>
-<p>PDB文件没有loop_字段的描述信息</p>
-<p>TER分隔蛋白与核酸链</p>
-<p>MODEL / ENDMDL关键字指示单个文件中的多个分子</p>
-<h4 id="温度因素"><a href="#温度因素" class="headerlink" title="温度因素"></a>温度因素</h4><p>对于储存的温度系数值影响，autodock vina计算过程中温度的影响。</p>
-<p>PDB的结构在温度的影响下原子是否发生移动，电子云密度是否发生变化，影响其共价键的距离，从而影响活性。</p>
-<blockquote>
-<p>这些运动以及由此产生的电子密度的拖尾，通过B值或温度因子被合并到原子模型中。拖影的量与B值的大小成正比。小于10的值会创建一个非常清晰的原子模型，表明该原子移动不多，并且在晶体中所有分子中的位置相同。大于50左右的值表示原子正在移动太多以至于几乎看不到原子。蛋白质表面的原子经常发生这种情况，其中长的侧链可在周围的水中自由摆动。</p>
-</blockquote>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PDB</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">生物信息学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/warhead//" class="article-tag-list-link color3">warhead</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/warhead/晶体结构//" class="article-tag-list-link color5">晶体结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/04/06/PBD%E6%96%87%E4%BB%B6%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/6/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/8/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/6/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/8/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -855,11 +827,7 @@ TF - IDF =词频(TF)\times逆文档频率(IDF)</script>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">aria2c</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">conda</a>
+                <a href="javascript:void(0)" class="js-tag color5">生物计算</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -868,6 +836,18 @@ TF - IDF =词频(TF)\times逆文档频率(IDF)</script>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">aria2c</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">conda</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -899,15 +879,19 @@ TF - IDF =词频(TF)\times逆文档频率(IDF)</script>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">init</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">generate</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">miniconda</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">init</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -919,15 +903,11 @@ TF - IDF =词频(TF)\times逆文档频率(IDF)</script>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">newifi3</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -943,19 +923,19 @@ TF - IDF =词频(TF)\times逆文档频率(IDF)</script>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">pandas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Path</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">高级特性</a>
+                <a href="javascript:void(0)" class="js-tag color2">pandas</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">高级特性</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -991,6 +971,10 @@ TF - IDF =词频(TF)\times逆文档频率(IDF)</script>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">tailscale</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">常用快捷键</a>
               </li>
              
@@ -1007,6 +991,10 @@ TF - IDF =词频(TF)\times逆文档频率(IDF)</script>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据清洗</a>
               </li>
              
@@ -1019,23 +1007,11 @@ TF - IDF =词频(TF)\times逆文档频率(IDF)</script>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据存储</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">药动学</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">药效学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">自然语言处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">词汇分析</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1052,6 +1028,22 @@ TF - IDF =词频(TF)\times逆文档频率(IDF)</script>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">自然语言处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">词汇分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PyG2Plot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">k8s</a>
               </li>
              
               <li class="article-tag-list-item">
