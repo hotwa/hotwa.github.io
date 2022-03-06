@@ -1,0 +1,47 @@
+﻿---
+title: postName #文章页面上的显示名称，一般是中文
+date: 2013-12-02 15:30:16 #文章生成时间，一般不改，当然也可以任意修改
+categories: 默认分类 #分类
+tags: [tag1,tag2,tag3] #文章标签，可空，多标签请用格式，注意:后面有个空格
+description: 附加一段文章摘要，字数最好在140字以内，会出现在meta的description里面
+---
+
+---
+title: your title
+date: 2019-04-20 9:18:11
+type: categories ******分类标签
+categories: 
+- [专业,测试]
+tags: 
+- linux
+- python
+---
+以下是正文
+
+
+
+title: 你有多渴望，多焦虑，就能有多自律
+
+date: 2019-05-18 10:00:29
+
+type: categories
+
+categories:
+ - 日志
+
+tags:
+ - 感思
+
+
+hexo new page "categories"
+
+hexo g
+hexo s
+hexo d
+
+hexo new [layout] <title>
+
+布局	路径
+post	source/_posts
+page	source
+draft	source/_drafts
