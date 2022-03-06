@@ -1,0 +1,24 @@
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+	MathJax.Ajax.config.path["mhchem"] = "https://cdnjs.cloudflare.com/ajax/libs/mathjax-mhchem/3.3.2";
+    MathJax.Hub.Config({
+      tex2jax: {
+        ignoreClass: "tex2jax_ignore",
+        inlineMath: [["\\(","\\)"]],
+		displayMath: [["\\[","\\]"]],
+		chemistryMath: [["\\(\\ce{","}\\)"]]
+      },
+      TeX: {
+        extensions: ["[mhchem]/mhchem.js", "color.js"],
+        noErrors: { disabled: true }
+      }
+    });
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
