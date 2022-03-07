@@ -85,21 +85,21 @@ exclude_generator:
 # Deployment
 # github 常常报错不再部署，以后备用网址改用nginx
 ## Docs: https://hexo.io/docs/deployment.html
-deploy:
-  type: git
-  repository: 
-    github: git@github.com:hotwa/hotwa.github.io.git
-    coding: git@e.coding.net:hotwa/hotwa.git
-  branch: master
+# deploy:
+#   type: git
+#   repository: 
+#     github: git@github.com:hotwa/hotwa.github.io.git
+#     coding: git@e.coding.net:hotwa/hotwa.git
+#   branch: master
 
 
-# deploy: 
-#   type: sftp
-#   host: www.blog.jmsu.top
-#   user: sftp
-#   pass: docker-sftp
-#   remotePath: /www/blog
-#   port: 6007
+deploy: 
+  type: sftp
+  host: www.blog.jmsu.top
+  user: sftp
+  pass: docker-sftp
+  remotePath: /www/blog
+  port: 6007
 
 
 sitemap:
